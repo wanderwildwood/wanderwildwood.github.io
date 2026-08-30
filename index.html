@@ -46,27 +46,19 @@
   .intro-text { flex: 1; min-width: 0; }
   .intro h1 { margin-bottom: 0.9rem; }
   .portrait {
-    width: 180px; height: auto; flex: none;
-    display: block; margin: 0 0 0 -0.4rem;
-    mix-blend-mode: multiply;
+    width: 170px; height: 170px; flex: none;
+    display: block; margin: 0;
+    mix-blend-mode: multiply;   /* melts the drawing's own paper into the page */
   }
   /* Narrow enough that 180px of picture would leave a column of broken words:
      put it back above, where stacking is the honest thing to do. */
   @media (max-width: 32rem) {
     .intro { display: block; }
-    .portrait { width: 150px; margin-bottom: 1.2rem; }
+    .portrait { width: 150px; height: 150px; margin-bottom: 1.2rem; }
   }
   @media (prefers-color-scheme: dark) {
-    /* The drawing is on its own cream paper. On a dark ground that paper cannot be
-       blended away, so make it deliberate: a small print, matted and hung. */
-    .portrait {
-      mix-blend-mode: normal;
-      background: #efe7d9;
-      padding: 10px;
-      width: 200px;
-      border: 1px solid #2f2921;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.4);
-    }
+    /* Multiply would sink the drawing into a dark ground; the circle reads as itself. */
+    .portrait { mix-blend-mode: normal; }
   }
 
   .app { margin: 0 0 1.9rem; }
@@ -87,7 +79,7 @@
 <main>
 
 <div class="intro">
-  <img class="portrait" src="wander.jpg" width="180" height="240"
+  <img class="portrait" src="wander.png" width="170" height="170"
        alt="A small drawn figure in a pointed hat and round glasses, with a seal reading wander">
   <div class="intro-text">
     <h1>wander wildwood</h1>
