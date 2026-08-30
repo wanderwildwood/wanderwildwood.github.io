@@ -26,9 +26,11 @@
   }
   main { max-width: 34rem; margin: 0 auto; }
   h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 1.4rem; letter-spacing: -0.01em; }
+  /* rem is measured against the 16px root, not the 17px body: a heading needs to
+     clear 1.06rem before it is even as large as the paragraph under it. */
   h2 {
-    font-size: 0.8rem; font-weight: 600; text-transform: none;
-    letter-spacing: 0.06em; color: var(--quiet);
+    font-size: 1.2rem; font-weight: 600; text-transform: none;
+    letter-spacing: 0; color: var(--quiet);
     margin: 3rem 0 1.25rem; padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--rule);
   }
@@ -62,7 +64,7 @@
   }
 
   .app { margin: 0 0 1.9rem; }
-  .app h3 { font-size: 1rem; font-weight: 600; margin: 0 0 0.2rem; }
+  .app h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.2rem; }
   .app p { margin: 0 0 0.35rem; }
   .links { font-size: 0.85rem; color: var(--quiet); }
   .links a { margin-right: 1rem; white-space: nowrap; }
