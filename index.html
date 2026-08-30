@@ -37,10 +37,24 @@
   a:hover { text-decoration-style: dotted; }
   .lede { color: var(--quiet); }
   .ethos { margin-bottom: 0; }
+  /* The drawing beside the introduction rather than stacked on top of it, which left
+     it sitting on the words with nothing to hold it. */
+  .intro {
+    display: flex; align-items: flex-start;
+    gap: 1.5rem; margin-bottom: 1.5rem;
+  }
+  .intro-text { flex: 1; min-width: 0; }
+  .intro h1 { margin-bottom: 0.9rem; }
   .portrait {
-    width: 180px; height: auto;
-    display: block; margin: 0 0 1.5rem -0.4rem;
+    width: 180px; height: auto; flex: none;
+    display: block; margin: 0 0 0 -0.4rem;
     mix-blend-mode: multiply;
+  }
+  /* Narrow enough that 180px of picture would leave a column of broken words:
+     put it back above, where stacking is the honest thing to do. */
+  @media (max-width: 32rem) {
+    .intro { display: block; }
+    .portrait { width: 150px; margin-bottom: 1.2rem; }
   }
   @media (prefers-color-scheme: dark) {
     /* The drawing is on its own cream paper. On a dark ground that paper cannot be
@@ -72,14 +86,16 @@
 <body>
 <main>
 
-<img class="portrait" src="wander.jpg" width="180" height="240"
-     alt="A small drawn figure in a pointed hat and round glasses, with a seal reading wander">
-
-<h1>wander wildwood</h1>
-
-<p class="ethos">I make small things, mostly for a little E Ink phone. They keep to themselves
-&mdash; no accounts, nothing sent anywhere, nothing that needs looking after. Most of the work
-is deciding what to leave out.</p>
+<div class="intro">
+  <img class="portrait" src="wander.jpg" width="180" height="240"
+       alt="A small drawn figure in a pointed hat and round glasses, with a seal reading wander">
+  <div class="intro-text">
+    <h1>wander wildwood</h1>
+    <p class="ethos">I make small things, mostly for a little E Ink phone. They keep to
+    themselves &mdash; no accounts, nothing sent anywhere, nothing that needs looking after.
+    Most of the work is deciding what to leave out.</p>
+  </div>
+</div>
 
 <h2>Apps for the Mudita Kompakt</h2>
 
