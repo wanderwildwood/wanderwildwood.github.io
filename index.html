@@ -7,13 +7,13 @@
 <meta name="description" content="Small tools that keep working when there is nobody behind them.">
 <style>
   :root {
-    --ink: #111;
-    --quiet: #555;
-    --rule: #ddd;
-    --paper: #fff;
+    --ink: #2b2620;
+    --quiet: #6d6458;
+    --rule: #ded5c6;
+    --paper: #f4efe4;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --ink: #e6e6e6; --quiet: #a0a0a0; --rule: #333; --paper: #121212; }
+    :root { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; }
   }
   * { box-sizing: border-box; }
   body {
@@ -37,6 +37,14 @@
   a:hover { text-decoration-style: dotted; }
   .lede { color: var(--quiet); }
   .ethos { margin-bottom: 0; }
+  .portrait {
+    width: 180px; height: auto;
+    display: block; margin: 0 0 1.5rem -0.4rem;
+    mix-blend-mode: multiply;
+  }
+  @media (prefers-color-scheme: dark) {
+    .portrait { mix-blend-mode: normal; opacity: 0.88; border-radius: 2px; }
+  }
 
   .app { margin: 0 0 1.9rem; }
   .app h3 { font-size: 1rem; font-weight: 600; margin: 0 0 0.2rem; }
@@ -55,11 +63,14 @@
 <body>
 <main>
 
+<img class="portrait" src="wander.jpg" width="180" height="240"
+     alt="A small drawn figure in a pointed hat and round glasses, with a seal reading wander">
+
 <h1>wander wildwood</h1>
 
-<p class="ethos">I write small tools that keep working when there is nobody behind them &mdash;
-no account, no server, no company that has to still exist next year. Most of the work is
-deciding what to leave out.</p>
+<p class="ethos">I make small things, mostly for a little E Ink phone. They keep to themselves
+&mdash; no accounts, nothing sent anywhere, nothing that needs looking after. Most of the work
+is deciding what to leave out.</p>
 
 <h2>Apps for the Mudita Kompakt</h2>
 
