@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apps for the Mudita Kompakt</title>
+<meta name="description" content="Six apps built for a small E Ink screen. No analytics, no accounts, no phoning home.">
+<style>
+  :root {
+    --ink: #111;
+    --quiet: #555;
+    --rule: #ddd;
+    --paper: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #e6e6e6; --quiet: #a0a0a0; --rule: #333; --paper: #121212; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 3rem 1.25rem 5rem;
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.65 Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 34rem; margin: 0 auto; }
+  h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 1.4rem; letter-spacing: -0.01em; }
+  h2 {
+    font-size: 0.8rem; font-weight: 600; text-transform: none;
+    letter-spacing: 0.06em; color: var(--quiet);
+    margin: 3rem 0 1.25rem; padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 1.1rem; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { text-decoration-style: dotted; }
+  .lede { color: var(--quiet); }
+
+  .app { margin: 0 0 1.9rem; }
+  .app h3 { font-size: 1rem; font-weight: 600; margin: 0 0 0.2rem; }
+  .app p { margin: 0 0 0.35rem; }
+  .links { font-size: 0.85rem; color: var(--quiet); }
+  .links a { margin-right: 1rem; white-space: nowrap; }
+
+  footer {
+    margin-top: 3.5rem; padding-top: 1.25rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem; color: var(--quiet);
+  }
+  footer p { margin: 0 0 0.6rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Apps for the Mudita Kompakt</h1>
+
+<p class="lede">The <a href="https://mudita.com/products/kompakt/">Kompakt</a> is a phone with a
+small E Ink screen, no colour, and a slow redraw. Everything here is built for that screen:
+black on white, no animation, lists you can read in sunlight.</p>
+
+<p class="lede">None of them phone home. None carry analytics, accounts or crash reporting.
+Where an app has no business reaching the network, it holds no internet permission at all, so
+the question cannot arise.</p>
+
+<h2>The apps</h2>
+
+<div class="app">
+  <h3>Messaging</h3>
+  <p>SMS and MMS, and a page your phone serves to your own computer so you can text from a
+  keyboard.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/kotozute/releases/latest/download/kotozute.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/kotozute">Source</a>
+    <a href="https://github.com/wanderwildwood/kotozute/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app">
+  <h3>Audio Reading</h3>
+  <p>An audiobook player. Point it at a folder and it reads what is in it.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/mimidoku/releases/latest/download/mimidoku.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/mimidoku">Source</a>
+    <a href="https://github.com/wanderwildwood/mimidoku/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app">
+  <h3>Birding</h3>
+  <p>Names the birds it hears, offline, with BirdNET running on the phone itself.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/tancho/releases/latest/download/tancho.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/tancho">Source</a>
+    <a href="https://github.com/wanderwildwood/tancho/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app">
+  <h3>Cycle</h3>
+  <p>A cycle tracker with no permissions at all. What you write stays on the phone.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/cycle/releases/latest/download/cycle.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/cycle">Source</a>
+    <a href="https://github.com/wanderwildwood/cycle/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app">
+  <h3>Go</h3>
+  <p>A game of Go on a 9&times;9 board, against GNU Go or against the person opposite.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/kuroban/releases/latest/download/kuroban.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/kuroban">Source</a>
+    <a href="https://github.com/wanderwildwood/kuroban/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app">
+  <h3>Chess+</h3>
+  <p>The phone's own chess app, with a second player added to it.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/latest/download/chessplus.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource">Source</a>
+    <a href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<h2>Installing</h2>
+
+<p>Each download is an <code>.apk</code>, the file an Android phone installs from. Open it on
+the Kompakt and allow the installation when it asks. The first time, Android will want
+permission to install from wherever you downloaded it.</p>
+
+<p>Every release publishes a <code>.sha256</code> beside the APK, so you can check the file you
+got is the file that was built.</p>
+
+<p>To be told when there is a new version, add any of the source links above to
+<a href="https://github.com/ImranR98/Obtainium">Obtainium</a>, which watches a repository and
+offers you its releases.</p>
+
+<footer>
+<p>Three are written from scratch; three are forks, and each says whose work it continues. All
+are GPL-3.0-only.</p>
+<p>Something broken, or an app not doing a thing you expected? The issue trackers are open, and
+that is the best place to say so.</p>
+</footer>
+
+</main>
+</body>
+</html>
