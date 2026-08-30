@@ -43,7 +43,16 @@
     mix-blend-mode: multiply;
   }
   @media (prefers-color-scheme: dark) {
-    .portrait { mix-blend-mode: normal; opacity: 0.88; border-radius: 2px; }
+    /* The drawing is on its own cream paper. On a dark ground that paper cannot be
+       blended away, so make it deliberate: a small print, matted and hung. */
+    .portrait {
+      mix-blend-mode: normal;
+      background: #efe7d9;
+      padding: 10px;
+      width: 200px;
+      border: 1px solid #2f2921;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.4);
+    }
   }
 
   .app { margin: 0 0 1.9rem; }
