@@ -66,7 +66,25 @@
     .portrait { mix-blend-mode: normal; }
   }
 
-  .app { margin: 0 0 1.9rem; }
+  /* The cards break out of the reading column: three across, a screenshot at the top of each,
+     falling to two and then one as the screen narrows. The prose around them stays at a
+     readable measure. */
+  .apps {
+    position: relative; left: 50%; transform: translateX(-50%);
+    width: min(62rem, calc(100vw - 2.5rem));
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.6rem 2rem; margin: 1.8rem 0 1rem;
+  }
+  @media (max-width: 58rem) { .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 36rem) { .apps { grid-template-columns: 1fr; } }
+  .shot {
+    display: block; width: 100%; height: auto; aspect-ratio: 400 / 627;
+    margin: 0 0 0.9rem; background: #fff;
+    border: 1px solid var(--rule); border-radius: 4px;
+  }
+  /* One to a row on a phone: a full-width screenshot would be a whole screen tall. */
+  @media (max-width: 36rem) { .shot { max-width: 15rem; } }
+  .app { margin: 0; }
   .app h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.2rem; }
   .app p { margin: 0 0 0.35rem; }
   .links { font-size: 0.85rem; color: var(--quiet); }
@@ -88,10 +106,10 @@
        alt="A small drawn figure in a pointed hat and round glasses, with a seal reading wander">
   <div class="intro-text">
     <h1>wander wildwood</h1>
-    <p class="ethos">I make small things, mostly for a little E Ink phone, and keep a few old
-    computers running at home for music, books and photos. Several of the apps reach them as
-    easily as the phone's own storage. They keep to themselves &mdash; no accounts, nothing sent
-    to me, nothing that needs looking after. Most of the work is deciding what to leave out.</p>
+    <p class="ethos">I make small things, mostly for a little E Ink phone, and tinker with a
+    few home servers that several of them talk to. They keep to themselves &mdash; no accounts,
+    nothing sent to me, nothing that needs looking after. Most of the work is deciding what to
+    leave out.</p>
   </div>
 </div>
 
@@ -101,7 +119,11 @@
 small E Ink screen, no colour, and a slow redraw. These are built for that screen: black on
 white, no animation, lists you can read in sunlight.</p>
 
+<div class="apps">
+
 <div class="app">
+  <img class="shot" src="shots/kotozute.png" width="400" height="627" loading="lazy"
+       alt="The Messaging inbox: four conversations, newest first">
   <h3>Messaging</h3>
   <p>SMS, MMS and Signal in one inbox, and a page your phone serves to your own computer so
   you can text from a keyboard.</p>
@@ -113,6 +135,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/mimidoku.png" width="400" height="627" loading="lazy"
+       alt="Audio Reading playing a chapter, with the sleep timer and speed above">
   <h3>Audio Reading</h3>
   <p>An audiobook player. Point it at a folder and it reads what is in it.</p>
   <p class="links">
@@ -123,6 +147,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/jimeikin.png" width="400" height="627" loading="lazy"
+       alt="Music Box listing songs, with Playlists, Artists, Songs, Albums and Radio along the foot">
   <h3>Music Box</h3>
   <p>A music player, for a folder of your own music and for YouTube Music.</p>
   <p class="links">
@@ -133,6 +159,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/dajiki.png" width="400" height="627" loading="lazy"
+       alt="Typewriter showing a page of writing, held sideways">
   <h3>Typewriter</h3>
   <p>A text editor that opens in landscape and stays there, for writing with a keyboard
      plugged into the phone.</p>
@@ -144,6 +172,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/kirinuki.png" width="400" height="627" loading="lazy"
+       alt="Clippings showing an article as plain text">
   <h3>Clippings</h3>
   <p>Feeds read as plain text, with Gemini, gopher and Spartan alongside them; fetched on
      wifi, read with the radio off.</p>
@@ -155,6 +185,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/tana.png" width="400" height="627" loading="lazy"
+       alt="Files with two documents chosen in a folder on a home server">
   <h3>Files</h3>
   <p>A file manager, with the shared drives on your own servers in it as places like any
   other. Choose several things at once, carry them anywhere and put them down; a copy is
@@ -167,6 +199,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/tancho.jpg" width="400" height="627" loading="lazy"
+       alt="Birding with a Northern Cardinal heard, and the day's other birds below">
   <h3>Birding</h3>
   <p>Names the birds it hears, offline, with BirdNET running on the phone itself. A bird's
      Wikipedia page is a press away, opened in your browser.</p>
@@ -178,6 +212,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/kinokocho.png" width="400" height="627" loading="lazy"
+       alt="Mushroom Journal on Omphalotus illudens, the jack-o'-lantern, with a drawing">
   <h3>Mushroom Journal</h3>
   <p>Write a mushroom down properly while you are standing over it, and work out at home what
   it might be. It narrows a list and never decides, and it has nothing at all to say about
@@ -190,6 +226,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/yorimichi.png" width="400" height="627" loading="lazy"
+       alt="Detour pointing half a mile away, south-east">
   <h3>Detour</h3>
   <p>Press once and it picks somewhere near you to walk to — a place with no particular reason
   to be a destination — and gives you an arrow and a distance to follow.</p>
@@ -201,6 +239,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/ibasho.png" width="400" height="627" loading="lazy"
+       alt="Whereabouts listing its commands">
   <h3>Whereabouts</h3>
   <p>Finds your phone when it is lost: where it is, a ring, a lock. With its server, the people
   who share with you appear on one map, a Kompakt or an iPhone alike.</p>
@@ -213,6 +253,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/seizu.png" width="400" height="627" loading="lazy"
+       alt="Star Chart drawing the night sky as a round map">
   <h3>Star Chart</h3>
   <p>The sky over you, drawn the way a paper star atlas draws it — black on white, so it can
   be read outdoors. Set it to any moment and anywhere: what will be up at ten tonight from
@@ -225,6 +267,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/soramoyo.png" width="400" height="627" loading="lazy"
+       alt="Sky showing 67 degrees and the day's readings">
   <h3>Sky</h3>
   <p>The days ahead and the rain radar, and your own weather station if you have one, read on
   your own network where it can be. It says no more than the station and the forecast know.</p>
@@ -236,6 +280,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/onsa.png" width="400" height="627" loading="lazy"
+       alt="Tuning Fork on the chromatic scale, reading A">
   <h3>Tuning Fork</h3>
   <p>A tuner. Chromatic or by instrument, with a pitch plot and a cents readout, and a
   temperament editor that goes well past equal temperament if you want it to. The screen
@@ -248,6 +294,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/mizumori.png" width="400" height="627" loading="lazy"
+       alt="Level with its bubble centred, 0.0 degrees both ways">
   <h3>Level</h3>
   <p>A spirit level. It knows whether you are holding it flat or standing it on an edge, and
   shows the right kind of vial for each without being told. It says level only when it is.</p>
@@ -259,6 +307,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/sokudokei.png" width="400" height="627" loading="lazy"
+       alt="Speedometer with speed, altitude, position and air pressure">
   <h3>Speedometer</h3>
   <p>How fast you are going, how high you are, and what the air is doing. Press the speed and
   the number fills the screen, for a phone propped where you can only glance at it. Nothing
@@ -271,6 +321,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/cycle.png" width="400" height="627" loading="lazy"
+       alt="Cycle's calendar for September">
   <h3>Cycle</h3>
   <p>A cycle tracker with no permissions at all. What you write stays on the phone.</p>
   <p class="links">
@@ -281,6 +333,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/kuroban.png" width="400" height="627" loading="lazy"
+       alt="Go, a game in progress on a nine by nine board">
   <h3>Go</h3>
   <p>A game of Go on a 9&times;9 board, against GNU Go or against the person opposite.</p>
   <p class="links">
@@ -291,6 +345,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/MuditaOS-K-Chess-opensource.png" width="400" height="627" loading="lazy"
+       alt="Chess+ with two players on one phone">
   <h3>Chess+</h3>
   <p>The phone's own chess app, with a second player added to it.</p>
   <p class="links">
@@ -301,6 +357,8 @@ white, no animation, lists you can read in sunlight.</p>
 </div>
 
 <div class="app">
+  <img class="shot" src="shots/keitaiyugi.png" width="400" height="627" loading="lazy"
+       alt="Handheld Games playing a homebrew puzzle game">
   <h3>Handheld Games</h3>
   <p>Game Boy games, drawn in four greys for a screen that has no colour. The picture lands
      at exactly three times size, so nothing is resampled.</p>
@@ -309,6 +367,8 @@ white, no animation, lists you can read in sunlight.</p>
     <a href="https://github.com/wanderwildwood/keitaiyugi">Source</a>
     <a href="https://github.com/wanderwildwood/keitaiyugi/releases/latest">Release notes</a>
   </p>
+</div>
+
 </div>
 
 <h2>Installing</h2>
