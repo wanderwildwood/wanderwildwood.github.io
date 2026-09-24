@@ -84,7 +84,10 @@
   }
   /* One to a row on a phone: a full-width screenshot would be a whole screen tall. */
   @media (max-width: 36rem) { .shot { max-width: 15rem; } }
-  .app { margin: 0; }
+  /* Links sit at the foot of each card, so they line up across a row even where one
+     description runs a line longer than its neighbours. */
+  .app { margin: 0; display: flex; flex-direction: column; }
+  .app .links { margin-top: auto; padding-top: 0.35rem; }
   .app h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.2rem; }
   .app p { margin: 0 0 0.35rem; }
   .links { font-size: 0.85rem; color: var(--quiet); }
