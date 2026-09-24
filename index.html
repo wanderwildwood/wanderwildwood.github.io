@@ -89,6 +89,8 @@
   .app { margin: 0; display: flex; flex-direction: column; }
   .app .links { margin-top: auto; padding-top: 0.35rem; }
   .app h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.2rem; }
+  /* The Japanese name, which the repository and the file are called by: there, but second. */
+  .app h3 .jp { font-weight: 400; color: var(--quiet); }
   .app p { margin: 0 0 0.35rem; }
   .links { font-size: 0.85rem; color: var(--quiet); }
   .links a { margin-right: 1rem; white-space: nowrap; }
@@ -127,7 +129,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/kotozute.png" width="400" height="627" loading="lazy"
        alt="The Messaging inbox: Signal and text conversations in one list, newest first">
-  <h3>Messaging</h3>
+  <h3>Messaging <span class="jp">/ 言伝 kotozute</span></h3>
   <p>SMS, MMS and Signal in one inbox, and a page your phone serves to your own computer so
   you can text from a keyboard.</p>
   <p class="links">
@@ -140,7 +142,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/mimidoku.png" width="400" height="627" loading="lazy"
        alt="Audio Reading playing a chapter, with the sleep timer and speed above">
-  <h3>Audio Reading</h3>
+  <h3>Audio Reading <span class="jp">/ 耳読 mimidoku</span></h3>
   <p>An audiobook player. Point it at a folder of books, tell it once how they are laid out,
   and it keeps your place in each one.</p>
   <p class="links">
@@ -153,7 +155,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/jimeikin.png" width="400" height="627" loading="lazy"
        alt="Music Box listing songs, with Playlists, Artists, Songs, Albums and Radio along the foot">
-  <h3>Music Box</h3>
+  <h3>Music Box <span class="jp">/ 自鳴琴 jimeikin</span></h3>
   <p>A music player for a folder of your own music, a music server you run, internet radio and
   YouTube Music. A song you download stays on the phone.</p>
   <p class="links">
@@ -166,7 +168,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/dajiki.png" width="400" height="627" loading="lazy"
        alt="Typewriter showing a page of writing, held sideways">
-  <h3>Typewriter</h3>
+  <h3>Typewriter <span class="jp">/ 打字機 dajiki</span></h3>
   <p>A text editor that opens in landscape and stays there, for writing with a keyboard
   plugged into the phone. What you write is plain text, in a folder you choose.</p>
   <p class="links">
@@ -179,7 +181,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/kirinuki.png" width="400" height="627" loading="lazy"
        alt="Clippings showing an article as plain text">
-  <h3>Clippings</h3>
+  <h3>Clippings <span class="jp">/ 切抜 kirinuki</span></h3>
   <p>Feeds read as plain text, with Gemini, gopher and Spartan alongside them; fetched on
   wifi, read with the radio off. The volume keys turn the page.</p>
   <p class="links">
@@ -192,7 +194,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/tana.png" width="400" height="627" loading="lazy"
        alt="Files with two documents chosen in a folder on a home server">
-  <h3>Files</h3>
+  <h3>Files <span class="jp">/ 棚 tana</span></h3>
   <p>A file manager, with the shared drives on your own servers as places like any other.
   Choose several things at once; a copy is written whole or not at all.</p>
   <p class="links">
@@ -205,7 +207,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/tancho.jpg" width="400" height="627" loading="lazy"
        alt="Birding with a Northern Cardinal heard, and the day's other birds below">
-  <h3>Birding</h3>
+  <h3>Birding <span class="jp">/ 探鳥 tanchō</span></h3>
   <p>Names the birds it hears, offline, with BirdNET running on the phone itself. A bird's
   Wikipedia page is a press away, opened in your browser.</p>
   <p class="links">
@@ -218,7 +220,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/kinokocho.png" width="400" height="627" loading="lazy"
        alt="Mushroom Journal on Omphalotus illudens, the jack-o'-lantern, with a drawing">
-  <h3>Mushroom Journal</h3>
+  <h3>Mushroom Journal <span class="jp">/ 茸帳 kinokochō</span></h3>
   <p>Write a mushroom down while you are standing over it, and work out at home what it might
   be. It narrows a list, never decides, and says nothing about eating one.</p>
   <p class="links">
@@ -231,7 +233,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/yorimichi.png" width="400" height="627" loading="lazy"
        alt="Detour pointing half a mile away, south-east">
-  <h3>Detour</h3>
+  <h3>Detour <span class="jp">/ 寄り道 yorimichi</span></h3>
   <p>Press once and it picks somewhere near you to walk to, with no particular reason to go
   there, and gives you an arrow and a distance to follow.</p>
   <p class="links">
@@ -244,7 +246,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/ibasho.png" width="400" height="627" loading="lazy"
        alt="Whereabouts listing its commands">
-  <h3>Whereabouts</h3>
+  <h3>Whereabouts <span class="jp">/ 居場所 ibasho</span></h3>
   <p>Finds your phone when it is lost: where it is, a ring, a lock. With its server, the
   people who share with you appear on one map.</p>
   <p class="links">
@@ -258,7 +260,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/seizu.png" width="400" height="627" loading="lazy"
        alt="Star Chart drawing the night sky as a round map">
-  <h3>Star Chart</h3>
+  <h3>Star Chart <span class="jp">/ 星図 seizu</span></h3>
   <p>The sky over you, drawn the way a paper star atlas draws it, black on white. Set any
   moment and any place to see what will be up.</p>
   <p class="links">
@@ -271,7 +273,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/soramoyo.png" width="400" height="627" loading="lazy"
        alt="Sky showing 67 degrees and the day's readings">
-  <h3>Sky</h3>
+  <h3>Sky <span class="jp">/ 空模様 soramoyō</span></h3>
   <p>The days ahead, the rain radar, and your own weather station if you have one. It says no
   more than the station and the forecast know.</p>
   <p class="links">
@@ -284,7 +286,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/onsa.png" width="400" height="627" loading="lazy"
        alt="Tuning Fork on the chromatic scale, reading A">
-  <h3>Tuning Fork</h3>
+  <h3>Tuning Fork <span class="jp">/ 音叉 onsa</span></h3>
   <p>A tuner, chromatic or by instrument, with a pitch plot, a cents readout and temperaments
   well past equal. The screen stays awake while you play.</p>
   <p class="links">
@@ -297,7 +299,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/mizumori.png" width="400" height="627" loading="lazy"
        alt="Level with its bubble centred, 0.0 degrees both ways">
-  <h3>Level</h3>
+  <h3>Level <span class="jp">/ 水盛 mizumori</span></h3>
   <p>A spirit level that knows whether it is lying flat or standing on an edge, and shows the
   right vial for each. It says level only when it is.</p>
   <p class="links">
@@ -310,7 +312,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/sokudokei.png" width="400" height="627" loading="lazy"
        alt="Speedometer with speed, altitude, position and air pressure">
-  <h3>Speedometer</h3>
+  <h3>Speedometer <span class="jp">/ 速度計 sokudokei</span></h3>
   <p>How fast you are going, how high you are, and what the air is doing. Press the speed and
   it fills the screen. Not accurate enough to navigate by.</p>
   <p class="links">
@@ -336,7 +338,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/kuroban.png" width="400" height="627" loading="lazy"
        alt="Go, a game in progress on a nine by nine board">
-  <h3>Go</h3>
+  <h3>Go <span class="jp">/ 九路盤 kuroban</span></h3>
   <p>A game of Go on a 9×9 board, against GNU Go or the person opposite, with handicaps, a
   hint when you want one, and the board counted at the end.</p>
   <p class="links">
@@ -362,7 +364,7 @@ white, no animation, lists you can read in sunlight.</p>
 <div class="app">
   <img class="shot" src="shots/keitaiyugi.png" width="400" height="627" loading="lazy"
        alt="Handheld Games playing a homebrew puzzle game">
-  <h3>Handheld Games</h3>
+  <h3>Handheld Games <span class="jp">/ 携帯遊戯 keitaiyugi</span></h3>
   <p>Game Boy games, drawn in four greys for a screen that has no colour. The picture lands at
   exactly three times size, so nothing is resampled.</p>
   <p class="links">
@@ -385,7 +387,7 @@ film is put together <a href="https://lyminalkin.com">elsewhere</a>.</p>
   <img class="shot" src="shots/komadori.jpg" width="800" height="368" loading="lazy"
        style="aspect-ratio: 800 / 368"
        alt="Stop Motion's capture screen over a frame from a stop-motion film: two felt puppets at a hole in a mossy stone wall, with the lens, shutter, Review, Settings, Lock and Compare down the side">
-  <h3>Stop Motion</h3>
+  <h3>Stop Motion <span class="jp">/ 駒撮り komadori</span></h3>
   <p>Stop-motion capture for the Xiaomi 17 Ultra, reaching all three rear lenses where other
   apps find one. The exposure locks for the whole film, with onion skin, drawn guides and an
   interval timer.</p>
