@@ -29,7 +29,7 @@
   }
   /* One left edge for everything. The page is as wide as the grid of cards; prose keeps to a
      readable measure inside it rather than sitting in a centred column of its own. */
-  main { max-width: 62rem; margin: 0 auto; }
+  main { max-width: 70rem; margin: 0 auto; }
   p { max-width: 34rem; }
   :target, h2, .group { scroll-margin-top: 1.5rem; }
   h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 1.4rem; letter-spacing: -0.01em; }
@@ -70,13 +70,13 @@
     .portrait { mix-blend-mode: normal; }
   }
 
-  /* Three across, a screenshot at the top of each, falling to two and then one as the screen
-     narrows. A group's name takes a whole row of the grid to itself. */
+  /* Four across, falling to two and then one, never three: the groups hold four apps each,
+     and three across left one card alone on a row. A group's name takes a row to itself. */
   .apps {
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2.6rem 2rem; margin: 1.8rem 0 1rem;
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.6rem 1.75rem; margin: 1.8rem 0 1rem;
   }
-  @media (max-width: 58rem) { .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 64rem) { .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 36rem) { .apps { grid-template-columns: 1fr; } }
   .apps .group {
     grid-column: 1 / -1; margin: 1.2rem 0 -1.2rem;
@@ -148,12 +148,12 @@
     <a href="#tancho">Birding</a> &middot;
     <a href="#kinokocho">Mushroom Journal</a> &middot;
     <a href="#yorimichi">Detour</a> &middot;
-    <a href="#seizu">Star Chart</a> &middot;
     <a href="#soramoyo">Sky</a></p>
-  <p><a class="group-link" href="#measuring">Measuring</a>
+  <p><a class="group-link" href="#instruments">Instruments</a>
     <a href="#onsa">Tuning Fork</a> &middot;
     <a href="#mizumori">Level</a> &middot;
-    <a href="#sokudokei">Speedometer</a></p>
+    <a href="#sokudokei">Speedometer</a> &middot;
+    <a href="#seizu">Star Chart</a></p>
   <p><a class="group-link" href="#games">Games</a>
     <a href="#kuroban">Go</a> &middot;
     <a href="#chess">Chess+</a> &middot;
@@ -320,19 +320,6 @@ white, no animation, lists you can read in sunlight.</p>
   </p>
 </div>
 
-<div class="app" id="seizu">
-  <img class="shot" src="shots/seizu.png" width="400" height="627" loading="lazy"
-       alt="Star Chart drawing the night sky as a round map">
-  <h4>Star Chart <span class="jp">/ 星図 seizu</span></h4>
-  <p>The sky over you, drawn the way a paper star atlas draws it, black on white. Set any
-  moment and any place to see what will be up.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/seizu/releases/latest/download/seizu.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/seizu">Source</a>
-    <a href="https://github.com/wanderwildwood/seizu/releases/latest">Release notes</a>
-  </p>
-</div>
-
 <div class="app" id="soramoyo">
   <img class="shot" src="shots/soramoyo.png" width="400" height="627" loading="lazy"
        alt="Sky showing 60 degrees, and rain likely for the next twelve hours">
@@ -346,7 +333,7 @@ white, no animation, lists you can read in sunlight.</p>
   </p>
 </div>
 
-<h3 class="group" id="measuring">Measuring</h3>
+<h3 class="group" id="instruments">Instruments</h3>
 
 <div class="app" id="onsa">
   <img class="shot" src="shots/onsa.png" width="400" height="627" loading="lazy"
@@ -384,6 +371,19 @@ white, no animation, lists you can read in sunlight.</p>
     <a href="https://github.com/wanderwildwood/sokudokei/releases/latest/download/sokudokei.apk">Download</a>
     <a href="https://github.com/wanderwildwood/sokudokei">Source</a>
     <a href="https://github.com/wanderwildwood/sokudokei/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app" id="seizu">
+  <img class="shot" src="shots/seizu.png" width="400" height="627" loading="lazy"
+       alt="Star Chart drawing the night sky as a round map">
+  <h4>Star Chart <span class="jp">/ 星図 seizu</span></h4>
+  <p>The sky over you, drawn the way a paper star atlas draws it, black on white. Set any
+  moment and any place to see what will be up.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/seizu/releases/latest/download/seizu.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/seizu">Source</a>
+    <a href="https://github.com/wanderwildwood/seizu/releases/latest">Release notes</a>
   </p>
 </div>
 
@@ -478,7 +478,8 @@ something somewhere anyway, there are some llamas who go through a great deal of
 <a href="https://hotspringsllamas.org/donate/">hotspringsllamas.org/donate</a>.</p>
 
 <p>Something broken, or an app not doing a thing you expected? The issue trackers are open, and
-that is the best place to say so.</p>
+that is the best place to say so. For anything else:
+<a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>.</p>
 </footer>
 
 </main>
