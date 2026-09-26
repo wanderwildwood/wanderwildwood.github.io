@@ -46,6 +46,7 @@
   a:hover { text-decoration-style: dotted; }
   .lede { color: var(--quiet); max-width: none; }   /* a section's opening line runs the full width */
   .ethos { margin-bottom: 0; }
+  .aside { font-size: 0.9rem; color: var(--quiet); margin: 0.9rem 0 0; }
   /* Left to right: the drawing, the name and what this is, then the list of apps. Where
      three will not fit, the list drops beneath the other two; on a phone all three stack. */
   .intro {
@@ -111,12 +112,6 @@
   .links { font-size: 0.85rem; color: var(--quiet); }
   .links a { margin-right: 1rem; white-space: nowrap; }
 
-  footer {
-    margin-top: 3.5rem; padding-top: 1.25rem;
-    border-top: 1px solid var(--rule);
-    font-size: 0.85rem; color: var(--quiet);
-  }
-  footer p { margin: 0 0 0.6rem; }
 </style>
 </head>
 <body>
@@ -131,6 +126,12 @@
     few home servers that several of them talk to. They keep to themselves &mdash; no accounts,
     nothing sent to me, nothing that needs looking after. Most of the work is deciding what to
     leave out.</p>
+    <p class="aside">These are free and they stay free; there is nothing here to buy. If you
+    would like to send something somewhere anyway, there are some llamas who go through a great
+    deal of hay: <a href="https://hotspringsllamas.org/donate/">hotspringsllamas.org/donate</a>.</p>
+    <p class="aside">Something broken, or an app not doing a thing you expected? The issue
+    trackers are open, and that is the best place to say so. For anything else:
+    <a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>.</p>
   </div>
   <nav class="contents" aria-label="Apps">
     <p><a class="group-link" href="#everyday">Everyday</a>
@@ -453,34 +454,6 @@ film is put together <a href="https://lyminalkin.com">elsewhere</a>.</p>
 </div>
 
 </div>
-
-<h2>Installing</h2>
-
-<p>Each download is an <code>.apk</code>, the file an Android phone installs from. Open it on
-the Kompakt and allow the installation when it asks. The first time, Android will want
-permission to install from wherever you downloaded it.</p>
-
-<p>Every release publishes a <code>.sha256</code> beside the APK, so you can check the file you
-got is the file that was built.</p>
-
-<p>To be told when there is a new version, add any of the source links above to
-<a href="https://github.com/ImranR98/Obtainium">Obtainium</a>, which watches a repository and
-offers you its releases.</p>
-
-<footer>
-<p>Eight are written from scratch; twelve are forks, and each says whose work it continues. All
-are under version 3 of the GPL — Messaging under the Affero GPL, because it carries Signal's
-own code.</p>
-<p>Every word each app shows is in one <code>strings.xml</code> in its repository, so any of
-them can be translated. A translation from someone who speaks the language is very welcome.</p>
-<p>These are free and they stay free; there is nothing here to buy. If you would like to send
-something somewhere anyway, there are some llamas who go through a great deal of hay:
-<a href="https://hotspringsllamas.org/donate/">hotspringsllamas.org/donate</a>.</p>
-
-<p>Something broken, or an app not doing a thing you expected? The issue trackers are open, and
-that is the best place to say so. For anything else:
-<a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>.</p>
-</footer>
 
 </main>
 </body>
