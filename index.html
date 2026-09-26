@@ -46,24 +46,25 @@
   a:hover { text-decoration-style: dotted; }
   .lede { color: var(--quiet); }
   .ethos { margin-bottom: 0; }
-  /* The drawing beside the introduction rather than stacked on top of it, which left
-     it sitting on the words with nothing to hold it. */
+  /* Left to right: the drawing, the name and what this is, then the list of apps. Where
+     three will not fit, the list drops beneath the other two; on a phone all three stack. */
   .intro {
-    display: flex; align-items: flex-start;
-    gap: 1.5rem; margin-bottom: 1.5rem; max-width: 46rem;
+    display: flex; flex-wrap: wrap; align-items: flex-start;
+    gap: 1.5rem 2.25rem; margin-bottom: 1.5rem;
   }
-  .intro-text { flex: 1; min-width: 0; }
+  .intro-text { flex: 1 1 18rem; min-width: 0; }
   .intro h1 { margin-bottom: 0.9rem; }
+  .intro .contents { flex: 1 1 22rem; margin: 0.3rem 0 0; }
   .portrait {
     width: 246px; height: 246px; flex: none;
     display: block; margin: 0;
     mix-blend-mode: multiply;   /* melts the drawing's own paper into the page */
   }
-  /* Narrow enough that 246px of picture would leave a column of broken words:
-     put it back above, where stacking is the honest thing to do. */
+  @media (max-width: 64rem) { .intro .contents { flex-basis: 100%; } }
   @media (max-width: 32rem) {
     .intro { display: block; }
     .portrait { width: 218px; height: 218px; margin-bottom: 1.2rem; }
+    .intro .contents { margin-top: 1.5rem; }
   }
   @media (prefers-color-scheme: dark) {
     /* Multiply would sink the drawing into a dark ground; the circle reads as itself. */
@@ -131,36 +132,35 @@
     nothing sent to me, nothing that needs looking after. Most of the work is deciding what to
     leave out.</p>
   </div>
+  <nav class="contents" aria-label="Apps">
+    <p><a class="group-link" href="#everyday">Everyday</a>
+      <a href="#kotozute">Messaging</a> &middot;
+      <a href="#tana">Files</a> &middot;
+      <a href="#ibasho">Whereabouts</a> &middot;
+      <a href="#cycle">Cycle</a></p>
+    <p><a class="group-link" href="#reading">Reading, writing, listening</a>
+      <a href="#mimidoku">Audio Reading</a> &middot;
+      <a href="#jimeikin">Music Box</a> &middot;
+      <a href="#kirinuki">Clippings</a> &middot;
+      <a href="#dajiki">Typewriter</a></p>
+    <p><a class="group-link" href="#outdoors">Outdoors</a>
+      <a href="#tancho">Birding</a> &middot;
+      <a href="#kinokocho">Mushroom Journal</a> &middot;
+      <a href="#yorimichi">Detour</a> &middot;
+      <a href="#soramoyo">Sky</a></p>
+    <p><a class="group-link" href="#instruments">Instruments</a>
+      <a href="#onsa">Tuning Fork</a> &middot;
+      <a href="#mizumori">Level</a> &middot;
+      <a href="#sokudokei">Speedometer</a> &middot;
+      <a href="#seizu">Star Chart</a></p>
+    <p><a class="group-link" href="#games">Games</a>
+      <a href="#kuroban">Go</a> &middot;
+      <a href="#chess">Chess+</a> &middot;
+      <a href="#keitaiyugi">Handheld Games</a></p>
+    <p><a class="group-link" href="#stop-motion">Android phones</a>
+      <a href="#komadori">Stop Motion</a></p>
+  </nav>
 </div>
-
-<nav class="contents" aria-label="Apps">
-  <p><a class="group-link" href="#everyday">Everyday</a>
-    <a href="#kotozute">Messaging</a> &middot;
-    <a href="#tana">Files</a> &middot;
-    <a href="#ibasho">Whereabouts</a> &middot;
-    <a href="#cycle">Cycle</a></p>
-  <p><a class="group-link" href="#reading">Reading, writing, listening</a>
-    <a href="#mimidoku">Audio Reading</a> &middot;
-    <a href="#jimeikin">Music Box</a> &middot;
-    <a href="#kirinuki">Clippings</a> &middot;
-    <a href="#dajiki">Typewriter</a></p>
-  <p><a class="group-link" href="#outdoors">Outdoors</a>
-    <a href="#tancho">Birding</a> &middot;
-    <a href="#kinokocho">Mushroom Journal</a> &middot;
-    <a href="#yorimichi">Detour</a> &middot;
-    <a href="#soramoyo">Sky</a></p>
-  <p><a class="group-link" href="#instruments">Instruments</a>
-    <a href="#onsa">Tuning Fork</a> &middot;
-    <a href="#mizumori">Level</a> &middot;
-    <a href="#sokudokei">Speedometer</a> &middot;
-    <a href="#seizu">Star Chart</a></p>
-  <p><a class="group-link" href="#games">Games</a>
-    <a href="#kuroban">Go</a> &middot;
-    <a href="#chess">Chess+</a> &middot;
-    <a href="#keitaiyugi">Handheld Games</a></p>
-  <p><a class="group-link" href="#stop-motion">Android phones</a>
-    <a href="#komadori">Stop Motion</a></p>
-</nav>
 
 <h2>Apps for the Mudita Kompakt</h2>
 
