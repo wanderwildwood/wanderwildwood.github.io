@@ -27,7 +27,11 @@
     font: 17px/1.65 Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
     -webkit-text-size-adjust: 100%;
   }
-  main { max-width: 34rem; margin: 0 auto; }
+  /* One left edge for everything. The page is as wide as the grid of cards; prose keeps to a
+     readable measure inside it rather than sitting in a centred column of its own. */
+  main { max-width: 62rem; margin: 0 auto; }
+  p { max-width: 34rem; }
+  :target, h2, .group { scroll-margin-top: 1.5rem; }
   h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 1.4rem; letter-spacing: -0.01em; }
   /* rem is measured against the 16px root, not the 17px body: a heading needs to
      clear 1.06rem before it is even as large as the paragraph under it. */
@@ -46,7 +50,7 @@
      it sitting on the words with nothing to hold it. */
   .intro {
     display: flex; align-items: flex-start;
-    gap: 1.5rem; margin-bottom: 1.5rem;
+    gap: 1.5rem; margin-bottom: 1.5rem; max-width: 46rem;
   }
   .intro-text { flex: 1; min-width: 0; }
   .intro h1 { margin-bottom: 0.9rem; }
@@ -66,17 +70,28 @@
     .portrait { mix-blend-mode: normal; }
   }
 
-  /* The cards break out of the reading column: three across, a screenshot at the top of each,
-     falling to two and then one as the screen narrows. The prose around them stays at a
-     readable measure. */
+  /* Three across, a screenshot at the top of each, falling to two and then one as the screen
+     narrows. A group's name takes a whole row of the grid to itself. */
   .apps {
-    position: relative; left: 50%; transform: translateX(-50%);
-    width: min(62rem, calc(100vw - 2.5rem));
     display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2.6rem 2rem; margin: 1.8rem 0 1rem;
   }
   @media (max-width: 58rem) { .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 36rem) { .apps { grid-template-columns: 1fr; } }
+  .apps .group {
+    grid-column: 1 / -1; margin: 1.2rem 0 -1.2rem;
+    font-size: 1.05rem; font-weight: 600; color: var(--quiet);
+  }
+  .apps .group:first-child { margin-top: 0; }
+  /* A landscape picture in a portrait slot left two empty columns beside it. */
+  .app.wide { grid-column: span 2; }
+  .app.wide p { max-width: 34rem; }
+  @media (max-width: 36rem) { .app.wide { grid-column: auto; } .app.wide .shot { max-width: none; } }
+
+  .contents { font-size: 0.9rem; color: var(--quiet); margin: 0 0 0.5rem; }
+  .contents p { margin: 0 0 0.3rem; }
+  .contents a { white-space: nowrap; }
+  .contents .group-link { color: var(--ink); font-weight: 600; margin-right: 0.4rem; }
   .shot {
     display: block; width: 100%; height: auto; aspect-ratio: 400 / 627;
     margin: 0 0 0.9rem; background: #fff;
@@ -88,9 +103,9 @@
      description runs a line longer than its neighbours. */
   .app { margin: 0; display: flex; flex-direction: column; }
   .app .links { margin-top: auto; padding-top: 0.35rem; }
-  .app h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.2rem; }
+  .app h4 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.2rem; }
   /* The Japanese name, which the repository and the file are called by: there, but second. */
-  .app h3 .jp { font-weight: 400; color: var(--quiet); }
+  .app h4 .jp { font-weight: 400; color: var(--quiet); }
   .app p { margin: 0 0 0.35rem; }
   .links { font-size: 0.85rem; color: var(--quiet); }
   .links a { margin-right: 1rem; white-space: nowrap; }
@@ -118,6 +133,35 @@
   </div>
 </div>
 
+<nav class="contents" aria-label="Apps">
+  <p><a class="group-link" href="#everyday">Everyday</a>
+    <a href="#kotozute">Messaging</a> &middot;
+    <a href="#tana">Files</a> &middot;
+    <a href="#ibasho">Whereabouts</a> &middot;
+    <a href="#cycle">Cycle</a></p>
+  <p><a class="group-link" href="#reading">Reading, writing, listening</a>
+    <a href="#mimidoku">Audio Reading</a> &middot;
+    <a href="#jimeikin">Music Box</a> &middot;
+    <a href="#kirinuki">Clippings</a> &middot;
+    <a href="#dajiki">Typewriter</a></p>
+  <p><a class="group-link" href="#outdoors">Outdoors</a>
+    <a href="#tancho">Birding</a> &middot;
+    <a href="#kinokocho">Mushroom Journal</a> &middot;
+    <a href="#yorimichi">Detour</a> &middot;
+    <a href="#seizu">Star Chart</a> &middot;
+    <a href="#soramoyo">Sky</a></p>
+  <p><a class="group-link" href="#measuring">Measuring</a>
+    <a href="#onsa">Tuning Fork</a> &middot;
+    <a href="#mizumori">Level</a> &middot;
+    <a href="#sokudokei">Speedometer</a></p>
+  <p><a class="group-link" href="#games">Games</a>
+    <a href="#kuroban">Go</a> &middot;
+    <a href="#chess">Chess+</a> &middot;
+    <a href="#keitaiyugi">Handheld Games</a></p>
+  <p><a class="group-link" href="#stop-motion">Another phone</a>
+    <a href="#komadori">Stop Motion</a></p>
+</nav>
+
 <h2>Apps for the Mudita Kompakt</h2>
 
 <p class="lede">The <a href="https://mudita.com/products/kompakt/">Kompakt</a> is a phone with a
@@ -126,10 +170,12 @@ white, no animation, lists you can read in sunlight.</p>
 
 <div class="apps">
 
-<div class="app">
+<h3 class="group" id="everyday">Everyday</h3>
+
+<div class="app" id="kotozute">
   <img class="shot" src="shots/kotozute.png" width="400" height="627" loading="lazy"
        alt="The Messaging inbox: Signal and text conversations in one list, newest first">
-  <h3>Messaging <span class="jp">/ 言伝 kotozute</span></h3>
+  <h4>Messaging <span class="jp">/ 言伝 kotozute</span></h4>
   <p>SMS, MMS and Signal in one inbox, and a page your phone serves to your own computer so
   you can text from a keyboard.</p>
   <p class="links">
@@ -139,62 +185,10 @@ white, no animation, lists you can read in sunlight.</p>
   </p>
 </div>
 
-<div class="app">
-  <img class="shot" src="shots/mimidoku.png" width="400" height="627" loading="lazy"
-       alt="Audio Reading playing a chapter, with the sleep timer and speed above">
-  <h3>Audio Reading <span class="jp">/ 耳読 mimidoku</span></h3>
-  <p>An audiobook player. Point it at a folder of books, tell it once how they are laid out,
-  and it keeps your place in each one.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/mimidoku/releases/latest/download/mimidoku.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/mimidoku">Source</a>
-    <a href="https://github.com/wanderwildwood/mimidoku/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
-  <img class="shot" src="shots/jimeikin.png" width="400" height="627" loading="lazy"
-       alt="Music Box listing songs, with Playlists, Artists, Songs, Albums and Radio along the foot">
-  <h3>Music Box <span class="jp">/ 自鳴琴 jimeikin</span></h3>
-  <p>A music player for a folder of your own music, a music server you run, internet radio and
-  YouTube Music. A song you download stays on the phone.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/jimeikin/releases/latest/download/jimeikin.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/jimeikin">Source</a>
-    <a href="https://github.com/wanderwildwood/jimeikin/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
-  <img class="shot" src="shots/dajiki.png" width="400" height="627" loading="lazy"
-       alt="Typewriter showing a page of writing, held sideways">
-  <h3>Typewriter <span class="jp">/ 打字機 dajiki</span></h3>
-  <p>A text editor that opens in landscape and stays there, for writing with a keyboard
-  connected to the phone. What you write is plain text, in a folder you choose.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/dajiki/releases/latest/download/dajiki.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/dajiki">Source</a>
-    <a href="https://github.com/wanderwildwood/dajiki/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
-  <img class="shot" src="shots/kirinuki.png" width="400" height="627" loading="lazy"
-       alt="Clippings showing an article as plain text">
-  <h3>Clippings <span class="jp">/ 切抜 kirinuki</span></h3>
-  <p>Feeds read as plain text, with Gemini, gopher and Spartan alongside them; fetched on
-  wifi, read with the radio off. The volume keys turn the page.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/kirinuki/releases/latest/download/kirinuki.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/kirinuki">Source</a>
-    <a href="https://github.com/wanderwildwood/kirinuki/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
+<div class="app" id="tana">
   <img class="shot" src="shots/tana.png" width="400" height="627" loading="lazy"
        alt="Files with two documents chosen in a folder on a home server">
-  <h3>Files <span class="jp">/ 棚 tana</span></h3>
+  <h4>Files <span class="jp">/ 棚 tana</span></h4>
   <p>A file manager, with the shared drives on your own servers as places like any other.
   Choose several things at once; a copy is written whole or not at all.</p>
   <p class="links">
@@ -204,49 +198,10 @@ white, no animation, lists you can read in sunlight.</p>
   </p>
 </div>
 
-<div class="app">
-  <img class="shot" src="shots/tancho.jpg" width="400" height="627" loading="lazy"
-       alt="Birding with a Northern Cardinal heard, and the day's other birds below">
-  <h3>Birding <span class="jp">/ 探鳥 tanchō</span></h3>
-  <p>Names the birds it hears, offline, with BirdNET running on the phone itself. A bird's
-  Wikipedia page is a press away, opened in your browser.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/tancho/releases/latest/download/tancho.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/tancho">Source</a>
-    <a href="https://github.com/wanderwildwood/tancho/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
-  <img class="shot" src="shots/kinokocho.png" width="400" height="627" loading="lazy"
-       alt="Mushroom Journal on Omphalotus illudens, the jack-o'-lantern, with a drawing">
-  <h3>Mushroom Journal <span class="jp">/ 茸帳 kinokochō</span></h3>
-  <p>Write a mushroom down while you are standing over it, and work out at home what it might
-  be. It narrows a list, never decides, and says nothing about eating one.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/kinokocho/releases/latest/download/kinokocho.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/kinokocho">Source</a>
-    <a href="https://github.com/wanderwildwood/kinokocho/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
-  <img class="shot" src="shots/yorimichi.png" width="400" height="627" loading="lazy"
-       alt="Detour pointing half a mile away, south-east">
-  <h3>Detour <span class="jp">/ 寄り道 yorimichi</span></h3>
-  <p>Press once and it picks somewhere near you to walk to, with no particular reason to go
-  there, and gives you an arrow and a distance to follow.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/yorimichi/releases/latest/download/yorimichi.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/yorimichi">Source</a>
-    <a href="https://github.com/wanderwildwood/yorimichi/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
+<div class="app" id="ibasho">
   <img class="shot" src="shots/ibasho.png" width="400" height="627" loading="lazy"
        alt="Whereabouts listing its commands">
-  <h3>Whereabouts <span class="jp">/ 居場所 ibasho</span></h3>
+  <h4>Whereabouts <span class="jp">/ 居場所 ibasho</span></h4>
   <p>Finds your phone when it is lost: where it is, a ring, a lock. With its server, the
   people who share with you appear on one map.</p>
   <p class="links">
@@ -257,75 +212,10 @@ white, no animation, lists you can read in sunlight.</p>
   </p>
 </div>
 
-<div class="app">
-  <img class="shot" src="shots/seizu.png" width="400" height="627" loading="lazy"
-       alt="Star Chart drawing the night sky as a round map">
-  <h3>Star Chart <span class="jp">/ 星図 seizu</span></h3>
-  <p>The sky over you, drawn the way a paper star atlas draws it, black on white. Set any
-  moment and any place to see what will be up.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/seizu/releases/latest/download/seizu.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/seizu">Source</a>
-    <a href="https://github.com/wanderwildwood/seizu/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
-  <img class="shot" src="shots/soramoyo.png" width="400" height="627" loading="lazy"
-       alt="Sky showing 60 degrees, and rain likely for the next twelve hours">
-  <h3>Sky <span class="jp">/ 空模様 soramoyō</span></h3>
-  <p>The days ahead, the rain radar, and your own weather station if you have one. It says no
-  more than the station and the forecast know.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/soramoyo/releases/latest/download/soramoyo.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/soramoyo">Source</a>
-    <a href="https://github.com/wanderwildwood/soramoyo/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
-  <img class="shot" src="shots/onsa.png" width="400" height="627" loading="lazy"
-       alt="Tuning Fork on the chromatic scale, reading A">
-  <h3>Tuning Fork <span class="jp">/ 音叉 onsa</span></h3>
-  <p>A tuner, chromatic or by instrument, with a pitch plot, a cents readout and temperaments
-  well past equal. The screen stays awake while you play.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/onsa/releases/latest/download/onsa.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/onsa">Source</a>
-    <a href="https://github.com/wanderwildwood/onsa/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
-  <img class="shot" src="shots/mizumori.png" width="400" height="627" loading="lazy"
-       alt="Level with its bubble centred, 0.0 degrees both ways">
-  <h3>Level <span class="jp">/ 水盛 mizumori</span></h3>
-  <p>A spirit level that knows whether it is lying flat or standing on an edge, and shows the
-  right vial for each. It says level only when it is.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/mizumori/releases/latest/download/mizumori.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/mizumori">Source</a>
-    <a href="https://github.com/wanderwildwood/mizumori/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
-  <img class="shot" src="shots/sokudokei.png" width="400" height="627" loading="lazy"
-       alt="Speedometer with speed, altitude, position and air pressure">
-  <h3>Speedometer <span class="jp">/ 速度計 sokudokei</span></h3>
-  <p>How fast you are going, how high you are, and what the air is doing. Press the speed and
-  it fills the screen. Not accurate enough to navigate by.</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/sokudokei/releases/latest/download/sokudokei.apk">Download</a>
-    <a href="https://github.com/wanderwildwood/sokudokei">Source</a>
-    <a href="https://github.com/wanderwildwood/sokudokei/releases/latest">Release notes</a>
-  </p>
-</div>
-
-<div class="app">
+<div class="app" id="cycle">
   <img class="shot" src="shots/cycle.png" width="400" height="627" loading="lazy"
        alt="Cycle's calendar for September">
-  <h3>Cycle</h3>
+  <h4>Cycle</h4>
   <p>A cycle tracker with no permissions at all. It shows what you recorded, expects what
   comes next, and keeps everything you write on the phone.</p>
   <p class="links">
@@ -335,10 +225,174 @@ white, no animation, lists you can read in sunlight.</p>
   </p>
 </div>
 
-<div class="app">
+<h3 class="group" id="reading">Reading, writing, listening</h3>
+
+<div class="app" id="mimidoku">
+  <img class="shot" src="shots/mimidoku.png" width="400" height="627" loading="lazy"
+       alt="Audio Reading playing a chapter, with the sleep timer and speed above">
+  <h4>Audio Reading <span class="jp">/ 耳読 mimidoku</span></h4>
+  <p>An audiobook player. Point it at a folder of books, tell it once how they are laid out,
+  and it keeps your place in each one.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/mimidoku/releases/latest/download/mimidoku.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/mimidoku">Source</a>
+    <a href="https://github.com/wanderwildwood/mimidoku/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app" id="jimeikin">
+  <img class="shot" src="shots/jimeikin.png" width="400" height="627" loading="lazy"
+       alt="Music Box listing songs, with Playlists, Artists, Songs, Albums and Radio along the foot">
+  <h4>Music Box <span class="jp">/ 自鳴琴 jimeikin</span></h4>
+  <p>A music player for a folder of your own music, a music server you run, internet radio and
+  YouTube Music. A song you download stays on the phone.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/jimeikin/releases/latest/download/jimeikin.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/jimeikin">Source</a>
+    <a href="https://github.com/wanderwildwood/jimeikin/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app" id="kirinuki">
+  <img class="shot" src="shots/kirinuki.png" width="400" height="627" loading="lazy"
+       alt="Clippings showing an article as plain text">
+  <h4>Clippings <span class="jp">/ 切抜 kirinuki</span></h4>
+  <p>Feeds read as plain text, with Gemini, gopher and Spartan alongside them; fetched on
+  wifi, read with the radio off. The volume keys turn the page.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/kirinuki/releases/latest/download/kirinuki.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/kirinuki">Source</a>
+    <a href="https://github.com/wanderwildwood/kirinuki/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app" id="dajiki">
+  <img class="shot" src="shots/dajiki.png" width="400" height="627" loading="lazy"
+       alt="Typewriter showing a page of writing, held sideways">
+  <h4>Typewriter <span class="jp">/ 打字機 dajiki</span></h4>
+  <p>A text editor that opens in landscape and stays there, for writing with a keyboard
+  connected to the phone. What you write is plain text, in a folder you choose.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/dajiki/releases/latest/download/dajiki.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/dajiki">Source</a>
+    <a href="https://github.com/wanderwildwood/dajiki/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<h3 class="group" id="outdoors">Outdoors</h3>
+
+<div class="app" id="tancho">
+  <img class="shot" src="shots/tancho.jpg" width="400" height="627" loading="lazy"
+       alt="Birding with a Northern Cardinal heard, and the day's other birds below">
+  <h4>Birding <span class="jp">/ 探鳥 tanchō</span></h4>
+  <p>Names the birds it hears, offline, with BirdNET running on the phone itself. A bird's
+  Wikipedia page is a press away, opened in your browser.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/tancho/releases/latest/download/tancho.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/tancho">Source</a>
+    <a href="https://github.com/wanderwildwood/tancho/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app" id="kinokocho">
+  <img class="shot" src="shots/kinokocho.png" width="400" height="627" loading="lazy"
+       alt="Mushroom Journal on Omphalotus illudens, the jack-o'-lantern, with a drawing">
+  <h4>Mushroom Journal <span class="jp">/ 茸帳 kinokochō</span></h4>
+  <p>Write a mushroom down while you are standing over it, and work out at home what it might
+  be. It narrows a list, never decides, and says nothing about eating one.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/kinokocho/releases/latest/download/kinokocho.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/kinokocho">Source</a>
+    <a href="https://github.com/wanderwildwood/kinokocho/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app" id="yorimichi">
+  <img class="shot" src="shots/yorimichi.png" width="400" height="627" loading="lazy"
+       alt="Detour pointing half a mile away, south-east">
+  <h4>Detour <span class="jp">/ 寄り道 yorimichi</span></h4>
+  <p>Press once and it picks somewhere near you to walk to, with no particular reason to go
+  there, and gives you an arrow and a distance to follow.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/yorimichi/releases/latest/download/yorimichi.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/yorimichi">Source</a>
+    <a href="https://github.com/wanderwildwood/yorimichi/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app" id="seizu">
+  <img class="shot" src="shots/seizu.png" width="400" height="627" loading="lazy"
+       alt="Star Chart drawing the night sky as a round map">
+  <h4>Star Chart <span class="jp">/ 星図 seizu</span></h4>
+  <p>The sky over you, drawn the way a paper star atlas draws it, black on white. Set any
+  moment and any place to see what will be up.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/seizu/releases/latest/download/seizu.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/seizu">Source</a>
+    <a href="https://github.com/wanderwildwood/seizu/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app" id="soramoyo">
+  <img class="shot" src="shots/soramoyo.png" width="400" height="627" loading="lazy"
+       alt="Sky showing 60 degrees, and rain likely for the next twelve hours">
+  <h4>Sky <span class="jp">/ 空模様 soramoyō</span></h4>
+  <p>The days ahead, the rain radar, and your own weather station if you have one. It says no
+  more than the station and the forecast know.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/soramoyo/releases/latest/download/soramoyo.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/soramoyo">Source</a>
+    <a href="https://github.com/wanderwildwood/soramoyo/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<h3 class="group" id="measuring">Measuring</h3>
+
+<div class="app" id="onsa">
+  <img class="shot" src="shots/onsa.png" width="400" height="627" loading="lazy"
+       alt="Tuning Fork on the chromatic scale, reading A">
+  <h4>Tuning Fork <span class="jp">/ 音叉 onsa</span></h4>
+  <p>A tuner, chromatic or by instrument, with a pitch plot, a cents readout and temperaments
+  well past equal. The screen stays awake while you play.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/onsa/releases/latest/download/onsa.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/onsa">Source</a>
+    <a href="https://github.com/wanderwildwood/onsa/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app" id="mizumori">
+  <img class="shot" src="shots/mizumori.png" width="400" height="627" loading="lazy"
+       alt="Level with its bubble centred, 0.0 degrees both ways">
+  <h4>Level <span class="jp">/ 水盛 mizumori</span></h4>
+  <p>A spirit level that knows whether it is lying flat or standing on an edge, and shows the
+  right vial for each. It says level only when it is.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/mizumori/releases/latest/download/mizumori.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/mizumori">Source</a>
+    <a href="https://github.com/wanderwildwood/mizumori/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<div class="app" id="sokudokei">
+  <img class="shot" src="shots/sokudokei.png" width="400" height="627" loading="lazy"
+       alt="Speedometer with speed, altitude, position and air pressure">
+  <h4>Speedometer <span class="jp">/ 速度計 sokudokei</span></h4>
+  <p>How fast you are going, how high you are, and what the air is doing. Press the speed and
+  it fills the screen. Not accurate enough to navigate by.</p>
+  <p class="links">
+    <a href="https://github.com/wanderwildwood/sokudokei/releases/latest/download/sokudokei.apk">Download</a>
+    <a href="https://github.com/wanderwildwood/sokudokei">Source</a>
+    <a href="https://github.com/wanderwildwood/sokudokei/releases/latest">Release notes</a>
+  </p>
+</div>
+
+<h3 class="group" id="games">Games</h3>
+
+<div class="app" id="kuroban">
   <img class="shot" src="shots/kuroban.png" width="400" height="627" loading="lazy"
        alt="Go, a game in progress on a nine by nine board">
-  <h3>Go <span class="jp">/ 九路盤 kuroban</span></h3>
+  <h4>Go <span class="jp">/ 九路盤 kuroban</span></h4>
   <p>A game of Go on a 9×9 board, against GNU Go or the person opposite, with handicaps, a
   hint when you want one, and the board counted at the end.</p>
   <p class="links">
@@ -348,10 +402,10 @@ white, no animation, lists you can read in sunlight.</p>
   </p>
 </div>
 
-<div class="app">
+<div class="app" id="chess">
   <img class="shot" src="shots/MuditaOS-K-Chess-opensource.png" width="400" height="627" loading="lazy"
        alt="Chess+ with two players on one phone">
-  <h3>Chess+</h3>
+  <h4>Chess+</h4>
   <p>The phone's own chess app, with a second player added: two people on one board, passing
   the phone back and forth between moves.</p>
   <p class="links">
@@ -361,10 +415,10 @@ white, no animation, lists you can read in sunlight.</p>
   </p>
 </div>
 
-<div class="app">
+<div class="app" id="keitaiyugi">
   <img class="shot" src="shots/keitaiyugi.png" width="400" height="627" loading="lazy"
        alt="Handheld Games playing a homebrew puzzle game">
-  <h3>Handheld Games <span class="jp">/ 携帯遊戯 keitaiyugi</span></h3>
+  <h4>Handheld Games <span class="jp">/ 携帯遊戯 keitaiyugi</span></h4>
   <p>Game Boy games, drawn in four greys for a screen that has no colour. The picture lands at
   exactly three times size, so nothing is resampled.</p>
   <p class="links">
@@ -376,18 +430,18 @@ white, no animation, lists you can read in sunlight.</p>
 
 </div>
 
-<h2>Stop motion</h2>
+<h2 id="stop-motion">Stop motion</h2>
 
 <p class="lede">One app for a different phone: the capture half of a stop-motion practice. The
 film is put together <a href="https://lyminalkin.com">elsewhere</a>.</p>
 
 <div class="apps">
 
-<div class="app">
+<div class="app wide" id="komadori">
   <img class="shot" src="shots/komadori.jpg" width="800" height="368" loading="lazy"
        style="aspect-ratio: 800 / 368"
        alt="Stop Motion's capture screen over a frame from a stop-motion film: two felt puppets at a hole in a mossy stone wall, with the lens, shutter, Review, Settings, Lock and Compare down the side">
-  <h3>Stop Motion <span class="jp">/ 駒撮り komadori</span></h3>
+  <h4>Stop Motion <span class="jp">/ 駒撮り komadori</span></h4>
   <p>Stop-motion capture for the Xiaomi 17 Ultra, reaching all three rear lenses where other
   apps find one. The exposure locks for the whole film, with onion skin, drawn guides and an
   interval timer.</p>
