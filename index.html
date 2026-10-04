@@ -101,11 +101,11 @@
   /* The Japanese name, which the repository and the file are called by: there, but second. */
   h1 .jp, .app h4 .jp { font-weight: 400; color: var(--quiet); }
   /* Press an app's Japanese name and its description is read in Japanese instead. */
-  .app h4 button.jp { font: inherit; font-weight: 400; color: var(--quiet); background: none;
+  h1 button.jp, .app h4 button.jp { font: inherit; font-weight: 400; color: var(--quiet); background: none;
     border: 0; padding: 0; cursor: pointer; text-align: left;
     text-decoration: underline dotted; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
-  .app h4 button.jp[aria-pressed="true"] { color: var(--ink); }
-  .app p.ja { line-height: 1.75; }
+  h1 button.jp[aria-pressed="true"], .app h4 button.jp[aria-pressed="true"] { color: var(--ink); }
+  .app p.ja, .intro p.ja { line-height: 1.75; }
   .app p { margin: 0 0 0.35rem; }
   .links { font-size: 0.85rem; color: var(--quiet); }
   .links a { margin-right: 1rem; white-space: nowrap; }
@@ -119,15 +119,17 @@
   <img class="portrait" src="wander.png" width="246" height="246"
        alt="A small drawn figure in a pointed hat and round glasses, with a seal reading wander">
   <div class="intro-text">
-    <h1>wander <span class="jp">彷徨う</span></h1>
-    <p class="ethos">I make small things, mostly for a little E Ink phone, and tinker with a
+    <h1>wander <button type="button" class="jp" aria-pressed="false" title="日本語で読む">彷徨う</button></h1>
+    <p class="ethos en">I make small things, mostly for a little E Ink phone, and tinker with a
     few home servers that several of them talk to. They keep to themselves &mdash; no accounts,
     nothing sent to me, nothing that needs looking after. Most of the work is deciding what to
     leave out.</p>
-    <p class="aside">Nothing here is for sale. If you would like to give something anyway,
+    <p class="aside en">Nothing here is for sale. If you would like to give something anyway,
     <a href="https://hotspringsllamas.org/donate/">some llamas</a> go through a great deal of hay.
     Something broken? Open an issue, or write to
     <a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>.</p>
+    <p class="ethos ja" lang="ja" hidden>小さなものを作っている。ほとんどは小さな電子ペーパーの電話のためのもので、そのいくつかがやりとりする家のサーバーも少しいじっている。どれも自分のことだけをする——アカウントも、私に送られるものも、世話の要るものもない。仕事の大半は、何を省くかを決めること。</p>
+    <p class="aside ja" lang="ja" hidden>ここにあるものは売り物ではない。それでも何か贈りたければ、<a href="https://hotspringsllamas.org/donate/">ラマたち</a>が干し草をたくさん食べている。壊れているところがあれば、issueを開くか、<a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>まで。</p>
   </div>
 </div>
 
@@ -547,11 +549,11 @@ film is put together <a href="https://lyminalkin.com">elsewhere</a>.</p>
 
 </main>
 <script>
-document.querySelectorAll('.app h4 button.jp').forEach(function (b) {
+document.querySelectorAll('button.jp').forEach(function (b) {
   b.addEventListener('click', function () {
-    var card = b.closest('.app'), ja = b.getAttribute('aria-pressed') !== 'true';
-    card.querySelector('p.en').hidden = ja;
-    card.querySelector('p.ja').hidden = !ja;
+    var box = b.closest('.app, .intro-text'), ja = b.getAttribute('aria-pressed') !== 'true';
+    box.querySelectorAll('p.en').forEach(function (p) { p.hidden = ja; });
+    box.querySelectorAll('p.ja').forEach(function (p) { p.hidden = !ja; });
     b.setAttribute('aria-pressed', ja ? 'true' : 'false');
   });
 });
