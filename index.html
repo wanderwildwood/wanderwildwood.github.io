@@ -101,11 +101,11 @@
   /* The Japanese name, which the repository and the file are called by: there, but second. */
   h1 .jp, .app h4 .jp { font-weight: 400; color: var(--quiet); }
   /* Press an app's Japanese name and its description is read in Japanese instead. */
-  h1 button.jp, .app h4 button.jp { font: inherit; font-weight: 400; color: var(--quiet); background: none;
+  button.jp { font: inherit; font-weight: 400; color: var(--quiet); background: none;
     border: 0; padding: 0; cursor: pointer; text-align: left;
     text-decoration: underline dotted; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
-  h1 button.jp[aria-pressed="true"], .app h4 button.jp[aria-pressed="true"] { color: var(--ink); }
-  .app p.ja, .intro p.ja { line-height: 1.75; }
+  button.jp[aria-pressed="true"] { color: var(--ink); }
+  p.ja { line-height: 1.75; }
   .app p { margin: 0 0 0.35rem; }
   .links { font-size: 0.85rem; color: var(--quiet); }
   .links a { margin-right: 1rem; white-space: nowrap; }
@@ -133,11 +133,14 @@
   </div>
 </div>
 
-<h2>For the Mudita Kompakt</h2>
+<div class="section">
+<h2>For the Mudita Kompakt <button type="button" class="jp" aria-pressed="false" title="日本語で読む">Mudita Kompakt向け</button></h2>
 
-<p class="lede">The <a href="https://mudita.com/products/kompakt/">Kompakt</a> is an Android phone
+<p class="lede en">The <a href="https://mudita.com/products/kompakt/">Kompakt</a> is an Android phone
 with a black-and-white E Ink screen that redraws slowly. Everything here is drawn for that screen,
 so nothing animates and every page can be read in sunlight.</p>
+<p class="lede ja" lang="ja" hidden><a href="https://mudita.com/products/kompakt/">Kompakt</a>は、ゆっくりと描き直す白黒の電子ペーパーの画面を持つAndroidの電話。ここにあるものはすべてその画面のために描かれているので、何も動かず、どのページも日なたで読める。</p>
+</div>
 
 <div class="apps">
 
@@ -551,7 +554,7 @@ film is put together <a href="https://lyminalkin.com">elsewhere</a>.</p>
 <script>
 document.querySelectorAll('button.jp').forEach(function (b) {
   b.addEventListener('click', function () {
-    var box = b.closest('.app, .intro-text'), ja = b.getAttribute('aria-pressed') !== 'true';
+    var box = b.closest('.app, .intro-text, .section'), ja = b.getAttribute('aria-pressed') !== 'true';
     box.querySelectorAll('p.en').forEach(function (p) { p.hidden = ja; });
     box.querySelectorAll('p.ja').forEach(function (p) { p.hidden = !ja; });
     b.setAttribute('aria-pressed', ja ? 'true' : 'false');
