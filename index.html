@@ -100,6 +100,12 @@
   .app h4 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.2rem; }
   /* The Japanese name, which the repository and the file are called by: there, but second. */
   h1 .jp, .app h4 .jp { font-weight: 400; color: var(--quiet); }
+  /* Press an app's Japanese name and its description is read in Japanese instead. */
+  .app h4 button.jp { font: inherit; font-weight: 400; color: var(--quiet); background: none;
+    border: 0; padding: 0; cursor: pointer; text-align: left;
+    text-decoration: underline dotted; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  .app h4 button.jp[aria-pressed="true"] { color: var(--ink); }
+  .app p.ja { line-height: 1.75; }
   .app p { margin: 0 0 0.35rem; }
   .links { font-size: 0.85rem; color: var(--quiet); }
   .links a { margin-right: 1rem; white-space: nowrap; }
@@ -138,10 +144,11 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="kotozute">
   <img class="shot" src="shots/kotozute.png" width="400" height="627" loading="lazy"
        alt="The Messaging inbox: Signal and text conversations in one list, newest first">
-  <h4>Messaging <span class="jp">/ 言伝 kotozute</span></h4>
-  <p>SMS, MMS and Signal in one inbox, and a page your phone serves to your own computer so
+  <h4>Messaging <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 言伝 kotozute</button></h4>
+  <p class="en">SMS, MMS and Signal in one inbox, and a page your phone serves to your own computer so
   you can text from a keyboard. With <a href="#hitome">Glance</a>, what is unread on the
   lock screen.</p>
+  <p class="ja" lang="ja" hidden>SMS・MMS・Signalをひとつの受信箱に。電話が自分のパソコンにページを出すので、キーボードからも送れる。<a href="#hitome">一目</a>と使えば、未読がロック画面に。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/kotozute/releases/latest/download/kotozute.apk">Download</a>
     <a href="https://github.com/wanderwildwood/kotozute">Source</a>
@@ -152,9 +159,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="tana">
   <img class="shot" src="shots/tana.png" width="400" height="627" loading="lazy"
        alt="Files with two documents chosen in a folder on a home server">
-  <h4>Files <span class="jp">/ 棚 tana</span></h4>
-  <p>A file manager, with the shared drives on your own servers as places like any other.
+  <h4>Files <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 棚 tana</button></h4>
+  <p class="en">A file manager, with the shared drives on your own servers as places like any other.
   Choose several things at once; a copy is written whole or not at all.</p>
+  <p class="ja" lang="ja" hidden>ファイル管理。自分のサーバーの共有ドライブも、ほかの場所と同じように並ぶ。いくつも一度に選べて、コピーは丸ごと書かれるか、まったく書かれないかのどちらか。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/tana/releases/latest/download/tana.apk">Download</a>
     <a href="https://github.com/wanderwildwood/tana">Source</a>
@@ -165,10 +173,11 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="koyomi">
   <img class="shot" src="shots/koyomi.png" width="400" height="627" loading="lazy"
        alt="Calendar showing a month, with the names of each day's events written in its square">
-  <h4>Calendar <span class="jp">/ 暦 koyomi</span></h4>
-  <p>Month, week, day and agenda, with repeats of every ordinary shape and reminders that
+  <h4>Calendar <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 暦 koyomi</button></h4>
+  <p class="en">Month, week, day and agenda, with repeats of every ordinary shape and reminders that
   light the screen. Your Nextcloud or other CalDAV calendar, through DAVx5. With
   <a href="#hitome">Glance</a>, today's events on the lock screen.</p>
+  <p class="ja" lang="ja" hidden>月・週・日・予定一覧。ふつうの繰り返しはどんな形でも組め、通知は画面を灯す。NextcloudなどのCalDAVカレンダーを、DAVx5を通して。<a href="#hitome">一目</a>と使えば、今日の予定がロック画面に。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/koyomi/releases/latest/download/koyomi.apk">Download</a>
     <a href="https://github.com/wanderwildwood/koyomi">Source</a>
@@ -179,10 +188,11 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="tayori">
   <img class="shot" src="shots/tayori.png" width="400" height="627" loading="lazy"
        alt="The Email inbox: messages newest first, each with its sender and first lines">
-  <h4>Email <span class="jp">/ 便り tayori</span></h4>
-  <p>Any mail account that takes a password, read and written in black and white, a page at
+  <h4>Email <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 便り tayori</button></h4>
+  <p class="en">Any mail account that takes a password, read and written in black and white, a page at
   a time. Thunderbird for Android, redrawn for this screen. With <a href="#hitome">Glance</a>,
   what is unread on the lock screen.</p>
+  <p class="ja" lang="ja" hidden>パスワードで入れるメールアカウントなら何でも、白黒で、一画面ずつ読み書きする。Thunderbird for Androidを、この画面のために描き直したもの。<a href="#hitome">一目</a>と使えば、未読がロック画面に。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/tayori/releases/latest/download/tayori.apk">Download</a>
     <a href="https://github.com/wanderwildwood/tayori">Source</a>
@@ -193,10 +203,11 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="enishi">
   <img class="shot" src="shots/enishi.png" width="400" height="627" loading="lazy"
        alt="A person in Contacts: the name large, the number under it, and Call, Message and More">
-  <h4>Contacts <span class="jp">/ 縁 enishi</span></h4>
-  <p>Everyone you know, drawn like the phone's own address book: Call and Message under every
+  <h4>Contacts <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 縁 enishi</button></h4>
+  <p class="en">Everyone you know, drawn like the phone's own address book: Call and Message under every
   name, the rest a press away. <a href="#kotozute">Messaging</a> and <a href="#tayori">Email</a>
   reach it for every contact they need.</p>
+  <p class="ja" lang="ja" hidden>知り合いみんなを、電話に元からある連絡帳のように。どの名前の下にも「通話」と「メッセージ」、ほかはひと押し先に。<a href="#kotozute">言伝</a>も<a href="#tayori">便り</a>も、連絡先が要るときはここに来る。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/enishi/releases/latest/download/enishi.apk">Download</a>
     <a href="https://github.com/wanderwildwood/enishi">Source</a>
@@ -207,10 +218,11 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="hitome">
   <img class="shot" src="shots/hitome.png" width="400" height="627" loading="lazy"
        alt="The Kompakt lock screen with today's event and the weather under the clock">
-  <h4>Glance <span class="jp">/ 一目 hitome</span></h4>
-  <p>Today's events, the weather and what is unread, on the lock screen, from
+  <h4>Glance <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 一目 hitome</button></h4>
+  <p class="en">Today's events, the weather and what is unread, on the lock screen, from
   <a href="#koyomi">Calendar</a>, <a href="#soramoyo">Sky</a>, <a href="#kotozute">Messaging</a>
   and <a href="#tayori">Email</a>. Press a line to open its app.</p>
+  <p class="ja" lang="ja" hidden>今日の予定、天気、未読を、ロック画面に。<a href="#koyomi">暦</a>・<a href="#soramoyo">空模様</a>・<a href="#kotozute">言伝</a>・<a href="#tayori">便り</a>から。行を押せば、そのアプリが開く。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/hitome/releases/latest/download/hitome.apk">Download</a>
     <a href="https://github.com/wanderwildwood/hitome">Source</a>
@@ -221,9 +233,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="ibasho">
   <img class="shot" src="shots/ibasho.png" width="400" height="627" loading="lazy"
        alt="Whereabouts listing its commands">
-  <h4>Whereabouts <span class="jp">/ 居場所 ibasho</span></h4>
-  <p>Finds your phone when it is lost: where it is, a ring, a lock. With <a href="https://github.com/wanderwildwood/ibasho-server/releases/latest">its server</a>, the
+  <h4>Whereabouts <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 居場所 ibasho</button></h4>
+  <p class="en">Finds your phone when it is lost: where it is, a ring, a lock. With <a href="https://github.com/wanderwildwood/ibasho-server/releases/latest">its server</a>, the
   people who share with you appear on one map.</p>
+  <p class="ja" lang="ja" hidden>なくした電話を探す。どこにあるか、鳴らす、ロックする。<a href="https://github.com/wanderwildwood/ibasho-server/releases/latest">専用のサーバー</a>があれば、共有してくれる人たちがひとつの地図に現れる。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/ibasho/releases/latest/download/whereabouts.apk">Download</a>
     <a href="https://github.com/wanderwildwood/ibasho">Source</a>
@@ -247,9 +260,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="yumecho">
   <img class="shot" src="shots/yumecho.png" width="400" height="627" loading="lazy"
        alt="Dream Log's list of dreams by night, with Arm for the night at the top">
-  <h4>Dream Log <span class="jp">/ 夢帳 yumechō</span></h4>
-  <p>Arm it before sleep; if a dream wakes you, press a volume key in the dark and say it. By
+  <h4>Dream Log <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 夢帳 yumechō</button></h4>
+  <p class="en">Arm it before sleep; if a dream wakes you, press a volume key in the dark and say it. By
   morning it is written down, transcribed on the phone itself.</p>
+  <p class="ja" lang="ja" hidden>眠る前に構えておく。夢で目が覚めたら、暗がりで音量キーを押して話すだけ。朝には書き起こされている。文字起こしは電話の中で。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/yumecho/releases/latest/download/yumecho.apk">Download</a>
     <a href="https://github.com/wanderwildwood/yumecho">Source</a>
@@ -262,9 +276,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="mimidoku">
   <img class="shot" src="shots/mimidoku.png" width="400" height="627" loading="lazy"
        alt="Audio Reading playing a chapter, with the sleep timer and speed above">
-  <h4>Audio Reading <span class="jp">/ 耳読 mimidoku</span></h4>
-  <p>An audiobook player. Point it at a folder of books, tell it once how they are laid out,
+  <h4>Audio Reading <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 耳読 mimidoku</button></h4>
+  <p class="en">An audiobook player. Point it at a folder of books, tell it once how they are laid out,
   and it keeps your place in each one.</p>
+  <p class="ja" lang="ja" hidden>オーディオブックのプレーヤー。本のフォルダを指し、並び方を一度教えれば、一冊ごとに読みかけの場所を覚えている。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/mimidoku/releases/latest/download/mimidoku.apk">Download</a>
     <a href="https://github.com/wanderwildwood/mimidoku">Source</a>
@@ -275,9 +290,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="jimeikin">
   <img class="shot" src="shots/jimeikin.png" width="400" height="627" loading="lazy"
        alt="Music Box listing songs, with Playlists, Artists, Songs, Albums and Radio along the foot">
-  <h4>Music Box <span class="jp">/ 自鳴琴 jimeikin</span></h4>
-  <p>A music player for a folder of your own music, a music server you run, internet radio and
+  <h4>Music Box <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 自鳴琴 jimeikin</button></h4>
+  <p class="en">A music player for a folder of your own music, a music server you run, internet radio and
   YouTube Music. A song you download stays on the phone.</p>
+  <p class="ja" lang="ja" hidden>音楽プレーヤー。自分の音楽のフォルダ、自分で動かす音楽サーバー、ネットラジオ、YouTube Musicに。ダウンロードした曲は電話に残る。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/jimeikin/releases/latest/download/jimeikin.apk">Download</a>
     <a href="https://github.com/wanderwildwood/jimeikin">Source</a>
@@ -288,9 +304,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="kirinuki">
   <img class="shot" src="shots/kirinuki.png" width="400" height="627" loading="lazy"
        alt="Clippings showing an article as plain text">
-  <h4>Clippings <span class="jp">/ 切抜 kirinuki</span></h4>
-  <p>Feeds read as plain text, with Gemini, gopher and Spartan alongside them; fetched on
+  <h4>Clippings <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 切抜 kirinuki</button></h4>
+  <p class="en">Feeds read as plain text, with Gemini, gopher and Spartan alongside them; fetched on
   wifi, read with the radio off. The volume keys turn the page.</p>
+  <p class="ja" lang="ja" hidden>フィードを素のテキストで読む。Gemini・gopher・Spartanも並べて。取り込みはWi-Fiで、読むのは電波を切ってから。音量キーでページをめくる。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/kirinuki/releases/latest/download/kirinuki.apk">Download</a>
     <a href="https://github.com/wanderwildwood/kirinuki">Source</a>
@@ -301,9 +318,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="dajiki">
   <img class="shot" src="shots/dajiki.png" width="400" height="627" loading="lazy"
        alt="Typewriter showing a page of writing, held sideways">
-  <h4>Typewriter <span class="jp">/ 打字機 dajiki</span></h4>
-  <p>A text editor that opens in landscape and stays there, for writing with a keyboard
+  <h4>Typewriter <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 打字機 dajiki</button></h4>
+  <p class="en">A text editor that opens in landscape and stays there, for writing with a keyboard
   connected to the phone. What you write is plain text, in a folder you choose.</p>
+  <p class="ja" lang="ja" hidden>横向きで開き、ずっと横向きのままのテキストエディタ。電話につないだキーボードで書くためのもの。書いたものは素のテキストで、選んだフォルダに。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/dajiki/releases/latest/download/dajiki.apk">Download</a>
     <a href="https://github.com/wanderwildwood/dajiki">Source</a>
@@ -316,9 +334,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="tancho">
   <img class="shot" src="shots/tancho.jpg" width="400" height="627" loading="lazy"
        alt="Birding with a Northern Cardinal heard, and the day's other birds below">
-  <h4>Birding <span class="jp">/ 探鳥 tanchō</span></h4>
-  <p>Names the birds it hears, offline, with BirdNET running on the phone itself. A bird's
+  <h4>Birding <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 探鳥 tanchō</button></h4>
+  <p class="en">Names the birds it hears, offline, with BirdNET running on the phone itself. A bird's
   Wikipedia page is a press away, opened in your browser.</p>
+  <p class="ja" lang="ja" hidden>聞こえた鳥の名前を告げる。オフラインで、BirdNETは電話の中で動く。その鳥のWikipediaのページはひと押しで、ブラウザに開く。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/tancho/releases/latest/download/tancho.apk">Download</a>
     <a href="https://github.com/wanderwildwood/tancho">Source</a>
@@ -329,9 +348,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="kinokocho">
   <img class="shot" src="shots/kinokocho.png" width="400" height="627" loading="lazy"
        alt="Mushroom Journal on Omphalotus illudens, the jack-o'-lantern, with a drawing">
-  <h4>Mushroom Journal <span class="jp">/ 茸帳 kinokochō</span></h4>
-  <p>Write a mushroom down while you are standing over it, and work out at home what it might
+  <h4>Mushroom Journal <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 茸帳 kinokochō</button></h4>
+  <p class="en">Write a mushroom down while you are standing over it, and work out at home what it might
   be. It narrows a list, never decides, and says nothing about eating one.</p>
+  <p class="ja" lang="ja" hidden>きのこの前に立ったまま書き留め、何なのかは家でゆっくり考える。候補を絞りはするが、決めはしない。食べられるかどうかには一切触れない。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/kinokocho/releases/latest/download/kinokocho.apk">Download</a>
     <a href="https://github.com/wanderwildwood/kinokocho">Source</a>
@@ -342,9 +362,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="yorimichi">
   <img class="shot" src="shots/yorimichi.png" width="400" height="627" loading="lazy"
        alt="Detour pointing half a mile away, south-east">
-  <h4>Detour <span class="jp">/ 寄り道 yorimichi</span></h4>
-  <p>Press once and it picks somewhere near you to walk to, with no particular reason to go
+  <h4>Detour <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 寄り道 yorimichi</button></h4>
+  <p class="en">Press once and it picks somewhere near you to walk to, with no particular reason to go
   there, and gives you an arrow and a distance to follow.</p>
+  <p class="ja" lang="ja" hidden>一度押せば、近くのどこかを歩いて行く先に選ぶ。そこへ行く理由は特にない。あとは矢印と距離に従うだけ。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/yorimichi/releases/latest/download/yorimichi.apk">Download</a>
     <a href="https://github.com/wanderwildwood/yorimichi">Source</a>
@@ -355,9 +376,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="chikei">
   <img class="shot" src="shots/chikei.png" width="400" height="627" loading="lazy"
        alt="Topo showing contour lines and a trail along the Linville River">
-  <h4>Topo <span class="jp">/ 地形 chikei</span></h4>
-  <p>Maps for walking off the road: contours, trails, forest roads, public land and lot lines,
+  <h4>Topo <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 地形 chikei</button></h4>
+  <p class="en">Maps for walking off the road: contours, trails, forest roads, public land and lot lines,
   all offline once an area is downloaded. A track you walk goes to CalTopo as a file.</p>
+  <p class="ja" lang="ja" hidden>道を外れて歩くための地図。等高線、山道、林道、公有地、地番の境界。地域を一度ダウンロードすれば、すべてオフラインで。歩いた軌跡はファイルにしてCalTopoへ。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/chikei/releases/latest/download/chikei.apk">Download</a>
     <a href="https://github.com/wanderwildwood/chikei">Source</a>
@@ -368,10 +390,11 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="soramoyo">
   <img class="shot" src="shots/soramoyo.png" width="400" height="627" loading="lazy"
        alt="Sky showing 60 degrees, and rain likely for the next twelve hours">
-  <h4>Sky <span class="jp">/ 空模様 soramoyō</span></h4>
-  <p>The days ahead, the rain radar, and your own weather station if you have one. It says no
+  <h4>Sky <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 空模様 soramoyō</button></h4>
+  <p class="en">The days ahead, the rain radar, and your own weather station if you have one. It says no
   more than the station and the forecast know. With <a href="#hitome">Glance</a>, the
   weather on the lock screen.</p>
+  <p class="ja" lang="ja" hidden>この先の数日、雨雲レーダー、それに自分の気象観測装置があればそれも。観測と予報が知っている以上のことは言わない。<a href="#hitome">一目</a>と使えば、天気がロック画面に。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/soramoyo/releases/latest/download/soramoyo.apk">Download</a>
     <a href="https://github.com/wanderwildwood/soramoyo">Source</a>
@@ -384,9 +407,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="onsa">
   <img class="shot" src="shots/onsa.png" width="400" height="627" loading="lazy"
        alt="Tuning Fork on the chromatic scale, reading A">
-  <h4>Tuning Fork <span class="jp">/ 音叉 onsa</span></h4>
-  <p>A tuner, chromatic or by instrument, with a pitch plot, a cents readout and temperaments
+  <h4>Tuning Fork <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 音叉 onsa</button></h4>
+  <p class="en">A tuner, chromatic or by instrument, with a pitch plot, a cents readout and temperaments
   well past equal. The screen stays awake while you play.</p>
+  <p class="ja" lang="ja" hidden>チューナー。クロマチックでも楽器ごとでも。音高のグラフ、セント表示、平均律のはるか先までの音律。弾いている間、画面は消えない。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/onsa/releases/latest/download/onsa.apk">Download</a>
     <a href="https://github.com/wanderwildwood/onsa">Source</a>
@@ -397,9 +421,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="mizumori">
   <img class="shot" src="shots/mizumori.png" width="400" height="627" loading="lazy"
        alt="Level with its bubble centred, 0.0 degrees both ways">
-  <h4>Level <span class="jp">/ 水盛 mizumori</span></h4>
-  <p>A spirit level that knows whether it is lying flat or standing on an edge, and shows the
+  <h4>Level <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 水盛 mizumori</button></h4>
+  <p class="en">A spirit level that knows whether it is lying flat or standing on an edge, and shows the
   right vial for each. It says level only when it is.</p>
+  <p class="ja" lang="ja" hidden>平らに置かれているか、縁で立っているかを自分で知り、それぞれに合った気泡管を見せる水準器。水平と言うのは、本当に水平のときだけ。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/mizumori/releases/latest/download/mizumori.apk">Download</a>
     <a href="https://github.com/wanderwildwood/mizumori">Source</a>
@@ -410,9 +435,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="sokudokei">
   <img class="shot" src="shots/sokudokei.png" width="400" height="627" loading="lazy"
        alt="Speedometer with speed, altitude, position and air pressure">
-  <h4>Speedometer <span class="jp">/ 速度計 sokudokei</span></h4>
-  <p>How fast you are going, how high you are, and what the air is doing. Press the speed and
+  <h4>Speedometer <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 速度計 sokudokei</button></h4>
+  <p class="en">How fast you are going, how high you are, and what the air is doing. Press the speed and
   it fills the screen. Not accurate enough to navigate by.</p>
+  <p class="ja" lang="ja" hidden>どれだけ速く進んでいるか、どれだけ高いところにいるか、空気がどうしているか。速度を押せば画面いっぱいに。道案内に使えるほど正確ではない。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/sokudokei/releases/latest/download/sokudokei.apk">Download</a>
     <a href="https://github.com/wanderwildwood/sokudokei">Source</a>
@@ -423,9 +449,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="seizu">
   <img class="shot" src="shots/seizu.png" width="400" height="627" loading="lazy"
        alt="Star Chart drawing the night sky as a round map">
-  <h4>Star Chart <span class="jp">/ 星図 seizu</span></h4>
-  <p>The sky over you, drawn the way a paper star atlas draws it, black on white. Set any
+  <h4>Star Chart <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 星図 seizu</button></h4>
+  <p class="en">The sky over you, drawn the way a paper star atlas draws it, black on white. Set any
   moment and any place to see what will be up.</p>
+  <p class="ja" lang="ja" hidden>頭上の空を、紙の星図のように白地に黒で描く。好きな時と場所を決めれば、何が昇っているかが見える。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/seizu/releases/latest/download/seizu.apk">Download</a>
     <a href="https://github.com/wanderwildwood/seizu">Source</a>
@@ -436,10 +463,11 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="tenken">
   <img class="shot" src="shots/tenken.png" width="400" height="627" loading="lazy"
        alt="Car Check listing a stored and a pending trouble code">
-  <h4>Car Check <span class="jp">/ 点検 tenken</span></h4>
-  <p>What the check-engine light is on for, read through a Bluetooth OBD-II adapter. Each
+  <h4>Car Check <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 点検 tenken</button></h4>
+  <p class="en">What the check-engine light is on for, read through a Bluetooth OBD-II adapter. Each
   code says whether it is stored or only pending, and clearing them tells you when the car
   refuses.</p>
+  <p class="ja" lang="ja" hidden>エンジン警告灯がなぜ点いているのかを、Bluetooth OBD-IIアダプタで読む。コードごとに記録済みか保留中かを示し、消去を車が拒んだときはそう伝える。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/tenken/releases/latest/download/tenken.apk">Download</a>
     <a href="https://github.com/wanderwildwood/tenken">Source</a>
@@ -452,9 +480,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="kuroban">
   <img class="shot" src="shots/kuroban.png" width="400" height="627" loading="lazy"
        alt="Go, a game in progress on a nine by nine board">
-  <h4>Go <span class="jp">/ 九路盤 kuroban</span></h4>
-  <p>A game of Go on a 9×9 board, against GNU Go or the person opposite, with handicaps, a
+  <h4>Go <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 九路盤 kuroban</button></h4>
+  <p class="en">A game of Go on a 9×9 board, against GNU Go or the person opposite, with handicaps, a
   hint when you want one, and the board counted at the end.</p>
+  <p class="ja" lang="ja" hidden>九路盤の碁。相手はGNU Goか、向かいに座る人。置き碁、欲しいときのヒント、終局には盤面を数える。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/kuroban/releases/latest/download/kuroban.apk">Download</a>
     <a href="https://github.com/wanderwildwood/kuroban">Source</a>
@@ -478,9 +507,10 @@ so nothing animates and every page can be read in sunlight.</p>
 <div class="app" id="keitaiyugi">
   <img class="shot" src="shots/keitaiyugi.png" width="400" height="627" loading="lazy"
        alt="Handheld Games playing a homebrew puzzle game">
-  <h4>Handheld Games <span class="jp">/ 携帯遊戯 keitaiyugi</span></h4>
-  <p>Game Boy games, drawn in four greys for a screen that has no colour. The picture lands at
+  <h4>Handheld Games <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 携帯遊戯 keitaiyugi</button></h4>
+  <p class="en">Game Boy games, drawn in four greys for a screen that has no colour. The picture lands at
   exactly three times size, so nothing is resampled.</p>
+  <p class="ja" lang="ja" hidden>ゲームボーイのゲームを、色のない画面のために四階調の灰色で。絵はきっかり三倍の大きさに収まるので、何も補間されない。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/keitaiyugi/releases/latest/download/keitaiyugi.apk">Download</a>
     <a href="https://github.com/wanderwildwood/keitaiyugi">Source</a>
@@ -501,10 +531,11 @@ film is put together <a href="https://lyminalkin.com">elsewhere</a>.</p>
   <img class="shot" src="shots/komadori.jpg" width="800" height="368" loading="lazy"
        style="aspect-ratio: 800 / 368"
        alt="Stop Motion's capture screen over a frame from a stop-motion film: two felt puppets at a hole in a mossy stone wall, with the lens, shutter, Review, Settings, Lock and Compare down the side">
-  <h4>Stop Motion <span class="jp">/ 駒撮り komadori</span></h4>
-  <p>Stop-motion capture for Android phones; on the Xiaomi 17 Ultra it reaches all three rear
+  <h4>Stop Motion <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 駒撮り komadori</button></h4>
+  <p class="en">Stop-motion capture for Android phones; on the Xiaomi 17 Ultra it reaches all three rear
   lenses where other apps find one. The exposure locks for the whole film, with onion skin,
   drawn guides and an interval timer.</p>
+  <p class="ja" lang="ja" hidden>Androidの電話のためのコマ撮り。Xiaomi 17 Ultraでは、ほかのアプリが一つしか使えない背面の三つのレンズすべてに届く。露出は作品全体を通して固定。オニオンスキン、描き込めるガイド、インターバルタイマーつき。</p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/komadori/releases/latest/download/komadori.apk">Download</a>
     <a href="https://github.com/wanderwildwood/komadori">Source</a>
@@ -515,5 +546,15 @@ film is put together <a href="https://lyminalkin.com">elsewhere</a>.</p>
 </div>
 
 </main>
+<script>
+document.querySelectorAll('.app h4 button.jp').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var card = b.closest('.app'), ja = b.getAttribute('aria-pressed') !== 'true';
+    card.querySelector('p.en').hidden = ja;
+    card.querySelector('p.ja').hidden = !ja;
+    b.setAttribute('aria-pressed', ja ? 'true' : 'false');
+  });
+});
+</script>
 </body>
 </html>
