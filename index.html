@@ -9,15 +9,6 @@
 <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-  /* The page's own type, so it reads the same on every machine: Charis (Charter's open
-     descendant) for the Latin, Noto Serif JP for the names. Both are cut down to the
-     characters this page uses (fonts/OFL-*.txt); a new kanji needs the subset rebuilt. */
-  @font-face { font-family: "Charis Page"; src: url(fonts/charis-regular.woff2) format("woff2");
-    font-weight: 400; font-display: swap; }
-  @font-face { font-family: "Charis Page"; src: url(fonts/charis-bold.woff2) format("woff2");
-    font-weight: 600 700; font-display: swap; }
-  @font-face { font-family: "Noto Serif JP Page"; src: url(fonts/notoserifjp-regular.woff2) format("woff2");
-    font-weight: 400 700; font-display: swap; unicode-range: U+2E80-9FFF, U+F900-FAFF, U+FF00-FFEF; }
   :root {
     --ink: #2b2620;
     --quiet: #6d6458;
@@ -33,8 +24,7 @@
     padding: 3rem 1.25rem 5rem;
     background: var(--paper);
     color: var(--ink);
-    font: 17px/1.65 "Charis Page", "Noto Serif JP Page", Charter, Georgia, serif;
-    font-synthesis: none;   /* never a smeared fake bold on the Japanese */
+    font: 17px/1.65 Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
     -webkit-text-size-adjust: 100%;
   }
   /* One left edge for everything. The page is as wide as the grid of cards; prose keeps to a
@@ -42,11 +32,11 @@
   main { max-width: 70rem; margin: 0 auto; }
   p { max-width: 34rem; }
   :target, h2, .group { scroll-margin-top: 1.5rem; }
-  h1 { font-size: 1.6rem; font-weight: 600; line-height: 1.3; margin: 0 0 1.4rem; letter-spacing: -0.01em; }
+  h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 1.4rem; letter-spacing: -0.01em; }
   /* rem is measured against the 16px root, not the 17px body: a heading needs to
      clear 1.06rem before it is even as large as the paragraph under it. */
   h2 {
-    font-size: 1.3rem; font-weight: 600; line-height: 1.3; text-transform: none;
+    font-size: 1.2rem; font-weight: 600; text-transform: none;
     letter-spacing: 0; color: var(--quiet);
     margin: 3rem 0 1.25rem; padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--rule);
@@ -88,7 +78,7 @@
   @media (max-width: 36rem) { .apps { grid-template-columns: 1fr; } }
   .apps .group {
     grid-column: 1 / -1; margin: 1.2rem 0 -1.2rem;
-    font-size: 1.15rem; font-weight: 600; line-height: 1.3; color: var(--quiet);
+    font-size: 1.05rem; font-weight: 600; color: var(--quiet);
   }
   .apps .group:first-child { margin-top: 0; }
   /* A landscape picture in a portrait slot left two empty columns beside it. */
@@ -107,7 +97,7 @@
      description runs a line longer than its neighbours. */
   .app { margin: 0; display: flex; flex-direction: column; }
   .app .links { margin-top: auto; padding-top: 0.35rem; }
-  .app h4 { font-size: 1.1rem; font-weight: 600; line-height: 1.35; margin: 0 0 0.2rem; }
+  .app h4 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.2rem; }
   /* The Japanese name, which the repository and the file are called by: there, but second. */
   h1 .jp, .app h4 .jp { font-weight: 400; color: var(--quiet); }
   /* Press an app's Japanese name and its description is read in Japanese instead. */
