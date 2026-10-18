@@ -83,6 +83,9 @@
   .apps .group:first-child { margin-top: 0; }
   /* A landscape picture in a portrait slot left two empty columns beside it. */
   .app.wide { grid-column: span 2; }
+  .app.full { grid-column: 1 / -1; }
+  .app.full .shot { aspect-ratio: 2 / 1; max-width: none; image-rendering: pixelated; }
+  .app.full p { max-width: 34rem; }
   .app.wide p { max-width: 34rem; }
   @media (max-width: 36rem) { .app.wide { grid-column: auto; } .app.wide .shot { max-width: none; } }
 
@@ -842,14 +845,14 @@ so nothing animates and every page can be read in sunlight.</p>
   </p>
 </div>
 
-<div class="app" id="sanpo">
-  <img class="shot" src="shots/sanpo.gif" width="400" height="667" loading="lazy" style="aspect-ratio: 400 / 667"
-       alt="Wander and Kumo the llama in a redwood wood; Kumo stops, and wander crouches to pick chanterelles from under a fern">
+<div class="app full" id="sanpo">
+  <img class="shot" src="shots/sanpo.gif" width="960" height="480" loading="lazy"
+       alt="Wander stops at an old ring of stones, kneels and lights a fire, sets the kettle on and sits with a cup of tea, Kumo the llama lying by">
   <h4>Wander <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 散歩 sanpo</button></h4>
   <p class="en">A walk in the redwoods with Kumo the llama. Nothing to win, only things to notice:
-  here Kumo stops where wander walked straight past, and under a fern are three chanterelles.
+  here, at an old ring of stones, wander stops, lights a fire and puts the kettle on, Kumo lying by.
   Coming 13 November.</p>
-  <p class="ja" lang="ja" hidden>ラマのクモと、レッドウッドの森を歩く。勝ち負けはなく、気づくことがあるだけ。wanderが素通りした所でクモが立ち止まると、シダの下にアンズタケが三つ。11月13日に。</p>
+  <p class="ja" lang="ja" hidden>ラマのクモと、レッドウッドの森を歩く。勝ち負けはなく、気づくことがあるだけ。古い石の輪でwanderは足を止め、火をおこし、やかんをかける。クモはそばで横になる。11月13日に。</p>
 </div>
 
 </div>
