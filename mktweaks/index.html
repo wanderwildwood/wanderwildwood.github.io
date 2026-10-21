@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kompakt tweaks</title>
+<meta name="description" content="Settings the Mudita Kompakt keeps out of reach, changed from a computer over USB and put back the same way.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<style>
+  :root {
+    --ink: #2b2620;
+    --quiet: #6d6458;
+    --rule: #ded5c6;
+    --paper: #f4efe4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 3rem 1.25rem 5rem;
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.65 Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (max-width: 32rem) { body { padding: 2rem 1rem 4rem; } }
+  main { max-width: 70rem; margin: 0 auto; }
+  p, ol { max-width: 34rem; }
+  h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 1.4rem; letter-spacing: -0.01em; }
+  h2 {
+    font-size: 1.2rem; font-weight: 600; color: var(--quiet);
+    margin: 3rem 0 1.25rem; padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 1.1rem; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { text-decoration-style: dotted; }
+  .lede { color: var(--quiet); max-width: none; }
+  .back { font-size: 0.9rem; color: var(--quiet); margin-bottom: 1.6rem; }
+  ol { padding-left: 1.3rem; margin: 0 0 1.1rem; }
+  ol li { margin-bottom: 0.5rem; }
+
+  code {
+    font: 0.8rem/1.5 ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
+    overflow-wrap: anywhere;
+  }
+  /* What each item runs on the phone: there for anyone who wants to know, quiet otherwise. */
+  .runs { font-size: 0.85rem; color: var(--quiet); }
+  .state { color: var(--quiet); }
+  .state.on { color: var(--ink); }
+  .out { font-size: 0.85rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .out.bad { color: var(--ink); border-left: 2px solid var(--ink); padding-left: 0.6rem; }
+
+  button.act {
+    font: inherit; font-size: 0.9rem; color: var(--ink); background: none;
+    border: 1px solid var(--ink); border-radius: 4px; padding: 0.2rem 0.8rem;
+    cursor: pointer; white-space: nowrap;
+  }
+  button.act:hover:not(:disabled) { background: var(--rule); }
+  button.act:disabled { color: var(--quiet); border-color: var(--rule); cursor: default; }
+  .controls { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1rem; max-width: 46rem; }
+  input[type=text], select {
+    font: inherit; font-size: 0.9rem; color: var(--ink); background: var(--paper);
+    border: 1px solid var(--rule); border-radius: 4px; padding: 0.2rem 0.4rem;
+    max-width: 100%; min-width: 0;
+  }
+
+  /* A list of apps: name and line, what the phone says, and the button. On a phone the
+     state and button drop under the name. */
+  .list { list-style: none; padding: 0; margin: 1rem 0 1.1rem; max-width: 46rem; }
+  .list li {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 0.15rem 1rem; align-items: baseline;
+    padding: 0.55rem 0; border-top: 1px solid var(--rule);
+  }
+  .list li:last-child { border-bottom: 1px solid var(--rule); }
+  .list .name { font-weight: 600; }
+  .list .line, .list .pkg { display: block; font-size: 0.85rem; color: var(--quiet); font-weight: 400; }
+  .list .pkg { overflow-wrap: anywhere; }
+  .list .state { font-size: 0.9rem; text-align: right; }
+  .list .note { grid-column: 1 / -1; font-size: 0.85rem; color: var(--quiet); }
+  .list a { font-size: 0.85rem; }
+  @media (max-width: 36rem) {
+    .list li { grid-template-columns: minmax(0, 1fr) auto; }
+    .list .who { grid-column: 1 / -1; }
+    .list .state { text-align: left; }
+  }
+  .drop {
+    max-width: 46rem; border: 1px dashed var(--quiet); border-radius: 4px;
+    padding: 0.9rem 1rem; margin: 0 0 1.1rem;
+  }
+  .drop.over { background: var(--rule); }
+  .drop p { margin: 0 0 0.6rem; }
+  .drop p:last-child { margin: 0; }
+  .empty { color: var(--quiet); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+
+<p class="back"><a href="../">wander</a></p>
+<h1>Kompakt tweaks</h1>
+
+<p class="lede">A few settings the Kompakt keeps out of reach, changed from Chrome or Edge on a
+computer over a USB cable. Each one says what it does, reads how the phone is set now, shows the
+command it runs, and can be put back from here.</p>
+
+<section id="connect">
+<h2>Connecting</h2>
+<ol>
+  <li>On the phone, tap <b>Build number</b> in Settings &rarr; About until it says you are a
+  developer, then turn on <b>USB debugging</b> in Settings &rarr; System &rarr; Developer
+  options.</li>
+  <li>Plug the phone into this computer. If you use adb, run <code>adb kill-server</code> first:
+  the computer's own adb holds the phone, and this page can't reach it while it does.</li>
+  <li>Press Connect, choose the phone, and allow the prompt on its screen.</li>
+</ol>
+<div class="controls">
+  <button type="button" class="act" id="connect-btn">Connect</button>
+  <span class="state" id="status">Not connected.</span>
+</div>
+<p class="out bad" id="nousb" hidden>This page reaches the phone through WebUSB, which only Chrome
+and Edge on a computer have. Firefox and Safari don't, and neither does a phone's own browser.</p>
+<p class="runs">Nothing about the phone leaves this computer. The page and the phone talk over the
+cable, and the key the phone is asked to trust is made in this browser and kept there. The page
+asks nothing of any other site.</p>
+</section>
+
+<section class="tweak" id="browser">
+<h2>Hidden browser</h2>
+<p>The Kompakt carries a bare browser with no icon, WebView Shell, and web links open in it until
+it is switched off. Android's WebView engine is a separate piece and stays, so pages inside
+apps keep working; links then go to another browser you have installed, such as EinkBro. With no
+other browser, links open nothing.</p>
+<div class="controls">
+  <span class="state" data-state>&mdash;</span>
+  <button type="button" class="act" data-act disabled>Switch it off</button>
+</div>
+<p class="out" data-out hidden></p>
+<p class="runs">Runs <code>pm disable-user --user 0 org.chromium.webview_shell</code>, and to put it
+back <code>pm enable --user 0 org.chromium.webview_shell</code>. Reads
+<code>pm list packages -d</code>.</p>
+</section>
+
+<section class="tweak" id="install">
+<h2>Installing an app</h2>
+<p>Drop an app's <code>.apk</code> file in the box and it is installed on the phone, or updated in
+place with its settings kept if it is there already. Any app will do: one downloaded from a
+developer's site, from GitHub's releases, or from F-Droid.</p>
+<div class="drop" data-drop>
+  <p>Drop an <code>.apk</code> here, or
+  <label><input type="file" accept=".apk,application/vnd.android.package-archive" data-file disabled></label></p>
+  <p class="out" data-out hidden></p>
+</div>
+<p class="runs">Copies the file to <code>/data/local/tmp/</code>, runs <code>pm install -r</code> on
+it, then <code>rm</code> to delete the copy. To remove an app, uninstall it on the phone as usual.</p>
+</section>
+
+<section class="tweak" id="background">
+<h2>Letting an app run in the background</h2>
+<p>With the screen off, Android holds apps back to save battery, so messages and reminders can come
+late; an app on this list is let through, at some cost in battery.</p>
+<ul class="list" data-list><li class="empty">Connect to see the apps on the phone.</li></ul>
+<p class="runs">Runs <code>dumpsys deviceidle whitelist +&lt;package&gt;</code>, and to put it back
+<code>dumpsys deviceidle whitelist -&lt;package&gt;</code>. Reads
+<code>dumpsys deviceidle whitelist</code> and <code>pm list packages -3</code>.</p>
+<p data-duraspeed>Mudita's phones also run DuraSpeed, which closes apps on its own and keeps its
+own list; a texting app it has closed loses the texts that arrive meanwhile. This page leaves
+DuraSpeed alone, because adb can add to its list but not take anything off it. To let an app
+through, open DuraSpeed, press <b>Open</b>, and switch the app on.</p>
+<div class="controls">
+  <button type="button" class="act" data-dura disabled>Open DuraSpeed on the phone</button>
+</div>
+<p class="out" data-out hidden></p>
+<p class="runs">Runs <code>am start -a android.settings.APPLICATION_DETAILS_SETTINGS -d package:com.mediatek.duraspeed</code>,
+which only opens a screen.</p>
+</section>
+
+<section class="tweak" id="defaults">
+<h2>Default apps</h2>
+<p>Which app takes texts, places calls, draws the home screen and opens web links; only apps that
+can do the job are offered. To go back, choose the one it was.</p>
+<ul class="list" data-list></ul>
+<p class="runs">Runs <code>cmd role add-role-holder &lt;role&gt; &lt;package&gt;</code> with
+<code>android.app.role.SMS</code>, <code>DIALER</code>, <code>HOME</code> or
+<code>BROWSER</code>. Reads <code>dumpsys role</code>, and finds the apps with
+<code>cmd package query-activities</code>.</p>
+</section>
+
+<section class="tweak" id="stock">
+<h2>Hiding Mudita's own apps</h2>
+<p>A hidden app leaves the app list and stops running, keeping what it stored, and comes back as it
+was. Only apps another can stand in for are offered; the phone app, home screen, Settings and
+updater are not.</p>
+<ul class="list" data-list></ul>
+<p class="runs">Runs <code>pm disable-user --user 0 &lt;package&gt;</code>, and to bring it back
+<code>pm enable --user 0 &lt;package&gt;</code>. Reads <code>pm list packages -d</code>.</p>
+</section>
+
+<section class="tweak" id="animations">
+<h2>Animations</h2>
+<p>Windows slide and fade as they open and close, which an E Ink screen draws as a smear of
+in-between frames; with animations off they simply appear.</p>
+<div class="controls">
+  <span class="state" data-state>&mdash;</span>
+  <button type="button" class="act" data-act disabled>Turn them off</button>
+</div>
+<p class="out" data-out hidden></p>
+<p class="runs">Runs <code>settings put global window_animation_scale 0</code>, the same for
+<code>transition_animation_scale</code> and <code>animator_duration_scale</code>, and 1 for each to
+put them back. Reads <code>settings get global &hellip;</code>.</p>
+</section>
+
+<section class="tweak" id="dns">
+<h2>Private DNS</h2>
+<p>The phone looks up every address it visits; with a private DNS server it asks that server
+alone, encrypted, such as <code>dns.quad9.net</code>. The Kompakt's Settings has no page for it. If
+the server can't be reached, nothing online works until this is set back to Automatic.</p>
+<div class="controls">
+  <span class="state" data-state>&mdash;</span>
+</div>
+<div class="controls" style="margin-top:0.6rem">
+  <button type="button" class="act" data-dns="auto" disabled>Automatic, as it came</button>
+  <button type="button" class="act" data-dns="off" disabled>Off</button>
+</div>
+<div class="controls" style="margin-top:0.6rem">
+  <input type="text" data-host placeholder="dns.quad9.net" aria-label="Private DNS hostname"
+         autocomplete="off" spellcheck="false" size="22" disabled>
+  <button type="button" class="act" data-dns="host" disabled>Use this server</button>
+</div>
+<p class="out" data-out hidden></p>
+<p class="runs" style="margin-top:1.1rem">Runs <code>settings put global private_dns_specifier &lt;hostname&gt;</code>
+and <code>settings put global private_dns_mode hostname</code>; Off is <code>settings put global
+private_dns_mode off</code>, Automatic <code>settings delete global private_dns_mode</code>. Reads
+<code>settings get global private_dns_mode</code>.</p>
+</section>
+
+</main>
+<script type="module" src="page.js"></script>
+</body>
+</html>
