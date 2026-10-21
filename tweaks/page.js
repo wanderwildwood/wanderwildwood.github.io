@@ -2,7 +2,7 @@ import {
   Adb, AdbDaemonTransport, AdbDaemonWebUsbDeviceManager, AdbDaemonWebUsbDevice, AdbWebCredentialStore,
 } from "./adb.js";
 import * as L from "./lib.js";
-import { APPS, STOCK, NAMES } from "./apps.js";
+import { STOCK, NAMES } from "./apps.js";
 
 const SHELL_BROWSER = "org.chromium.webview_shell";
 const DURASPEED = "com.mediatek.duraspeed";
@@ -105,52 +105,6 @@ async function readBrowser() {
 
 // ---- 2. installing -----------------------------------------------------------------------
 
-let versions = new Map();
-const latest = new Map();   // repo -> tag, from GitHub's API, which does allow other sites
-
-function renderApps() {
-  const s = sec("install"), list = $("[data-list]", s);
-  list.replaceChildren(...APPS.map((a) => {
-    const v = versions.get(a.pkg);
-    const tag = latest.get(a.repo);
-    let state = adb ? (v ? `${v} installed` : "Not installed") : "";
-    // "Download update" only where there is one; an app already current just says Download.
-    const behind = !!(v && tag && L.isNewer(tag, v));
-    if (behind) state += `; ${tag.replace(/^v/, "").replace(/-.*/, "")} is out`;
-    return el("li", {},
-      el("span", { class: "who" },
-        el("span", { class: "name", text: a.name }),
-        el("span", { class: "line", text: a.line })),
-      el("span", { class: "state" + (v ? " on" : ""), text: state }),
-      el("a", {
-        href: `https://github.com/wanderwildwood/${a.repo}/releases/latest/download/${a.asset}`,
-        text: behind ? "Download update" : "Download",
-      }));
-  }));
-}
-
-async function readVersions() {
-  versions = L.parseVersions((await sh(L.cmd.versions())).out);
-  renderApps();
-  // The newest release of every app, not only those installed, so the requests say nothing
-  // about the phone. One API call each, kept for this visit.
-  for (const a of APPS) {
-    if (latest.has(a.repo)) continue;
-    let tag = null;
-    try { tag = sessionStorage.getItem("tag:" + a.repo); } catch (e) {}
-    if (!tag) {
-      try {
-        const r = await fetch(`https://api.github.com/repos/wanderwildwood/${a.repo}/releases/latest`);
-        if (!r.ok) break;   // out of the hourly allowance; versions still show
-        tag = (await r.json()).tag_name;
-        try { sessionStorage.setItem("tag:" + a.repo, tag); } catch (e) {}
-      } catch (e) { break; }
-    }
-    if (tag) latest.set(a.repo, tag);
-  }
-  renderApps();
-}
-
 const INSTALL_WHY = {
   INSTALL_FAILED_UPDATE_INCOMPATIBLE:
     "A copy signed by someone else is already installed. Uninstalling it first would delete its data.",
@@ -181,7 +135,6 @@ async function installFile(file) {
     say(box, "That didn't go through: " + (e && e.message ? e.message : e), true);
   }
   try { await sh(L.cmd.removeTemp(remote)); } catch (e) {}
-  try { await readVersions(); } catch (e) {}
   lockAll(false);
 }
 
@@ -326,14 +279,13 @@ function wireDns() {
 // ---- connecting --------------------------------------------------------------------------
 
 async function readAll() {
-  const steps = [readBrowser, readVersions, readBackground, readDefaults, readStock, readAnimations, readDns];
+  const steps = [readBrowser, readBackground, readDefaults, readStock, readAnimations, readDns];
   for (const f of steps) {
     try { await f(); } catch (e) { console.error(e); }
   }
 }
 
 function placeholders() {
-  renderApps();
   for (const id of ["defaults", "stock", "background"]) {
     $(`#${id} [data-list]`).replaceChildren(el("li", { class: "empty", text: "Connect to see what is on the phone." }));
   }
