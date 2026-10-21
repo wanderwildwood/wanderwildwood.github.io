@@ -126,8 +126,8 @@ command it runs, and can be put back from here.</p>
 <p class="out bad" id="nousb" hidden>This page reaches the phone through WebUSB, which only Chrome
 and Edge on a computer have. Firefox and Safari don't, and neither does a phone's own browser.</p>
 <p class="runs">Nothing about the phone leaves this computer. The page and the phone talk over the
-cable, and the key the phone is asked to trust is made in this browser and kept there. The one
-other request is to GitHub, for the newest version of each app below.</p>
+cable, and the key the phone is asked to trust is made in this browser and kept there. The page
+asks nothing of any other site.</p>
 </section>
 
 <section class="tweak" id="browser">
@@ -147,19 +147,17 @@ back <code>pm enable --user 0 org.chromium.webview_shell</code>. Reads
 </section>
 
 <section class="tweak" id="install">
-<h2>Installing the apps from this site</h2>
-<p>Download an app, then drop the file in the box, and it is installed or updated in place with its
-settings kept. GitHub's downloads can't be fetched by a page on another site, so the file passes
-through your Downloads folder.</p>
+<h2>Installing an app</h2>
+<p>Drop an app's <code>.apk</code> file in the box and it is installed on the phone, or updated in
+place with its settings kept if it is there already. Any app will do: one downloaded from a
+developer's site, from GitHub's releases, or from F-Droid.</p>
 <div class="drop" data-drop>
-  <p>Drop a downloaded <code>.apk</code> here, or
+  <p>Drop an <code>.apk</code> here, or
   <label><input type="file" accept=".apk,application/vnd.android.package-archive" data-file disabled></label></p>
   <p class="out" data-out hidden></p>
 </div>
-<ul class="list" data-list></ul>
 <p class="runs">Copies the file to <code>/data/local/tmp/</code>, runs <code>pm install -r</code> on
-it, then <code>rm</code> to delete the copy. Reads versions with
-<code>dumpsys package packages</code>. To remove an app, uninstall it on the phone as usual.</p>
+it, then <code>rm</code> to delete the copy. To remove an app, uninstall it on the phone as usual.</p>
 </section>
 
 <section class="tweak" id="background">
