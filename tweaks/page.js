@@ -114,7 +114,9 @@ function renderApps() {
     const v = versions.get(a.pkg);
     const tag = latest.get(a.repo);
     let state = adb ? (v ? `${v} installed` : "Not installed") : "";
-    if (v && tag && L.isNewer(tag, v)) state += `; ${tag.replace(/^v/, "").replace(/-.*/, "")} is out`;
+    // "Download update" only where there is one; an app already current just says Download.
+    const behind = !!(v && tag && L.isNewer(tag, v));
+    if (behind) state += `; ${tag.replace(/^v/, "").replace(/-.*/, "")} is out`;
     return el("li", {},
       el("span", { class: "who" },
         el("span", { class: "name", text: a.name }),
@@ -122,7 +124,7 @@ function renderApps() {
       el("span", { class: "state" + (v ? " on" : ""), text: state }),
       el("a", {
         href: `https://github.com/wanderwildwood/${a.repo}/releases/latest/download/${a.asset}`,
-        text: v ? "Download update" : "Download",
+        text: behind ? "Download update" : "Download",
       }));
   }));
 }
