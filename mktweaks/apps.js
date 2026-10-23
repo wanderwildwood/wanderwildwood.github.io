@@ -34,7 +34,7 @@ export const APPS = [
   ["kinokocho", "kinokocho.apk", "com.wanderwildwood.kinokocho", "Mushroom Journal", "Write a mushroom down where it grows; work it out at home."],
   ["yorimichi", "yorimichi.apk", "com.wanderwildwood.yorimichi", "Detour", "Picks somewhere near you to walk to, for no particular reason."],
   ["chikei", "chikei.apk", "com.wanderwildwood.chikei", "Topo", "Maps for walking off the road, offline once downloaded."],
-  ["amime", "amime.apk", "com.wanderwildwood.amime", "Mesh", "A companion for a MeshCore LoRa radio."],
+  ["amime", "amime.apk", "com.wanderwildwood.amime", "Mesh", "A companion for MeshCore and Meshtastic LoRa radios."],
   ["soramoyo", "soramoyo.apk", "com.wanderwildwood.soramoyo", "Sky", "The days ahead, the rain radar, the moon and the sun's hours."],
   ["zatsuno", "zatsuno.apk", "com.wanderwildwood.zatsuno", "Field Kit", "First aid, knots, a compass and SOS on the flash."],
   ["onsa", "onsa.apk", "com.wanderwildwood.onsa", "Tuner", "A tuner, chromatic or by instrument."],
