@@ -45,6 +45,7 @@
   a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; }
   a:hover { text-decoration-style: dotted; }
   .lede { color: var(--quiet); max-width: none; }   /* a section's opening line runs the full width */
+  .jump { display: flex; flex-wrap: wrap; gap: 0.3rem 1.75rem; margin: 0 0 1.5rem; font-size: 0.95rem; }
   .ethos { margin-bottom: 0; }
   .aside { font-size: 0.9rem; color: var(--quiet); margin: 0.9rem 0 0; }
   /* The drawing beside the name and what this is; on a phone, above it. */
@@ -161,19 +162,23 @@
 <h2>For the Mudita Kompakt</h2>
 
 <p class="lede">The <a href="https://mudita.com/products/kompakt/">Kompakt</a> is an Android phone
-with a black-and-white E Ink screen that redraws slowly. Everything here is drawn for that screen,
-so nothing animates and every page can be read in sunlight. A few settings the phone keeps out of
-reach, such as the hidden browser and the default apps, can be changed from a computer over USB on
-<a href="mktweaks/">Kompakt tweaks</a>.</p>
+with a black-and-white E Ink screen. Everything here is drawn for it: nothing animates, and every page
+reads in sunlight. A few settings the phone keeps out of reach, such as the hidden browser and the
+default apps, can be changed from a computer over USB on <a href="mktweaks/">Kompakt tweaks</a>.</p>
 
 <p class="lede">Each app has a download link, and <a href="https://github.com/ImranR98/Obtainium">Obtainium</a>
-can keep them up to date from their GitHub pages. I put out a fix as soon as it is ready, so updates come
+can keep them updated from their GitHub pages. I put out fixes as soon as they are ready, so updates come
 often. If Obtainium says "rate limit exceeded", give it a free GitHub personal access token in its settings
-(no permissions needed): GitHub lets it check about 5,000 times an hour with one, and about 60 without.</p>
+(no permissions needed). To update by hand, download the newer APK and open it: it installs over the old
+one and keeps your data.</p>
 
-<p class="lede">Installing by hand works too. An update never applies itself: download the newer APK and
-open it, and it installs over the old one and keeps your data; nothing needs uninstalling. Each
-app's GitHub releases page needs no account.</p>
+<nav class="jump" aria-label="Sections">
+<a href="#everyday">Everyday</a>
+<a href="#reading">Reading, writing, listening</a>
+<a href="#outdoors">Outdoors</a>
+<a href="#instruments">Instruments</a>
+<a href="#games">Games</a>
+</nav>
 
 <!-- Each app card's description (p.en, and p.ja saying the same) is 40 to 45 words, counted with the tags stripped. Write a new card, or edit one, to that length. Wander, the game card at the top, is the one exception and runs longer. -->
 <div class="apps">
