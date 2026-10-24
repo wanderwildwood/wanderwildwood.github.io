@@ -52,9 +52,6 @@
   .intro-body { flex: 1 1 24rem; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2.25rem; }
   .feedbox { flex: none; margin-left: auto; }   /* to the right of the text, centred against it, opposite the drawing; below it on a phone */
   .feed { margin: 0; max-width: none; }
-  .after-sanpo { margin: 1.75rem 0 0; }
-  .after-sanpo .feed { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.75rem; }
-  .after-sanpo .feed[hidden] { display: none; }   /* the language not chosen: a display rule would otherwise beat hidden */
   .or { color: var(--quiet); }
   .feedbox .feed { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
   .feedbox .feed[hidden] { display: none; }
@@ -182,11 +179,6 @@
   <p class="ja" lang="ja" hidden>一度の散歩は一日。朝の霧から夕暮れまで、本当の時計でおよそ十二分。勝ち負けはなく、画面に言葉もない。籠がいっぱいになるまできのこを集め、あとは残しておく。古い焚き火の跡を長押しすれば火が熾り、火を長押しすればお茶。立ち止まれば、クモは草を食み、ハミングし、見落としたアンズタケを見つける。その耳は、気づかなかったものの方へ向く。待っていれば、ナメクジが道を横切り、鹿が立ち止まって耳をすまし、遠くの森がひらける。季節は暦のとおりに、天気は電話に<a href="#soramoyo">空模様</a>があればそこから。夕暮れにはランタンが灯り、野営をする。その夜にもう一度開けば、テントがあり、そばでクモが眠っていて、ノートには出会ったものがみな描かれている。</p>
   <p class="ja" lang="ja" hidden>2026年11月13日に。</p>
 </div>
-</div>
-
-<div class="after-sanpo">
-  <p class="feed en"><a class="feedlink" href="https://hotspringsllamas.org/donate/"><svg class="llama" aria-hidden="true"><use href="#llama"/></svg><span>feed the llamas</span></a><span class="or">or <a href="https://github.com/sponsors/wanderwildwood">sponsor me on GitHub</a></span></p>
-  <p class="feed ja" lang="ja" hidden><a class="feedlink" href="https://hotspringsllamas.org/donate/"><svg class="llama" aria-hidden="true"><use href="#llama"/></svg><span>ラマに餌をやる</span></a><span class="or">または<a href="https://github.com/sponsors/wanderwildwood">GitHubでスポンサーになる</a></span></p>
 </div>
 
 <h2>For the Mudita Kompakt</h2>
@@ -997,10 +989,6 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     var box = b.closest('.app, .intro'), ja = b.getAttribute('aria-pressed') !== 'true';
     box.querySelectorAll('p.en').forEach(function (p) { p.hidden = ja; });
     box.querySelectorAll('p.ja').forEach(function (p) { p.hidden = !ja; });
-    if (box.id === 'sanpo' || box.classList.contains('intro')) {
-      document.querySelectorAll('.after-sanpo p.en').forEach(function (p) { p.hidden = ja; });
-      document.querySelectorAll('.after-sanpo p.ja').forEach(function (p) { p.hidden = !ja; });
-    }
     b.setAttribute('aria-pressed', ja ? 'true' : 'false');
   });
 });
