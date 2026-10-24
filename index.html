@@ -995,7 +995,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     var box = b.closest('.app, .intro'), ja = b.getAttribute('aria-pressed') !== 'true';
     box.querySelectorAll('p.en').forEach(function (p) { p.hidden = ja; });
     box.querySelectorAll('p.ja').forEach(function (p) { p.hidden = !ja; });
-    if (box.id === 'sanpo') {
+    if (box.id === 'sanpo' || box.classList.contains('intro')) {
       document.querySelectorAll('.after-sanpo p.en').forEach(function (p) { p.hidden = ja; });
       document.querySelectorAll('.after-sanpo p.ja').forEach(function (p) { p.hidden = !ja; });
     }
