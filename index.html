@@ -48,6 +48,16 @@
   .jump { display: flex; flex-wrap: wrap; gap: 0.3rem 1.75rem; margin: 0 0 1.5rem; font-size: 0.95rem; }
   .ethos { margin-bottom: 0; }
   .aside { font-size: 0.9rem; color: var(--quiet); margin: 0.9rem 0 0; }
+  /* The one thing on the page that asks for something: the llama from the tattoo, large, and a button. */
+  .feed { margin: 1.4rem 0 0; max-width: none; }
+  .feedlink {
+    display: inline-flex; align-items: center; gap: 1rem;
+    padding: 0.6rem 1.5rem 0.6rem 1.1rem;
+    border: 2px solid var(--ink); text-decoration: none;
+    font-weight: 600; font-size: 1.2rem; line-height: 1.2;
+  }
+  .feedlink:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+  .feedlink .llama { width: 4.25rem; height: 4.25rem; flex: none; }
   /* The drawing beside the name and what this is; on a phone, above it. */
   .intro {
     display: flex; flex-wrap: wrap; align-items: flex-start;
@@ -118,6 +128,7 @@
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="llama" viewBox="0 0 96 96"><path fill="currentColor" d="M67.86,20.15L67.86,35.75L35.93,35.75L4.0,35.75L4.0,43.92L4.0,52.08L8.08,52.08L12.17,52.08L12.17,60.25L12.17,68.42L16.25,68.42L20.34,68.42L20.34,79.93L20.34,91.44L24.42,91.44L28.51,91.44L28.51,76.22L28.51,61.0L32.22,61.0L35.93,61.0L35.93,64.71L35.93,68.42L40.02,68.42L44.1,68.42L44.1,72.14L44.1,75.85L51.9,75.85L59.7,75.85L59.7,83.65L59.7,91.44L63.78,91.44L67.86,91.44L67.86,79.93L67.86,68.5L72.17,68.27L76.41,68.05L76.48,66.94L76.55,65.82L76.63,63.0L76.78,60.25L80.49,60.25L84.2,60.25L84.2,40.65L84.2,20.97L88.14,20.75L92.0,20.52L92.0,16.44L92.0,12.35L84.05,12.13L76.03,11.91L76.03,8.27L76.03,4.56L71.95,4.56L67.86,4.56L67.86,20.15Z"/></symbol></svg>
 <main>
 
 <div class="intro">
@@ -135,6 +146,8 @@
     <a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>.</p>
     <p class="ethos ja" lang="ja" hidden>小さなものを作っている。ほとんどは小さな電子ペーパーの電話のためのもので、そのいくつかがやりとりする家のサーバーも少しいじっている。どれも自分のことだけをする——アカウントも、私に送られるものも、世話の要るものもない。仕事の大半は、何を省くかを決めること。</p>
     <p class="aside ja" lang="ja" hidden>ここにあるものは売り物ではない。それでも何か贈りたければ、<a href="https://hotspringsllamas.org/donate/">ラマたち</a>が干し草をたくさん食べている。壊れているところがあれば、issueを開くか、<a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>まで。</p>
+    <p class="feed en"><a class="feedlink" href="https://hotspringsllamas.org/donate/"><svg class="llama" aria-hidden="true"><use href="#llama"/></svg><span>feed the llamas</span></a></p>
+    <p class="feed ja" lang="ja" hidden><a class="feedlink" href="https://hotspringsllamas.org/donate/"><svg class="llama" aria-hidden="true"><use href="#llama"/></svg><span>ラマに餌をやる</span></a></p>
   </div>
 </div>
 
