@@ -49,7 +49,8 @@
   .ethos { margin-bottom: 0; }
   .aside { font-size: 0.9rem; color: var(--quiet); margin: 0.9rem 0 0; }
   /* The one thing on the page that asks for something: the llama from the tattoo, large, and a button. */
-  .feed { margin: 1.4rem 0 0; max-width: none; }
+  .feedbox { flex: none; margin-left: auto; align-self: flex-start; }   /* to the right of the text, opposite the drawing; below it on a phone */
+  .feed { margin: 0; max-width: none; }
   .feedlink {
     display: inline-flex; align-items: center; gap: 1rem;
     padding: 0.6rem 1.5rem 0.6rem 1.1rem;
@@ -146,8 +147,10 @@
     <a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>.</p>
     <p class="ethos ja" lang="ja" hidden>小さなものを作っている。ほとんどは小さな電子ペーパーの電話のためのもので、そのいくつかがやりとりする家のサーバーも少しいじっている。どれも自分のことだけをする——アカウントも、私に送られるものも、世話の要るものもない。仕事の大半は、何を省くかを決めること。</p>
     <p class="aside ja" lang="ja" hidden>ここにあるものは売り物ではない。それでも何か贈りたければ、<a href="https://hotspringsllamas.org/donate/">ラマたち</a>が干し草をたくさん食べている。壊れているところがあれば、issueを開くか、<a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>まで。</p>
-    <p class="feed en"><a class="feedlink" href="https://hotspringsllamas.org/donate/"><svg class="llama" aria-hidden="true"><use href="#llama"/></svg><span>feed the llamas</span></a></p>
-    <p class="feed ja" lang="ja" hidden><a class="feedlink" href="https://hotspringsllamas.org/donate/"><svg class="llama" aria-hidden="true"><use href="#llama"/></svg><span>ラマに餌をやる</span></a></p>
+  </div>
+  <div class="feedbox">
+  <p class="feed en"><a class="feedlink" href="https://hotspringsllamas.org/donate/"><svg class="llama" aria-hidden="true"><use href="#llama"/></svg><span>feed the llamas</span></a></p>
+  <p class="feed ja" lang="ja" hidden><a class="feedlink" href="https://hotspringsllamas.org/donate/"><svg class="llama" aria-hidden="true"><use href="#llama"/></svg><span>ラマに餌をやる</span></a></p>
   </div>
 </div>
 
@@ -977,7 +980,7 @@ film is put together <a href="https://lyminalkin.com">elsewhere</a>.</p>
 <script>
 document.querySelectorAll('button.jp').forEach(function (b) {
   b.addEventListener('click', function () {
-    var box = b.closest('.app, .intro-text'), ja = b.getAttribute('aria-pressed') !== 'true';
+    var box = b.closest('.app, .intro'), ja = b.getAttribute('aria-pressed') !== 'true';
     box.querySelectorAll('p.en').forEach(function (p) { p.hidden = ja; });
     box.querySelectorAll('p.ja').forEach(function (p) { p.hidden = !ja; });
     b.setAttribute('aria-pressed', ja ? 'true' : 'false');
