@@ -51,11 +51,11 @@
   .ethos { margin-bottom: 0; }
   .aside { font-size: 0.9rem; color: var(--quiet); margin: 0.9rem 0 0; }
   /* The one thing on the page that asks for something: the llama from the tattoo, large, and a button. */
-  .intro-body { flex: 1 1 24rem; min-width: 0; display: flex; flex-direction: column; align-items: stretch; gap: 1.25rem; }   /* the text runs the width of the picture below */
-  .feedbox { flex: none; align-self: stretch; }   /* the two buttons sit under the text, centred on it */
+  .intro-body { flex: 1 1 24rem; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2.25rem; }   /* the text in the middle, the two buttons stacked on the right; below the text on a phone */
+  .feedbox { flex: none; margin-left: auto; }   /* to the right of the text, opposite the drawing */
   .feed { margin: 0; max-width: none; }
-  .feedbox .feed { display: grid; grid-template-columns: 1fr 1fr; justify-items: center; align-items: stretch; gap: 1rem; }   /* two columns under the text, a button centred in each */
-  @media (max-width: 36rem) { .feedbox .feed { grid-template-columns: 1fr; } }
+  .feedbox .feed { display: flex; flex-direction: column; align-items: stretch; gap: 0.9rem; }   /* the llamas over the sponsor, the same width */
+  .feedbox .feedlink { justify-content: flex-start; }
   .feedbox .feed[hidden] { display: none; }
   .feedlink {
     display: inline-flex; align-items: center; gap: 0.9rem;
@@ -72,9 +72,7 @@
     display: flex; flex-wrap: wrap; align-items: flex-start;
     gap: 1.5rem 2.25rem; margin-bottom: 1.5rem;
   }
-  .intro-text { flex: 0 0 auto; min-width: 0; }
-  .intro-text p { max-width: none; }   /* runs the width of the picture below, as the game's text does */
-  .intro-text p:last-child { margin-bottom: 0; }
+  .intro-text { flex: 1 1 18rem; min-width: 0; }
   .intro h1 { margin-bottom: 0.9rem; }
   .portrait {
     width: 246px; height: 246px; flex: none;
