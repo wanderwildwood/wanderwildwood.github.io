@@ -54,7 +54,8 @@
   .intro-body { flex: 1 1 24rem; min-width: 0; display: flex; flex-direction: column; align-items: stretch; gap: 1.25rem; }   /* the text runs the width of the picture below */
   .feedbox { flex: none; align-self: stretch; }   /* the two buttons sit under the text, centred on it */
   .feed { margin: 0; max-width: none; }
-  .feedbox .feed { display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: 1rem 2.75rem; }   /* side by side; one over the other on a phone */
+  .feedbox .feed { display: grid; grid-template-columns: 1fr 1fr; justify-items: center; align-items: stretch; gap: 1rem; }   /* two columns under the text, a button centred in each */
+  @media (max-width: 36rem) { .feedbox .feed { grid-template-columns: 1fr; } }
   .feedbox .feed[hidden] { display: none; }
   .feedlink {
     display: inline-flex; align-items: center; gap: 0.9rem;
