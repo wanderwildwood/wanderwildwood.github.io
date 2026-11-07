@@ -54,7 +54,7 @@
   p { margin: 0 0 1.1rem; }
   a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; }
   a:hover { text-decoration-style: dotted; }
-  .lede { max-width: 42rem; }   /* a section's opening lines: ink, and short enough to read (2026-11-06) */
+  .lede { color: var(--quiet); max-width: none; }   /* a section's opening line runs the full width (his choice, kept 2026-11-06) */
   .coming { font-weight: normal; color: var(--quiet); }   /* beside the game's title, in the page's quiet color */
   .coming[hidden] { display: none; }
   .jump { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0.4rem 2rem; margin: 0 0 1.5rem; font-size: 1.2rem; }   /* the section links sit together on the left */
@@ -118,7 +118,7 @@
   .app.full { grid-column: 1 / -1; }
   .app.full .shot { aspect-ratio: 2 / 1; max-width: none; image-rendering: pixelated; }
   .app.full p { max-width: 34rem; }
-  #sanpo p { max-width: 42rem; }   /* the game's text, the same measure as the ledes */
+  #sanpo p { max-width: none; }   /* the game's text runs the width of its picture */
   .app.wide p { max-width: 34rem; }
   @media (max-width: 36rem) { .app.wide { grid-column: auto; } .app.wide .shot { max-width: none; } }
 
