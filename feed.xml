@@ -4,8 +4,15 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-07T02:29:45Z</updated>
+  <updated>2026-11-07T10:53:38Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Lens 0.1.31</title>
+    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.31"/>
+    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.31</id>
+    <updated>2026-11-07T10:53:38Z</updated>
+    <content type="text">Lens 0.1.31: the viewfinder sits right under the top of the screen, with no black strip above it and nothing of the picture hidden behind the buttons</content>
+  </entry>
   <entry>
     <title>Handset 0.1.29</title>
     <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.29"/>
@@ -422,12 +429,5 @@
     <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.58</id>
     <updated>2026-11-05T15:30:45Z</updated>
     <content type="text">Audio Reader 1.3.58: the list shows the next row cut at the foot of the page again, instead of a blank band</content>
-  </entry>
-  <entry>
-    <title>Mailbox 0.1.44</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.44"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.44</id>
-    <updated>2026-11-05T15:21:41Z</updated>
-    <content type="text">Mailbox 0.1.44: the inbox shows the next message cut at the foot of the page again, instead of a blank band</content>
   </entry>
 </feed>
