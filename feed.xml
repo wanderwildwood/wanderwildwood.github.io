@@ -4,15 +4,8 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-07T02:29:45Z</updated>
+  <updated>2026-11-07T02:00:55Z</updated>
   <author><name>wander wildwood</name></author>
-  <entry>
-    <title>Handset 0.1.29</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.29"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.29</id>
-    <updated>2026-11-07T02:29:45Z</updated>
-    <content type="text">Handset 0.1.29: a long switch label in Settings wraps onto a third line instead of being cut off</content>
-  </entry>
   <entry>
     <title>Messaging 1.35.22</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.22"/>
@@ -429,5 +422,12 @@
     <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.44</id>
     <updated>2026-11-05T15:21:41Z</updated>
     <content type="text">Mailbox 0.1.44: the inbox shows the next message cut at the foot of the page again, instead of a blank band</content>
+  </entry>
+  <entry>
+    <title>Feeds 0.6.6</title>
+    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.6"/>
+    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.6</id>
+    <updated>2026-11-05T14:29:21Z</updated>
+    <content type="text">Feeds 0.6.6: the screen turns with the phone the way Android itself decides it, so it no longer turns sideways while the phone lies on a desk</content>
   </entry>
 </feed>
