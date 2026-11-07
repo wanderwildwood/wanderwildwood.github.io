@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Write feed.xml: an Atom feed of the latest releases of the apps on index.html.
 
-Run from the repo root after an evening release:  python3 _tools/make-feed.py
+Runs every three hours in .github/workflows/feed.yml; by hand from the repo root:  python3 _tools/make-feed.py
 Needs the gh CLI (signed in). Jekyll leaves _tools/ out of the published site.
 """
 import html, json, re, subprocess, sys
