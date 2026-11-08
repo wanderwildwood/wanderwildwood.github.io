@@ -4,8 +4,85 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-08T13:22:26Z</updated>
+  <updated>2026-11-08T16:03:38Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Remote 0.2.21</title>
+    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.21"/>
+    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.21</id>
+    <updated>2026-11-08T16:03:38Z</updated>
+    <content type="text">Remote 0.2.21: after the phone is locked and unlocked, Remote registers with Bluetooth again by itself and reconnects to the computer it was driving, instead of failing to register until Bluetooth is turned off and on; a list whose rows arrive late opens on its first row</content>
+  </entry>
+  <entry>
+    <title>Handheld Games 0.1.36</title>
+    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.36"/>
+    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.36</id>
+    <updated>2026-11-08T14:54:03Z</updated>
+    <content type="text">Handheld Games 0.1.36: a settings page whose rows load a moment late (Settings → Advanced) no longer opens blank</content>
+  </entry>
+  <entry>
+    <title>Bitcoin 0.1.10</title>
+    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.10"/>
+    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.10</id>
+    <updated>2026-11-08T14:27:24Z</updated>
+    <content type="text">Bitcoin 0.1.10: the old wallet&#x27;s names, logos and links are gone from every screen and language, and a hardware wallet is simply your hardware wallet; help points to this app&#x27;s own help page; lists turn page by page on whole rows, with the row cut at the foot shown in long lists; links open in your chosen browser, or Android&#x27;s chooser when you have several.</content>
+  </entry>
+  <entry>
+    <title>Shelf 0.1.35</title>
+    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.35"/>
+    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.35</id>
+    <updated>2026-11-08T14:23:20Z</updated>
+    <content type="text">Shelf 0.1.35: an older Norwegian book filed under its ISBN-10 alone is found in the Nasjonalbiblioteket; a book from Portugal is looked up in PORBASE; a book no catalog knows is asked of K10plus, the German union catalog, before Google Books</content>
+  </entry>
+  <entry>
+    <title>Mailbox 0.1.52</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.52"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.52</id>
+    <updated>2026-11-08T14:11:57Z</updated>
+    <content type="text">Mailbox 0.1.52: Glance can open Mailbox at its own lock-screen setting (Settings, Notifications, Unread mail on the lock screen), and Back returns to Glance; a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck</content>
+  </entry>
+  <entry>
+    <title>Tarot 0.1.21</title>
+    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.21"/>
+    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.21</id>
+    <updated>2026-11-08T14:09:35Z</updated>
+    <content type="text">Tarot 0.1.21: American spelling in three card texts (favor, favors)</content>
+  </entry>
+  <entry>
+    <title>Topo 0.2.15</title>
+    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.15"/>
+    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.15</id>
+    <updated>2026-11-08T13:59:31Z</updated>
+    <content type="text">Topo 0.2.15: dotted rules between list rows (paths, path points, beacons, notes, packs and the rest) in place of the solid lines</content>
+  </entry>
+  <entry>
+    <title>Time 0.2.22</title>
+    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.22"/>
+    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.22</id>
+    <updated>2026-11-08T13:59:04Z</updated>
+    <content type="text">Time 0.2.22: choosing a file as an alarm sound goes through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise</content>
+  </entry>
+  <entry>
+    <title>Chess+ 1.3.25-chessplus</title>
+    <link href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.25-chessplus"/>
+    <id>https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.25-chessplus</id>
+    <updated>2026-11-08T13:58:48Z</updated>
+    <content type="text">Chess+ 1.3.25: the moves list shows the row the foot of the page cuts through, so a page no longer ends on a blank band; a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck</content>
+  </entry>
+  <entry>
+    <title>Translate 0.9.20</title>
+    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.20"/>
+    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.20</id>
+    <updated>2026-11-08T13:58:19Z</updated>
+    <content type="text">Translate 0.9.20: dotted rules between the rows of the Languages list</content>
+  </entry>
+  <entry>
+    <title>Sky 0.13.7</title>
+    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.7"/>
+    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.7</id>
+    <updated>2026-11-08T13:32:53Z</updated>
+    <content type="text">Sky 0.13.7: Android&#x27;s phone-to-phone transfer no longer copies any of the app&#x27;s data (before, only the settings file was left out)</content>
+  </entry>
   <entry>
     <title>Audio Reader 1.3.60</title>
     <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.60"/>
@@ -354,85 +431,5 @@
     <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.17</id>
     <updated>2026-11-07T23:37:21Z</updated>
     <content type="text">Recipes 0.2.17: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows)</content>
-  </entry>
-  <entry>
-    <title>Feeds 0.6.9</title>
-    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.9"/>
-    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.9</id>
-    <updated>2026-11-07T23:35:43Z</updated>
-    <content type="text">Feeds 0.6.9: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; the menu over selected text no longer offers this app itself</content>
-  </entry>
-  <entry>
-    <title>Mushroom Journal 0.3.35</title>
-    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.35"/>
-    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.35</id>
-    <updated>2026-11-07T23:32:22Z</updated>
-    <content type="text">Mushroom Journal 0.3.35: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; the menu over selected text no longer offers this app itself
-
-
-**Full Changelog**: https://github.com/wanderwildwood/kinokocho/compare/v0.3.34...v0.3.35</content>
-  </entry>
-  <entry>
-    <title>Dictionary 0.1.20</title>
-    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.20"/>
-    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.20</id>
-    <updated>2026-11-07T23:30:29Z</updated>
-    <content type="text">Dictionary 0.1.20: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows)</content>
-  </entry>
-  <entry>
-    <title>Torrents 0.1.22</title>
-    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.22"/>
-    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.22</id>
-    <updated>2026-11-07T23:25:18Z</updated>
-    <content type="text">Torrents 0.1.22: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise</content>
-  </entry>
-  <entry>
-    <title>Glance 0.1.45</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.45"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.45</id>
-    <updated>2026-11-07T23:23:07Z</updated>
-    <content type="text">Glance 0.1.45: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows)</content>
-  </entry>
-  <entry>
-    <title>Hum 0.1.22</title>
-    <link href="https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.22"/>
-    <id>https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.22</id>
-    <updated>2026-11-07T23:21:44Z</updated>
-    <content type="text">Hum 0.1.22: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; the menu over selected text no longer offers this app itself</content>
-  </entry>
-  <entry>
-    <title>Medicine 0.1.29</title>
-    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.29"/>
-    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.29</id>
-    <updated>2026-11-07T23:19:52Z</updated>
-    <content type="text">Medicine 0.1.29: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; the menu over selected text no longer offers this app itself; the lock-screen line is given only to the real Glance app</content>
-  </entry>
-  <entry>
-    <title>Remote 0.2.19</title>
-    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.19"/>
-    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.19</id>
-    <updated>2026-11-07T23:18:16Z</updated>
-    <content type="text">Remote 0.2.19: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck</content>
-  </entry>
-  <entry>
-    <title>I Ching 0.1.3</title>
-    <link href="https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.3"/>
-    <id>https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.3</id>
-    <updated>2026-11-07T23:14:31Z</updated>
-    <content type="text">I Ching 0.1.3: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows)</content>
-  </entry>
-  <entry>
-    <title>Typewriter 0.1.35</title>
-    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.35"/>
-    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.35</id>
-    <updated>2026-11-07T23:14:08Z</updated>
-    <content type="text">Typewriter 0.1.35: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; the menu over selected text no longer offers this app itself</content>
-  </entry>
-  <entry>
-    <title>Cycle 0.3.9</title>
-    <link href="https://github.com/wanderwildwood/cycle/releases/tag/v0.3.9"/>
-    <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.9</id>
-    <updated>2026-11-07T23:12:39Z</updated>
-    <content type="text">Cycle 0.3.9: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise</content>
   </entry>
 </feed>
