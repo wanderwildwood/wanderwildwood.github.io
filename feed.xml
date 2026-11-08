@@ -4,8 +4,183 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-08T04:18:42Z</updated>
+  <updated>2026-11-08T13:22:26Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Audio Reader 1.3.60</title>
+    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.60"/>
+    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.60</id>
+    <updated>2026-11-08T13:22:26Z</updated>
+    <content type="text">Audio Reader 1.3.60: nothing of the app goes into a Google backup or a phone-to-phone transfer any more; Save places and bookmarks is the way to move them</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.61</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.61"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.61</id>
+    <updated>2026-11-08T13:22:08Z</updated>
+    <content type="text">Datebook 0.1.61: saving and restoring calendar links go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; nothing of the app goes into a Google backup or a phone-to-phone transfer any more</content>
+  </entry>
+  <entry>
+    <title>Handheld Games 0.1.35</title>
+    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.35"/>
+    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.35</id>
+    <updated>2026-11-08T13:17:28Z</updated>
+    <content type="text">Handheld Games 0.1.35: the screen turns with the phone the way Android itself decides it, so it no longer turns sideways while the phone lies on a desk; dotted rules between the rows of the game lists; nothing of the app goes into a Google backup or a phone-to-phone transfer any more; Save a backup of your saves is the way to move them</content>
+  </entry>
+  <entry>
+    <title>Music Box 2.18.35</title>
+    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.35"/>
+    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.35</id>
+    <updated>2026-11-08T13:16:39Z</updated>
+    <content type="text">Music Box 2.18.35: nothing of the app goes into a Google backup or a phone-to-phone transfer any more; Save a backup in Settings is the way to move playlists and kept stations</content>
+  </entry>
+  <entry>
+    <title>Remote 0.2.20</title>
+    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.20"/>
+    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.20</id>
+    <updated>2026-11-08T13:15:37Z</updated>
+    <content type="text">Remote 0.2.20: dotted rules between the rows of the device lists; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
+  </entry>
+  <entry>
+    <title>Recipes 0.2.18</title>
+    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.18"/>
+    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.18</id>
+    <updated>2026-11-08T13:15:23Z</updated>
+    <content type="text">Recipes 0.2.18: dotted rules between the rows of the recipe list; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup); Save every recipe to a file is the way to move them</content>
+  </entry>
+  <entry>
+    <title>I Ching 0.1.4</title>
+    <link href="https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.4"/>
+    <id>https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.4</id>
+    <updated>2026-11-08T13:15:11Z</updated>
+    <content type="text">I Ching 0.1.4: dotted rules between the rows of the journal and the 64 hexagrams; exporting and restoring the journal go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup); Export the journal is the way to move it</content>
+  </entry>
+  <entry>
+    <title>Birding 1.7.41</title>
+    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.41"/>
+    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.41</id>
+    <updated>2026-11-08T13:14:55Z</updated>
+    <content type="text">Birding 1.7.41: dotted rules between the rows of the lists; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup); its own backup file is the way to move its data</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.23</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.23"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.23</id>
+    <updated>2026-11-08T13:10:44Z</updated>
+    <content type="text">Messaging 1.35.23: Glance can open Messaging straight at &quot;Unread on the lock screen&quot;.</content>
+  </entry>
+  <entry>
+    <title>Glance 0.1.46</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.46"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.46</id>
+    <updated>2026-11-08T13:10:29Z</updated>
+    <content type="text">Glance 0.1.46: &quot;Messaging: unread&quot; and &quot;Mailbox: unread&quot; are switches in Glance&#x27;s settings now, on by default, so a line can be turned off right here; under each, a row opens that app&#x27;s own lock-screen setting.</content>
+  </entry>
+  <entry>
+    <title>Detour 0.1.25</title>
+    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.25"/>
+    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.25</id>
+    <updated>2026-11-08T13:02:48Z</updated>
+    <content type="text">Detour 0.1.25: a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
+  </entry>
+  <entry>
+    <title>Tarot 0.1.20</title>
+    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.20"/>
+    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.20</id>
+    <updated>2026-11-08T13:01:37Z</updated>
+    <content type="text">Tarot 0.1.20: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup); Export the journal is the way to move it</content>
+  </entry>
+  <entry>
+    <title>Lens 0.1.33</title>
+    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.33"/>
+    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.33</id>
+    <updated>2026-11-08T12:58:02Z</updated>
+    <content type="text">Lens 0.1.33: the camera settings use American spelling (Maximize, Optimize, while); Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
+  </entry>
+  <entry>
+    <title>Solitaire 0.1.19</title>
+    <link href="https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.19"/>
+    <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.19</id>
+    <updated>2026-11-08T12:57:24Z</updated>
+    <content type="text">Solitaire 0.1.19: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
+  </entry>
+  <entry>
+    <title>Star Chart 0.5.17</title>
+    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.17"/>
+    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.17</id>
+    <updated>2026-11-08T12:54:21Z</updated>
+    <content type="text">Star Chart 0.5.17: a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
+  </entry>
+  <entry>
+    <title>Level 0.1.34</title>
+    <link href="https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.34"/>
+    <id>https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.34</id>
+    <updated>2026-11-08T12:54:09Z</updated>
+    <content type="text">Level 0.1.34: a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
+  </entry>
+  <entry>
+    <title>Go 1.2.22</title>
+    <link href="https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.22"/>
+    <id>https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.22</id>
+    <updated>2026-11-08T12:50:53Z</updated>
+    <content type="text">Go 1.2.22: a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
+  </entry>
+  <entry>
+    <title>Dictionary 0.1.21</title>
+    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.21"/>
+    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.21</id>
+    <updated>2026-11-08T12:46:59Z</updated>
+    <content type="text">Dictionary 0.1.21: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
+  </entry>
+  <entry>
+    <title>Handset 0.1.31</title>
+    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.31"/>
+    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.31</id>
+    <updated>2026-11-08T12:45:26Z</updated>
+    <content type="text">Handset 0.1.31: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
+  </entry>
+  <entry>
+    <title>Connections 0.2.32</title>
+    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.32"/>
+    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.32</id>
+    <updated>2026-11-08T12:41:40Z</updated>
+    <content type="text">Connections 0.2.32: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup); Save everyone to a file is the way to move contacts</content>
+  </entry>
+  <entry>
+    <title>Cycle 0.3.10</title>
+    <link href="https://github.com/wanderwildwood/cycle/releases/tag/v0.3.10"/>
+    <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.10</id>
+    <updated>2026-11-08T12:41:33Z</updated>
+    <content type="text">Cycle 0.3.10: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
+  </entry>
+  <entry>
+    <title>Mesh 0.3.18</title>
+    <link href="https://github.com/wanderwildwood/amime/releases/tag/v0.3.18"/>
+    <id>https://github.com/wanderwildwood/amime/releases/tag/v0.3.18</id>
+    <updated>2026-11-08T12:41:12Z</updated>
+    <content type="text">Mesh 0.3.18: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
+  </entry>
+  <entry>
+    <title>Typewriter 0.1.36</title>
+    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.36"/>
+    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.36</id>
+    <updated>2026-11-08T11:37:52Z</updated>
+    <content type="text">Typewriter 0.1.36: a diary side. Today&#x27;s page opens one sheet per day, adding the time when you come back to it; By day shows a month with a mark on every day you wrote; Search looks through all your sheets and opens one at the line it found; and Which way round can now be Upright, so the app can be used in portrait too (landscape is still the default).</content>
+  </entry>
+  <entry>
+    <title>Medicine 0.1.30</title>
+    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.30"/>
+    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.30</id>
+    <updated>2026-11-08T10:16:07Z</updated>
+    <content type="text">Medicine 0.1.30: &quot;Put the refill in the calendar&quot; now goes straight to Datebook, and the button only shows when Datebook is installed; without it, &quot;Copy the refill date&quot; is there as before</content>
+  </entry>
+  <entry>
+    <title>Mailbox 0.1.50</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.50"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.50</id>
+    <updated>2026-11-08T10:15:43Z</updated>
+    <content type="text">Mailbox 0.1.50: &quot;Add from contacts&quot; reads in sentence case in every language; the letters matched in recipient suggestions are black and bold instead of blue, so they show on e-ink</content>
+  </entry>
   <entry>
     <title>Bitcoin 0.1.8</title>
     <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.8"/>
@@ -259,180 +434,5 @@
     <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.9</id>
     <updated>2026-11-07T23:12:39Z</updated>
     <content type="text">Cycle 0.3.9: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise</content>
-  </entry>
-  <entry>
-    <title>Mesh 0.3.17</title>
-    <link href="https://github.com/wanderwildwood/amime/releases/tag/v0.3.17"/>
-    <id>https://github.com/wanderwildwood/amime/releases/tag/v0.3.17</id>
-    <updated>2026-11-07T23:11:10Z</updated>
-    <content type="text">Mesh 0.3.17: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck</content>
-  </entry>
-  <entry>
-    <title>Passwords 0.1.24</title>
-    <link href="https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.24"/>
-    <id>https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.24</id>
-    <updated>2026-11-07T23:08:58Z</updated>
-    <content type="text">Passwords 0.1.24: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; the menu over selected text no longer offers this app itself</content>
-  </entry>
-  <entry>
-    <title>Lens 0.1.32</title>
-    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.32"/>
-    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.32</id>
-    <updated>2026-11-07T22:52:24Z</updated>
-    <content type="text">Lens 0.1.32: in video, the flash is off or a steady torch, also while recording; the last-picture circle opens Pictures even before Lens has a photo of its own to show, and without Pictures it opens the phone&#x27;s own viewer or gallery; lists show the row the foot of a page cuts through</content>
-  </entry>
-  <entry>
-    <title>Pictures 0.8.20</title>
-    <link href="https://github.com/wanderwildwood/garo/releases/tag/v0.8.20"/>
-    <id>https://github.com/wanderwildwood/garo/releases/tag/v0.8.20</id>
-    <updated>2026-11-07T22:51:37Z</updated>
-    <content type="text">Pictures 0.8.20: videos play in their own shape, so an upright video is no longer squashed to the width of the screen; lists show the row the foot of a page cuts through</content>
-  </entry>
-  <entry>
-    <title>Shelf 0.1.34</title>
-    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.34"/>
-    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.34</id>
-    <updated>2026-11-07T22:50:56Z</updated>
-    <content type="text">Shelf 0.1.34: a book from Finland, the Netherlands, France or Poland is looked up in that country&#x27;s national catalog (Finna, the KB, the BnF, the Biblioteka Narodowa) before Google Books, and a slow catalog is given up on sooner; lists show the row the foot of a page cuts through</content>
-  </entry>
-  <entry>
-    <title>Music Box 2.18.34</title>
-    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.34"/>
-    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.34</id>
-    <updated>2026-11-07T22:50:01Z</updated>
-    <content type="text">Music Box 2.18.34: search chooses where it looks (Phone, Server, YouTube) from the ⋮ on the search bar; songs kept from your music server play after a restart and no longer sit at Loading; Playlists stays on one line in the bottom bar (thank you, Daria-E, for all three); Edit playlists moves to the foot of the playlist list, and holding a playlist starts editing with it ticked; Settings gathers the YouTube rows under one heading; lists show the row the foot of a page cuts through; the hold-a-song tip shows once, the first time</content>
-  </entry>
-  <entry>
-    <title>Mailbox 0.1.49</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.49"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.49</id>
-    <updated>2026-11-07T22:48:49Z</updated>
-    <content type="text">Mailbox 0.1.49: Add from contacts in the compose ⋮ menu is always there now; the first time, it asks for the Contacts permission, and with it, names also come up while you type an address</content>
-  </entry>
-  <entry>
-    <title>Lens 0.1.31</title>
-    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.31"/>
-    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.31</id>
-    <updated>2026-11-07T10:53:38Z</updated>
-    <content type="text">Lens 0.1.31: the viewfinder sits right under the top of the screen, with no black strip above it and nothing of the picture hidden behind the buttons</content>
-  </entry>
-  <entry>
-    <title>Handset 0.1.29</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.29"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.29</id>
-    <updated>2026-11-07T02:29:45Z</updated>
-    <content type="text">Handset 0.1.29: a long switch label in Settings wraps onto a third line instead of being cut off</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.22</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.22"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.22</id>
-    <updated>2026-11-07T02:00:55Z</updated>
-    <content type="text">Messaging 1.35.22: Desktop Sync: the page in the browser catches up as soon as you come back to it or the computer wakes, and notices a dropped connection within about a minute.</content>
-  </entry>
-  <entry>
-    <title>I Ching 0.1.2</title>
-    <link href="https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.2"/>
-    <id>https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.2</id>
-    <updated>2026-11-07T01:54:41Z</updated>
-    <content type="text">I Ching 0.1.2: Wilhelm&#x27;s German translation (1924) beside Legge&#x27;s, chosen in Settings and the default on a German phone; long hexagram names hyphenate. Thanks to baud-9600 for the German text.</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.21</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.21"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.21</id>
-    <updated>2026-11-07T00:40:19Z</updated>
-    <content type="text">Messaging 1.35.21: the ⋮ list from a text selection never runs under the selection bar: where neither side has room for all of it, it takes the roomier side and scrolls. Also: files to save, backups and folders are chosen through Cabinet when it is installed</content>
-  </entry>
-  <entry>
-    <title>Topo 0.2.14</title>
-    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.14"/>
-    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.14</id>
-    <updated>2026-11-07T00:36:39Z</updated>
-    <content type="text">Topo 0.2.14: the ⋮ list from a text selection never runs under the selection bar: where neither side has room for all of it, it takes the roomier side and scrolls. Also: a list with a tall first row turns its pages again</content>
-  </entry>
-  <entry>
-    <title>Mailbox 0.1.47</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.47"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.47</id>
-    <updated>2026-11-07T00:36:31Z</updated>
-    <content type="text">Mailbox 0.1.47: in a mail, the ⋮ list from a text selection never runs under the selection bar: where neither side has room for all of it, it takes the roomier side and scrolls</content>
-  </entry>
-  <entry>
-    <title>Dictionary 0.1.19</title>
-    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.19"/>
-    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.19</id>
-    <updated>2026-11-07T00:33:30Z</updated>
-    <content type="text">Dictionary 0.1.19: the selection menu never offers Define on Dictionary itself; a long definition turns its pages to the end, where it used to stop on a tall first row</content>
-  </entry>
-  <entry>
-    <title>Memo 0.3.23</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.23"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.23</id>
-    <updated>2026-11-06T23:44:37Z</updated>
-    <content type="text">Memo 0.3.23: choosing a folder or a picture to scan goes to Cabinet when it is installed; the selection menu leaves out Memo itself; lock-screen notes go only to Glance; a list with a tall first row turns its pages again</content>
-  </entry>
-  <entry>
-    <title>Recipes 0.2.16</title>
-    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.16"/>
-    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.16</id>
-    <updated>2026-11-06T23:44:26Z</updated>
-    <content type="text">Recipes 0.2.16: a cook-mode step longer than the screen can be read to its end, one sentence a row, so a page never cuts a line in half; files open and save through Cabinet when it is installed</content>
-  </entry>
-  <entry>
-    <title>Connections 0.2.30</title>
-    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.30"/>
-    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.30</id>
-    <updated>2026-11-06T23:44:20Z</updated>
-    <content type="text">Connections 0.2.30: on the server page, make a new address book on the server, choose how often it syncs (15 min, 1 hour, 4 hours) and Wi-Fi only; a contact the server says is gone is removed here; a wrong phone clock is told plainly; a failed sync is never shown as synced; address books synced by Mudita&#x27;s DAVx5 count in the duplicate check</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.59</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.59"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.59</id>
-    <updated>2026-11-06T23:44:12Z</updated>
-    <content type="text">Datebook 0.1.59: on the Calendar server page, make a new calendar on the server, choose how often it syncs (15 min, 1 hour, 4 hours) and Wi-Fi only; an event the server says is gone is removed here; a wrong phone clock is told plainly, never as a refused password; a failed sync is never shown as synced</content>
-  </entry>
-  <entry>
-    <title>Glance 0.1.44</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.44"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.44</id>
-    <updated>2026-11-06T23:44:05Z</updated>
-    <content type="text">Glance 0.1.44: a text shows once while Messaging is the texting app; the phone&#x27;s own texting app is no longer counted beside it. Also: a list with a tall first row turns its pages again</content>
-  </entry>
-  <entry>
-    <title>Mailbox 0.1.46</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.46"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.46</id>
-    <updated>2026-11-06T23:43:57Z</updated>
-    <content type="text">Mailbox 0.1.46: when a mail server has no push (IMAP IDLE), a folder&#x27;s Enable push says so instead of quietly switching back off; switching it on tries again</content>
-  </entry>
-  <entry>
-    <title>Music Box 2.18.30</title>
-    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.30"/>
-    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.30</id>
-    <updated>2026-11-06T23:43:48Z</updated>
-    <content type="text">Music Box 2.18.30: a Settings row, Open YouTube links in Music Box, goes to the page where Android lets it open them, so a YouTube link tapped in another app opens here</content>
-  </entry>
-  <entry>
-    <title>Shelf 0.1.33</title>
-    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.33"/>
-    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.33</id>
-    <updated>2026-11-06T23:43:38Z</updated>
-    <content type="text">Shelf 0.1.33: a book the Library of Congress and Open Library don&#x27;t know is looked up in its country&#x27;s national library (Norway, Germany, Sweden), then in Google Books</content>
-  </entry>
-  <entry>
-    <title>Sky 0.13.5</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.5"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.5</id>
-    <updated>2026-11-06T23:43:13Z</updated>
-    <content type="text">Sky 0.13.5: under the line about rain in the next two hours, eight bars show it by quarter hour, short for light rain and full for heavy; the pressure&#x27;s unit is drawn small, and its label drops only when the row is too narrow; a piezo rain gauge with no water in it no longer says it is raining</content>
-  </entry>
-  <entry>
-    <title>Torrents 0.1.21</title>
-    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.21"/>
-    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.21</id>
-    <updated>2026-11-05T23:53:40Z</updated>
-    <content type="text">Torrents 0.1.21: Show in Cabinet, last in a torrent&#x27;s menu, opens Cabinet at the torrent&#x27;s files (when Cabinet is installed)</content>
   </entry>
 </feed>
