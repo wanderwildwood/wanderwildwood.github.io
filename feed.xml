@@ -4,8 +4,22 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-09T00:01:47Z</updated>
+  <updated>2026-11-09T02:45:39Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Memo 0.3.25</title>
+    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.25"/>
+    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.25</id>
+    <updated>2026-11-09T02:45:39Z</updated>
+    <content type="text">Memo 0.3.25: Today at the top of the notes list gathers what is due today or overdue: tasks, checklist items with a reminder, and notes whose reminder is today. Tick from there, hold a row to move it to tomorrow, next week or another day, and add a task for today by typing its name. Glance&#x27;s lock-screen panel shows Today above the pinned notes. Done tasks list the latest finished first. A list whose rows arrive late opens on its first row.</content>
+  </entry>
+  <entry>
+    <title>Handheld Games 0.1.37</title>
+    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.37"/>
+    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.37</id>
+    <updated>2026-11-09T02:35:48Z</updated>
+    <content type="text">Handheld Games 0.1.37: games run at their own speed. They had run about 5% slow on the Kompakt, with the music dragging to match, because the emulator waited for the screen before each frame; it now keeps time by the clock.</content>
+  </entry>
   <entry>
     <title>Typewriter 0.1.39</title>
     <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.39"/>
@@ -417,19 +431,5 @@
     <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.46</id>
     <updated>2026-11-07T23:48:40Z</updated>
     <content type="text">Tuner 0.1.46: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise</content>
-  </entry>
-  <entry>
-    <title>Parked 0.2.13</title>
-    <link href="https://github.com/wanderwildwood/okiba/releases/tag/v0.2.13"/>
-    <id>https://github.com/wanderwildwood/okiba/releases/tag/v0.2.13</id>
-    <updated>2026-11-07T23:46:33Z</updated>
-    <content type="text">Parked 0.2.13: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; the menu over selected text no longer offers this app itself</content>
-  </entry>
-  <entry>
-    <title>Memo 0.3.24</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.24"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.24</id>
-    <updated>2026-11-07T23:45:01Z</updated>
-    <content type="text">Memo 0.3.24: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows)</content>
   </entry>
 </feed>
