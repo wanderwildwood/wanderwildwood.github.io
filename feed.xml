@@ -4,8 +4,78 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-09T02:45:39Z</updated>
+  <updated>2026-11-09T16:27:19Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Glance 0.1.48</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.48"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.48</id>
+    <updated>2026-11-09T16:27:19Z</updated>
+    <content type="text">Glance 0.1.48: Settings has one list of the phone&#x27;s apps, A to Z: switch on the ones you want on the lock screen, with each app&#x27;s own options under it</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.24</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.24"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.24</id>
+    <updated>2026-11-09T15:19:45Z</updated>
+    <content type="text">Messaging 1.35.24: contacts synced from your phone are all read again, not only those before the first one with a picture. A Signal call answered on another device no longer shows here as missed. Searching people on Signal offers only people you know, not every member of every group. Fewer repeated profile lookups, and a sticker shows its emoji only when it is one.</content>
+  </entry>
+  <entry>
+    <title>Music Box 2.18.36</title>
+    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.36"/>
+    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.36</id>
+    <updated>2026-11-09T15:16:20Z</updated>
+    <content type="text">Music Box 2.18.36: YouTube search and playback on the current NewPipe Extractor (0.27.0). A list whose rows arrive a moment late now opens on its first row.</content>
+  </entry>
+  <entry>
+    <title>Mailbox 0.1.53</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.53"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.53</id>
+    <updated>2026-11-09T15:14:26Z</updated>
+    <content type="text">Mailbox 0.1.53: refuses mail servers whose certificate chain uses the compromised eMudhra certificate authority, as Thunderbird now does. A list whose rows arrive a moment late now opens on its first row.</content>
+  </entry>
+  <entry>
+    <title>Cabinet 0.9.11</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.11"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.11</id>
+    <updated>2026-11-09T15:11:15Z</updated>
+    <content type="text">Cabinet 0.9.11: Nearby finds LocalSend devices on networks where multicast never arrives, by asking every address on the Wi-Fi directly, as LocalSend itself does (#1).</content>
+  </entry>
+  <entry>
+    <title>Glance 0.1.47</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.47"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.47</id>
+    <updated>2026-11-09T15:09:25Z</updated>
+    <content type="text">Glance 0.1.47: Quiet hours (Settings, Sound): Do Not Disturb on a schedule for sleeping hours. A second call from the same number within 15 minutes still rings if you want it to, and alarms always do. A list whose rows arrive a moment late now opens on its first row.</content>
+  </entry>
+  <entry>
+    <title>Typewriter 0.1.40</title>
+    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.40"/>
+    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.40</id>
+    <updated>2026-11-09T14:48:55Z</updated>
+    <content type="text">Typewriter 0.1.40: the setting for which way the screen is held is now called Orientation, with Portrait and Landscape.</content>
+  </entry>
+  <entry>
+    <title>Memo 0.3.26</title>
+    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.26"/>
+    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.26</id>
+    <updated>2026-11-09T14:48:45Z</updated>
+    <content type="text">Memo 0.3.26: the floating buttons step aside again while the keyboard is up, so they no longer sit over what you are typing.</content>
+  </entry>
+  <entry>
+    <title>Engraver 0.0.7</title>
+    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.7"/>
+    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.7</id>
+    <updated>2026-11-09T14:38:21Z</updated>
+    <content type="text">Engraver 0.0.7: new scores start from a minimal template. Side by side, a Score button folds the score away while you edit, and Compile brings it back. In landscape the bar is slimmer and the symbol keys fit one row, with a key for the rest. While the keyboard is up, the title and the Compile row fold away (Settings: Bars while typing). A score that sets no paper size is engraved on A6, so it fits the screen. A chosen folder that has gone says so and offers to choose again. Settings name the orientation Portrait or Landscape.</content>
+  </entry>
+  <entry>
+    <title>Cabinet 0.9.10</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.10"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.10</id>
+    <updated>2026-11-09T12:33:58Z</updated>
+    <content type="text">Cabinet 0.9.10: installs on Android 11 too, so it runs on Supernote&#x27;s tablets such as the Manta</content>
+  </entry>
   <entry>
     <title>Memo 0.3.25</title>
     <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.25"/>
@@ -26,6 +96,13 @@
     <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.39</id>
     <updated>2026-11-09T00:01:47Z</updated>
     <content type="text">Typewriter 0.1.39: with the lock on, the phone&#x27;s PIN screen comes up upright instead of squeezed sideways, and the screen turns back when you&#x27;re done.</content>
+  </entry>
+  <entry>
+    <title>Engraver 0.0.6</title>
+    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.6"/>
+    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.6</id>
+    <updated>2026-11-08T23:50:16Z</updated>
+    <content type="text">Engraver 0.0.6, the first release: type LilyPond and get an engraved score on the phone, with a PDF beside the file. LilyPond 2.26 runs on the device itself, with no internet permission. Pick a folder of .ly files (through Cabinet when it is installed); includes in that folder are followed. Held sideways, source and score sit side by side. For arm64 phones such as the Mudita Kompakt.</content>
   </entry>
   <entry>
     <title>Typewriter 0.1.38</title>
@@ -354,82 +431,5 @@
     <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.31</id>
     <updated>2026-11-08T00:10:40Z</updated>
     <content type="text">Dream Log 0.1.31: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; the menu over selected text no longer offers this app itself</content>
-  </entry>
-  <entry>
-    <title>Translate 0.9.19</title>
-    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.19"/>
-    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.19</id>
-    <updated>2026-11-08T00:08:44Z</updated>
-    <content type="text">Translate 0.9.19: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; the menu over selected text no longer offers this app itself</content>
-  </entry>
-  <entry>
-    <title>Time 0.2.21</title>
-    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.21"/>
-    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.21</id>
-    <updated>2026-11-08T00:04:17Z</updated>
-    <content type="text">Time 0.2.21: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; the menu over selected text no longer offers this app itself; the lock-screen line is given only to the real Glance app</content>
-  </entry>
-  <entry>
-    <title>Car Check 0.1.20</title>
-    <link href="https://github.com/wanderwildwood/tenken/releases/tag/v0.1.20"/>
-    <id>https://github.com/wanderwildwood/tenken/releases/tag/v0.1.20</id>
-    <updated>2026-11-08T00:02:43Z</updated>
-    <content type="text">Car Check 0.1.20: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck</content>
-  </entry>
-  <entry>
-    <title>Tarot 0.1.19</title>
-    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.19"/>
-    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.19</id>
-    <updated>2026-11-08T00:01:14Z</updated>
-    <content type="text">Tarot 0.1.19: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; the menu over selected text no longer offers this app itself</content>
-  </entry>
-  <entry>
-    <title>Birding 1.7.40</title>
-    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.40"/>
-    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.40</id>
-    <updated>2026-11-07T23:59:39Z</updated>
-    <content type="text">Birding 1.7.40: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise</content>
-  </entry>
-  <entry>
-    <title>Abacus 0.2.27</title>
-    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.27"/>
-    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.27</id>
-    <updated>2026-11-07T23:56:24Z</updated>
-    <content type="text">Abacus 0.2.27: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck</content>
-  </entry>
-  <entry>
-    <title>Sky 0.13.6</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.6"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.6</id>
-    <updated>2026-11-07T23:54:46Z</updated>
-    <content type="text">Sky 0.13.6: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows)</content>
-  </entry>
-  <entry>
-    <title>Solitaire 0.1.18</title>
-    <link href="https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.18"/>
-    <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.18</id>
-    <updated>2026-11-07T23:53:05Z</updated>
-    <content type="text">Solitaire 0.1.18: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck</content>
-  </entry>
-  <entry>
-    <title>Speedometer 0.1.27</title>
-    <link href="https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.27"/>
-    <id>https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.27</id>
-    <updated>2026-11-07T23:51:39Z</updated>
-    <content type="text">Speedometer 0.1.27: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck</content>
-  </entry>
-  <entry>
-    <title>Wallet 0.1.22</title>
-    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.22"/>
-    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.22</id>
-    <updated>2026-11-07T23:50:18Z</updated>
-    <content type="text">Wallet 0.1.22: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; the menu over selected text no longer offers this app itself; the lock-screen line is given only to the real Glance app</content>
-  </entry>
-  <entry>
-    <title>Tuner 0.1.46</title>
-    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.46"/>
-    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.46</id>
-    <updated>2026-11-07T23:48:40Z</updated>
-    <content type="text">Tuner 0.1.46: a long list shows the row the foot of the page cuts through, so a page no longer ends on a blank band (settings and About pages keep whole rows); a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; opening and saving files go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise</content>
   </entry>
 </feed>
