@@ -70,7 +70,7 @@
   a.btn.small { padding: 0.25rem 0.7rem; font-size: 0.95rem; }
 
   .foot { height: 240vh; }         /* the night's camp, made as you scroll to the foot (and undone back up) */
-  .look { height: 300vh; }         /* a stop to look up the trunks to the crowns, and down again */
+  .look { height: 220vh; }         /* the page opens up in the crowns; scrolling comes down the trunks to the path */
 </style>
 </head>
 <body>
@@ -79,7 +79,7 @@
 <main>
   <p class="home"><a href="../">wander 彷徨う</a></p>
 
-  <section class="page" id="top" style="--gap: 50vh">
+  <section class="page" id="top" style="--gap: 0">
     <h1>Wander <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 散歩 sanpo</button></h1>
     <div class="en">
       <p>A walk in the coast redwoods with Kumo the llama. One walk is one day, from the morning mist to
@@ -95,6 +95,7 @@
       <p class="buttons"><a class="btn small" href="#soon">出たら知らせて</a></p>
     </div>
   </section>
+  <div class="look" data-look aria-hidden="true"></div>
 
   <section class="page right" data-thing="slug">
     <div class="en">
@@ -138,7 +139,7 @@
     </div>
   </section>
 
-  <section class="page" data-thing="creek" style="--gap: 0">
+  <section class="page" data-thing="creek">
     <div class="en">
       <h2>The coast redwoods</h2>
       <p>Everything in the wood belongs to the redwoods of northern California, in its right season:
@@ -151,7 +152,6 @@
       <p>森にいるものはみな、北カリフォルニアのレッドウッドの森のもの。それぞれの季節に。浅瀬のサギ、石の上のカワガラス、ワタリガラス、夜のツチボタル。戦うものも、狩るものもない。生きものには出会い、眺め、そのままにしておく。季節はあなたの本当の季節。南半球ならひっくり返る。電話が知っていれば、天気も本当の天気。</p>
     </div>
   </section>
-  <div class="look" data-look aria-hidden="true"></div>
 
   <section class="page right">
     <div class="en">
@@ -310,7 +310,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   function place() {
     var max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
     var look = document.querySelector('[data-look]'), camp = document.querySelector('[data-camp]');
-    if (look) { var lt = look.getBoundingClientRect().top + scrollY; lookA = lt - innerHeight * 0.5; lookB = lt + look.offsetHeight - innerHeight * 0.5; }
+    if (look) { lookA = 0; lookB = look.getBoundingClientRect().top + scrollY + look.offsetHeight - innerHeight * 0.5; }
     if (camp) { campA = camp.getBoundingClientRect().top + scrollY - innerHeight * 0.55; campB = max; }
     document.querySelectorAll('[data-thing]').forEach(function (el) {
       var top = el.getBoundingClientRect().top + scrollY;
@@ -420,8 +420,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     var t = clamp(y / Math.max(1, campA + innerHeight * 0.3), 0, 1), d = day(t);
     var cam = walked(y) / S * K;                            // the wood's x at the left edge
     var lp = lookB > lookA ? clamp((y - lookA) / (lookB - lookA), 0, 1) : 0;
-    var LMAX = H * 2.6, up = (1 - Math.cos(lp * Math.PI * 2)) / 2;   // up the trunks and down again
-    up = up * up * (3 - 2 * up);
+    var LMAX = H * 2.6, up = 1 - lp * lp * (3 - 2 * lp);          // from the crowns down the trunks to the path
     var lift = Math.round(LMAX * up);
     var cp = campB > campA ? clamp((y - campA) / (campB - campA), 0, 1) : 0, camping = y > campA;
     var L = d.light, sky = mix(L, 232, d.mist * 0.6);
@@ -513,12 +512,12 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       cell(lf.n, ox, oy, flip);
       glass = [ox + (flip ? CW - 1 - lf.glass[0] : lf.glass[0]), oy + lf.glass[1]];
     } else {
-      var wf, kf, looking = lp > 0.04 && lp < 0.96;
+      var wf, kf, looking = lp < 0.98;
       if (idle < 450 && !looking) {
         var fr = ((Math.floor(cam / 2.2) % 8) + 8) % 8;
         wf = A.walk[fr]; kf = B.walk[fr];
       } else {
-        wf = looking || (idle > 9000 && idle % 9000 < 1800) ? A.lookup[0] : A.stand[0];
+        wf = !looking && idle > 9000 && idle % 9000 < 1800 ? A.lookup[0] : A.stand[0];
         if (idle < 2500 && !looking) kf = B.stand[0];
         else { var g = Math.floor(Math.max(0, idle - 2500) / 800) % 6; kf = g < 3 ? B.graze[0] : g === 3 ? B.graze_up[0] : B.chew[g % 2]; }
         if (idle % 5200 < 600 && kf === B.stand[0]) kf = B.tail[Math.floor(idle / 200) % 3];
