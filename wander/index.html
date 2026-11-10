@@ -33,7 +33,7 @@
   [hidden] { display: none !important; }
   .page {
     background: var(--paper); border: 2px solid var(--rule); max-width: 34rem;
-    padding: 1.4rem 1.5rem 1.2rem; margin: 0 0 var(--gap, 45vh);
+    padding: 1.4rem 1.5rem 1.2rem; margin: 0 0 var(--gap, 65vh);
     box-shadow: 4px 4px 0 rgba(0,0,0,.18);
   }
   .page.right { margin-left: auto; }
@@ -69,8 +69,8 @@
   a.btn img { width: 44px; height: 44px; image-rendering: pixelated; display: block; }
   a.btn.small { padding: 0.25rem 0.7rem; font-size: 0.95rem; }
 
-  .foot { height: 60vh; }          /* room at the end for the camp, below the last page */
-  .nowalk .foot { height: 2rem; }
+  .foot { height: 240vh; }         /* the night's camp, made as you scroll to the foot (and undone back up) */
+  .look { height: 300vh; }         /* a stop to look up the trunks to the crowns, and down again */
 </style>
 </head>
 <body>
@@ -138,7 +138,7 @@
     </div>
   </section>
 
-  <section class="page" data-thing="creek">
+  <section class="page" data-thing="creek" style="--gap: 0">
     <div class="en">
       <h2>The coast redwoods</h2>
       <p>Everything in the wood belongs to the redwoods of northern California, in its right season:
@@ -151,6 +151,7 @@
       <p>森にいるものはみな、北カリフォルニアのレッドウッドの森のもの。それぞれの季節に。浅瀬のサギ、石の上のカワガラス、ワタリガラス、夜のツチボタル。戦うものも、狩るものもない。生きものには出会い、眺め、そのままにしておく。季節はあなたの本当の季節。南半球ならひっくり返る。電話が知っていれば、天気も本当の天気。</p>
     </div>
   </section>
+  <div class="look" data-look aria-hidden="true"></div>
 
   <section class="page right">
     <div class="en">
@@ -233,7 +234,7 @@
       <p><small><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>：そのままの形で、名前を添え、お金を取らずに分けてください。</small></p>
     </div>
   </section>
-  <div class="foot"></div>
+  <div class="foot" data-camp aria-hidden="true"></div>
 </main>
 <script src="art.js"></script>
 <script>
@@ -295,14 +296,25 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     place();
   }
 
-  // Where the things along the way stand, in the wood's own pixels.
+  // Where the things along the way stand, in the wood's own pixels; and the two stretches of the page that
+  // aren't walking: the look up the trunks (data-look) and the night's camp at the foot (data-camp).
   var K = 0.45;                                             // game px walked per CSS px scrolled
-  var things = {};
+  var things = {}, lookA = 1e9, lookB = 1e9, campA = 1e9, campB = 1e9;
   function walkerX() { return Math.round(W * 0.28); }
+  function walked(y) {                                      // the scroll that went into walking, up to y
+    var w = y;
+    w -= clamp(y, lookA, lookB) - lookA;                    // (stood still, looking up)
+    w -= Math.max(0, y - campA);                            // (camp)
+    return w;
+  }
   function place() {
+    var max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    var look = document.querySelector('[data-look]'), camp = document.querySelector('[data-camp]');
+    if (look) { var lt = look.getBoundingClientRect().top + scrollY; lookA = lt - innerHeight * 0.5; lookB = lt + look.offsetHeight - innerHeight * 0.5; }
+    if (camp) { campA = camp.getBoundingClientRect().top + scrollY - innerHeight * 0.55; campB = max; }
     document.querySelectorAll('[data-thing]').forEach(function (el) {
       var top = el.getBoundingClientRect().top + scrollY;
-      things[el.dataset.thing] = (top - innerHeight * 0.35) / S * K + W * 0.75;
+      things[el.dataset.thing] = walked(top - innerHeight * 0.35) / S * K + W * 0.75;
     });
   }
 
@@ -325,126 +337,213 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       if (cells.d[i + 3] > 128) px(x0 + (flip ? CW - 1 - x : x), y0 + y, cells.d[i]);
     }
   }
-  function heronFrame(name) { return ART.heron[name]; }
   // trim a heron frame to its drawn rows (the tables carry a big empty canvas)
   var heronTrim = {};
   function trimmed(name) {
     if (heronTrim[name]) return heronTrim[name];
-    var r = heronFrame(name), tone = ART.heron.tone, y0 = r.length, y1 = -1;
+    var r = ART.heron[name], tone = ART.heron.tone, y0 = r.length, y1 = -1;
     for (var y = 0; y < r.length; y++) for (var x = 0; x < r[y].length; x++) if (tone[r[y][x]] !== undefined) { y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
     return (heronTrim[name] = r.slice(y0, y1 + 1));
   }
 
+  // The tent, as the game draws it (TentArt.draw, tentHeight, canvasReach, tentGlow), on ground row G.
+  var CI = F.campInfo, CF = CI.first;
+  function tentHeight(n) {
+    if (n < CF.raise0) return 0;
+    var j = Math.min(11, n - CF.raise0); if (j < 2) return 0;
+    return Math.round(CI.tent_h * (1 - Math.pow(1 - (j - 2) / 9, 2)));
+  }
+  function drawTent(n, x0, G) {
+    if (n < CF.unroll0) return;
+    var reach = Math.min(CI.tent_w, 3 + (n - CF.unroll0) * 5), h = tentHeight(n), TW = CI.tent_w;
+    var glow = n >= CF.putin2, shut = n >= CF.inside;
+    function p(x, y, v, door) { if (glow) v = door ? 236 : (v === 92 || v === 90 ? 150 : 211); px(x, y, v); }
+    if (h === 0) {
+      for (var x = x0; x < x0 + reach; x++) { p(x, G - 1, 196); p(x, G, 150); p(x, G + 1, 132); }
+      if (reach < TW) ['..oo..', '.oCCo.', 'oCCCCo', 'oCCCCo', '.oCCo.', '..oo..'].forEach(function (row, yy) {
+        for (var xx = 0; xx < row.length; xx++) if (row[xx] !== '.') p(x0 + reach - 1 + xx, G - 4 + yy, row[xx] === 'o' ? 80 : 176);
+      });
+    } else {
+      var peak = x0 + TW / 2;
+      for (var y = G + 1 - h; y <= G + 1; y++) {
+        var half = (y - (G + 1 - h)) * (TW / 2) / Math.max(1, h);
+        for (var x = Math.round(peak - half); x <= Math.round(peak + half); x++) {
+          var edge = Math.abs(x - (peak - half)) < 1 || Math.abs(x - (peak + half)) < 1 || y === G + 1 - h;
+          p(x, y, edge ? 92 : 168);
+        }
+      }
+      if (h >= CI.door_h + 3) for (var y = G + 2 - CI.door_h; y <= G + 1; y++) {
+        var half = (y - (G + 2 - CI.door_h)) * CI.door_slope;
+        if (!shut) { for (var x = Math.trunc(peak - half); x <= Math.trunc(peak + half); x++) p(x, y, 70, true); continue; }
+        var meet = G + 2 - CI.door_h + Math.floor(CI.door_h * 2 / 5);
+        var gap = y < meet ? -1 : (y - meet) * CI.door_slope * 0.5;
+        for (var x = Math.trunc(peak - half); x <= Math.trunc(peak + half); x++) {
+          var dd = Math.abs(x - peak);
+          if (gap >= 0 && dd <= gap) p(x, y, 70, true);
+          else if ((gap >= 0 && dd <= gap + 1) || (gap < 0 && x === peak)) p(x, y, 92);
+        }
+      }
+      for (var y = G + 1 - h - 2; y < G + 1 - h; y++) p(peak, y, 90);
+    }
+    if (n >= CF.stake0) { p(x0 - 1, G, 60); p(x0 - 1, G - 1, 60); }
+  }
+
+  // A redwood's crown, high up: narrow, a long way down the trunk, flat sprays on short drooping limbs,
+  // longer toward its foot, the sky through between them; a bare silvered limb here and there, and now and
+  // then a dead spike above. [top] is the trunk's top on screen, [w] its width there.
+  function crown(k, li, xc, top, w, tone) {
+    var n = 12 + Math.floor(hash(k * 3 + li) * 7), depth = 60 + li * 45, reach = 6 + li * 7;
+    for (var j = 0; j < n; j++) {
+      var fr = (j + 0.5) / n, y0 = Math.round(top + 4 + depth * fr + (hash(k * 11 + j) - 0.5) * 6);
+      var side = hash(k * 19 + j * 5) < 0.5 ? -1 : 1;
+      var len = Math.round(reach * (0.35 + 0.75 * fr) * (0.7 + 0.6 * hash(k * 5 + j * 7 + li)));
+      var bare = hash(k * 23 + j * 3 + li) < 0.1;
+      for (var s = 0; s <= len; s++) px(Math.round(xc + side * (w / 2 + s)), y0 + Math.round(s * 0.35), bare ? tone + 28 : tone - 4);   // the limb, drooping
+      if (bare) continue;
+      [[1, 1], [0.55, 0.7]].forEach(function (q, m) {           // a spray at its end, a smaller one along it
+        var cx = xc + side * (w / 2 + len * q[0]), cy = y0 + len * q[0] * 0.35 + 1;
+        var rx = (3 + len * 0.45) * q[1], ry = (1.4 + li * 0.5) * q[1];
+        for (var yy = -Math.ceil(ry); yy <= Math.ceil(ry); yy++) for (var xx = -Math.ceil(rx); xx <= Math.ceil(rx); xx++) {
+          var X = Math.round(cx + xx), Y = Math.round(cy + yy + Math.abs(xx) * 0.18);   // the spray's ends hang
+          if ((xx * xx) / (rx * rx) + (yy * yy) / (ry * ry) > 1 || hash(X * 13 + Y * 7 + k + m) < 0.06) continue;
+          px(X, Y, tone - 10 + (yy < 0 ? 9 : 0));
+        }
+      });
+    }
+    for (var y = top - 3; y < top + 4; y++) px(Math.round(xc), y, tone);                     // the leader, thin
+    if (hash(k * 17 + li) < 0.3) for (var y = top - 14; y < top - 3; y++) px(Math.round(xc), y, tone + 24);   // a dead spike
+  }
+
   function draw() {
     if (!buf) return;
-    var max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
-    var t = clamp(scrollY / max, 0, 1), d = day(t);
-    var cam = scrollY / S * K;                              // the wood's x at the left edge
+    var y = scrollY, max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    var t = clamp(y / Math.max(1, campA + innerHeight * 0.3), 0, 1), d = day(t);
+    var cam = walked(y) / S * K;                            // the wood's x at the left edge
+    var lp = lookB > lookA ? clamp((y - lookA) / (lookB - lookA), 0, 1) : 0;
+    var LMAX = H * 2.6, up = (1 - Math.cos(lp * Math.PI * 2)) / 2;   // up the trunks and down again
+    up = up * up * (3 - 2 * up);
+    var lift = Math.round(LMAX * up);
+    var cp = campB > campA ? clamp((y - campA) / (campB - campA), 0, 1) : 0, camping = y > campA;
     var L = d.light, sky = mix(L, 232, d.mist * 0.6);
-    // sky and the far wood
-    for (var y = 0; y < H; y++) {
-      var v = mix(sky, L, y / H);
-      for (var x = 0; x < W; x++) buf[y * W + x] = v;
+    // the sky: paler the higher you look, and shafts of light down through the crowns
+    for (var yy = 0; yy < H; yy++) {
+      var high = clamp((lift - (H - yy)) / LMAX, 0, 1);
+      var v = mix(mix(sky, L, yy / H), Math.min(240, sky + 26), high);
+      for (var x = 0; x < W; x++) buf[yy * W + x] = v + (high > 0.2 && (((x + yy * 0.45 + 400) | 0) % 47) < 6 ? 10 * high : 0);
     }
-    // trunks: three layers, the far ones paler (the mist between), each sliding at its own speed
+    // three layers of trunks, the far ones paler (the mist between), each sliding at its own speed both ways
     [[0.25, 64, 16, 0.62], [0.55, 104, 30, 0.32], [1.0, 190, 50, 0.0]].forEach(function (Lr, li) {
       var sp = Lr[0], step = Lr[1], wid = Lr[2], fade = Lr[3];
       var tone = mix(L - 95, sky, clamp(fade + d.mist * (0.9 - li * 0.3), 0, 0.95));
-      var off = cam * sp, k0 = Math.floor((off - 40) / step), k1 = Math.ceil((off + W + 40) / step);
+      var base = GROUND - 1 + li * 2 + Math.round(lift * sp);           // the layer's floor, on screen
+      var tall = LMAX * sp + H * (0.6 - li * 0.05);                      // how high its crowns stand
+      for (var yy = Math.max(0, base); yy < H; yy++) for (var x = 0; x < W; x++) buf[yy * W + x] = mix(tone, L - 40, 0.5);   // its floor
+      var off = cam * sp, k0 = Math.floor((off - 60) / step), k1 = Math.ceil((off + W + 60) / step);
       for (var k = k0; k <= k1; k++) {
-        var h = hash(k * 7 + li * 1013);
-        var x0 = Math.round(k * step + h * step * 0.6 - off), w = Math.round(wid * (0.6 + hash(k * 13 + li) * 0.8));
-        var base = GROUND - 1 + li * 2;
-        for (var x = x0; x < x0 + w; x++) {
-          if (x < 0 || x >= W) continue;
-          var edge = (x === x0 || x === x0 + w - 1) ? 6 : 0;           // a lit edge on the bark
-          var groove = (li > 0 && hash(Math.floor(x + off) * 17 + li) < 0.18) ? -10 : 0;   // the bark's long furrows
-          for (var y = 0; y <= base; y++) buf[y * W + x] = tone + edge + groove;
+        var h = hash(k * 7 + li * 1013), wk = Math.round(wid * (0.6 + hash(k * 13 + li) * 0.8));
+        var x0 = Math.round(k * step + h * step * 0.6 - off), xc = x0 + wk / 2;
+        var top = Math.round(base - tall * (0.94 + hash(k * 29 + li) * 0.12));
+        for (var yy = Math.max(0, top); yy <= Math.min(H - 1, base); yy++) {
+          var hf = (base - yy) / (base - top), w = Math.max(2, wk * (1 - 0.92 * Math.pow(hf, 1.6)));   // narrowing up the trunk, most near the top
+          var a = Math.round(xc - w / 2), b = Math.round(xc + w / 2);
+          for (var x = Math.max(0, a); x < Math.min(W, b); x++) {
+            var edge = (x === a || x === b - 1) ? 6 : 0;
+            var groove = (li > 0 && hash(Math.floor(x - a + k * 97) * 17 + li) < 0.18) ? -10 : 0;   // the bark's long furrows
+            buf[yy * W + x] = tone + edge + groove;
+          }
         }
-        for (var f = 1; f <= 3; f++) { px(x0 - f, base - 3 + f, tone); px(x0 + w - 1 + f, base - 3 + f, tone); for (var yy = base - 3 + f; yy <= base; yy++) { px(x0 - f, yy, tone); px(x0 + w - 1 + f, yy, tone); } }
+        for (var f = 1; f <= 3; f++) for (var yy = base - 3 + f; yy <= base; yy++) { px(x0 - f, yy, tone); px(x0 + wk - 1 + f, yy, tone); }   // the foot flares
+        if (top > -200 && top < H) crown(k, li, xc, top, Math.max(2, wk * 0.35), tone);
       }
     });
     // the ground, the path on it (dotted with needles), and the creek where it crosses
-    var gtone = L - 52, ptone = L - 18;
-    for (var y = GROUND; y < H; y++) for (var x = 0; x < W; x++) {
-      var wx = Math.floor(x + cam), onPath = y >= PATH - 6 && y <= PATH + 4;
-      var v = onPath ? ptone : gtone - (y - GROUND) * 0.6;
-      if (hash(wx * 31 + y * 977) < (onPath ? 0.05 : 0.09)) v -= 26;
-      buf[y * W + x] = v;
+    var GR = GROUND + lift, PA = PATH + lift, gtone = L - 52, ptone = L - 18;
+    for (var yy = Math.max(0, GR); yy < H; yy++) for (var x = 0; x < W; x++) {
+      var wx = Math.floor(x + cam), onPath = yy >= PA - 6 && yy <= PA + 4;
+      var v = onPath ? ptone : gtone - (yy - GR) * 0.6;
+      if (hash(wx * 31 + (yy - lift) * 977) < (onPath ? 0.05 : 0.09)) v -= 26;
+      buf[yy * W + x] = v;
     }
     var cx = things.creek !== undefined ? Math.round(things.creek - cam) : -999;
-    for (var y = GROUND + 1; y < H; y++) for (var x = cx - (y - GROUND); x < cx + 40 + (y - GROUND) * 0.5; x++) {   // across the path, wider toward us
+    for (var yy = Math.max(0, GR + 1); yy < H; yy++) for (var x = cx - (yy - GR); x < cx + 40 + (yy - GR) * 0.5; x++) {
       if (x < 0 || x >= W) continue;
-      var shine = ((Math.floor(x + cam) + y * 3 + Math.floor(now / 400)) % 11 === 0) ? 40 : 0;
-      buf[y * W + x] = mix(L - 30, 238, 0.25) + shine;
+      var shine = ((Math.floor(x + cam) + yy * 3 + Math.floor(now / 400)) % 11 === 0) ? 40 : 0;
+      buf[yy * W + x] = mix(L - 30, 238, 0.25) + shine;
     }
 
     var wxs = walkerX(), here = cam + wxs + 60;           // the walkers' x in the wood
     var idle = now - lastMove;
-    // the deer, by the field note: stands and listens; as they come near it steps away into the trees
-    if (things.deer !== undefined) {
+    if (things.deer !== undefined) {                        // the deer listens; as they come near it steps away
       var dx = things.deer + deer.off - cam, near = things.deer + deer.off - here;
       if (near < 50 && near > -30 && !still) deer.off += 0.5;
       if (near > 160) deer.off = Math.max(0, deer.off - 2);
       var dr = (near < 50 && near > -30) ? (Math.floor(now / 260) % 2 ? ART.deer.step : ART.deer.stand) : (Math.floor(now / 3000) % 3 === 2 ? ART.deer.browse : ART.deer.stand);
-      rows(dr, ART.deer.tone, dx, GROUND + 2, false);
+      rows(dr, ART.deer.tone, dx, GR + 2, false);
     }
-    // the slug, under the last page: out only while you wait
-    if (things.slug !== undefined) {
+    if (things.slug !== undefined) {                        // the slug: out only while you wait
       if (idle > 2000 && !still) slug.off -= 0.04;
       var sr = Math.floor(now / 600) % 2 ? ART.slug.a : ART.slug.b;
-      if (idle > 1500 || slug.off < 0) rows(sr, ART.slug.tone, things.slug + slug.off - cam - 40, PATH + 3, false);
+      if (idle > 1500 || slug.off < 0) rows(sr, ART.slug.tone, things.slug + slug.off - cam - 40, PA + 3, false);
     }
-    // the heron in the creek's shallows; lifts off as they come up to it, and goes away low over the water
-    if (cx > -999) {
+    if (cx > -999) {                                        // the heron; lifts off as they come up to it
       var hx = things.creek + 30, gap = hx - here;
       if (gap > 160 || gap < -200) heron.flew = -1;
       if (heron.flew < 0 && gap < 70 && gap > -20 && !still) { heron.flew = now; heron.x = hx; heron.y = H - 4; }
       if (heron.flew < 0) {
-        var pose = ['stand', 'stand', 'look', 'stand', 'preen', 'stand'][Math.floor(now / 1500) % 6];
-        rows(trimmed(pose), ART.heron.tone, hx - cam, H - 4, false);
+        rows(trimmed(['stand', 'stand', 'look', 'stand', 'preen', 'stand'][Math.floor(now / 1500) % 6]), ART.heron.tone, hx - cam, H - 4 + lift, false);
       } else {
-        var e = now - heron.flew, pose;
-        if (e < 300) pose = 'liftdown'; else if (e < 600) pose = 'liftup';
-        else { pose = ['flyup', 'flymid', 'flydown', 'flymid'][Math.floor(e / 180) % 4]; }
-        var fx_ = heron.x + Math.max(0, e - 300) * 0.06, fy = heron.y - Math.max(0, e - 300) * 0.012;
-        rows(trimmed(pose), ART.heron.tone, fx_ - cam, fy, false);
+        var e = now - heron.flew, pose = e < 300 ? 'liftdown' : e < 600 ? 'liftup' : ['flyup', 'flymid', 'flydown', 'flymid'][Math.floor(e / 180) % 4];
+        rows(trimmed(pose), ART.heron.tone, heron.x + Math.max(0, e - 300) * 0.06 - cam, heron.y - Math.max(0, e - 300) * 0.012 + lift, false);
       }
     }
 
     // wander and Kumo
-    var A = F.wander, B = F.kumo, wf, kf, end = t > 0.97;
-    if (idle < 450 && !end) {
-      var fr = Math.floor(cam / 2.2) % 8; if (fr < 0) fr += 8;
-      wf = A.walk[fr]; kf = B.walk[fr];
-    } else if (end) {
-      var k = Math.min(Math.floor(idle / 350), A.sitdown.length);
-      wf = k < A.sitdown.length ? A.sitdown[k] : A.sit[0];
-      kf = idle > 2500 ? (Math.floor(now / 900) % 2 ? B.graze[0] : B.graze_up[0]) : B.stand[0];
+    var A = F.wander, B = F.kumo, flip = dir < 0 && !camping, ox = wxs - 30, oy = PA + 2 - CH, glass = null, tentAt = null;
+    var dusk = d.dark > 0.3;
+    if (camping) {                                          // the night's camp, as far as the page has come: back up, and it's undone
+      var n = Math.round(cp * (F.camp.length - 1)), cf = F.camp[n];
+      var G = oy + CH - 2;
+      drawTent(n, ox + CI.canvas_x0, G);
+      cell(cf.n, ox, oy, false);
+      if (cf.glass) glass = [ox + cf.glass[0], oy + cf.glass[1]];
+      else if (n >= CF.setdown2 && n < CF.pickL2) glass = [ox + CI.lantern_ground[0] + 1, oy + CI.lantern_ground[1] + 2];
+      if (n >= CF.putin2) tentAt = [ox + CI.canvas_x0 + CI.tent_w / 2, G - 8];
+    } else if (dusk) {                                      // the lantern lit, swinging from his hand
+      var fr = idle < 450 ? ((Math.floor(cam / 2.2) % 8) + 8) % 8 : 0, lf = F.lanternwalk[fr];
+      cell(lf.n, ox, oy, flip);
+      glass = [ox + (flip ? CW - 1 - lf.glass[0] : lf.glass[0]), oy + lf.glass[1]];
     } else {
-      wf = idle > 9000 && idle % 9000 < 1800 ? A.lookup[0] : A.stand[0];
-      if (idle < 2500) kf = B.stand[0];
-      else { var g = Math.floor((idle - 2500) / 800) % 6; kf = g < 3 ? B.graze[0] : g === 3 ? B.graze_up[0] : B.chew[g % 2]; }
-      if (idle % 5200 < 600) kf = kf === B.stand[0] ? B.tail[Math.floor(idle / 200) % 3] : kf;
-    }
-    var flip = dir < 0, ox = wxs - 30, oy = PATH + 2 - CH;
-    cell(kf.n, ox, oy, flip); cell(wf.n, ox, oy, flip);
-    // the lead, halter to hand, sagging between (as the game draws it)
-    var hl = kf.halter || (B.stand[0].halter), hd = wf.hand;
-    if (hl && hd) for (var i = 0; i <= 60; i++) {
-      var u = i / 60, lx = hl[0] + (hd[0] - hl[0]) * u, ly = hl[1] + (hd[1] - hl[1]) * u + 3 * 4 * u * (1 - u);
-      var X = Math.round(flip ? CW - 1 - lx : lx);
-      px(ox + X, oy + Math.round(ly), 44);
+      var wf, kf, looking = lp > 0.04 && lp < 0.96;
+      if (idle < 450 && !looking) {
+        var fr = ((Math.floor(cam / 2.2) % 8) + 8) % 8;
+        wf = A.walk[fr]; kf = B.walk[fr];
+      } else {
+        wf = looking || (idle > 9000 && idle % 9000 < 1800) ? A.lookup[0] : A.stand[0];
+        if (idle < 2500 && !looking) kf = B.stand[0];
+        else { var g = Math.floor(Math.max(0, idle - 2500) / 800) % 6; kf = g < 3 ? B.graze[0] : g === 3 ? B.graze_up[0] : B.chew[g % 2]; }
+        if (idle % 5200 < 600 && kf === B.stand[0]) kf = B.tail[Math.floor(idle / 200) % 3];
+      }
+      cell(kf.n, ox, oy, flip); cell(wf.n, ox, oy, flip);
+      var hl = kf.halter || B.stand[0].halter, hd = wf.hand;   // the lead, halter to hand, sagging between
+      if (hl && hd) for (var i = 0; i <= 60; i++) {
+        var u = i / 60, lx = hl[0] + (hd[0] - hl[0]) * u, ly = hl[1] + (hd[1] - hl[1]) * u + 3 * 4 * u * (1 - u);
+        px(ox + Math.round(flip ? CW - 1 - lx : lx), oy + Math.round(ly), 44);
+      }
     }
 
-    // dusk: the dark comes down, the lantern's pool of light around them, in steps
+    // dusk: the dark comes down; the lantern's light falls round it in flat steps. In for the night, the
+    // lantern's in the tent and the tent is the light.
     if (d.dark > 0) {
-      var lx0 = ox + (flip ? CW - 1 - (hd ? hd[0] : 52) : (hd ? hd[0] : 52)), ly0 = oy + (hd ? hd[1] : 29);
-      for (var y = 0; y < H; y++) for (var x = 0; x < W; x++) {
-        var r = Math.hypot((x - lx0) * 0.8, (y - ly0) * 1.2);
-        var lit = d.dark > 0.4 ? (r < 16 ? 1 : r < 26 ? 0.8 : r < 38 ? 0.6 : r < 52 ? 0.42 : 0) : 0;
-        var keep = mix(1 - d.dark, 1, lit);
-        buf[y * W + x] = buf[y * W + x] * keep;
+      var src = tentAt || glass;
+      for (var yy = 0; yy < H; yy++) for (var x = 0; x < W; x++) {
+        var lit = 0;
+        if (src && dusk) {
+          var r = Math.hypot((x - src[0]) * 0.8, (yy - src[1]) * 1.2) * (tentAt ? 1.4 : 1);
+          lit = r < 16 ? 1 : r < 26 ? 0.8 : r < 38 ? 0.6 : r < 52 ? 0.42 : 0;
+        }
+        var i = yy * W + x, v = buf[i];
+        if (tentAt && v >= 205 && v <= 237 && Math.abs(x - tentAt[0]) < 24 && Math.abs(yy - tentAt[1]) < 20) continue;   // the tent's own glow
+        buf[i] = v * mix(1 - d.dark, 1, lit);
       }
     }
 
