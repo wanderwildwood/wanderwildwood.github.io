@@ -95,7 +95,6 @@
     background: var(--ink); clip-path: polygon(0 0, 100% 0, 100% 29%, 50% 100%, 0 29%); }
   .cue.gone, .cue.crowded { opacity: 0; }
   @keyframes bob { 50% { transform: translateY(4px); } }
-  @media (prefers-reduced-motion: reduce) { .cue { animation: none; } }
   .buttons { display: flex; flex-wrap: wrap; gap: 0.8rem 1rem; margin: 0.2rem 0 1rem; align-items: center; }
   a.btn { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none;
     background: #fff; border: 2px solid var(--ink); padding: 0.45rem 0.9rem; box-shadow: 3px 3px 0 var(--ink); }
@@ -154,8 +153,7 @@
   <div class="look" data-look aria-hidden="true"></div>
 
   <section class="page right" data-thing="slug">
-    <picture><source media="(prefers-reduced-motion: reduce)" srcset="stopping-still.png">
-    <img class="fig" src="stopping.gif" width="396" height="174" loading="lazy"
+    <picture><img class="fig" src="stopping.gif" width="396" height="174" loading="lazy"
          alt="They stop on the path. Kumo grazes, a mushroom comes up, the old man sits down and then lies back with his hat over his eyes, and a slug crosses the path."
          data-alt-ja="道で立ち止まるふたり。クモは草を食み、きのこが顔を出し、おじいさんは腰をおろして、やがて帽子を顔にのせて寝ころぶ。ナメクジが道を渡っていく。"></picture>
     <div class="en">
@@ -173,8 +171,7 @@
   </section>
 
   <section class="page" data-thing="deer">
-    <picture><source media="(prefers-reduced-motion: reduce)" srcset="finding-still.png">
-    <img class="fig" src="finding.gif" width="396" height="174" loading="lazy"
+    <picture><img class="fig" src="finding.gif" width="396" height="174" loading="lazy"
          alt="Kumo stops and tugs the lead. The old man looks back, walks back to it, brushes a fern aside and picks the chanterelles underneath."
          data-alt-ja="クモが立ち止まって引き綱を引く。おじいさんは振り返って戻り、シダをよけて、その下のアンズタケを摘む。"></picture>
     <div class="en">
@@ -192,8 +189,7 @@
   </section>
 
   <section class="page right">
-    <picture><source media="(prefers-reduced-motion: reduce)" srcset="fire-still.png">
-    <img class="fig" src="fire.gif" width="396" height="174" loading="lazy"
+    <picture><img class="fig" src="fire.gif" width="396" height="174" loading="lazy"
          alt="At an old ring of stones he kneels, strikes a light with flint and steel and blows it into a fire. He puts the kettle on, pours a cup, and sits drinking tea, Kumo lying beside him."
          data-alt-ja="古い石の輪のそばで膝をつき、火打ち石で火をおこす。やかんをかけ、お茶を一杯ついで、座って飲む。となりにクモが寝そべっている。"></picture>
     <div class="en">
@@ -216,8 +212,7 @@
   </section>
 
   <section class="page" data-thing="creek">
-    <picture><source media="(prefers-reduced-motion: reduce)" srcset="heron-still.png">
-    <img class="fig crop" src="heron.gif" width="288" height="174" loading="lazy"
+    <picture><img class="fig crop" src="heron.gif" width="288" height="174" loading="lazy"
          alt="A great blue heron standing in the creek's shallows. It looks about, stalks forward, strikes, comes up with a fish, and preens."
          data-alt-ja="小川の浅瀬に立つオオアオサギ。あたりを見回し、そっと歩み、くちばしを突き入れて魚をとり、羽づくろいをする。"></picture>
     <div class="en">
@@ -237,8 +232,7 @@
   </section>
 
   <section class="page right">
-    <picture><source media="(prefers-reduced-motion: reduce)" srcset="supper-still.png">
-    <img class="fig" src="../shots/sanpo.gif" width="960" height="480" loading="lazy"
+    <picture><img class="fig" src="../shots/sanpo.gif" width="960" height="480" loading="lazy"
          alt="Recorded from the game: supper by the fire at nightfall, the dark wood all around, a cup of tea, Kumo lying beside him."
          data-alt-ja="ゲームの録画：日暮れの焚き火のそばの夕食。まわりは暗い森、お茶が一杯、そばにクモが寝そべっている。"></picture>
     <div class="en">
@@ -384,7 +378,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   if (typeof ART === 'undefined') { document.documentElement.classList.add('plain'); return; }
   var back = document.querySelector('canvas.back'), front = document.querySelector('canvas.front');
   var bx = back.getContext('2d'), fx = front.getContext('2d');
-  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var still = false;                                       // (the page moves for everyone: decided 2026-11-10, a request for reduced motion isn't followed)
   var S, W, H, STRIP, GROUND, PATH, buf, img, fimg;
   var BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
   var F = ART.figures, CW = F.cell[0], CH = F.cell[1];
