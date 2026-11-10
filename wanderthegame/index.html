@@ -998,6 +998,17 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       var tone = mix(L - 95, sky, clamp(fade + d.mist * (0.9 - li * 0.3), 0, 0.95)), body = q17(tone);
       if (li === 0) farB = body = Math.min(body, q17(sky) - 17);          // (far: one level off the air)
       if (li === 1) { body = Math.min(body, farB - 17); if (body === 153) body = farB >= 187 ? 170 : 136; midB = body; }   // (middle: never Kumo's own grey)
+      if (li === 1 && lp > 0.12 && lp < 0.9) {
+        // the geese going over (Birds.drawFar: a leader and two lines trailing back, each a body and a wing beating),
+        // deep in the wood behind the middle trees, crossing as the view comes down from the crowns
+        var gu = (lp - 0.12) / 0.78, glx = Math.round(-36 + gu * (W + 96)), gly = Math.round(GROUND + lift * 0.2 - (1.03 * H - 30));
+        for (var gi = 0; gi < 9; gi++) {
+          var gk = (gi + 1) >> 1, gx = glx - gk * 6, gy = gly + (gi % 2 === 0 ? 1 : -1) * gk * 3;
+          if (gy < 1 || gy >= H - 1) continue;
+          var gt = Math.min(q17(mix(102, skyRow[gy], 0.25)), q17(sky) - 68), flap = (Math.floor(now / 375) + gi) % 2 === 0;
+          px(gx, gy, gt); px(gx + 1, gy, gt); px(gx - 1, gy + (flap ? -1 : 1), gt + 17);
+        }
+      }
       var base = GROUND - 1 + li * 2 + Math.round(lift * RISE[li]);     // the layer's floor, on screen
       var tall = H * (2.6 * sp + 0.6 - li * 0.05);                     // (sets the trunks' taper as the path sees them)
       if (li === 2) {                                                  // between the middle trunks and the near: the understory
