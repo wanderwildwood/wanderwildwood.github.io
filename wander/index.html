@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wander 散歩</title>
+<meta name="description" content="A walk in the redwoods with Kumo the llama, for the Mudita Kompakt.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/wander/">
+<meta property="og:title" content="Wander 散歩">
+<meta property="og:description" content="A walk in the redwoods with Kumo the llama, for the Mudita Kompakt.">
+<meta property="og:image" content="https://wanderthe.dev/shots/sanpo.gif">
+<meta property="og:image:alt" content="Supper by the fire at nightfall: wander with the pan on, a cup of tea, Kumo the llama lying by">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<style>
+  /* The page is one day's walk. The wood behind is drawn the way the game draws it: a small picture in
+     16 greys, dithered, scaled up in whole pixels. The words sit on notebook pages (the game's paper, 232,
+     and its ruled edge, 196) that pass by as you walk. */
+  :root { --paper: #e8e8e8; --rule: #c4c4c4; --ink: #222; --quiet: #555; --day: #c8c8c8; }
+  * { box-sizing: border-box; }
+  html { background: var(--day); }
+  body {
+    margin: 0; color: var(--ink); background: transparent;
+    font: 17px/1.65 Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  canvas.wood { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; z-index: 0;
+    image-rendering: pixelated; image-rendering: crisp-edges; pointer-events: none; }
+  canvas.wood.front { z-index: 2; }
+  main { position: relative; z-index: 1; max-width: 60rem; margin: 0 auto; padding: 2.5rem 1rem 0; }
+  [hidden] { display: none !important; }
+  .page {
+    background: var(--paper); border: 2px solid var(--rule); max-width: 34rem;
+    padding: 1.4rem 1.5rem 1.2rem; margin: 0 0 var(--gap, 70vh);
+    box-shadow: 4px 4px 0 rgba(0,0,0,.18);
+  }
+  .page.right { margin-left: auto; }
+  .page:last-of-type { margin-bottom: 0; }
+  .home { font-size: 0.9rem; margin: 0 0 1rem; }
+  .home a { color: var(--ink); background: var(--paper); padding: 0.1rem 0.4rem; border: 2px solid var(--rule); text-decoration: none; }
+  h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 0.8rem; letter-spacing: -0.01em; }
+  h2 { font-size: 1.15rem; font-weight: 600; color: var(--quiet); margin: 0 0 0.9rem;
+    padding-bottom: 0.4rem; border-bottom: 2px solid var(--rule); }
+  p { margin: 0 0 0.9rem; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { text-decoration-style: dotted; }
+  .quiet, small { color: var(--quiet); }
+  small { font-size: 0.85rem; }
+  button.jp { font: inherit; font-weight: 400; color: var(--quiet); background: none;
+    border: 0; padding: 0; cursor: pointer;
+    text-decoration: underline dotted; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  button.jp[aria-pressed="true"] { color: var(--ink); }
+  [lang="ja"] { line-height: 1.8; }
+  .note { list-style: none; padding: 0; margin: 0 0 1rem; }
+  .note li { margin: 0 0 0.5rem; }
+  .guide { display: flex; gap: 1rem; align-items: flex-end; margin: 0.4rem 0 0; }
+  .guide img { display: block; width: 120px; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); }
+  .guide p { font-size: 0.9rem; margin: 0; }
+  .still { display: block; width: 100%; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); margin: 0 0 1rem; }
+  code { font-size: 0.8rem; word-break: break-all; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 0.8rem 1rem; margin: 0.2rem 0 1rem; align-items: center; }
+  a.btn { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none;
+    background: #fff; border: 2px solid var(--ink); padding: 0.45rem 0.9rem; box-shadow: 3px 3px 0 var(--ink); }
+  a.btn:hover { text-decoration: none; background: var(--paper); }
+  a.btn:active { transform: translate(3px, 3px); box-shadow: none; }
+  a.btn img { width: 44px; height: 44px; image-rendering: pixelated; display: block; }
+  a.btn.small { padding: 0.25rem 0.7rem; font-size: 0.95rem; }
+  .last { position: relative; min-height: 9rem; }
+  .last .mark { position: absolute; right: 1.2rem; bottom: 1rem; width: 66px; height: 66px; image-rendering: pixelated; }
+  .foot { height: 60vh; }          /* room at the end for the camp, below the last page */
+  .nowalk .foot { height: 2rem; }
+</style>
+</head>
+<body>
+<canvas class="wood back" aria-hidden="true"></canvas>
+<canvas class="wood front" aria-hidden="true"></canvas>
+<main>
+  <p class="home"><a href="../">wander 彷徨う</a></p>
+
+  <section class="page" id="top" style="--gap: 55vh">
+    <h1>Wander <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 散歩 sanpo</button></h1>
+    <div class="en">
+      <p>An old man and Kumo the llama walk the coast redwoods of northern California, from the morning
+      mist to dusk. Gather mushrooms, light a fire, make tea, make camp. Nothing to win and no words on
+      the screen; the notebook keeps what you met.</p>
+      <p class="quiet">Made for the Mudita Kompakt; runs on any phone with Android 12 or later.
+      No internet, no ads, no accounts.</p>
+      <p class="buttons"><a class="btn small" href="#download">Tell me when it's out</a></p>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <p>老人とラマのクモが、北カリフォルニアの海岸のレッドウッドの森を、朝の霧から夕暮れまで歩きます。きのこを集め、火をおこし、お茶を淹れ、野営する。勝ち負けはなく、画面に言葉もありません。出会ったものはノートが覚えています。</p>
+      <p class="quiet">Mudita Kompakt のために作りました。Android 12 以降の電話でも動きます。インターネットも広告もアカウントもありません。</p>
+      <p class="buttons"><a class="btn small" href="#download">出たら知らせて</a></p>
+    </div>
+  </section>
+
+  <section class="page right" id="note" data-thing="deer">
+    <div class="en">
+      <h2>A field note</h2>
+      <ul class="note">
+        <li>Tap the path ahead to walk on.</li>
+        <li>Hold near a thing, and he does what it is for.</li>
+        <li>Press and hold till it buzzes, then drag to look around.</li>
+        <li>The notebook is at camp: at night, tap to open it.</li>
+        <li>Walk with someone: at the night camp, hold your two phones back to back.</li>
+        <li>Nothing is lost by going slowly.</li>
+      </ul>
+      <div class="guide">
+        <a href="field-guide-print.png"><img src="field-guide.png" width="480" height="800" loading="lazy"
+           alt="The field note as one notebook page: each of the six lines beside a small drawing of the gesture"></a>
+        <p><small>Walking with someone needs NFC switched on in both phones, Wander open on both, and the notebook shut.</small><br>
+        <a href="field-guide.png">The field guide</a>, one page to keep on the phone; <a href="field-guide-print.png">a larger copy</a> prints well.</p>
+      </div>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>野帳</h2>
+      <ul class="note">
+        <li>道の先をタップすると歩きだします。</li>
+        <li>何かのそばで長押しすると、それに合ったことをします。</li>
+        <li>震えるまで押したまま、指を動かすとあたりを見回せます。</li>
+        <li>ノートは野営地にあります。夜にタップすると開きます。</li>
+        <li>誰かと歩く：夜の野営で、二台の電話の背中を合わせます。</li>
+        <li>ゆっくり行っても、なくすものはありません。</li>
+      </ul>
+      <div class="guide">
+        <a href="field-guide-print.png"><img src="field-guide.png" width="480" height="800" loading="lazy"
+           alt="野帳を一枚のノートのページに：六つの行と、それぞれの手の動きの小さな絵"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="download" data-thing="creek">
+    <div class="en">
+      <h2>Download</h2>
+      <p>Coming soon. Write to me and I'll send you one short note the day it's out, and now and then a
+      little more about the game as it grows. Nothing else, and you can say stop any time.</p>
+      <p class="buttons"><a class="btn" href="mailto:email@wanderthe.dev?subject=Wander%20waitlist&amp;body=Please%20let%20me%20know%20when%20Wander%20is%20out.">Tell me when it's out</a></p>
+      <p><small>Or follow <a href="../feed.xml">the releases feed</a>: Wander comes out there too, with every app.</small></p>
+      <!-- At release, in place of "Coming soon." (fill from the .sha256 file; never type the hash):
+      <p><a href="{APK_URL}">sanpo-v{VERSION}.apk</a> · {SIZE} MB<br>
+      <small>SHA-256: <code>{SHA256}</code></small></p>
+      -->
+      <p>The download will be free. If you'd like to pay something, pay what you want straight to the llamas at
+      <a href="https://hotspringsllamas.org/donate/">Hot Springs Llamas</a>.</p>
+      <p class="buttons"><a class="btn" href="https://hotspringsllamas.org/donate/"><img src="llama.png" width="22" height="22" alt=""> Feed the llamas</a></p>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>ダウンロード</h2>
+      <p>もうすぐ。メールをくだされば、出た日に短いお知らせを一通、ときどきゲームのことを少しだけお送りします。それ以外は送りません。いつでもやめられます。</p>
+      <p class="buttons"><a class="btn" href="mailto:email@wanderthe.dev?subject=Wander%20waitlist&amp;body=Wander%E3%81%8C%E5%87%BA%E3%81%9F%E3%82%89%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82">出たら知らせて</a></p>
+      <p><small><a href="../feed.xml">リリースのフィード</a>でも、ほかのアプリと一緒にお知らせします。</small></p>
+      <p>ダウンロードは無料になります。払いたい方は、好きな額を直接ラマたちへ（<a href="https://hotspringsllamas.org/donate/">Hot Springs Llamas</a>）。</p>
+      <p class="buttons"><a class="btn" href="https://hotspringsllamas.org/donate/"><img src="llama.png" width="22" height="22" alt=""> ラマにごはんを</a></p>
+    </div>
+  </section>
+
+  <section class="page right" id="license" data-thing="slug">
+    <img class="still" src="../shots/sanpo.gif" width="960" height="480" loading="lazy"
+         alt="Supper by the fire at nightfall, the dark wood all round: wander with the pan on, a cup of tea, the pipe, Kumo the llama lying by">
+    <div class="en">
+      <h2>License</h2>
+      <p>Wander (its program, pictures and sounds) is shared under
+      <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>.
+      You may share it freely, as it is, with credit, and not for money. You may not change it, or share
+      anything made from it.</p>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>ライセンス</h2>
+      <p><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>：そのままの形で、名前を添え、お金を取らずに自由に分けてください。変えたり、元にして何かを作って配ったりはできません。</p>
+    </div>
+  </section>
+  <section class="page last" style="--gap: 0">
+    <p class="buttons"><a class="btn" href="https://hotspringsllamas.org/donate/"><span class="en">Feed the llamas</span><span class="ja" lang="ja" hidden>ラマにごはんを</span></a></p>
+    <p><small class="en">Every bit of what you give goes to the llamas at Hot Springs Llamas.</small><small class="ja" lang="ja" hidden>いただいたものは、すべて Hot Springs Llamas のラマたちへ。</small></p>
+    <a href="https://hotspringsllamas.org/donate/" aria-label="Feed the llamas"><img class="mark" src="llama.png" width="22" height="22" alt=""></a>
+  </section>
+  <div class="foot"></div>
+</main>
+<script src="art.js"></script>
+<script>
+document.querySelectorAll('button.jp').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var ja = b.getAttribute('aria-pressed') !== 'true';
+    document.querySelectorAll('div.en, span.en, small.en').forEach(function (d) { d.hidden = ja; });
+    document.querySelectorAll('div.ja, span.ja, small.ja').forEach(function (d) { d.hidden = !ja; });
+    document.documentElement.lang = ja ? 'ja' : 'en';
+    b.setAttribute('aria-pressed', ja ? 'true' : 'false');
+  });
+});
+
+/* ---- The walk ---------------------------------------------------------------------------------------
+   One small grey picture (W x H game pixels), scaled up S times. Scrolling down walks them on: the wood
+   slides past, the day goes from the morning mist to dusk, and things wait along the way where the pages
+   say (data-thing). Stop scrolling and they stop: Kumo grazes, the slug comes out. */
+(function () {
+  if (typeof ART === 'undefined') return;
+  var back = document.querySelector('canvas.back'), front = document.querySelector('canvas.front');
+  var bx = back.getContext('2d'), fx = front.getContext('2d');
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var S, W, H, STRIP, GROUND, PATH, buf, img, fimg;
+  var BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
+  var F = ART.figures, CW = F.cell[0], CH = F.cell[1];
+  var cells = null;                                         // figures.png as grey + alpha, per pixel
+  var sheet = new Image();
+  sheet.onload = function () {
+    var c = document.createElement('canvas'); c.width = sheet.width; c.height = sheet.height;
+    var x = c.getContext('2d'); x.drawImage(sheet, 0, 0);
+    try { cells = { w: c.width, d: x.getImageData(0, 0, c.width, c.height).data }; } catch (e) { cells = null; }
+    draw();
+  };
+  sheet.src = 'figures.png';
+
+  function hash(n) { n = (n * 374761393 + 668265263) | 0; n = (n ^ (n >>> 13)) * 1274126177 | 0; return ((n ^ (n >>> 16)) >>> 0) / 4294967296; }
+  function mix(a, b, t) { return a + (b - a) * t; }
+  function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+
+  // The day, by how far down the page: the ground's light, the mist, and the dark.
+  var DAY = [ // t, light, mist, dark
+    [0.00, 206, 0.70, 0.00], [0.25, 218, 0.30, 0.00], [0.50, 200, 0.10, 0.00],
+    [0.70, 168, 0.05, 0.15], [0.85, 120, 0.00, 0.55], [1.00, 70, 0.00, 0.85]];
+  function day(t) {
+    for (var i = 1; i < DAY.length; i++) if (t <= DAY[i][0]) {
+      var a = DAY[i - 1], b = DAY[i], u = (t - a[0]) / (b[0] - a[0]);
+      return { light: mix(a[1], b[1], u), mist: mix(a[2], b[2], u), dark: mix(a[3], b[3], u) };
+    }
+    var l = DAY[DAY.length - 1]; return { light: l[1], mist: l[2], dark: l[3] };
+  }
+
+  function size() {
+    S = clamp(Math.round(innerWidth / 230), 2, 4);
+    W = Math.ceil(innerWidth / S); H = Math.ceil(innerHeight / S);
+    STRIP = 52; GROUND = H - 30; PATH = H - 18;
+    [back, front].forEach(function (c) { c.width = W; c.height = H; });
+    buf = new Float32Array(W * H);
+    img = bx.createImageData(W, H); fimg = fx.createImageData(W, STRIP);
+    place();
+  }
+
+  // Where the things along the way stand, in the wood's own pixels.
+  var K = 0.45;                                             // game px walked per CSS px scrolled
+  var things = {};
+  function walkerX() { return Math.round(W * 0.28); }
+  function place() {
+    document.querySelectorAll('[data-thing]').forEach(function (el) {
+      var top = el.getBoundingClientRect().top + scrollY;
+      things[el.dataset.thing] = (top - innerHeight * 0.35) / S * K + W * 0.75;
+    });
+  }
+
+  // state
+  var lastY = scrollY, dir = 1, lastMove = 0, now = 0;
+  var heron = { flew: -1, x: 0, y: 0 }, deer = { off: 0 }, slug = { off: 0 };
+
+  function px(x, y, v) { if (x >= 0 && x < W && y >= 0 && y < H) buf[y * W + x] = v; }
+  function rows(r, tone, x0, yb, flip) {                    // a Kotlin pixel table, feet on yb
+    for (var y = 0; y < r.length; y++) for (var x = 0; x < r[y].length; x++) {
+      var c = r[y][x]; if (tone[c] === undefined) continue;
+      px(Math.round(x0 + (flip ? r[y].length - 1 - x : x)), Math.round(yb - r.length + 1 + y), tone[c]);
+    }
+  }
+  function cell(n, x0, y0, flip) {                          // a figure frame from figures.png
+    if (!cells) return;
+    var cx = (n % F.cols) * CW, cy = Math.floor(n / F.cols) * CH;
+    for (var y = 0; y < CH; y++) for (var x = 0; x < CW; x++) {
+      var i = ((cy + y) * cells.w + cx + x) * 4;
+      if (cells.d[i + 3] > 128) px(x0 + (flip ? CW - 1 - x : x), y0 + y, cells.d[i]);
+    }
+  }
+  function heronFrame(name) { return ART.heron[name]; }
+  // trim a heron frame to its drawn rows (the tables carry a big empty canvas)
+  var heronTrim = {};
+  function trimmed(name) {
+    if (heronTrim[name]) return heronTrim[name];
+    var r = heronFrame(name), tone = ART.heron.tone, y0 = r.length, y1 = -1;
+    for (var y = 0; y < r.length; y++) for (var x = 0; x < r[y].length; x++) if (tone[r[y][x]] !== undefined) { y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+    return (heronTrim[name] = r.slice(y0, y1 + 1));
+  }
+
+  function draw() {
+    if (!buf) return;
+    var max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    var t = clamp(scrollY / max, 0, 1), d = day(t);
+    var cam = scrollY / S * K;                              // the wood's x at the left edge
+    var L = d.light, sky = mix(L, 232, d.mist * 0.6);
+    // sky and the far wood
+    for (var y = 0; y < H; y++) {
+      var v = mix(sky, L, y / H);
+      for (var x = 0; x < W; x++) buf[y * W + x] = v;
+    }
+    // trunks: three layers, the far ones paler (the mist between), each sliding at its own speed
+    [[0.25, 64, 16, 0.62], [0.55, 104, 30, 0.32], [1.0, 190, 50, 0.0]].forEach(function (Lr, li) {
+      var sp = Lr[0], step = Lr[1], wid = Lr[2], fade = Lr[3];
+      var tone = mix(L - 95, sky, clamp(fade + d.mist * (0.9 - li * 0.3), 0, 0.95));
+      var off = cam * sp, k0 = Math.floor((off - 40) / step), k1 = Math.ceil((off + W + 40) / step);
+      for (var k = k0; k <= k1; k++) {
+        var h = hash(k * 7 + li * 1013);
+        var x0 = Math.round(k * step + h * step * 0.6 - off), w = Math.round(wid * (0.6 + hash(k * 13 + li) * 0.8));
+        var base = GROUND - 1 + li * 2;
+        for (var x = x0; x < x0 + w; x++) {
+          if (x < 0 || x >= W) continue;
+          var edge = (x === x0 || x === x0 + w - 1) ? 6 : 0;           // a lit edge on the bark
+          var groove = (li > 0 && hash(Math.floor(x + off) * 17 + li) < 0.18) ? -10 : 0;   // the bark's long furrows
+          for (var y = 0; y <= base; y++) buf[y * W + x] = tone + edge + groove;
+        }
+        for (var f = 1; f <= 3; f++) { px(x0 - f, base - 3 + f, tone); px(x0 + w - 1 + f, base - 3 + f, tone); for (var yy = base - 3 + f; yy <= base; yy++) { px(x0 - f, yy, tone); px(x0 + w - 1 + f, yy, tone); } }
+      }
+    });
+    // the ground, the path on it (dotted with needles), and the creek where it crosses
+    var gtone = L - 52, ptone = L - 18;
+    for (var y = GROUND; y < H; y++) for (var x = 0; x < W; x++) {
+      var wx = Math.floor(x + cam), onPath = y >= PATH - 6 && y <= PATH + 4;
+      var v = onPath ? ptone : gtone - (y - GROUND) * 0.6;
+      if (hash(wx * 31 + y * 977) < (onPath ? 0.05 : 0.09)) v -= 26;
+      buf[y * W + x] = v;
+    }
+    var cx = things.creek !== undefined ? Math.round(things.creek - cam) : -999;
+    for (var y = GROUND + 1; y < H; y++) for (var x = cx - (y - GROUND); x < cx + 40 + (y - GROUND) * 0.5; x++) {   // across the path, wider toward us
+      if (x < 0 || x >= W) continue;
+      var shine = ((Math.floor(x + cam) + y * 3 + Math.floor(now / 400)) % 11 === 0) ? 40 : 0;
+      buf[y * W + x] = mix(L - 30, 238, 0.25) + shine;
+    }
+
+    var wxs = walkerX(), here = cam + wxs + 60;           // the walkers' x in the wood
+    var idle = now - lastMove;
+    // the deer, by the field note: stands and listens; as they come near it steps away into the trees
+    if (things.deer !== undefined) {
+      var dx = things.deer + deer.off - cam, near = things.deer + deer.off - here;
+      if (near < 50 && near > -30 && !still) deer.off += 0.5;
+      if (near > 160) deer.off = Math.max(0, deer.off - 2);
+      var dr = (near < 50 && near > -30) ? (Math.floor(now / 260) % 2 ? ART.deer.step : ART.deer.stand) : (Math.floor(now / 3000) % 3 === 2 ? ART.deer.browse : ART.deer.stand);
+      rows(dr, ART.deer.tone, dx, GROUND + 2, false);
+    }
+    // the slug, under the last page: out only while you wait
+    if (things.slug !== undefined) {
+      if (idle > 2000 && !still) slug.off -= 0.04;
+      var sr = Math.floor(now / 600) % 2 ? ART.slug.a : ART.slug.b;
+      if (idle > 1500 || slug.off < 0) rows(sr, ART.slug.tone, things.slug + slug.off - cam - 40, PATH + 3, false);
+    }
+    // the heron in the creek's shallows; lifts off as they come up to it, and goes away low over the water
+    if (cx > -999) {
+      var hx = things.creek + 30, gap = hx - here;
+      if (gap > 160 || gap < -200) heron.flew = -1;
+      if (heron.flew < 0 && gap < 70 && gap > -20 && !still) { heron.flew = now; heron.x = hx; heron.y = H - 4; }
+      if (heron.flew < 0) {
+        var pose = ['stand', 'stand', 'look', 'stand', 'preen', 'stand'][Math.floor(now / 1500) % 6];
+        rows(trimmed(pose), ART.heron.tone, hx - cam, H - 4, false);
+      } else {
+        var e = now - heron.flew, pose;
+        if (e < 300) pose = 'liftdown'; else if (e < 600) pose = 'liftup';
+        else { pose = ['flyup', 'flymid', 'flydown', 'flymid'][Math.floor(e / 180) % 4]; }
+        var fx_ = heron.x + Math.max(0, e - 300) * 0.06, fy = heron.y - Math.max(0, e - 300) * 0.012;
+        rows(trimmed(pose), ART.heron.tone, fx_ - cam, fy, false);
+      }
+    }
+
+    // wander and Kumo
+    var A = F.wander, B = F.kumo, wf, kf, end = t > 0.97;
+    if (idle < 450 && !end) {
+      var fr = Math.floor(cam / 2.2) % 8; if (fr < 0) fr += 8;
+      wf = A.walk[fr]; kf = B.walk[fr];
+    } else if (end) {
+      var k = Math.min(Math.floor(idle / 350), A.sitdown.length);
+      wf = k < A.sitdown.length ? A.sitdown[k] : A.sit[0];
+      kf = idle > 2500 ? (Math.floor(now / 900) % 2 ? B.graze[0] : B.graze_up[0]) : B.stand[0];
+    } else {
+      wf = idle > 9000 && idle % 9000 < 1800 ? A.lookup[0] : A.stand[0];
+      if (idle < 2500) kf = B.stand[0];
+      else { var g = Math.floor((idle - 2500) / 800) % 6; kf = g < 3 ? B.graze[0] : g === 3 ? B.graze_up[0] : B.chew[g % 2]; }
+      if (idle % 5200 < 600) kf = kf === B.stand[0] ? B.tail[Math.floor(idle / 200) % 3] : kf;
+    }
+    var flip = dir < 0, ox = wxs - 30, oy = PATH + 2 - CH;
+    cell(kf.n, ox, oy, flip); cell(wf.n, ox, oy, flip);
+    // the lead, halter to hand, sagging between (as the game draws it)
+    var hl = kf.halter || (B.stand[0].halter), hd = wf.hand;
+    if (hl && hd) for (var i = 0; i <= 60; i++) {
+      var u = i / 60, lx = hl[0] + (hd[0] - hl[0]) * u, ly = hl[1] + (hd[1] - hl[1]) * u + 3 * 4 * u * (1 - u);
+      var X = Math.round(flip ? CW - 1 - lx : lx);
+      px(ox + X, oy + Math.round(ly), 44);
+    }
+
+    // dusk: the dark comes down, the lantern's pool of light around them, in steps
+    if (d.dark > 0) {
+      var lx0 = ox + (flip ? CW - 1 - (hd ? hd[0] : 52) : (hd ? hd[0] : 52)), ly0 = oy + (hd ? hd[1] : 29);
+      for (var y = 0; y < H; y++) for (var x = 0; x < W; x++) {
+        var r = Math.hypot((x - lx0) * 0.8, (y - ly0) * 1.2);
+        var lit = d.dark > 0.4 ? (r < 16 ? 1 : r < 26 ? 0.8 : r < 38 ? 0.6 : r < 52 ? 0.42 : 0) : 0;
+        var keep = mix(1 - d.dark, 1, lit);
+        buf[y * W + x] = buf[y * W + x] * keep;
+      }
+    }
+
+    // into the panel's 16 greys, ordered-dithered; the strip at the foot goes on the front canvas
+    var data = img.data, fd = fimg.data, top = H - STRIP;
+    for (var y = 0; y < H; y++) for (var x = 0; x < W; x++) {
+      var v = clamp(buf[y * W + x], 0, 255) / 17, lo = Math.floor(v);
+      var q = (v - lo) * 16 > BAYER[(y & 3) * 4 + (x & 3)] + 0.5 ? lo + 1 : lo;
+      var g = Math.min(255, q * 17), i = (y * W + x) * 4;
+      data[i] = data[i + 1] = data[i + 2] = g; data[i + 3] = 255;
+      if (y >= top) { var j = ((y - top) * W + x) * 4; fd[j] = fd[j + 1] = fd[j + 2] = g; fd[j + 3] = 255; }
+    }
+    bx.putImageData(img, 0, 0);
+    fx.clearRect(0, 0, W, H); fx.putImageData(fimg, 0, top);
+    var bg = Math.min(255, Math.round(sky / 17) * 17);
+    document.documentElement.style.setProperty('--day', 'rgb(' + bg + ',' + bg + ',' + bg + ')');
+  }
+
+  var ticking = false;
+  function frame(ts) { ticking = false; now = ts || performance.now(); draw(); if (!still && !document.hidden) schedule(); }
+  var timer = 0;
+  function schedule() {                                     // about 8 frames a second, as slow as the game
+    if (ticking) return; ticking = true;
+    clearTimeout(timer); timer = setTimeout(function () { requestAnimationFrame(frame); }, 120);
+  }
+  addEventListener('scroll', function () {
+    var y = scrollY; if (y !== lastY) { dir = y > lastY ? 1 : -1; lastY = y; lastMove = performance.now(); }
+    if (!ticking) { ticking = true; requestAnimationFrame(frame); }
+  }, { passive: true });
+  addEventListener('resize', function () { size(); draw(); });
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) schedule(); });
+  size(); lastMove = -1e9; now = performance.now(); draw(); if (!still) schedule();
+})();
+</script>
+</body>
+</html>
