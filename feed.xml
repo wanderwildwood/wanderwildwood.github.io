@@ -4,8 +4,78 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-10T15:07:03Z</updated>
+  <updated>2026-11-10T22:02:13Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Mailbox 0.1.56</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.56"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.56</id>
+    <updated>2026-11-10T22:02:13Z</updated>
+    <content type="text">Mailbox 0.1.56: On a phone whose system drives a notification light (KompaktOS), a new account&#x27;s mail now blinks it, and an account you already have can be switched in its settings under Notification light. That row shows only on a phone with a light.</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.29</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.29"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.29</id>
+    <updated>2026-11-10T22:02:05Z</updated>
+    <content type="text">Messaging 1.35.29: On a phone whose system drives a notification light (KompaktOS), a Signal message now blinks it, as an SMS already did. Nothing changes on a phone without one.</content>
+  </entry>
+  <entry>
+    <title>Sky 0.13.8</title>
+    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.8"/>
+    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.8</id>
+    <updated>2026-11-10T22:01:59Z</updated>
+    <content type="text">Sky 0.13.8: On a phone whose system drives a notification light (KompaktOS), a weather alert now blinks it. Nothing changes on a phone without one. Also: a list that fills in after its screen opens starts on its first row; About names Glance and Clock as the apps that may ask Sky for the weather</content>
+  </entry>
+  <entry>
+    <title>Time 0.2.23</title>
+    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.23"/>
+    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.23</id>
+    <updated>2026-11-10T22:01:53Z</updated>
+    <content type="text">Time 0.2.23: On a phone whose system drives a notification light (KompaktOS), a missed alarm now blinks it. Nothing changes on a phone without one. Also: a list that fills in after its screen opens starts on its first row</content>
+  </entry>
+  <entry>
+    <title>Medicine 0.1.31</title>
+    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.31"/>
+    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.31</id>
+    <updated>2026-11-10T22:01:46Z</updated>
+    <content type="text">Medicine 0.1.31: On a phone whose system drives a notification light (KompaktOS), a dose that is due or a refill reminder now blinks it. Nothing changes on a phone without one. Also: a list that fills in after its screen opens starts on its first row</content>
+  </entry>
+  <entry>
+    <title>Memo 0.3.27</title>
+    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.27"/>
+    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.27</id>
+    <updated>2026-11-10T22:01:40Z</updated>
+    <content type="text">Memo 0.3.27: On a phone whose system drives a notification light (KompaktOS), a reminder now blinks it. Nothing changes on a phone without one.</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.62</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.62"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.62</id>
+    <updated>2026-11-10T22:01:29Z</updated>
+    <content type="text">Datebook 0.1.62: On a phone whose system drives a notification light (KompaktOS), an event reminder now blinks it. Nothing changes on a phone without one. Also: a list that fills in after its screen opens starts on its first row</content>
+  </entry>
+  <entry>
+    <title>Handset 0.1.32</title>
+    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.32"/>
+    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.32</id>
+    <updated>2026-11-10T22:01:23Z</updated>
+    <content type="text">Handset 0.1.32: On a phone whose system drives a notification light (KompaktOS), a missed call or a new voicemail now blinks it. Nothing changes on a phone without one. Also: a list that fills in after its screen opens starts on its first row</content>
+  </entry>
+  <entry>
+    <title>Lens 0.1.34</title>
+    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.34"/>
+    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.34</id>
+    <updated>2026-11-10T18:21:54Z</updated>
+    <content type="text">Lens 0.1.34: the chosen mode, Photo or Video, is a black stone, so it is plain which one is on</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.28</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.28"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.28</id>
+    <updated>2026-11-10T18:21:50Z</updated>
+    <content type="text">Messaging 1.35.28: in Desktop Sync, Forward now carries a message&#x27;s pictures along with its text</content>
+  </entry>
   <entry>
     <title>Messaging 1.35.27</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.27"/>
@@ -82,13 +152,6 @@
     <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.48</id>
     <updated>2026-11-09T16:27:19Z</updated>
     <content type="text">Glance 0.1.48: Settings has one list of the phone&#x27;s apps, A to Z: switch on the ones you want on the lock screen, with each app&#x27;s own options under it</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.24</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.24"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.24</id>
-    <updated>2026-11-09T15:19:45Z</updated>
-    <content type="text">Messaging 1.35.24: contacts synced from your phone are all read again, not only those before the first one with a picture. A Signal call answered on another device no longer shows here as missed. Searching people on Signal offers only people you know, not every member of every group. Fewer repeated profile lookups, and a sticker shows its emoji only when it is one.</content>
   </entry>
   <entry>
     <title>Music Box 2.18.36</title>
@@ -329,13 +392,6 @@
     <content type="text">Birding 1.7.41: dotted rules between the rows of the lists; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup); its own backup file is the way to move its data</content>
   </entry>
   <entry>
-    <title>Messaging 1.35.23</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.23"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.23</id>
-    <updated>2026-11-08T13:10:44Z</updated>
-    <content type="text">Messaging 1.35.23: Glance can open Messaging straight at &quot;Unread on the lock screen&quot;.</content>
-  </entry>
-  <entry>
     <title>Glance 0.1.46</title>
     <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.46"/>
     <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.46</id>
@@ -369,61 +425,5 @@
     <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.19</id>
     <updated>2026-11-08T12:57:24Z</updated>
     <content type="text">Solitaire 0.1.19: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
-  </entry>
-  <entry>
-    <title>Star Chart 0.5.17</title>
-    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.17"/>
-    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.17</id>
-    <updated>2026-11-08T12:54:21Z</updated>
-    <content type="text">Star Chart 0.5.17: a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
-  </entry>
-  <entry>
-    <title>Level 0.1.34</title>
-    <link href="https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.34"/>
-    <id>https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.34</id>
-    <updated>2026-11-08T12:54:09Z</updated>
-    <content type="text">Level 0.1.34: a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
-  </entry>
-  <entry>
-    <title>Go 1.2.22</title>
-    <link href="https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.22"/>
-    <id>https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.22</id>
-    <updated>2026-11-08T12:50:53Z</updated>
-    <content type="text">Go 1.2.22: a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
-  </entry>
-  <entry>
-    <title>Dictionary 0.1.21</title>
-    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.21"/>
-    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.21</id>
-    <updated>2026-11-08T12:46:59Z</updated>
-    <content type="text">Dictionary 0.1.21: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
-  </entry>
-  <entry>
-    <title>Handset 0.1.31</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.31"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.31</id>
-    <updated>2026-11-08T12:45:26Z</updated>
-    <content type="text">Handset 0.1.31: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
-  </entry>
-  <entry>
-    <title>Connections 0.2.32</title>
-    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.32"/>
-    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.32</id>
-    <updated>2026-11-08T12:41:40Z</updated>
-    <content type="text">Connections 0.2.32: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup); Save everyone to a file is the way to move contacts</content>
-  </entry>
-  <entry>
-    <title>Cycle 0.3.10</title>
-    <link href="https://github.com/wanderwildwood/cycle/releases/tag/v0.3.10"/>
-    <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.10</id>
-    <updated>2026-11-08T12:41:33Z</updated>
-    <content type="text">Cycle 0.3.10: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
-  </entry>
-  <entry>
-    <title>Mesh 0.3.18</title>
-    <link href="https://github.com/wanderwildwood/amime/releases/tag/v0.3.18"/>
-    <id>https://github.com/wanderwildwood/amime/releases/tag/v0.3.18</id>
-    <updated>2026-11-08T12:41:12Z</updated>
-    <content type="text">Mesh 0.3.18: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
   </entry>
 </feed>
