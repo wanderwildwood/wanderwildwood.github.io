@@ -222,8 +222,7 @@
          data-alt-ja="小川の浅瀬に立つオオアオサギ。あたりを見回し、そっと歩み、くちばしを突き入れて魚をとり、羽づくろいをする。"></picture>
     <div class="en">
       <h2>Who lives here</h2>
-      <p>This is the redwood forest of the northern California coast, and everything living in it belongs here,
-      except Kumo. A heron fishes the creek. A dipper bobs on its stone. Ravens talk somewhere overhead, and after
+      <p>This is the redwood forest of the northern California coast, and everything living in it belongs here. A heron fishes the creek. A dipper bobs on its stone. Ravens talk somewhere overhead, and after
       dark there are glowworms.</p>
       <p>Nothing here is fought or hunted. You watch, and then you leave them be.</p>
       <p>The seasons follow your own calendar, turned around if you live south of the equator. If you use
@@ -231,7 +230,7 @@
     </div>
     <div class="ja" lang="ja" hidden>
       <h2>ここに住むもの</h2>
-      <p>ここは北カリフォルニアの海岸のレッドウッドの森で、出てくるのはみな、本当にこの森にいる生きものです。クモだけは別ですが。サギが小川で魚をとる。カワガラスが石の上で体をひょこひょこ揺らす。どこか頭の上でワタリガラスがしゃべり、暗くなるとツチボタルが光ります。</p>
+      <p>ここは北カリフォルニアの海岸のレッドウッドの森で、出てくるのはみな、本当にこの森にいる生きものです。サギが小川で魚をとる。カワガラスが石の上で体をひょこひょこ揺らす。どこか頭の上でワタリガラスがしゃべり、暗くなるとツチボタルが光ります。</p>
       <p>ここでは、何とも戦わず、何も狩りません。眺めて、そっとしておきます。</p>
       <p>季節は実際の暦のとおりにめぐり、南半球にお住まいなら逆になります。<a href="../#soramoyo">空模様</a>を使っていれば、今日の天気も森にやってきます。</p>
     </div>
@@ -429,6 +428,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   // Where the things along the way stand, in the wood's own pixels; and the two stretches of the page that
   // aren't walking: the look up the trunks (data-look) and the night's camp at the foot (data-camp).
   var K = 0.45;                                             // game px walked per CSS px scrolled
+  var STONE = 12, HOP = [0, 0, 0, 0, -3, -2];               // the stepping stones' pitch; over the creek, both feet off between them
   var things = {}, firstEnd = 0, lookA = 1e9, lookB = 1e9, campA = 1e9, campB = 1e9;
   function walkerX() { return Math.round(W * 0.28); }
   function walked(y) {                                      // the scroll that went into walking, up to y
@@ -697,6 +697,274 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     }
   }
 
+  // The bark, as the game draws it (Forest.strands): braided furrows down a band w0 wide and h tall. Each drifts a
+  // column now and then, two that touch run together (a ridge closing in a V), a new one opens where a ridge gets
+  // wide; long dark runs with short bridges where the fibres cross.
+  function strands(w0, h, r, gapA, gapB, step, segA, segB, holeA, holeB, spawn, edge) {
+    var out = new Uint8Array(w0 * h), sx = [], on = [], sn = [], n = 0, i, j, t;
+    function ri(a, b) { return a + Math.floor(r() * (b - a + 1)); }
+    for (var x = edge + ri(0, gapA); x < w0 - edge; x += ri(gapA, gapB)) { sx[n] = x; on[n] = r() < 0.9; sn[n] = ri(0, segB); n++; }
+    for (var y = 0; y < h; y++) {
+      for (i = 0; i < n; i++) {
+        if (ri(0, step - 1) === 0) sx[i] = clamp(sx[i] + (r() < 0.5 ? 1 : -1), edge, w0 - 1 - edge);
+        if (--sn[i] <= 0) { on[i] = !on[i]; sn[i] = on[i] ? ri(segA, segB) : ri(holeA, holeB); }
+      }
+      for (i = 1; i < n; i++) for (j = i; j > 0 && sx[j - 1] > sx[j]; j--) {       // in order across
+        t = sx[j]; sx[j] = sx[j - 1]; sx[j - 1] = t; t = on[j]; on[j] = on[j - 1]; on[j - 1] = t; t = sn[j]; sn[j] = sn[j - 1]; sn[j - 1] = t;
+      }
+      var k = 0;
+      for (i = 0; i < n; i++) {
+        if (k > 0 && sx[i] - sx[k - 1] <= 1) { if (r() < 0.5) { sx[k - 1] = sx[i]; on[k - 1] = on[i]; sn[k - 1] = sn[i]; } continue; }
+        sx[k] = sx[i]; on[k] = on[i]; sn[k] = sn[i]; k++;
+      }
+      n = k;
+      var prev = edge - 2, m = n;
+      for (i = 0; i <= m; i++) {
+        var next = i < m ? sx[i] : w0 + 1 - edge;
+        if (next - prev > gapB && ri(0, spawn - 1) === 0) { sx[n] = ((prev + next) >> 1) + ri(-1, 1); on[n] = true; sn[n] = ri(segA, segB); n++; }
+        prev = next;
+      }
+      for (i = 0; i < n; i++) if (on[i] && sx[i] >= 0 && sx[i] < w0) out[y * w0 + sx[i]] = 1;
+    }
+    return out;
+  }
+  // A trunk's own marks, made once (Forest.farTrunks, midTrunks, nearTrunks and nearFoot). Far: only where it's lost in
+  // the ground mist, the line of it a little slanted. Middle: a few long furrows a level down, the foot flared unevenly
+  // with a root swell either side, its feet into the mist in two steps, a couple of broken stubs. Near: round, the
+  // furrows crowding toward its edges, both edges a level darker, a pale band toward the light with pale threads on
+  // the ridges; the flare, and two or three roots off over the ground, lit along their tops. All in steps of a grey
+  // off the trunk's own tone; the bark HB rows long, read up and back down so it never shows a seam.
+  var barks = {}, HB = 400, WV = new Int8Array(64);
+  for (var wi = 0; wi < 64; wi++) WV[wi] = Math.round(Math.sin(wi / 4 * 6.283) + 0.6 * Math.sin(wi / 1.72));
+  function barkOf(li, k, wk) {
+    var key = li + ':' + k, B = barks[key]; if (B) return B;
+    var r = rng(k * 5471 + li * 9176 + 5), i, y, c;
+    function ri(a, b) { return a + Math.floor(r() * (b - a + 1)); }
+    B = barks[key] = { id: k * 131 + li };
+    if (li === 0) { B.lost = 30 + 26 * r(); B.sl = r() < 0.5 ? 0.25 : -0.25; return B; }
+    var d = B.d = new Int8Array(wk * HB), s = li === 1 ? wk / 15.5 : Math.min(1.25, wk / 36);
+    if (li === 1) {
+      var f = strands(wk, HB, r, 4, 8, 16, 20, 70, 3, 9, 6, 2);
+      for (i = 0; i < d.length; i++) if (f[i]) d[i] = -17;
+      B.aL = (2.5 + 3.5 * r()) * s; B.aR = (2.5 + 3.5 * r()) * s; B.kL = (4 + 3 * r()) * s; B.kR = (4 + 3 * r()) * s;
+      B.rL = ri(3, 7) * s; B.rR = ri(2, 6) * s;
+      B.m1 = 8 + 46 * Math.pow(r(), 1.5); B.m2 = 2 + 9 * r(); B.ph = ri(0, 63);
+      B.st = []; for (i = ri(2, 3); i > 0; i--) B.st.push(ri(36, 230), r() < 0.5 ? -1 : 1, ri(2, 5));
+      return B;
+    }
+    var w0 = Math.round(wk * 1.45), f2 = strands(w0, HB, r, 3, 6, 30, 50, 160, 1, 3, 8, 2), fur = new Uint8Array(wk * HB);
+    for (y = 0; y < HB; y++) for (c = 0; c < w0; c++) if (f2[y * w0 + c]) {     // lying evenly round it: seen from in front, crowded to the edges
+      var th = (c / (w0 - 1) - 0.5) * Math.PI * 0.92;
+      fur[y * wk + Math.round((Math.sin(th) / Math.sin(Math.PI * 0.46) + 1) / 2 * (wk - 1))] = 1;
+    }
+    var thr = strands(wk, HB, rng(k * 977 + li * 31 + 9), 5, 9, 40, 30, 110, 8, 30, 12, 2);
+    for (y = 0; y < HB; y++) for (c = 0; c < wk; c++) {
+      var lu = c / (wk - 1), v = 0, fu = -17; i = y * wk + c;
+      if (lu > 0.94 || lu < 0.03) { v = -17; fu = -34; } else if (lu >= 0.12 && lu < 0.4) v = 17;
+      d[i] = fur[i] ? fu : v;
+      if (!fur[i] && thr[i] && lu > 0.08 && lu < 0.55 && (lu < 0.4 || (c > 0 && fur[i - 1]) || (c < wk - 1 && fur[i + 1])) && (lu < 0.4 || (y / 7 | 0) % 2 === 0)) d[i] = 34;
+    }
+    B.aL = (6 + 6 * r()) * s; B.aR = (6 + 6 * r()) * s; B.kL = (4 + 4 * r()) * s; B.kR = (4 + 4 * r()) * s;
+    B.f0 = -Math.round((6 + 6 * r()) * s); B.f1 = wk - 1 + Math.round((6 + 6 * r()) * s);   // (the swell it stands on, end to end)
+    var P = [], pad = [ri(4, 9), ri(4, 9)];
+    for (var sd = -1; sd <= 1; sd += 2) for (var q = ri(1, 2); q > 0; q--) {     // the roots: a dark underside and a lit top, thinning
+      var A = sd < 0 ? B.aL : B.aR, x0 = sd < 0 ? -Math.round(A * 0.5) : wk - 1 + Math.round(A * 0.5);
+      var ln = Math.round(A * 0.5 + pad[sd < 0 ? 0 : 1]) + ri(6, 13), drop = (4 + r() * 4) * (li === 2 ? 0.55 : 1), y0 = -5 - ri(0, 3);
+      for (var j = 0; j < ln; j++) {
+        var x = x0 + sd * j, yy = Math.round(y0 + drop * Math.pow(j / ln, 0.6)), tk = j < ln * 0.35 ? 3 : j < ln * 0.7 ? 2 : 1;
+        P.push(x, yy - 1, sd < 0 ? (j % 6 === 3 ? 34 : 17) : 0);
+        for (var t = 0; t < tk - 1; t++) P.push(x, yy + t, t === 0 && sd < 0 ? 0 : -17);
+        P.push(x, yy + tk - 1, -34);
+      }
+    }
+    B.rt = new Int16Array(P);
+    return B;
+  }
+  // A trunk's rows yA..yB, where it stands now: its width by height as before (a column, slowly thinner, then through
+  // its crown), the bark laid across it and the foot spread. li 3 is a near trunk in front of the path: it ends on its
+  // own low swell of ground, and what it covers is marked (mk) so the lantern never lights it.
+  function column(B, li, xc, x0, wk, base, hOld, T, tipH, hF, wS, body, yA, yB, m, cap, mk) {
+    var d = B.d, near = li >= 2, fc = 0, fh = 1;
+    if (li === 3) { fc = x0 + (B.f0 + B.f1) / 2; fh = Math.max(1, (B.f1 - B.f0) / 2); }
+    for (var yy = Math.max(0, yA); yy <= Math.min(H - 1, yB); yy++) {
+      var hh = base - yy, w, row = yy * W, x, v;
+      if (hh <= 0) w = wk;
+      else if (hh <= H) w = Math.max(2, wk * (1 - 0.88 * Math.pow(hh / hOld, 3.2)));   // a column, narrowing only toward the top
+      else if (hh < hF) w = wS + (T.wf - wS) * Math.pow((hh - H) / (hF - H), 1.25);               // (on up, slowly thinner)
+      else w = T.w(tipH - hh);                                                    // (and through its crown to the tip)
+      var a = Math.round(xc - w / 2), b = Math.round(xc + w / 2);
+      if (hh > H) b = a + Math.max(1, Math.round(w));                                 // (up there a pixel at a time, one side then the other)
+      if (li === 0) {                                                                 // far: flat, and gone into the mist above its foot
+        var lostY = base + 1 - Math.round(B.lost * m), sl = B.sl * Math.min(1, m * 3);
+        for (x = Math.max(0, a); x < Math.min(W, b); x++) if (yy < lostY + Math.round((x - a) * sl)) buf[row + x] = body;
+        continue;
+      }
+      var a0 = a, b0 = b, l = 0, rr = 0;
+      if (hh < 34) {                                                                  // the foot flares
+        var u = Math.max(0, li === 1 ? hh - 2 : hh);
+        l = B.aL * Math.exp(-u / B.kL); rr = B.aR * Math.exp(-u / B.kR);
+        if (li === 1) { if (hh <= 2) { l += B.rL; rr += B.rR; } else if (hh === 3) { l += B.rL * 0.45; rr += B.rR * 0.45; } }
+        l = Math.round(l); rr = Math.round(rr); a -= l; b += rr;
+      }
+      var hi = hh < 0 ? 0 : hh % (2 * HB); if (hi >= HB) hi = 2 * HB - 1 - hi; hi *= wk;
+      var m1 = B.m1 * m, m2 = B.m2 * m, misty = !near && hh < m1 + 2, c0 = hi - x0, c1 = hi + wk - 1;       // (the bark stays put as the trunk thins: no furrow jogs)
+      for (x = Math.max(0, a); x < Math.min(W, b); x++) {
+        if (near) {
+          if (x < a0) { var i = a0 - x; v = i === l ? -17 : i === l - 1 && l > 2 ? 17 : 0; }   // (the lit side a step paler)
+          else if (x >= b0) v = x - b0 + 1 === rr ? -34 : -17;
+          else { v = d[hi + clamp(x - x0, 0, wk - 1)]; if ((x === a0 || x === b0 - 1) && v > -17) v = -17; if (li === 2 && v > 17) v = 17; }   // (behind them, nothing as pale as Kumo)
+          if (li === 3) {
+            var dd = clamp((x - fc) / fh, -1, 1), by = base + Math.round(2 * (1 - dd * dd)) - (x > a0 + 1 && x < b0 - 2 && hash((x - x0) * 31 + B.id) < 0.14 ? 1 : 0);
+            if (yy > by) continue; if (yy === by) v = -34;                          // (the bark going into the duff)
+          } else if (hh === 0) v = -34;
+          v += body;
+        } else {
+          v = x === a ? 17 : x === b - 1 ? -17 : d[clamp(c0 + x, hi, c1)];   // a lit edge toward the light, a shade edge
+          if (hh <= 3 && (x < a0 || x >= b0)) v = -17;                              // the root swells' shadow
+          v += body;
+          if (misty) { var j = WV[(x - x0 + B.ph) & 63]; if (hh < m2 + j) v = Math.min(cap, v + 34); else if (hh < m1 + j) v = Math.min(cap, v + 17); if (v === 153) v = 170; }   // into the ground mist
+        }
+        buf[row + x] = v; if (mk) fgm[row + x] = mk;
+      }
+    }
+  }
+  // A made thing's pixels (x, y, a grey or a step off tone), where it stands now.
+  function dots(P, xb, yb, tone, mk) {
+    for (var i = 0, n = P.length; i < n; i += 3) {
+      var X = xb + P[i], Y = yb + P[i + 1]; if (X < 0 || X >= W || Y < 0 || Y >= H) continue;
+      buf[Y * W + X] = tone + P[i + 2]; if (mk) fgm[Y * W + X] = mk;
+    }
+  }
+  // A young conifer of the understory (Forest.understory): a thin stem and tiers of boughs that droop at their tips,
+  // wide at the foot and narrowing to a spire, needles hung under them; some lean, and the leader nods over.
+  var firs = {};
+  function firOf(k) {
+    if (firs[k]) return firs[k];
+    var r = rng(k * 9973 + 131), P = [];
+    function ri(a, b) { return a + Math.floor(r() * (b - a + 1)); }
+    var up = ri(0, 3), h = ri(34, 89), v = r() < 0.5 ? -34 : -17, lean = ri(-1, 1) * 0.06, nod = r() < 0.5 ? 1 : -1;
+    function lx(y) { return Math.round(lean * y + (y > h - 6 ? nod * (y - (h - 6)) * (y - (h - 6)) / 6 : 0)); }
+    for (var y = 0; y < h; y++) P.push(lx(y), -up - y, v);                         // the stem
+    for (y = 4; y < h - 2; y += ri(4, 6)) {                                      // tiers of boughs, shorter toward the top
+      var reach = Math.round(3 + (1 - y / h) * h * 0.26), sx = Math.round(lean * y);
+      for (var sd = -1; sd <= 1; sd += 2) for (var i = 1; i <= reach; i++) {
+        var bx = sx + sd * i, by = Math.round(-y + i * i / (reach * 3 + 1)) - up;
+        P.push(bx, by, v);
+        if (i % 2 === 0) P.push(bx, by + 1, v + 17);                              // needles hanging under it
+        if (i % 3 === 0 && i > 2) P.push(bx, by - 1, v);
+      }
+    }
+    var tx = lx(h - 1); P.push(tx + nod, -up - h + 2, v, tx + nod * 2, -up - h + 3, v + 17);   // the nodding tip hanging
+    return (firs[k] = new Int16Array(P));
+  }
+  // Along the path's back, a stretch FT wide (Forest.floor): the sorrel's pale scalloped rim, a white flower now and
+  // then, and the sword ferns behind the path, each a stiff fountain of blades from one pinched crown, bending over
+  // more toward the tip, the upright middle ones a level paler, a dead one or two flat at its foot.
+  var FT = 240, rims = {};
+  function rimOf(T) {
+    if (rims[T]) return rims[T];
+    var r = rng(T * 4513 + 60000), P = [], x, i, j;
+    function ri(a, b) { return a + Math.floor(r() * (b - a + 1)); }
+    for (x = 0; x < FT; ) {
+      var w = [3, 4, 4, 5, 6][ri(0, 4)], hg = [1, 2, 2][ri(0, 2)];
+      for (i = 0; i < w; i++) for (j = 0; j < (i >= 1 && i < w - 1 ? hg : 1); j++) P.push(x + i, -j, 204);
+      x += w + [0, 0, 0, 1][ri(0, 3)];
+      if (r() < 0.05) P.push(x - 2, -hg, 238);
+    }
+    for (var q = 0; q < 4; q++) {
+      var cx = ri(0, FT - 1), h = ri(11, 15), tone = r() < 0.5 ? 136 : 153, n = ri(8, 10), angs = [];
+      for (var sd = -1; sd <= 1; sd += 2) {
+        var l = ri(Math.floor(h * 0.4), Math.floor(h * 0.7));
+        for (i = 0; i < l; i++) P.push(cx + sd * (2 + i), 0, tone + 34);
+        if (r() < 0.6) P.push(cx + sd * (2 + l), -1, tone + 34);
+      }
+      for (i = 0; i < n; i++) angs.push(-1.05 + 2.1 * (i + 0.25 + r() * 0.5) / n);
+      angs.sort(function (p, o) { return Math.abs(p) - Math.abs(o); });
+      for (i = 0; i < n; i++) {
+        var ang = angs[i], ln = h * (0.95 + 0.25 * r()), bend = (0.9 + 1.1 * Math.abs(ang)) * (ang >= 0 ? 1 : -1), v = Math.abs(ang) < 0.5 ? tone + 17 : tone, fx0 = cx, fy0 = 0;
+        for (j = 0; j < Math.floor(ln / 0.5); j++) {
+          var t = j * 0.5 / ln, th = ang + bend * Math.pow(t, 2.2);
+          fx0 += Math.sin(th) * 0.5; fy0 -= Math.cos(th) * 0.5;
+          P.push(Math.round(fx0), Math.round(fy0), v);
+          if (t > 0.2 && t < 0.78) P.push(Math.round(fx0), Math.round(fy0) - 1, v);
+        }
+      }
+    }
+    return (rims[T] = new Int16Array(P));
+  }
+  // The floor (Forest.floor, Foreground.floor and its stones), by rows down from the horizon: the lip behind the path,
+  // the path, then the duff in bands a level apart, darker toward us. A stretch FT wide, made once, as runs (x, row,
+  // length, grey, and the row whose speed it goes at): the bands' joins broken by long flat tongues so they read as
+  // ground going away; the path's edges wandering; the trodden line down it in runs; litter kicked to its front edge;
+  // shed sprays in the duff; cones, a fallen limb, a slab of bark, a mat of sorrel, a mossy stone.
+  var PA0 = 12, FRONT = 17, JOINS = [20, 24, 28], floors = {};
+  function band(d) { return d < 6 ? 187 : d < FRONT ? 204 : d < 20 ? 187 : d < 24 ? 170 : d < 28 ? 153 : 136; }
+  function floorOf(T) {
+    if (floors[T]) return floors[T];
+    var r = rng(T * 6361 + 77), P = [], x, i, j, d, b, ln;
+    function ri(a, b) { return a + Math.floor(r() * (b - a + 1)); }
+    function run(x, d, n, v, ad) { if (d >= 0 && d < 30) P.push(x, d, n, v, ad === undefined ? d : ad); }
+    function spray(x, d, s, tone) { var l = Math.round(1 + 1.4 * s + ri(0, 2)); run(r() < 0.5 ? x : x - l + 1, d, l, tone); }
+    JOINS.forEach(function (yb) {                               // the tongues at the joins
+      for (var x = -ri(0, 8); x < FT; ) { var ln = 6 + ri(0, 11); if (r() < 0.5) run(x, yb - 1, ln, band(yb)); else run(x, yb, ln, band(yb - 1)); x += ln + 8 + ri(0, 11); }
+    });
+    for (x = 0; x < FT; x++) {                                  // the path's edges, wandering
+      var wx = x + T * FT, sn = Math.sin(wx / 37) + 0.6 * Math.sin(wx / 13 + 1.3);
+      if (sn > 0.9) run(x, FRONT, 1, 204);
+      if (sn < -0.9) run(x, FRONT - 1, 1, 187);
+      if (ri(0, 12) === 0) run(x, 6, 1, 187);
+    }
+    for (x = -ri(0, 10); x < FT; ) { ln = 8 + ri(0, 15); if (ri(0, 2)) run(x, PA0, ln, 221); x += ln + 4 + ri(0, 13); }   // the trodden line, in runs
+    for (x = ri(0, 8); x < FT; x += 12 + ri(0, 9)) { d = FRONT + ri(0, 2); spray(x, d, 1.2, band(d) - 17); }               // litter kicked to the path's front edge
+    for (i = 0; i < 5; i++) { d = 19 + Math.floor(11 * Math.pow(r(), 0.75)); spray(ri(0, FT - 1), d, 1 + (d - 13) / 8, r() < 0.2 ? band(d) + 17 : band(d) - 17); }   // shed sprays
+    for (i = ri(0, 1); i < 2; i++) {                            // a mat of sorrel: trefoils held level, each a low mound a level paler than the duff
+      var cx = ri(0, FT - 1), cy = ri(20, 27), rx = ri(5, 10), ry = 1.5 + (cy - 13) / 16, n = Math.floor(rx * ry * 0.7) + 3, pts = [];
+      for (j = 0; j < n; j++) { var an = r() * 6.283, ds = Math.sqrt(r()); pts.push([cx + Math.round(Math.cos(an) * ds * rx), cy + Math.round(Math.sin(an) * ds * ry)]); }
+      pts.sort(function (p, o) { return p[1] - o[1]; });
+      for (j = 0; j < n; j++) {
+        var y = pts[j][1], lw = 3 + (y > 22 ? 1 : 0), x0 = pts[j][0] - (lw >> 1); b = band(y);
+        run(x0 + 1, y - 1, lw - 2, b + 34, cy); run(x0, y, lw, b + 17, cy); if (y > 18) run(x0 + 1, y + 1, lw - 2, b - 17, cy);
+      }
+    }
+    if (r() < 0.5) {                                            // a fallen limb along the duff: dark and round, its top lit, a shadow under, twig stubs
+      d = ri(20, 27); x = ri(0, FT - 1); ln = 10 + ri(0, 12);
+      var th = d > 22 ? 2 : 1, dir = r() < 0.5 ? 1 : -1, slope = (r() - 0.5) * 0.12, stub = 4 + ri(0, 3);
+      for (i = 0; i < ln; i++) {
+        var lx = x + dir * i, ly = d + Math.round(slope * i), body = Math.max(51, band(ly) - 68), tk = i > ln - 4 ? Math.max(1, th - 1) : th;
+        for (j = 0; j < tk; j++) run(lx, ly + j, 1, j === 0 && tk > 1 ? body + 34 : body, d);
+        run(lx + 1, ly + tk, 1, band(ly) - 34, d);
+        if (ri(0, 13) === 0) run(lx, ly, 1, 204, d);                              // lichen
+        if (--stub === 0 && i < ln - 3) { stub = 5 + ri(0, 4); for (j = 1; j <= 1 + th; j++) run(lx + dir * ((j + 1) >> 1), ly - j, 1, body + 17, d); }
+      }
+    }
+    if (r() < 0.3) {                                            // a slab of bark lying shed, its curled edge catching the light
+      d = ri(20, 28); x = ri(0, FT - 1); ln = 6 + ri(0, 5); b = band(d);
+      for (i = 0; i < ln; i++) {
+        var e = Math.sin(Math.PI * (i + 0.5) / ln), sh = Math.max(1, Math.round((d > 19 ? 2 : 1) * (0.5 + 0.5 * e))), top = d - sh + 1;
+        if (e > 0.4) run(x + i, top - 1, 1, b + 17, d);
+        for (j = 0; j < sh; j++) run(x + i, top + j, 1, (j + (i / 3 | 0)) % 3 === 0 ? b - 68 : b - 51, d);
+        run(x + i + 1, d + 1, 1, b - 34, d);
+      }
+    }
+    for (i = 0; i < 3; i++) {                                   // cones: a pixel far off; nearer a little barrel of scales, lit at its top
+      x = ri(0, FT - 1); d = i < 2 ? ri(FRONT, 22) : ri(23, 28); b = band(d);
+      if (i < 2) { run(x, d, 1, 85); run(x, d - 1, 1, b + 17, d); continue; }
+      run(x, d - 1, 1, 119, d); run(x + 1, d - 1, 1, 85, d); run(x, d, 1, 85); run(x + 1, d, 1, 102); run(x + 2, d, 1, 68); run(x + 1, d + 1, 2, b - 34, d);
+    }
+    if (r() < 0.6) {                                            // a stone in the duff: one clean cap of moss, its top lit, the side away from the light darker
+      var fy = ri(24, 28), sw = ri(8, 12), hw = sw / 2, hs = Math.round(sw * (0.42 + 0.1 * r())), side = r() < 0.5 ? 1 : -1, ph = r() * 6, sc = ri(0, FT - 1);
+      b = band(fy);
+      run(Math.round(sc - hw) + 1 + side * 2, fy + 1, sw + 2, b - 34, fy);        // its shadow on the ground
+      for (x = Math.round(sc - hw); x <= Math.round(sc + hw); x++) {
+        var u = (x - sc) / hw; if (Math.abs(u) > 1) continue;
+        var tp = Math.round(fy - hs * Math.sqrt(Math.max(0, 1 - Math.pow(Math.abs(u), 2.2)))), moss = fy - hs * 0.55 + 0.6 * Math.sin(x / Math.max(3, hw / 1.5) + ph);
+        var end = x === Math.round(sc - hw) || x === Math.round(sc + hw);
+        for (y = tp; y <= fy; y++) run(x, y, 1, y === fy ? 85 : end ? (y < moss ? 136 : 85) : y < moss ? (y === tp && Math.abs(u) < 0.55 ? 187 : 170) : u * side > 0.25 ? 102 : 119, fy);
+      }
+    }
+    return (floors[T] = new Int16Array(P));
+  }
+
   function draw() {
     if (!buf) return;
     var y = scrollY, atTop = y < firstEnd;
@@ -708,10 +976,13 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     var cp = campB > campA ? clamp((y - campA) / (campB - campA), 0, 1) : 0, camping = y > campA;
     var L = d.light, sky = mix(L, 232, d.mist * 0.6);
     // the sky: the mist paler the higher you look, and up in the crowns the light comes down through it in shafts
+    // and low over the ground it lies thickest, a pale band the far trunks are lost in
     if (skyRow.length !== H) skyRow = new Float32Array(H);
+    var hz = GROUND - 1 + Math.round(lift * RISE[0]), mistK = clamp(d.mist / 0.3, 0, 1);
     for (var yy = 0; yy < H; yy++) {
       var high = clamp((lift - yy) / LMAX, 0, 1);
       var v = mix(mix(sky, L, yy / H), 238, Math.min(1, high * 1.6)), beam = 7 * Math.min(1, high * 4), row = yy * W;
+      if (yy <= hz && yy > hz - 70) v = mix(v, 238, d.mist * 0.9 * (1 - (hz - yy) / 70));
       skyRow[yy] = v;
       if (beam <= 0) { for (var x = 0; x < W; x++) buf[row + x] = v; continue; }
       for (var x = 0; x < W; x++) {
@@ -719,12 +990,25 @@ document.querySelectorAll('button.jp').forEach(function (b) {
         buf[row + x] = (sx < 24 || (sx >= 92 && sx < 124) || (sx >= 176 && sx < 192)) ? v + beam : v;
       }
     }
-    // three layers of trunks, the far ones paler (the mist between), each sliding at its own speed both ways
+    // three layers of trunks, the far ones paler (the mist between), each sliding at its own speed both ways; each
+    // layer's tone one of the sixteen greys, as the game's are, its bark and edges a step either side
+    var q17 = function (v) { return Math.round(v / 17) * 17; };
+    var qo = Math.round((L - 212) / 17) * 17;                 // the game's daylight greys, taken down with the light
+    var farB = 0, midB = 0, feet = [];
     [[0.25, 64, 16, 0.66], [0.55, 104, 30, 0.48], [1.0, 190, 50, 0.0]].forEach(function (Lr, li) {
       var sp = Lr[0], step = Lr[1], wid = Lr[2], fade = Lr[3];
-      var tone = mix(L - 95, sky, clamp(fade + d.mist * (0.9 - li * 0.3), 0, 0.95));
+      var tone = mix(L - 95, sky, clamp(fade + d.mist * (0.9 - li * 0.3), 0, 0.95)), body = q17(tone);
+      if (li === 0) farB = body = Math.min(body, q17(sky) - 17);          // (far: one level off the air)
+      if (li === 1) { body = Math.min(body, farB - 17); if (body === 153) body = farB >= 187 ? 170 : 136; midB = body; }   // (middle: never Kumo's own grey)
       var base = GROUND - 1 + li * 2 + Math.round(lift * RISE[li]);     // the layer's floor, on screen
       var tall = H * (2.6 * sp + 0.6 - li * 0.05);                     // (sets the trunks' taper as the path sees them)
+      if (li === 2) {                                                  // between the middle trunks and the near: the understory
+        var uoff = cam * 0.75, ub = GROUND + 2 + Math.round(lift * 0.8), UST = 110;   // young conifers, sliding at their own speed
+        for (var uk = Math.floor((uoff - 40) / UST); uk <= Math.ceil((uoff + W + 40) / UST); uk++)
+          if (hash(uk * 71 + 9) < 0.72) dots(firOf(uk), Math.round(uk * UST + hash(uk * 43 + 2) * UST - uoff), ub, midB);
+        var rb = GROUND - 1 + lift;                                       // the sorrel's rim and the sword ferns behind the path
+        for (var rk = Math.floor((cam - 20) / FT); rk <= Math.floor((cam + W + 20) / FT); rk++) dots(rimOf(rk), Math.round(rk * FT - cam), rb, qo);
+      }
       for (var yy = Math.max(0, base); yy < H; yy++) for (var x = 0; x < W; x++) buf[yy * W + x] = mix(tone, L - 40, 0.5);   // its floor
       var off = cam * sp, k0 = Math.floor((off - 60) / step), k1 = Math.ceil((off + W + 60) / step), made = [];
       if (lift > 0) { k0--; k1++; }                                        // (a tree off the edge whose boughs reach in)
@@ -739,33 +1023,38 @@ document.querySelectorAll('button.jp').forEach(function (b) {
           tipH = Math.max(H + T.dF + 8, Math.round(LMAX * RISE[li]) + GROUND - 1 + li * 2 - (H - over));
           tip = base - tipH; hF = tipH - T.dF;
         }
-        for (var yy = Math.max(0, tip); yy <= Math.min(H - 1, base); yy++) {
-          var hh = base - yy, w;
-          if (hh <= H) w = Math.max(2, wk * (1 - 0.88 * Math.pow(hh / hOld, 3.2)));   // a column, narrowing only toward the top
-          else if (hh < hF) w = wS + (T.wf - wS) * Math.pow((hh - H) / (hF - H), 1.25);               // (on up, slowly thinner)
-          else w = T.w(tipH - hh);                                                    // (and through its crown to the tip)
-          var a = Math.round(xc - w / 2), b = Math.round(xc + w / 2);
-          if (hh > H) b = a + Math.max(1, Math.round(w));                                 // (up there a pixel at a time, one side then the other)
-          for (var x = Math.max(0, a); x < Math.min(W, b); x++) {
-            var u = (x - a) / Math.max(1, b - a - 1);                       // across the trunk: lit on the left, round into shade
-            var shade = u < 0.12 ? 7 : u > 0.78 ? -9 : 0;
-            var groove = (li > 0 && hash(Math.floor(x - a + k * 97) * 17 + li) < 0.18) ? -8 : 0;   // the bark's long furrows
-            buf[yy * W + x] = tone + shade + groove;
+        var B = barkOf(li, k, wk);
+        column(B, li, xc, x0, wk, base, hOld, T, tipH, hF, wS, body, tip, base, mistK, Math.max(body, farB + 17), 0);
+        if (li === 1) for (var si = 0; si < B.st.length; si += 3) {         // broken stubs, the tip pale
+          var sh = B.st[si], sd = B.st[si + 1], sw = Math.max(2, wk * (1 - 0.88 * Math.pow(sh / hOld, 3.2)));
+          for (var i = 0; i < B.st[si + 2]; i++) {
+            var sx = sd < 0 ? Math.round(xc - sw / 2) - 1 - i : Math.round(xc + sw / 2) + i, sy = base - sh + (i >= 3 ? 1 : 0);
+            px(sx, sy, i < B.st[si + 2] - 1 ? body - 17 : body + 17);
+            if (i < B.st[si + 2] - 2) px(sx, sy + 1, body - 34);
           }
         }
-        for (var f = 1; f <= 3; f++) for (var yy = base - 3 + f; yy <= base; yy++) { px(x0 - f, yy, tone); px(x0 + wk - 1 + f, yy, tone); }   // the foot flares
+        if (li === 2) feet.push(B, xc, x0, wk, base, hOld, body);           // (its foot stands on the ground: drawn again once that's down)
         if (T) made.push(T, x0 + (wk >> 1), tip);
       }
-      for (var i = 0; i < made.length; i += 3) crown(made[i], made[i + 1], made[i + 2], tone);   // (after the trunks: a bough across another lies over it)
+      for (var i = 0; i < made.length; i += 3) crown(made[i], made[i + 1], made[i + 2], body);   // (after the trunks: a bough across another lies over it)
     });
-    // the ground, the path on it (dotted with needles), and the creek where it crosses
-    var GR = GROUND + lift, PA = PATH + lift, gtone = L - 52, ptone = L - 18;
-    for (var yy = Math.max(0, GR); yy < H; yy++) for (var x = 0; x < W; x++) {
-      var wx = Math.floor(x + cam), onPath = yy >= PA - 6 && yy <= PA + 4;
-      var v = onPath ? ptone : gtone - (yy - GR) * 0.6;
-      if (hash(wx * 31 + (yy - lift) * 977) < (onPath ? 0.05 : 0.09)) v -= 26;
-      buf[yy * W + x] = v;
+    // the ground (the game's floor): the lip behind the path, the path, the duff in bands darker toward us, and what
+    // lies on it; in front of the path each row slides a little faster than the last, up to the near trunks' speed
+    var GR = GROUND + lift, PA = PATH + lift;
+    for (var yy = Math.max(0, GR); yy < H; yy++) { var v = Math.max(0, band(yy - GR) + qo); for (var x = 0; x < W; x++) buf[yy * W + x] = v; }
+    for (var ft = Math.floor(cam / FT) - 1; ft <= Math.floor((cam * 1.65 + W) / FT); ft++) {
+      var fp = floorOf(ft);
+      for (var i = 0; i < fp.length; i += 5) {
+        var yy = GR + fp[i + 1]; if (yy < 0 || yy >= H) continue;
+        var ad = fp[i + 4], a = ft * FT + fp[i] - Math.floor(cam * (ad < FRONT ? 1 : 1 + 0.5 * (ad - FRONT + 1) / 10)), b = Math.min(W, a + fp[i + 2]), v = Math.max(0, fp[i + 3] + qo);
+        for (var x = Math.max(0, a); x < b; x++) buf[yy * W + x] = v;
+      }
     }
+    for (var i = 0; i < feet.length; i += 7) {                // the near trunks' feet on it, and their roots
+      column(feet[i], 2, feet[i + 1], feet[i + 2], feet[i + 3], feet[i + 4], feet[i + 5], null, 0, 0, 0, feet[i + 6], GR - 12, feet[i + 4], 0, 0, 0);
+      dots(feet[i].rt, feet[i + 2], feet[i + 4], feet[i + 6]);
+    }
+    // the creek where it crosses, and the stepping stones over it
     var cx = things.creek !== undefined ? Math.round(things.creek - cam) : -999;
     if (cx > -200 && cx < W + 200) for (var yy = Math.max(0, GR + 1); yy < H; yy++) {   // across the path, wider toward us, its banks wandering
       var dz = yy - GR, wob = Math.round(Math.sin((yy + things.creek) * 0.45) * 1.5);
@@ -775,6 +1064,20 @@ document.querySelectorAll('button.jp').forEach(function (b) {
         var wx = Math.floor(x + cam), run = Math.floor(now / 500);
         var ripple = ((wx + run * 2 + (yy % 3) * 5) % 13 < 3 && yy % 2 === 0) ? 22 : 0;   // dashes going downstream
         buf[yy * W + x] = water + ripple - dz * 0.7;
+      }
+    }
+    // (the game's: farther apart than a stride, so he skips across; each wet, just out of the water, a sheen on its
+    // back, its reflection under it, a pillow of water upstream and a tail down)
+    var st0 = 0, stN = 0, crA = 0, crB = -1;
+    if (cx > -200 && cx < W + 200 && lift === 0) {
+      var wob = Math.round(Math.sin((PA + 3 + things.creek) * 0.45) * 1.5);
+      crA = Math.round(cx - (PA + 3 - GR) * 0.9 + wob); crB = Math.round(cx + 34 + (PA + 3 - GR) * 0.6 - wob);
+      st0 = crA + 3 + ((crB - crA - 6) % STONE >> 1);
+      for (var sx = st0; sx < crB - 3; sx += STONE, stN++) {
+        for (var i = 1; i <= 3; i++) px(sx + i, PA + 2, 153 + qo);
+        px(sx + 1, PA + 2, 170 + qo);
+        for (var i = 0; i < 5; i++) { px(sx + i, PA + 3, 102 + qo); px(sx + i, PA + 4, (i >= 1 && i <= 3 ? 119 : 153) + qo); }
+        px(sx - 1, PA + 3, 238); px(sx + 5, PA + 4, 238); px(sx + 6, PA + 5, 238);
       }
     }
 
@@ -815,21 +1118,33 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       cell(lf.n, ox, oy, flip);
       if (cells) glass = [ox + (flip ? CW - 1 - lf.glass[0] : lf.glass[0]), oy + lf.glass[1]];
     } else {
-      var wf, kf, looking = lp < 0.98;
+      var wf, kf, looking = lp < 0.98, hop = 0, hx0 = 0;
+      // over the creek he goes stone to stone (Kumo just wades through, splashing): where his foot is between two
+      // stones says where in the skip he is, landing, a beat on the one foot, gathered, off, in the air; stopped, he's
+      // stood on the nearest stone, or the bank
+      var foot = ox + (flip ? CW - 1 - 53 : 53), over = stN > 0 && A.skip && foot >= crA - 2 && foot <= Math.max(crB + 2, st0 + (stN - 1) * STONE + 13);
       if (idle < 450 && !looking) {
         var fr = ((Math.floor(cam / 2.2) % 8) + 8) % 8;
         wf = A.walk[fr]; kf = B.walk[fr];
+        if (over) { var hk = (((foot - st0 + 1) % STONE) + STONE) % STONE >> 1; wf = A.skip[hk]; hop = HOP[hk]; }
+        var ha = Math.max(crA, ox + (flip ? CW - 45 : 12)), hb = Math.min(crB, ox + (flip ? CW - 13 : 44));   // water thrown up round Kumo's hooves
+        if (ha <= hb) for (var i = 0; i < 9; i++) px((ha + hb >> 1) - 8 + Math.floor(hash(Math.floor(now / 120) * 19 + i) * 17), PA + 1 - Math.floor(hash(Math.floor(now / 120) * 23 + i + 40) * 6), 246);
       } else {
+        if (over && foot >= crA && foot <= crB) {
+          var best = foot < (crA + crB) / 2 ? crA - 3 : crB + 3;
+          for (var i = 0; i < stN; i++) if (Math.abs(st0 + i * STONE + 2 - foot) < Math.abs(best - foot)) best = st0 + i * STONE + 2;
+          hx0 = best - foot;
+        }
         wf = !looking && idle > 9000 && idle % 9000 < 1800 ? A.lookup[0] : A.stand[0];
         if (idle < 2500 && !looking) kf = B.stand[0];
         else { var g = Math.floor(Math.max(0, idle - 2500) / 800) % 6; kf = g < 3 ? B.graze[0] : g === 3 ? B.graze_up[0] : B.chew[g % 2]; }
         if (idle % 5200 < 600 && kf === B.stand[0]) kf = B.tail[Math.floor(idle / 200) % 3];
       }
-      cell(kf.n, ox, oy, flip); cell(wf.n, ox, oy, flip);
+      cell(kf.n, ox, oy, flip); cell(wf.n, ox + hx0, oy + hop, flip);
       var hl = kf.halter || B.stand[0].halter, hd = wf.hand;   // the lead, halter to hand, sagging between
       if (cells && hl && hd) for (var i = 0; i <= 60; i++) {
         var u = i / 60, lx = hl[0] + (hd[0] - hl[0]) * u, ly = hl[1] + (hd[1] - hl[1]) * u + 3 * 4 * u * (1 - u);
-        px(ox + Math.round(flip ? CW - 1 - lx : lx), oy + Math.round(ly), 44);
+        px(ox + Math.round((flip ? CW - 1 - lx : lx) + hx0 * u), oy + Math.round(ly + hop * u), 44);
       }
     }
 
@@ -844,6 +1159,22 @@ document.querySelectorAll('button.jp').forEach(function (b) {
         var e = now - heron.flew, pose = e < 300 ? 'liftdown' : e < 600 ? 'liftup' : ['flyup', 'flymid', 'flydown', 'flymid'][Math.floor(e / 180) % 4];
         var fl = Math.max(0, e - 300);                         // (carried on with the view, so a fast scroll never runs it down)
         rows(trimmed(pose), ART.heron.tone, heron.x + fl * 0.055 + Math.max(0, cam - heron.cam) - cam, heron.y - fl * 0.04 + lift, false);
+      }
+    }
+
+    // the near trunks (Forest.nearTrunks), nearer than the path and quicker than it, passing in front of them: few, dark,
+    // none where the page opens, none over the creek as they cross it, none where the camp will be. Behind the pages.
+    if (lift === 0) {
+      var noff = cam * 1.5, NST = 470, campX = campA < 1e9 ? walked(campA) / S * K * 1.5 : -1e9, fordX = cx > -999 ? (things.creek - wxs) * 1.5 : -1e9;
+      for (var nk = Math.floor((noff - 90) / NST); nk <= Math.floor((noff + W + 30) / NST); nk++) {
+        if (hash(nk * 61 + 11) < 0.3) continue;
+        var nw = 30 + Math.floor(hash(nk * 17 + 3) * 13), nX = nk * NST + Math.round(hash(nk * 29 + 5) * NST * 0.6), nx = nX - Math.floor(noff);
+        if (nX < W + 40) continue;
+        if (nX - campX > wxs - 60 - nw && nX - campX < wxs + 150) continue;
+        if (nX - fordX > wxs - 70 - nw && nX - fordX < wxs + 130) continue;
+        var nB = barkOf(3, nk, nw), nb = Math.max(17, 68 + qo);
+        column(nB, 3, nx + nw / 2, nx, nw, H - 4, 1e9, null, 0, 0, 0, nb, 0, H - 2, 0, 0, 2);
+        dots(nB.rt, nx, H - 4, nb, 2);
       }
     }
 
@@ -886,7 +1217,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
         var ddy = yy - s1, inRows = lightOn && ddy > -44 && ddy < 44;       // (the light reaches no further than this)
         for (var x = 0; x < W; x++) {
           var i = yy * W + x, v = buf[i], lit = 0, ddx = x - s0;
-          if (inRows && ddx > -66 && ddx < 66) {
+          if (inRows && ddx > -66 && ddx < 66 && fgm[i] !== 2) {       // (never on a near trunk: it stands in front of the light)
             var r = Math.hypot(ddx * 0.8, ddy * 1.2) * rk;
             lit = r < 16 ? 1 : r < 26 ? 0.8 : r < 38 ? 0.6 : r < 52 ? 0.42 : 0;
           }
@@ -903,7 +1234,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       var q = (v - lo) * 16 > BAYER[(y & 3) * 4 + (x & 3)] + 0.5 ? lo + 1 : lo;
       var g = Math.min(255, q * 17), i = (y * W + x) * 4;
       data[i] = data[i + 1] = data[i + 2] = g; data[i + 3] = 255;
-      fd[i] = fd[i + 1] = fd[i + 2] = g; fd[i + 3] = (y >= GR || fgm[y * W + x]) ? 255 : 0;   // (the front: the ground and whatever stands or flies before the pages)
+      fd[i] = fd[i + 1] = fd[i + 2] = g; fd[i + 3] = (y >= GR || fgm[y * W + x] === 1) ? 255 : 0;   // (the front: the ground and whatever stands or flies before the pages)
     }
     bx.putImageData(img, 0, 0);
     fx.putImageData(fimg, 0, 0);
