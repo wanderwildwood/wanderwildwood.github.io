@@ -176,7 +176,7 @@
          data-alt-ja="クモが立ち止まって引き綱を引く。おじいさんは振り返って戻り、シダをよけて、その下のアンズタケを摘む。"></picture>
     <div class="en">
       <h2>Kumo knows where the mushrooms are</h2>
-      <p>Kumo walks behind you on a lead and can't be hurried. Mostly it grazes. But keep an eye on its
+      <p>Kumo walks behind him on a lead and can't be hurried. Mostly it grazes. But keep an eye on its
       ears: they swing toward things you haven't noticed yet.</p>
       <p>Now and then Kumo stops and tugs the lead. The old man turns and walks back, and there's
       something under the fern Kumo is looking at.</p>
@@ -1162,7 +1162,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       if (heron.flew < 0 && gap < thr && !gone) { heron.flew = now; heron.x = hx; heron.y = H - 4; heron.cam = cam; }
       if (heron.flew < 0) { if (!gone)
         rows(trimmed(['stand', 'stand', 'look', 'stand', 'preen', 'stand'][Math.floor(now / 1500) % 6]), ART.heron.tone, hx - cam, H - 4 + lift, false);
-      } else if ((still ? (thr - gap) * 45 : now - heron.flew) < 9000) {   // (once flown, it's flown)
+      } else if ((still ? (thr - gap) * 45 : now - heron.flew) < 9000 && cam - heron.cam < 260) {   // (nor carried off down the page by a jump)   // (once flown, it's flown)
         // (asked for stillness, nothing moves by itself: the scroll carries the flight, forward and back)
         var e = still ? (thr - gap) * 45 : now - heron.flew, pose = e < 300 ? 'liftdown' : e < 600 ? 'liftup' : ['flyup', 'flymid', 'flydown', 'flymid'][Math.floor(e / 180) % 4];
         var fl = Math.max(0, e - 300);                         // (carried on with the view, so a fast scroll never runs it down)
