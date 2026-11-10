@@ -123,8 +123,9 @@
   /* the last page comes up over the sleeping camp as the light goes out, as the first sat up in the crowns */
   .page.end { margin: 0 auto; }
   .look { height: 220vh; }         /* the page opens up in the crowns; scrolling comes down the trunks to the path */
+  .look { margin-bottom: 120vh; }   /* and on the path they walk a while before the first page comes up */
   /* without the drawn wood (its art didn't load) the pages just follow one another */
-  .plain .look, .plain .foot { height: 3rem; }
+  .plain .look, .plain .foot { height: 3rem; margin-bottom: 0; }
   .plain .page { margin-bottom: 2rem; }
   .plain .cue { display: none; }
   @media (max-width: 26rem) {
@@ -144,7 +145,7 @@
   }
 </style>
 <noscript><style>
-  .look, .foot { height: 3rem; } .page { margin-bottom: 2rem; } .cue { display: none; }
+  .look, .foot { height: 3rem; margin-bottom: 0; } .page { margin-bottom: 2rem; } .cue { display: none; }
   div.ja[hidden] { display: block !important; margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid var(--rule); }
   button.jp { text-decoration: none; cursor: default; } button.jp::after { content: none; }
 </style></noscript>
