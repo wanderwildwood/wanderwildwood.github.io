@@ -6,9 +6,7 @@
 <title>Wander 散歩</title>
 <meta name="description" content="A walking game: one day in the redwoods with an old man and Kumo the llama. For the Mudita Kompakt and any phone with Android 12 or later.">
 <link rel="canonical" href="https://wanderthe.dev/wanderthegame/">
-<meta name="theme-color" content="#c8c8c8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1e1e1e" media="(prefers-color-scheme: dark)">
-<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#c8c8c8">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://wanderthe.dev/wanderthegame/">
 <meta property="og:title" content="Wander 散歩">
@@ -135,14 +133,6 @@
     .note img { width: 116px; }
   }
   @media (max-width: 22rem) { h1 { font-size: 1.4rem; } }
-  /* a dark page for those who ask for one: the notebook's pages dark, their words pale. The wood behind keeps its own
-     day, morning to night, as the game does. */
-  @media (prefers-color-scheme: dark) {
-    :root { --paper: #1e1e1e; --rule: #4d4d4d; --ink: #e6e6e6; --quiet: #a8a8a8; }
-    .page, .cue, .snd { box-shadow: 4px 4px 0 rgba(0,0,0,.5); }
-    a.btn { background: #2c2c2c; } a.btn:hover { background: #3a3a3a; }
-    .note img, a.btn img { filter: invert(1); }            /* the line drawings and the llama: dark ink on clear, turned pale */
-  }
 </style>
 <noscript><style>
   .look, .foot { height: 3rem; margin-bottom: 0; } .page { margin-bottom: 2rem; } .cue { display: none; }
