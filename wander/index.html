@@ -9,8 +9,11 @@
 <meta property="og:url" content="https://wanderthe.dev/wander/">
 <meta property="og:title" content="Wander 散歩">
 <meta property="og:description" content="A walk in the redwoods with Kumo the llama, for the Mudita Kompakt.">
-<meta property="og:image" content="https://wanderthe.dev/shots/sanpo.gif">
-<meta property="og:image:alt" content="Supper by the fire at nightfall: wander with the pan on, a cup of tea, Kumo the llama lying by">
+<meta property="og:image" content="https://wanderthe.dev/wander/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image:alt" content="wander and Kumo the llama small on a path under the trunks of tall redwoods, in morning mist">
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -61,6 +64,18 @@
   @media (max-width: 30rem) { .guide img { width: 96px; } }
   .still { display: block; width: 100%; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); margin: 0 0 1rem; }
   code { font-size: 0.8rem; word-break: break-all; }
+  dl.facts { margin: 0; }
+  dl.facts dt { font-weight: 600; font-size: 0.9rem; color: var(--quiet); margin: 0.7rem 0 0.1rem; }
+  dl.facts dt:first-child { margin-top: 0; }
+  dl.facts dd { margin: 0; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  /* a small cue on the first screen: there's more below. It goes once you've started down. */
+  .cue { position: fixed; left: 50%; bottom: 5.5rem; z-index: 3; width: 22px; height: 14px; margin-left: -11px;
+    background: var(--ink); clip-path: polygon(0 0, 100% 0, 100% 29%, 50% 100%, 0 29%); opacity: .55;
+    transition: opacity .6s; animation: bob 2.4s steps(2) infinite; pointer-events: none; }
+  .cue.gone { opacity: 0; }
+  @keyframes bob { 50% { transform: translateY(4px); } }
+  @media (prefers-reduced-motion: reduce) { .cue { animation: none; } }
   .buttons { display: flex; flex-wrap: wrap; gap: 0.8rem 1rem; margin: 0.2rem 0 1rem; align-items: center; }
   a.btn { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none;
     background: #fff; border: 2px solid var(--ink); padding: 0.45rem 0.9rem; box-shadow: 3px 3px 0 var(--ink); }
@@ -69,13 +84,17 @@
   a.btn img { width: 44px; height: 44px; image-rendering: pixelated; display: block; }
   a.btn.small { padding: 0.25rem 0.7rem; font-size: 0.95rem; }
 
-  .foot { height: 340vh; }         /* the night's camp, made as you scroll to the foot (and undone back up) */
+  .foot { height: 230vh; }         /* the night's camp, made as you scroll to the foot (and undone back up) */
+  /* the last page comes up over the sleeping camp as the light goes out, as the first sat up in the crowns */
+  .page.end { margin: 0 auto; }
+  main { padding-bottom: 34vh; }
   .look { height: 220vh; }         /* the page opens up in the crowns; scrolling comes down the trunks to the path */
 </style>
 </head>
 <body>
 <canvas class="wood back" aria-hidden="true"></canvas>
 <canvas class="wood front" aria-hidden="true"></canvas>
+<div class="cue" aria-hidden="true"></div>
 <main>
   <p class="home"><a href="../">wander 彷徨う</a></p>
 
@@ -154,6 +173,8 @@
   </section>
 
   <section class="page right">
+    <img class="still" src="../shots/sanpo.gif" width="960" height="480" loading="lazy"
+         alt="Supper by the fire at nightfall, the dark wood all round: wander with the pan on, a cup of tea, the pipe, Kumo the llama lying by">
     <div class="en">
       <h2>One day, and only one</h2>
       <p>About twelve minutes on foot; longer if you sit. At dusk the far trunks go first. He takes the
@@ -203,9 +224,48 @@
     </div>
   </section>
 
-  <section class="page right" id="soon" style="--gap: 0">
-    <img class="still" src="../shots/sanpo.gif" width="960" height="480" loading="lazy"
-         alt="Supper by the fire at nightfall, the dark wood all round: wander with the pan on, a cup of tea, the pipe, Kumo the llama lying by">
+  <section class="page right">
+    <div class="en">
+      <h2>Good to know</h2>
+      <dl class="facts">
+        <dt>The screen</dt><dd>Drawn for the Kompakt's E Ink in its sixteen greys, held upright. It plays the same on any phone with Android 12 or later.</dd>
+        <dt>Words</dt><dd>None in the game, so it plays the same in any language.</dd>
+        <dt>It asks for</dt><dd>Nothing to sign up for. No internet at all, no ads, no account. Its only permissions are the buzz you feel when you hold, and NFC for walking with someone.</dd>
+        <dt>Sound</dt><dd>Nearly two hundred sounds, all made for it. His steps change on root, stone, mud, snow and water; the birds, the ravens, frogs, rain dripping off the boughs, Kumo humming.</dd>
+        <dt>Your notebook</dt><dd>Kept on the phone, and written each night at camp to the Documents/Wander folder, so it isn't lost with the app.</dd>
+      </dl>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>知っておくと</h2>
+      <dl class="facts">
+        <dt>画面</dt><dd>Kompakt の E Ink のために、十六階調のグレーで、縦向きに描いています。Android 12 以降の電話なら同じように遊べます。</dd>
+        <dt>言葉</dt><dd>ゲームの中にはありません。どの言葉の人にも同じです。</dd>
+        <dt>必要なもの</dt><dd>登録はいりません。インターネットは使わず、広告もアカウントもありません。権限は、長押しで感じる振動と、誰かと歩くための NFC だけです。</dd>
+        <dt>音</dt><dd>このために作った二百ほどの音。足音は根、石、泥、雪、水で変わります。鳥、ワタリガラス、カエル、枝から落ちる雨のしずく、クモのハミング。</dd>
+        <dt>ノート</dt><dd>電話の中に残り、毎晩、野営のときに Documents/Wander フォルダにも書き出されます。アプリを消しても、なくなりません。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="page" style="--gap: 30vh">
+    <div class="en">
+      <h2>Who made it</h2>
+      <p>I'm wander, and I make small things for this phone; Wander is the biggest of them. It takes after Fumito Ueda's ICO, Might and Delight's Book of Travels,
+      Superbrothers' Sword &amp; Sworcery, and the way Jason Rohrer lets a game's rules carry its meaning.</p>
+      <p>Questions, or something you found: <a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>.
+      The rest of what I make is <a href="../">on the front page</a>.</p>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>作った人</h2>
+      <p>wander です。この電話のために小さなものを作っていて、Wander はその中でいちばん大きなもの。手本は上田文人の『ICO』、Might and Delight の Book of Travels、Superbrothers の Sword &amp; Sworcery、そしてゲームの決まりごとに意味を担わせるジェイソン・ローラーのやり方。</p>
+      <p>質問や、見つけたことがあれば <a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a> へ。ほかに作ったものは<a href="../">トップページ</a>に。</p>
+    </div>
+  </section>
+
+
+
+  <div class="foot" data-camp aria-hidden="true"></div>
+  <section class="page end" id="soon" style="--gap: 0">
     <div class="en">
       <h2>Coming soon</h2>
       <p>It isn't out yet. Write to me and I'll send one short note the day it is, and now and then a
@@ -234,7 +294,6 @@
       <p><small><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>：そのままの形で、名前を添え、お金を取らずに分けてください。</small></p>
     </div>
   </section>
-  <div class="foot" data-camp aria-hidden="true"></div>
 </main>
 <script src="art.js"></script>
 <script>
@@ -277,7 +336,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   // The day, by how far down the page: the ground's light, the mist, and the dark.
   var DAY = [ // t, light, mist, dark
     [0.00, 206, 0.70, 0.00], [0.25, 218, 0.30, 0.00], [0.50, 200, 0.10, 0.00],
-    [0.70, 168, 0.05, 0.15], [0.85, 120, 0.00, 0.55], [1.00, 70, 0.00, 0.85]];
+    [0.80, 170, 0.05, 0.12], [0.92, 120, 0.00, 0.55], [1.00, 70, 0.00, 0.85]];
   function day(t) {
     for (var i = 1; i < DAY.length; i++) if (t <= DAY[i][0]) {
       var a = DAY[i - 1], b = DAY[i], u = (t - a[0]) / (b[0] - a[0]);
@@ -565,14 +624,15 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   }
 
   var ticking = false;
-  function frame(ts) { ticking = false; now = ts || performance.now(); draw(); if (!still && !document.hidden) schedule(); }
+  function frame(ts) { ticking = false; now = ts || performance.now(); draw(); if (!still && !document.hidden && now - lastMove < 60000) schedule(); }
   var timer = 0;
   function schedule() {                                     // about 8 frames a second, as slow as the game
     if (ticking) return; ticking = true;
     clearTimeout(timer); timer = setTimeout(function () { requestAnimationFrame(frame); }, 120);
   }
+  var cue = document.querySelector('.cue');
   addEventListener('scroll', function () {
-    var y = scrollY; if (y !== lastY) { dir = y > lastY ? 1 : -1; lastY = y; lastMove = performance.now(); }
+    var y = scrollY; if (cue && y > innerHeight * 0.3) { cue.classList.add('gone'); } if (y !== lastY) { dir = y > lastY ? 1 : -1; lastY = y; lastMove = performance.now(); }
     if (!ticking) { ticking = true; requestAnimationFrame(frame); }
   }, { passive: true });
   addEventListener('resize', function () { size(); draw(); });
