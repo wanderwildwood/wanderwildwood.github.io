@@ -56,13 +56,14 @@
     text-decoration: underline dotted; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
   button.jp[aria-pressed="true"] { color: var(--ink); }
   [lang="ja"] { line-height: 1.8; }
+  /* how to play: each line beside its own small drawing from the field guide */
   .note { list-style: none; padding: 0; margin: 0 0 1rem; }
-  .note li { margin: 0 0 0.5rem; }
-  .guide { display: flex; gap: 1.2rem; align-items: flex-start; }
-  .guide .note { flex: 1; }
-  .guide img { display: block; width: 132px; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); }
-  @media (max-width: 30rem) { .guide img { width: 96px; } }
-  .still { display: block; width: 100%; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); margin: 0 0 1rem; }
+  .note li { display: flex; align-items: center; gap: 1rem; padding: 0.55rem 0; border-bottom: 2px solid var(--rule); margin: 0; }
+  .note li:last-child { border-bottom: 0; }
+  .note img { flex: none; width: 40%; max-width: 192px; height: auto; image-rendering: pixelated; }
+  /* a piece of the game set into a page: its own frames, in whole pixels */
+  .fig { display: block; width: 100%; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); margin: 0 0 1.1rem; background: #d6d6d6; }
+  .kinds { display: block; width: 100%; max-width: 372px; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); margin: 0 0 0.9rem; }
   code { font-size: 0.8rem; word-break: break-all; }
   dl.facts { margin: 0; }
   dl.facts dt { font-weight: 600; font-size: 0.9rem; color: var(--quiet); margin: 0.7rem 0 0.1rem; }
@@ -101,14 +102,16 @@
   <section class="page" id="top" style="--gap: 0">
     <h1>Wander <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 散歩 sanpo</button></h1>
     <div class="en">
-      <p>An old man and Kumo the llama walk the coast redwoods, one day at a time, from the morning mist
-      to the lantern at dusk. There are no words on the screen, no score and nothing to win. What you
-      notice is the game.</p>
-      <p class="quiet">For the Mudita Kompakt and any phone with Android 12 or later. Free, offline, no ads.</p>
+      <p>Wander is a quiet walking game. You lead a llama named Kumo through the coast redwoods, and
+      every time you play is one day: out in the morning mist, back in the tent by lantern light.</p>
+      <p>Nothing on the screen tells you what to do. There's no score and nothing to win. The game is
+      whatever you stop to look at.</p>
+      <p class="quiet">For the Mudita Kompakt, and any phone with Android 12 or later. Free, offline, no ads.</p>
       <p class="buttons"><a class="btn small" href="#soon">Tell me when it's out</a></p>
     </div>
     <div class="ja" lang="ja" hidden>
-      <p>老人とラマのクモが、海岸のレッドウッドの森を一日ずつ歩きます。朝の霧から、夕暮れのランタンまで。画面に言葉はなく、点数も勝ち負けもありません。気づくことが、このゲームです。</p>
+      <p>Wander は、静かに歩くゲームです。クモという名のラマを連れて、海岸のレッドウッドの森を歩きます。一度遊ぶと、それが一日。朝の霧の中へ出かけ、ランタンの明かりでテントに戻ります。</p>
+      <p>画面は何も教えてくれません。点数も、勝ち負けもありません。立ち止まって眺めたものが、そのままゲームになります。</p>
       <p class="quiet">Mudita Kompakt と、Android 12 以降の電話で。無料、オフライン、広告なし。</p>
       <p class="buttons"><a class="btn small" href="#soon">出たら知らせて</a></p>
     </div>
@@ -116,107 +119,125 @@
   <div class="look" data-look aria-hidden="true"></div>
 
   <section class="page right" data-thing="slug">
+    <img class="fig" src="stopping.gif" width="396" height="174" loading="lazy"
+         alt="They stop on the path. Kumo grazes, a mushroom comes up, the old man sits down and then lies back with his hat over his eyes, and a slug crosses the path.">
     <div class="en">
-      <h2>Stand still</h2>
-      <p>Walking, you see the path. Stop, and the wood carries on around you: mushrooms come up through
-      the mist, a slug crosses, a deer lifts its head to listen. The day's light barely moves while you
-      wait, so a long sit costs nothing. Wait long enough and he sits down, and later lies back with his
-      hat over his eyes.</p>
+      <h2>It's a game about stopping</h2>
+      <p>Keep walking and you'll see the path, and not much else. Stop, and the wood gets on with its day
+      around you. A mushroom pushes up where there wasn't one. A slug sets out across the path.</p>
+      <p>Stay put long enough and the old man sits down too. A while after that he lies back and tips his
+      hat over his eyes. The daylight hardly moves while you rest, so there's never a reason to hurry.</p>
     </div>
     <div class="ja" lang="ja" hidden>
-      <h2>立ち止まる</h2>
-      <p>歩いていると、道が見える。止まると、森はまわりで続いていく。霧の中からきのこが出て、ナメクジが横切り、鹿が顔を上げて耳をすます。待つあいだ日の光はほとんど進まないので、長く座っても一日は減りません。もっと待てば彼は腰をおろし、やがて帽子を目の上にのせて寝ころびます。</p>
+      <h2>立ち止まるゲーム</h2>
+      <p>歩きつづけていると、見えるのは道くらいです。立ち止まると、森はあなたのまわりで自分の一日を続けます。何もなかったところに、きのこが顔を出す。ナメクジが道を渡りはじめる。</p>
+      <p>そのままじっとしていると、老人も腰をおろします。しばらくすると寝ころんで、帽子を目の上にのせます。休んでいるあいだ、日の光はほとんど進みません。急ぐ理由は、どこにもありません。</p>
     </div>
   </section>
 
   <section class="page" data-thing="deer">
+    <img class="fig" src="finding.gif" width="396" height="174" loading="lazy"
+         alt="Kumo stops and tugs the lead. The old man looks back, walks back to it, brushes a fern aside and picks the chanterelles underneath.">
     <div class="en">
-      <h2>Kumo</h2>
-      <p>Kumo, whose name means cloud, won't be hurried. It follows at the end of the lead and grazes
-      whenever you stop. Its ear turns toward what you haven't seen yet, often the chanterelles you just
-      walked past, so watching Kumo is how you find the best of the wood. You go at its pace, and it's
-      better that way.</p>
+      <h2>Kumo knows where the mushrooms are</h2>
+      <p>Kumo walks behind you on a lead and can't be hurried. Mostly it grazes. But keep an eye on its
+      ears: they swing toward things you've walked straight past.</p>
+      <p>When Kumo stops and tugs the lead, turn round. There's usually something under the fern it's
+      looking at.</p>
     </div>
     <div class="ja" lang="ja" hidden>
-      <h2>クモ</h2>
-      <p>クモは「雲」。急かしても急ぎません。引き綱の先をついて歩き、止まればいつも草を食みます。その耳は、まだ見ていないものの方へ向きます。たいていは、いま通りすぎたアンズタケ。クモを見ていれば、森のいちばんいいところが見つかります。クモの速さで歩く。そのほうがいいのです。</p>
+      <h2>きのこの場所は、クモが知っている</h2>
+      <p>クモは引き綱の先を、後ろからついてきます。急がせることはできません。たいていは草を食んでいます。でも、耳を見ていてください。あなたが通りすぎてしまったものの方へ、すっと向きます。</p>
+      <p>クモが立ち止まって綱を引いたら、振り返ってみてください。見ているシダの下に、たいてい何かあります。</p>
     </div>
   </section>
 
   <section class="page right">
+    <img class="fig" src="fire.gif" width="396" height="174" loading="lazy"
+         alt="At an old ring of stones he kneels, strikes a light with flint and steel and blows it into a fire. He puts the kettle on, pours a cup, and sits drinking tea, Kumo lying beside him.">
     <div class="en">
-      <h2>Enough</h2>
-      <p>The basket holds so much and no more. What you leave keeps growing, and the wood shows it when
-      you come back. Find an old fire ring and he strikes a light with flint and steel; once it's going,
-      the kettle goes on and he sits a while with his tea.</p>
+      <h2>A basket, a fire, a cup of tea</h2>
+      <p>The basket only holds so much. Once it's heaped, you leave the rest, and what you leave keeps
+      growing for another day.</p>
+      <img class="kinds" src="kinds.png" width="62" height="15" loading="lazy"
+           alt="Five mushrooms on the forest floor, as the game draws them: chanterelle, bolete, fly agaric, morel and button.">
+      <p>Now and then you'll come across an old ring of stones. Hold your thumb on it and he kneels,
+      strikes a light with flint and steel, and blows it into a fire. Hold on the fire and the kettle goes
+      on. After that there's nothing to do but drink the tea.</p>
     </div>
     <div class="ja" lang="ja" hidden>
-      <h2>足るを知る</h2>
-      <p>籠に入るのは決まった分だけ。残したものは育ちつづけ、次に来たとき森がそれを見せてくれます。古い焚き火の跡があれば、彼は火打ち石で火をおこし、火がつけばやかんをかけて、しばらくお茶を飲みます。</p>
+      <h2>籠と、焚き火と、一杯のお茶</h2>
+      <p>籠に入る量は決まっています。山盛りになったら、あとは残していきます。残したものは、また別の日のために育ちつづけます。</p>
+      <img class="kinds" src="kinds.png" width="62" height="15" loading="lazy"
+           alt="森の地面に並ぶ五つのきのこ：アンズタケ、イグチ、ベニテングタケ、アミガサタケ、ツクリタケ。">
+      <p>ときどき、古い石の輪に出会います。そこを指で長押しすると、彼は膝をつき、火打ち石で火花を飛ばし、息を吹きかけて火にします。火を長押しすれば、やかんがかかります。あとはもう、お茶を飲むだけです。</p>
     </div>
   </section>
 
   <section class="page" data-thing="creek">
+    <img class="fig" src="heron.gif" width="288" height="174" loading="lazy"
+         alt="A great blue heron standing in the creek's shallows. It looks about, stalks forward, strikes, comes up with a fish, and preens.">
     <div class="en">
-      <h2>The coast redwoods</h2>
-      <p>Everything you meet lives in the redwoods of northern California, in its own season: the heron
-      in the shallows, the dipper on its stone, ravens, glowworms after dark. Nothing is fought or
-      hunted. The seasons are yours, turned round south of the equator, and with <a href="../#soramoyo">Sky</a>
-      on the phone the weather is today's.</p>
+      <h2>Who lives here</h2>
+      <p>This is the redwood forest of the northern California coast, and everything in it belongs there.
+      A heron fishes the creek. A dipper bobs on its stone. Ravens talk somewhere overhead, and after
+      dark there are glowworms.</p>
+      <p>You can't catch any of them, or chase them. You watch, and then you leave them be.</p>
+      <p>The seasons follow your own calendar, turned round if you live south of the equator. If you use
+      <a href="../#soramoyo">Sky</a>, today's weather turns up in the wood as well.</p>
     </div>
     <div class="ja" lang="ja" hidden>
-      <h2>海岸のレッドウッド</h2>
-      <p>出会うものはみな、北カリフォルニアのレッドウッドの森に、その季節に生きるもの。浅瀬のサギ、石の上のカワガラス、ワタリガラス、暗くなってからのツチボタル。戦うものも、狩るものもありません。季節はあなたの季節で、南半球ならひっくり返ります。電話に<a href="../#soramoyo">空模様</a>があれば、天気は今日の天気です。</p>
+      <h2>ここに住むもの</h2>
+      <p>ここは北カリフォルニアの海岸のレッドウッドの森で、いるものはみな、この森のものです。サギが小川で魚をとる。カワガラスが石の上でひょこひょこする。どこか頭の上でワタリガラスがしゃべり、暗くなるとツチボタルが光ります。</p>
+      <p>つかまえることも、追いかけることもできません。眺めて、そっとしておきます。</p>
+      <p>季節はあなたの暦のとおりで、南半球ならひっくり返ります。<a href="../#soramoyo">空模様</a>を使っていれば、今日の天気も森にやってきます。</p>
     </div>
   </section>
 
   <section class="page right">
-    <img class="still" src="../shots/sanpo.gif" width="960" height="480" loading="lazy"
-         alt="Supper by the fire at nightfall, the dark wood all round: wander with the pan on, a cup of tea, the pipe, Kumo the llama lying by">
+    <img class="fig" src="../shots/sanpo.gif" width="960" height="480" loading="lazy"
+         alt="Recorded from the game: supper by the fire at nightfall, the dark wood all round, a cup of tea, Kumo lying by.">
     <div class="en">
-      <h2>One day at a time</h2>
-      <p>A day is about twelve minutes of walking, longer if you sit. At dusk he lights the lantern and they
-      walk on inside its light, then the tent goes up and the day is done. Open the game that night and
-      they're asleep, and the notebook has drawn what you met. The next walk is there in the morning.</p>
+      <h2>One walk a day</h2>
+      <p>A day is about twelve minutes of walking, and as much sitting as you like. When the light goes he
+      unhooks the lantern, and the two of them walk on inside its small circle until it's time to pitch
+      the tent.</p>
+      <p>That's all for today. Open the game again that night and they're asleep, and the notebook is
+      there to read: it has drawn everything you met. A new morning will be waiting tomorrow.</p>
     </div>
     <div class="ja" lang="ja" hidden>
-      <h2>一日ずつ</h2>
-      <p>一日は歩いておよそ十二分、座ればもっと長く。夕暮れに彼はランタンを灯し、ふたりはその光の中を歩きつづけ、テントを張って一日が終わります。その夜に開けばふたりは眠っていて、ノートには出会ったものが描かれています。次の散歩は、朝になればそこに。</p>
+      <h2>散歩は一日に一度</h2>
+      <p>一日は、歩いておよそ十二分。座るのは、好きなだけ。日が落ちると彼はランタンをはずし、ふたりはその小さな明かりの輪の中を、テントを張る時間まで歩きます。</p>
+      <p>今日はそれでおしまいです。その夜にもう一度開くと、ふたりは眠っていて、ノートが読めます。出会ったものが、みんな描いてあります。明日には、新しい朝が待っています。</p>
     </div>
   </section>
 
   <section class="page" id="note">
     <div class="en">
-      <h2>A field note</h2>
-      <div class="guide">
-        <ul class="note">
-          <li>Tap the path ahead to walk on.</li>
-          <li>Hold near a thing, and he does what it is for.</li>
-          <li>Press and hold till it buzzes, then drag to look around.</li>
-          <li>The notebook is at camp: at night, tap to open it.</li>
-          <li>Walk with someone: at the night camp, hold your two phones back to back.</li>
-          <li>Nothing is lost by going slowly.</li>
-        </ul>
-        <a href="field-guide-print.png"><img src="field-guide.png" width="480" height="800" loading="lazy"
-           alt="The field note as one notebook page: each line beside a small drawing of the gesture (a larger copy, to print)"></a>
-      </div>
-      <p><small>Walking with someone needs NFC on in both phones, Wander open on both, and the notebook shut.</small></p>
+      <h2>How to play</h2>
+      <ul class="note">
+        <li><img src="note-1.png" width="192" height="82" alt="" loading="lazy"><span>Tap the path ahead to walk on.</span></li>
+        <li><img src="note-2.png" width="192" height="66" alt="" loading="lazy"><span>Hold near a thing, and he does what it is for.</span></li>
+        <li><img src="note-3.png" width="192" height="96" alt="" loading="lazy"><span>Press and hold till it buzzes, then drag to look around.</span></li>
+        <li><img src="note-4.png" width="192" height="64" alt="" loading="lazy"><span>The notebook is at camp: at night, tap to open it.</span></li>
+        <li><img src="note-5.png" width="192" height="78" alt="" loading="lazy"><span>Walk with someone: at the night camp, hold your two phones back to back.</span></li>
+        <li><img src="note-6.png" width="192" height="64" alt="" loading="lazy"><span>Nothing is lost by going slowly.</span></li>
+      </ul>
+      <p><small>That's the whole manual. It also comes as <a href="field-guide.png">one page for the phone</a>,
+      or <a href="field-guide-print.png">larger, to print</a>. Walking with someone needs NFC on in both
+      phones, Wander open on both, and the notebook shut.</small></p>
     </div>
     <div class="ja" lang="ja" hidden>
-      <h2>野帳</h2>
-      <div class="guide">
-        <ul class="note">
-          <li>道の先をタップすると歩きだします。</li>
-          <li>何かのそばで長押しすると、それに合ったことをします。</li>
-          <li>震えるまで押したまま、指を動かすとあたりを見回せます。</li>
-          <li>ノートは野営地にあります。夜にタップすると開きます。</li>
-          <li>誰かと歩く：夜の野営で、二台の電話の背中を合わせます。</li>
-          <li>ゆっくり行っても、なくすものはありません。</li>
-        </ul>
-        <a href="field-guide-print.png"><img src="field-guide.png" width="480" height="800" loading="lazy"
-           alt="野帳を一枚のノートのページに（印刷用の大きな版）"></a>
-      </div>
-      <p><small>誰かと歩くには、両方の電話で NFC をオンにし、両方で Wander を開き、ノートを閉じておきます。</small></p>
+      <h2>遊びかた</h2>
+      <ul class="note">
+        <li><img src="note-1.png" width="192" height="82" alt="" loading="lazy"><span>道の先をタップすると歩きだします。</span></li>
+        <li><img src="note-2.png" width="192" height="66" alt="" loading="lazy"><span>何かのそばで長押しすると、それに合ったことをします。</span></li>
+        <li><img src="note-3.png" width="192" height="96" alt="" loading="lazy"><span>震えるまで押したまま、指を動かすとあたりを見回せます。</span></li>
+        <li><img src="note-4.png" width="192" height="64" alt="" loading="lazy"><span>ノートは野営地にあります。夜にタップすると開きます。</span></li>
+        <li><img src="note-5.png" width="192" height="78" alt="" loading="lazy"><span>誰かと歩く：夜の野営で、二台の電話の背中を合わせます。</span></li>
+        <li><img src="note-6.png" width="192" height="64" alt="" loading="lazy"><span>ゆっくり行っても、なくすものはありません。</span></li>
+      </ul>
+      <p><small>説明書はこれで全部です。<a href="field-guide.png">電話用の一枚</a>と、<a href="field-guide-print.png">印刷用の大きな版</a>（英語）もあります。誰かと歩くには、両方の電話で NFC をオンにし、両方で Wander を開き、ノートを閉じておきます。</small></p>
     </div>
   </section>
 
@@ -224,25 +245,25 @@
     <div class="en">
       <h2>Good to know</h2>
       <dl class="facts">
-        <dt>Phones</dt><dd>Android 12 or later, held upright. Drawn for the Kompakt's E Ink, in its sixteen greys.</dd>
-        <dt>Network</dt><dd>None. No ads, no account, nothing collected.</dd>
-        <dt>Permissions</dt><dd>Vibration, for the buzz when you hold; NFC, only for walking with someone.</dd>
-        <dt>Language</dt><dd>There are no words in the game.</dd>
-        <dt>Sound</dt><dd>His steps sound different on root, stone, mud, snow and water.</dd>
-        <dt>Screen</dt><dd>While he sits, the screen stays on for up to fifteen minutes, then the phone's own timeout.</dd>
-        <dt>Your notebook</dt><dd>Saved with the phone's backup, and copied each night to Documents/Wander.</dd>
+        <dt>Phones</dt><dd>Any Android phone from version 12 up, held upright. It was drawn for the Kompakt's E Ink screen, in sixteen greys.</dd>
+        <dt>Offline</dt><dd>It never goes online. No ads, no account, nothing collected.</dd>
+        <dt>Permissions</dt><dd>Two: vibration, for the small buzz when you press and hold, and NFC, which is only used to walk with someone.</dd>
+        <dt>Language</dt><dd>The game has no words, so there's nothing to translate.</dd>
+        <dt>Sound</dt><dd>Play it with the sound on. His boots sound different on roots, stone, mud, snow and water.</dd>
+        <dt>Battery</dt><dd>While he's sitting, the game keeps the screen awake for up to fifteen minutes so a long rest isn't cut short.</dd>
+        <dt>Your notebook</dt><dd>It's part of your phone's backup, and the game saves a copy to Documents/Wander every night.</dd>
       </dl>
     </div>
     <div class="ja" lang="ja" hidden>
       <h2>知っておくと</h2>
       <dl class="facts">
-        <dt>電話</dt><dd>Android 12 以降、縦向き。Kompakt の E Ink のために、十六階調のグレーで描いています。</dd>
-        <dt>通信</dt><dd>しません。広告もアカウントもなく、何も集めません。</dd>
-        <dt>権限</dt><dd>振動（長押しの手ごたえ）と、NFC（誰かと歩くときだけ）。</dd>
-        <dt>言葉</dt><dd>ゲームの中に言葉はありません。</dd>
-        <dt>音</dt><dd>足音は、根、石、泥、雪、水で変わります。</dd>
-        <dt>画面</dt><dd>彼が座っているあいだは最長十五分、画面がついたまま。そのあとは電話の設定どおり。</dd>
-        <dt>ノート</dt><dd>電話のバックアップに含まれ、毎晩 Documents/Wander にも写されます。</dd>
+        <dt>電話</dt><dd>Android 12 以降の電話なら、どれでも。縦向きで遊びます。Kompakt の E Ink 画面のために、十六階調のグレーで描きました。</dd>
+        <dt>オフライン</dt><dd>通信は一切しません。広告もアカウントもなく、何も集めません。</dd>
+        <dt>権限</dt><dd>ふたつだけ。長押ししたときの小さな振動と、誰かと歩くときにだけ使う NFC。</dd>
+        <dt>言葉</dt><dd>ゲームの中に言葉がないので、翻訳するものがありません。</dd>
+        <dt>音</dt><dd>音を出して遊んでみてください。靴音が、根、石、泥、雪、水の上で変わります。</dd>
+        <dt>電池</dt><dd>彼が座っているあいだは、長い休憩が途中で切れないよう、最長十五分、画面をつけたままにします。</dd>
+        <dt>ノート</dt><dd>電話のバックアップに含まれます。ゲームも毎晩、Documents/Wander に写しを保存します。</dd>
       </dl>
     </div>
   </section>
@@ -250,26 +271,26 @@
   <section class="page" style="--gap: 30vh">
     <div class="en">
       <h2>Who made it</h2>
-      <p>wander, who makes <a href="../">other small things for this phone</a>. Wander owes most to Fumito
-      Ueda's ICO, Might and Delight's Book of Travels, Superbrothers' Sword &amp; Sworcery, and Jason
-      Rohrer's games, where the rules carry the meaning.</p>
-      <p>Questions, or something you found: <a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>.</p>
+      <p>Wander is made by wander, who also makes <a href="../">a shelf of small apps</a> for the Kompakt.</p>
+      <p>It owes a great deal to Fumito Ueda's ICO, to Book of Travels by Might and Delight, to
+      Superbrothers' Sword &amp; Sworcery, and to Jason Rohrer, whose games let the rules do the talking.</p>
+      <p>If you have a question, or you found something in the wood and want to tell someone, write to
+      <a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>.</p>
     </div>
     <div class="ja" lang="ja" hidden>
       <h2>作った人</h2>
-      <p>wander。この電話のために<a href="../">ほかにも小さなもの</a>を作っています。Wander がいちばん多くを負っているのは、上田文人の『ICO』、Might and Delight の Book of Travels、Superbrothers の Sword &amp; Sworcery、そして決まりごとが意味を運ぶジェイソン・ローラーのゲーム。</p>
-      <p>質問や、見つけたことは <a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a> へ。</p>
+      <p>Wander を作っているのは wander。Kompakt のための<a href="../">小さなアプリ</a>も、いろいろ作っています。</p>
+      <p>上田文人の『ICO』、Might and Delight の Book of Travels、Superbrothers の Sword &amp; Sworcery、そして、決まりごとに語らせるジェイソン・ローラーのゲームに、多くを負っています。</p>
+      <p>質問があるとき、森で何か見つけて誰かに話したくなったときは、<a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a> へどうぞ。</p>
     </div>
   </section>
-
-
 
   <div class="foot" data-camp aria-hidden="true"></div>
   <section class="page end" id="soon" style="--gap: 0">
     <div class="en">
       <h2>Coming soon</h2>
-      <p>It isn't out yet. Write, and you'll get one note the day it is, and now and then a few lines about
-      the game before then. Nothing else.</p>
+      <p>Wander isn't out yet. If you'd like to know when it is, send an email. You'll get one short note
+      on the day, and maybe a few lines about the game before then.</p>
       <p class="buttons"><a class="btn" href="mailto:email@wanderthe.dev?subject=Wander%20waitlist&amp;body=Please%20let%20me%20know%20when%20Wander%20is%20out.">Tell me when it's out</a>
       <small>or follow <a href="../feed.xml">the releases feed</a></small></p>
       <!-- At release, in place of the two paragraphs above (fill from the .sha256 file; never type the hash):
@@ -277,17 +298,18 @@
       <p><a href="{APK_URL}">sanpo-v{VERSION}.apk</a> · {SIZE} MB<br>
       <small>SHA-256: <code>{SHA256}</code></small></p>
       -->
-      <p>It will be free. If you'd like to pay something, pay the llamas: all of it goes to Hot Springs Llamas.</p>
+      <p>It will be free. If you'd like to pay something for it, feed the llamas instead: every bit goes
+      to Hot Springs Llamas.</p>
       <p class="buttons"><a class="btn" href="https://hotspringsllamas.org/donate/"><img src="llama.png" width="22" height="22" alt=""> Feed the llamas</a></p>
       <p><small>Shared under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>:
       pass it on as it is, with credit, and not for money.</small></p>
     </div>
     <div class="ja" lang="ja" hidden>
       <h2>もうすぐ</h2>
-      <p>まだ出ていません。メールをくだされば、出た日にお知らせを一通、それまでにときどきゲームのことを少し。それ以外は送りません。</p>
+      <p>Wander は、まだ出ていません。出たら知りたい方は、メールをください。その日に短いお知らせを一通、それまでにゲームのことを少し書くかもしれません。</p>
       <p class="buttons"><a class="btn" href="mailto:email@wanderthe.dev?subject=Wander%20waitlist&amp;body=Wander%E3%81%8C%E5%87%BA%E3%81%9F%E3%82%89%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82">出たら知らせて</a>
       <small><a href="../feed.xml">リリースのフィード</a>でも</small></p>
-      <p>無料になります。何か払いたい方は、ラマたちへ。すべて Hot Springs Llamas に届きます。</p>
+      <p>無料になります。何か払いたい方は、かわりにラマたちにごはんを。すべて Hot Springs Llamas に届きます。</p>
       <p class="buttons"><a class="btn" href="https://hotspringsllamas.org/donate/"><img src="llama.png" width="22" height="22" alt=""> ラマにごはんを</a></p>
       <p><small><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>：そのままの形で、名前を添え、お金を取らずに分けてください。</small></p>
     </div>
