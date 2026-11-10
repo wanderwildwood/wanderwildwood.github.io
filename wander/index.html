@@ -451,6 +451,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   var lastY = scrollY, dir = 1, lastMove = 0, now = 0, wake = performance.now();   // (lastMove sets their poses; wake keeps the frames coming)
   var heron = { flew: -1, x: 0, y: 0, cam: 0 }, deer = { off: 0 }, slug = { off: 0 };
 
+  var figQ = 0;                                            // the figures taken down with the day's light, as the wood is
   var FG = false, fgm = null;                              // what's drawn while FG is on stands in front of the pages
   function px(x, y, v) { if (x >= 0 && x < W && y >= 0 && y < H) { buf[y * W + x] = v; if (FG) fgm[y * W + x] = 1; } }
   function rows(r, tone, x0, yb, flip) {                    // a Kotlin pixel table, feet on yb
@@ -464,7 +465,8 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     var cx = (n % F.cols) * CW, cy = Math.floor(n / F.cols) * CH;
     for (var y = 0; y < CH; y++) for (var x = 0; x < CW; x++) {
       var i = ((cy + y) * cells.w + cx + x) * 4;
-      if (cells.d[i + 3] > 128) px(x0 + (flip ? CW - 1 - x : x), y0 + y, cells.d[i]);
+      var v = cells.d[i]; if (v >= 148 && v <= 153) v = 153;      // (Kumo's coat on a grey of the sixteen, flat: no dots across it)
+      if (cells.d[i + 3] > 128) px(x0 + (flip ? CW - 1 - x : x), y0 + y, Math.max(0, v + figQ));
     }
   }
   // trim a heron frame to its drawn rows (the tables carry a big empty canvas)
@@ -989,7 +991,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     // three layers of trunks, the far ones paler (the mist between), each sliding at its own speed both ways; each
     // layer's tone one of the sixteen greys, as the game's are, its bark and edges a step either side
     var q17 = function (v) { return Math.round(v / 17) * 17; };
-    var qo = Math.round((Math.min(L, 206) - 206) / 17) * 17;                 // the game's daylight greys, taken down with the light
+    var qo = Math.round((Math.min(L, 206) - 206) / 17) * 17; figQ = Math.max(qo, -51);                 // the game's daylight greys, taken down with the light
     var farB = 0, midB = 0, feet = [];
     [[0.25, 64, 16, 0.66], [0.55, 104, 30, 0.48], [1.0, 190, 50, 0.0]].forEach(function (Lr, li) {
       var sp = Lr[0], step = Lr[1], wid = Lr[2], fade = Lr[3];
