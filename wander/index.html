@@ -69,7 +69,7 @@
   a.btn img { width: 44px; height: 44px; image-rendering: pixelated; display: block; }
   a.btn.small { padding: 0.25rem 0.7rem; font-size: 0.95rem; }
 
-  .foot { height: 240vh; }         /* the night's camp, made as you scroll to the foot (and undone back up) */
+  .foot { height: 340vh; }         /* the night's camp, made as you scroll to the foot (and undone back up) */
   .look { height: 220vh; }         /* the page opens up in the crowns; scrolling comes down the trunks to the path */
 </style>
 </head>
@@ -356,7 +356,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   function drawTent(n, x0, G) {
     if (n < CF.unroll0) return;
     var reach = Math.min(CI.tent_w, 3 + (n - CF.unroll0) * 5), h = tentHeight(n), TW = CI.tent_w;
-    var glow = n >= CF.putin2, shut = n >= CF.inside;
+    var glow = n >= CF.putin2 && n < CF.dark, shut = n >= CF.inside;
     function p(x, y, v, door) { if (glow) v = door ? 236 : (v === 92 || v === 90 ? 150 : 211); px(x, y, v); }
     if (h === 0) {
       for (var x = x0; x < x0 + reach; x++) { p(x, G - 1, 196); p(x, G, 150); p(x, G + 1, 132); }
@@ -484,29 +484,20 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       var sr = Math.floor(now / 600) % 2 ? ART.slug.a : ART.slug.b;
       if (idle > 1500 || slug.off < 0) rows(sr, ART.slug.tone, things.slug + slug.off - cam - 40, PA + 3, false);
     }
-    if (cx > -999) {                                        // the heron; lifts off as they come up to it
-      var hx = things.creek + 30, gap = hx - here;
-      if (gap > 160 || gap < -200) heron.flew = -1;
-      if (heron.flew < 0 && gap < 70 && gap > -20 && !still) { heron.flew = now; heron.x = hx; heron.y = H - 4; }
-      if (heron.flew < 0) {
-        rows(trimmed(['stand', 'stand', 'look', 'stand', 'preen', 'stand'][Math.floor(now / 1500) % 6]), ART.heron.tone, hx - cam, H - 4 + lift, false);
-      } else {
-        var e = now - heron.flew, pose = e < 300 ? 'liftdown' : e < 600 ? 'liftup' : ['flyup', 'flymid', 'flydown', 'flymid'][Math.floor(e / 180) % 4];
-        rows(trimmed(pose), ART.heron.tone, heron.x + Math.max(0, e - 300) * 0.06 - cam, heron.y - Math.max(0, e - 300) * 0.012 + lift, false);
-      }
-    }
-
     // wander and Kumo
     var A = F.wander, B = F.kumo, flip = dir < 0 && !camping, ox = wxs - 30, oy = PA + 2 - CH, glass = null, tentAt = null;
     var dusk = d.dark > 0.3;
     if (camping) {                                          // the night's camp, as far as the page has come: back up, and it's undone
-      var n = Math.round(cp * (F.camp.length - 1)), cf = F.camp[n];
+      var IN = CF.inside, DK = CF.dark, LAST = F.camp.length - 1;
+      var n = cp < 0.6 ? Math.round(cp / 0.6 * IN) : cp < 0.9 ? Math.round(IN + (cp - 0.6) / 0.3 * (DK - 1 - IN)) : Math.round(DK + (cp - 0.9) / 0.1 * (LAST - DK));
+      var cf = F.camp[n];
       var G = oy + CH - 2;
       drawTent(n, ox + CI.canvas_x0, G);
       cell(cf.n, ox, oy, false);
       if (cf.glass) glass = [ox + cf.glass[0], oy + cf.glass[1]];
       else if (n >= CF.setdown2 && n < CF.pickL2) glass = [ox + CI.lantern_ground[0] + 1, oy + CI.lantern_ground[1] + 2];
-      if (n >= CF.putin2) tentAt = [ox + CI.canvas_x0 + CI.tent_w / 2, G - 8];
+      if (n >= CF.putin2 && n < CF.dark) tentAt = [ox + CI.canvas_x0 + CI.tent_w / 2, G - 8];
+      if (n >= CF.dark) glass = null;              // the light out
     } else if (dusk) {                                      // the lantern lit, swinging from his hand
       var fr = idle < 450 ? ((Math.floor(cam / 2.2) % 8) + 8) % 8 : 0, lf = F.lanternwalk[fr];
       cell(lf.n, ox, oy, flip);
@@ -527,6 +518,18 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       if (hl && hd) for (var i = 0; i <= 60; i++) {
         var u = i / 60, lx = hl[0] + (hd[0] - hl[0]) * u, ly = hl[1] + (hd[1] - hl[1]) * u + 3 * 4 * u * (1 - u);
         px(ox + Math.round(flip ? CW - 1 - lx : lx), oy + Math.round(ly), 44);
+      }
+    }
+
+    if (cx > -999) {                                        // the heron, in the shallows nearer us than the path (in front of them); lifts off as they come up
+      var hx = things.creek + 30, gap = hx - here;
+      if (gap > 160 || gap < -200) heron.flew = -1;
+      if (heron.flew < 0 && gap < 70 && gap > -20 && !still) { heron.flew = now; heron.x = hx; heron.y = H - 4; }
+      if (heron.flew < 0) {
+        rows(trimmed(['stand', 'stand', 'look', 'stand', 'preen', 'stand'][Math.floor(now / 1500) % 6]), ART.heron.tone, hx - cam, H - 4 + lift, false);
+      } else {
+        var e = now - heron.flew, pose = e < 300 ? 'liftdown' : e < 600 ? 'liftup' : ['flyup', 'flymid', 'flydown', 'flymid'][Math.floor(e / 180) % 4];
+        rows(trimmed(pose), ART.heron.tone, heron.x + Math.max(0, e - 300) * 0.06 - cam, heron.y - Math.max(0, e - 300) * 0.012 + lift, false);
       }
     }
 
