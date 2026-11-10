@@ -4,8 +4,22 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-10T02:22:33Z</updated>
+  <updated>2026-11-10T15:07:03Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Messaging 1.35.27</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.27"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.27</id>
+    <updated>2026-11-10T15:07:03Z</updated>
+    <content type="text">Messaging 1.35.27: Signal reconnects when the phone&#x27;s address changes on the same network; a reaction that is not a single emoji is set aside, as Signal itself does</content>
+  </entry>
+  <entry>
+    <title>Mailbox 0.1.55</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.55"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.55</id>
+    <updated>2026-11-10T15:06:57Z</updated>
+    <content type="text">Mailbox 0.1.55: after you pick Reply or Reply all, the choice sheet closes instead of waiting on the message when you come back; a message left open no longer crashes the app when Android brings it back; the mail connection library has its latest security fix</content>
+  </entry>
   <entry>
     <title>Messaging 1.35.26</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.26"/>
@@ -411,19 +425,5 @@
     <id>https://github.com/wanderwildwood/amime/releases/tag/v0.3.18</id>
     <updated>2026-11-08T12:41:12Z</updated>
     <content type="text">Mesh 0.3.18: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
-  </entry>
-  <entry>
-    <title>Typewriter 0.1.36</title>
-    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.36"/>
-    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.36</id>
-    <updated>2026-11-08T11:37:52Z</updated>
-    <content type="text">Typewriter 0.1.36: a diary side. Today&#x27;s page opens one sheet per day, adding the time when you come back to it; By day shows a month with a mark on every day you wrote; Search looks through all your sheets and opens one at the line it found; and Which way round can now be Upright, so the app can be used in portrait too (landscape is still the default).</content>
-  </entry>
-  <entry>
-    <title>Medicine 0.1.30</title>
-    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.30"/>
-    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.30</id>
-    <updated>2026-11-08T10:16:07Z</updated>
-    <content type="text">Medicine 0.1.30: &quot;Put the refill in the calendar&quot; now goes straight to Datebook, and the button only shows when Datebook is installed; without it, &quot;Copy the refill date&quot; is there as before</content>
   </entry>
 </feed>
