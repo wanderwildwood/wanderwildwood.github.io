@@ -98,6 +98,16 @@
     background: var(--ink); clip-path: polygon(0 0, 100% 0, 100% 29%, 50% 100%, 0 29%); }
   .cue.gone, .cue.crowded { opacity: 0; }
   @keyframes bob { 50% { transform: translateY(4px); } }
+  /* the sound, off until asked for: a chip in the corner, over the ground, where no page rests */
+  .snd { position: fixed; right: 0.75rem; bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px)); z-index: 3; width: 38px; height: 30px;
+    padding: 0; cursor: pointer; color: var(--quiet); background: var(--paper); border: 2px solid var(--rule); box-shadow: 3px 3px 0 rgba(0,0,0,.18); }
+  .snd::before { content: ""; position: absolute; left: 6px; top: 6px; width: 12px; height: 14px; background: currentColor;
+    clip-path: polygon(0 29%, 34% 29%, 100% 0, 100% 100%, 34% 71%, 0 71%); }
+  .snd::after { content: ""; position: absolute; left: 21px; top: 9px; width: 8px; height: 8px;   /* off: crossed out */
+    background: linear-gradient(45deg, transparent 40%, currentColor 40% 60%, transparent 60%), linear-gradient(-45deg, transparent 40%, currentColor 40% 60%, transparent 60%); }
+  .snd[aria-pressed="true"] { color: var(--ink); }
+  .snd[aria-pressed="true"]::after { left: 15px; top: 5px; width: 12px; height: 16px; background: none;   /* on: a wave off it */
+    border: 2px solid transparent; border-right-color: currentColor; border-radius: 50%; }
   .buttons { display: flex; flex-wrap: wrap; gap: 0.8rem 1rem; margin: 0.2rem 0 1rem; align-items: center; }
   a.btn { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--ink); text-decoration: none;
     background: #fff; border: 2px solid var(--ink); padding: 0.45rem 0.9rem; box-shadow: 3px 3px 0 var(--ink); }
@@ -133,6 +143,7 @@
 <canvas class="wood back" aria-hidden="true"></canvas>
 <canvas class="wood front" aria-hidden="true"></canvas>
 <div class="cue" aria-hidden="true"></div>
+<button type="button" class="snd" hidden aria-pressed="false" title="Sound: off" aria-label="Sound: off"></button>
 <main>
   <p class="home"><a href="../">wander 彷徨う</a></p>
 
@@ -445,6 +456,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       var top = el.getBoundingClientRect().top + scrollY;
       things[el.dataset.thing] = walked(top - innerHeight * 0.35) / S * K + W * 0.75;
     });
+    roost(); plant();
   }
 
   // state
@@ -454,10 +466,10 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   var figQ = 0;                                            // the figures taken down with the day's light, as the wood is
   var FG = false, fgm = null;                              // what's drawn while FG is on stands in front of the pages
   function px(x, y, v) { if (x >= 0 && x < W && y >= 0 && y < H) { buf[y * W + x] = v; if (FG) fgm[y * W + x] = 1; } }
-  function rows(r, tone, x0, yb, flip) {                    // a Kotlin pixel table, feet on yb
+  function rows(r, tone, x0, yb, flip, q) {   // a Kotlin pixel table, feet on yb (q: taken down with the day's light)
     for (var y = 0; y < r.length; y++) for (var x = 0; x < r[y].length; x++) {
       var c = r[y][x]; if (tone[c] === undefined) continue;
-      px(Math.round(x0 + (flip ? r[y].length - 1 - x : x)), Math.round(yb - r.length + 1 + y), tone[c]);
+      px(Math.round(x0 + (flip ? r[y].length - 1 - x : x)), Math.round(yb - r.length + 1 + y), q ? Math.max(0, tone[c] + q) : tone[c]);
     }
   }
   function cell(n, x0, y0, flip) {                          // a figure frame from figures.png
@@ -837,7 +849,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   var firs = {};
   function firOf(k) {
     if (firs[k]) return firs[k];
-    var r = rng(k * 9973 + 131), P = [];
+    var r = rng(k * 9973 + 131), P = [], tips = [];
     function ri(a, b) { return a + Math.floor(r() * (b - a + 1)); }
     var up = ri(0, 3), h = ri(34, 89), v = r() < 0.5 ? -34 : -17, lean = ri(-1, 1) * 0.06, nod = r() < 0.5 ? 1 : -1;
     function lx(y) { return Math.round(lean * y + (y > h - 6 ? nod * (y - (h - 6)) * (y - (h - 6)) / 6 : 0)); }
@@ -849,10 +861,12 @@ document.querySelectorAll('button.jp').forEach(function (b) {
         P.push(bx, by, v);
         if (i % 2 === 0) P.push(bx, by + 1, v + 17);                              // needles hanging under it
         if (i % 3 === 0 && i > 2) P.push(bx, by - 1, v);
+        if (i === reach && y >= 18 && y <= 56) tips.push(bx, by);   // (a tip a bird could come down onto)
       }
     }
     var tx = lx(h - 1); P.push(tx + nod, -up - h + 2, v, tx + nod * 2, -up - h + 3, v + 17);   // the nodding tip hanging
-    return (firs[k] = new Int16Array(P));
+    firs[k] = new Int16Array(P); firs[k].tips = tips;
+    return firs[k];
   }
   // Along the path's back, a stretch FT wide (Forest.floor): the sorrel's pale scalloped rim, a white flower now and
   // then, and the sword ferns behind the path, each a stiff fountain of blades from one pinched crown, bending over
@@ -962,10 +976,220 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     return (floors[T] = new Int16Array(P));
   }
 
+  // ---- The wood's sound, the game's own (Sound.kt and its files): off until asked for, nothing fetched till then.
+  // A bed of wind by day and crickets by night, the creek by how near it is; over them a bird somewhere, their
+  // footfalls, his boot on the stones, and whoever calls; each at the game's level, all turned down a little.
+  // (The day's bed is the first 46 s of the game's 150, cut at a page of the file, not made again: its start is
+  // laid over its last four seconds here, as make_sound.py closes its loops.)
+  var sOn = false, one = function () { return null; }, level = function () {}, hush = function () {};
+  (function () {
+    var AC = window.AudioContext || window.webkitAudioContext, btn = document.querySelector('.snd'), au = document.createElement('audio');
+    if (!AC || !btn || !window.fetch || !au.canPlayType || !au.canPlayType('audio/ogg; codecs="vorbis"')) return;   // (can't be played here: no button)
+    var SMALL = ['together-0', 'together-1', 'together-2', 'hop-0', 'hop-1', 'hop-2', 'heron', 'geese', 'thrush-0', 'thrush-1', 'dipper', 'bird-1', 'bird-5', 'bird-8'];
+    var ctx = null, out = null, bufs = {}, asked = {}, bed = {}, want = false, got = 0, hour = 0, dark = 0, bt = 0;
+    function label() {
+      var s = document.documentElement.lang === 'ja' ? (want ? '音：オン' : '音：オフ') : (want ? 'Sound: on' : 'Sound: off');
+      btn.title = s; btn.setAttribute('aria-label', s); btn.setAttribute('aria-pressed', want ? 'true' : 'false');
+    }
+    function load(name, then) {
+      if (asked[name]) return; asked[name] = 1;
+      fetch('sound/' + name + '.ogg').then(function (r) { if (!r.ok) throw 0; return r.arrayBuffer(); })
+        .then(function (a) { return new Promise(function (ok, no) { ctx.decodeAudioData(a, ok, no); }); })
+        .then(function (b) { bufs[name] = b; if (then) then(b); }, function () { if (then) then(null); });
+    }
+    function loop(name, b) {   // a bed going round, silent until its level's set
+      if (!b) return;
+      var s = ctx.createBufferSource(), g = ctx.createGain(); s.buffer = b; s.loop = true;
+      if (name === 'amb-bed-cut') {
+        var x = Math.floor(4 * b.sampleRate), n = b.length - x;
+        for (var c = 0; c < b.numberOfChannels; c++) { var d = b.getChannelData(c); for (var i = 0; i < x; i++) d[i] = d[i] * i / x + d[n + i] * (1 - i / x); }
+        s.loopEnd = n / b.sampleRate;
+      }
+      g.gain.value = 0; s.connect(g); g.connect(out); s.start(); bed[name] = { g: g, v: 0 };
+    }
+    function set(name, v, soon) {   // (a bed is fetched when first wanted, after the small sounds)
+      var B = bed[name];
+      if (!B) { if ((v > 0.01 || soon) && got >= SMALL.length) load(name, function (b) { loop(name, b); }); return; }
+      if (Math.abs(v - B.v) > 0.004) { B.v = v; B.g.gain.setTargetAtTime(v, ctx.currentTime, 0.35); }
+    }
+    level = function (dy, nt, cr, h, dk, ns, cs) { hour = h; dark = dk; set('amb-bed-cut', dy); set('amb-night', nt, ns); set('creek', cr, cs); };
+    one = function (name, l, r, rate, delay) {   // a sound once, at its level in each ear
+      var b = bufs[name]; if (!sOn || !b) return null;
+      var s = ctx.createBufferSource(), m = ctx.createChannelMerger(2), a = ctx.createGain(), c = ctx.createGain();
+      s.buffer = b; if (rate) s.playbackRate.value = rate; a.gain.value = l; c.gain.value = r;
+      s.connect(a); s.connect(c); a.connect(m, 0, 0); c.connect(m, 0, 1); m.connect(out); s.start(ctx.currentTime + (delay || 0));
+      return { s: s, a: a, c: c };
+    };
+    hush = function (o) { var t = ctx.currentTime; o.a.gain.setTargetAtTime(0, t, 0.4); o.c.gain.setTargetAtTime(0, t, 0.4); o.s.stop(t + 2.5); };
+    // a bird somewhere, near or far, left or right (Sound.kt's hours: thick in the morning, thin at midday, back
+    // toward evening, when one in three is a thrush; none after dark)
+    function birdy() {
+      clearTimeout(bt); if (!sOn) return;
+      var many = hour < 0.25 ? 1.8 - hour * 3.2 : hour < 0.4 ? 1 - (hour - 0.25) * 4.6 : hour < 0.6 ? 0.3 : hour < 0.8 ? 0.3 + (hour - 0.6) * 3.5 : 1, wait = 12000;
+      if (dark < 0.6) {
+        wait = 4000 + Math.random() * 9000;
+        if (Math.random() < Math.min(1, many)) {
+          var v = (0.25 + Math.random() * 0.6) * (1 - dark), p = Math.random(), eve = hour > 0.8 || dark > 0.05, k = eve && Math.random() < 0.34 ? 0.8 : 1;
+          one(k < 1 ? 'thrush-' + (Math.random() * 2 | 0) : eve ? 'bird-1' : ['bird-1', 'bird-5', 'bird-8'][Math.random() * 3 | 0], v * k * (1 - p * 0.8), v * k * (0.2 + p * 0.8));
+          wait = (3000 + Math.random() * 9000) / many;
+        }
+      }
+      bt = setTimeout(birdy, wait);
+    }
+    function sync() {
+      var was = sOn; sOn = want && !!ctx && ctx.state === 'running';
+      if (sOn && !asked.small) { asked.small = 1; SMALL.forEach(function (n) { load(n, function () { got++; }); }); }
+      if (sOn && !was) bt = setTimeout(birdy, 2500);
+    }
+    function start() {
+      if (!ctx) { ctx = new AC(); out = ctx.createGain(); out.gain.value = 0.6; out.connect(ctx.destination); ctx.onstatechange = sync; }
+      if (!document.hidden) ctx.resume().then(sync, sync);
+    }
+    function stop() { if (ctx) ctx.suspend().then(sync, sync); sOn = false; }
+    btn.addEventListener('click', function () {
+      want = !want; label(); try { localStorage.setItem('wander-sound', want ? '1' : '0'); } catch (e) {}
+      if (want) start(); else stop();
+    });
+    document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else if (want && ctx) start(); });   // (quiet while it isn't looked at)
+    document.querySelectorAll('button.jp').forEach(function (b) { b.addEventListener('click', label); });
+    try { want = localStorage.getItem('wander-sound') === '1'; } catch (e) {}
+    if (want) {   // left on last time: it can only start at a touch
+      var first = function () { removeEventListener('pointerdown', first, true); removeEventListener('keydown', first, true); if (want) start(); };
+      addEventListener('pointerdown', first, true); addEventListener('keydown', first, true);
+    }
+    btn.hidden = false; label();
+  })();
+  // a foot drawn coming down (walk frames 0 and 4; his and Kumo's land together here, the game's one soft beat for
+  // the two): heard once, no quicker than a brisk walk, and not when the page has jumped
+  var stepH = 0, stepAt = 0, stepCam = 0, hopAt = 0, geese = null, dipCall = 0;
+  function footfall(cam, lit) {
+    var h = Math.floor(cam / 8.8), c = 0.4 * 0.79 * (lit ? 1.3 : 1);
+    if (h !== stepH && Math.abs(cam - stepCam) < 40 && now - stepAt > 230) { stepAt = now; one('together-' + (Math.random() * 3 | 0), c, c); }
+    stepH = h; stepCam = cam;
+  }
+
+  // ---- The small life along the way, from the game's own tables.
+  function g17(v) { return Math.round(v / 17) * 17; }
+  var FLAP = [['X...X', '.XXX.'], ['XXXXX'], ['.XXX.', 'X...X'], ['XXXXX']], FLAPFAR = [['X.X', '.X.'], ['XXX'], ['.X.', 'X.X'], ['XXX']];   // Birds.kt: flap, flap, glide
+  var HERMIT = { sit: ['..hh.', '.bbhk', '.bsS.', 'bbss.', 't.l..'], tip: ['.....', '.bhh.', '.bsSk', 'bbss.', 't.l..'], sing: ['...hk', '..bh.', '.bsS.', 'bbss.', 't.l..'],
+    tone: { h: 85, k: 51, b: 85, s: 204, S: 153, t: 102, l: 68 } };
+  var DIPPER = { sit: ['...kk.', '..kkkb', 'kkkkk.', '.kkk..', '..l...'], dip: ['...kk.', 'k.kkkb', 'kkkkk.', '.kkk..'], stone: ['.ssss..', 'sddddd.'], tone: { k: 64, b: 40, l: 120, s: 132, d: 108 } };
+  // Mushrooms.kt's kinds, and the bigger pictures for those down on the floor toward us
+  var KINDS = {
+    chanterelle: { r: ['...CC', 'CCCcC', '.rur.', '..rr.', '..r..'], t: { C: 238, c: 221, r: 204, u: 187 } },
+    bolete: { r: ['.CCC.', 'ccccc', '.sss.', '.sss.'], t: { C: 150, c: 128, s: 214 } },
+    fly_agaric: { r: ['.cwc.', 'cccwc', 'wcccc', '.ggg.', '..s..', '.kSk.', '..s..', '.bbb.'], t: { c: 102, w: 238, g: 204, s: 221, S: 221, k: 187, b: 221 } } };
+  var BIG = {
+    chanterelle: { r: ['....CC', 'CCCCcC', '.Ccurr', '..rur.', '..rr..', '...r..'], t: KINDS.chanterelle.t },
+    fly_agaric: { r: ['.cwccw.', 'ccccccc', 'ggggggg', '...s...', '..kSk..', '...s...', '...s...', '..bbb..'], t: KINDS.fly_agaric.t } };
+  var EGG = { r: ['.ww.', 'wwcw', 'wwww', '.ww.'], t: { c: 102, w: 238 } };   // the fly agaric still in its egg, all veil
+  // One of them, e of the way up (Wood.draw): the litter lifting, then the cap first and still closed, the rest row
+  // by row, the broken litter round its foot till it's nearly up.
+  function shroom(m, x, yb, e, q) {
+    if (e <= 0) return;
+    var full = (m.big && BIG[m.k]) || KINDS[m.k], kd = m.k === 'fly_agaric' && e >= 0.2 && e < 0.68 ? EGG : full, r = kd.r, h = r.length;
+    x += (full.r[0].length - r[0].length) >> 1;   // (the egg where the stem will stand)
+    function up(xx) { var X = x + xx; if (X >= 0 && X < W && yb >= 0 && yb < H) buf[yb * W + X] = Math.min(255, buf[yb * W + X] + 17); }
+    if (e < 0.2) { if (e > 0.1) { up(1); up(3); } up(2); return; }
+    var v = Math.max(1, Math.ceil(h * Math.min(1, (e - 0.2) / 0.7)));
+    for (var yy = 0; yy < v; yy++) {
+      var row = r[yy]; if (yy === 0 && e < 0.68) row = '.' + row.slice(1, -1) + '.';
+      for (var xx = 0; xx < row.length; xx++) { var t = kd.t[row[xx]]; if (t !== undefined) px(x + xx, yb - v + 1 + yy, Math.max(0, t + q)); }
+    }
+    if (e < 0.9) { up(-1); up(r[0].length); }
+  }
+  // Where they come up: a few along the walk, in the duff before the path (each sliding at its row's speed), growing
+  // as it comes in from the right, up by the time they reach it; scrolled back, down again. None where its row
+  // would meet the creek on screen, nor in the picture at the night's camp.
+  var shrooms = [];
+  function plant() {
+    shrooms = [];
+    var end = walked(campA) / S * K, n = clamp(Math.round(end / 170), 3, 7), KN = ['chanterelle', 'bolete', 'fly_agaric', 'chanterelle', 'chanterelle', 'bolete', 'fly_agaric'];   // (the brown boletes on the paler ground by the path)
+    if (campA >= 1e9) return;
+    for (var i = 0; i < n; i++) {
+      var d = [22, 19, 25, 26, 24, 19, 21][i], f = 1 + 0.5 * (d - FRONT + 1) / 10;
+      var x = walkerX() + 78 + hash(i * 29 + 3) * 20 + (i + 0.35 + 0.3 * hash(i * 17 + 5)) * end / n * f;
+      if (things.creek !== undefined) { var meet = things.creek + 17 - (x - things.creek - 17) / (f - 1); if (meet > -70 && meet < W + 70) continue; }
+      if (x - end * f > -12 && x - end * f < W + 12) continue;
+      shrooms.push({ x: x, d: d, f: f, k: KN[i], big: d >= 24 });
+    }
+  }
+  // The hermit thrush (Birds.kt): down onto the tip of a young conifer's bough, a few songs with quiet between, its
+  // head tipped at them once; off when they come near, or by itself after a while. It flies in front of the pages,
+  // as the heron does; sat, it's among the understory, and a near trunk or a page may pass in front of it.
+  var FIRS = 110, bird = { st: 0, t0: 0, k: 0, i: 0, ax: 0, x: 0, y: 0, sung: 0, done: false, y0: 1e9, y1: 1e9 };
+  function nearTrunk(x, cam) {   // a near trunk standing across x (as the layers place them)
+    for (var k = Math.floor((cam + x - 130) / 190); k <= Math.ceil((cam + x + 20) / 190); k++) {
+      var x0 = Math.round(k * 190 + hash(k * 7 + 2026) * 114 - cam), wk = Math.round(50 * (0.6 + hash(k * 13 + 2) * 0.8));
+      if (x > x0 - 10 && x < x0 + wk + 10) return true;
+    }
+    return false;
+  }
+  // Its bough, found when the page is laid out: the first tip along the walk ahead of them, clear of the big trunks
+  // and of the pages, for a fair stretch of walking (the scroll from y0 to y1).
+  function roost() {
+    var T = bird, man = walkerX() + 23, R = [], end = Math.min(walked(campA) / S * K * 0.6, 1500), best = 1e9, need = 30, pg = document.querySelectorAll('section.page'), k, i, j;
+    T.y0 = T.y1 = 1e9; if (campA >= 1e9) return;
+    for (i = 1; i < pg.length; i++) { var q = pg[i].getBoundingClientRect(); R.push(q.left, q.right, q.top + scrollY, q.bottom + scrollY); }
+    function run(c0, c) { if (c0 >= 0 && c - c0 >= need && c0 < best) { best = c0; T.k = k; T.i = i; T.y0 = lookB + c0 * S / K; T.y1 = lookB + (c - 10) * S / K; } }
+    for (; need >= 15 && best === 1e9; need -= 15) for (k = 0; k * FIRS < end * 0.75 + W; k++) {
+      if (hash(k * 71 + 9) >= 0.72) continue;
+      var tips = firOf(k).tips, wx = k * FIRS + hash(k * 43 + 2) * FIRS;
+      for (i = 0; i < tips.length; i += 2) {
+        for (var c0 = -1, c = 6; c < Math.min(end, best + 40); c += 3) {
+          var x = Math.round(wx - c * 0.75) + tips[i], ok = x >= man + 50 && x <= W * 0.9 && !nearTrunk(x, c);
+          var X = x * S, Y = innerHeight - (H - GROUND - 2 - tips[i + 1]) * S + lookB + c * S / K;   // (where that is on the page)
+          for (j = 0; ok && j < R.length; j += 4) ok = !(X + 10 * S > R[j] && X - 10 * S < R[j + 1] && Y + 6 * S > R[j + 2] && Y - 12 * S < R[j + 3]);
+          if (ok && c0 < 0) c0 = c; else if (!ok) { run(c0, c); c0 = -1; }
+        }
+        run(c0, c);
+      }
+    }
+  }
+  function thrushSit(y, cam, uoff, ub, quiet) {
+    var T = bird, man = walkerX() + 23;
+    if (y < T.y0 - 300 || y > T.y1 + 1500) T.done = false;  // (well away again: another day's bird)
+    if (quiet) { T.st = 0; return; }
+    if (T.st === 0) {
+      if (T.done || y < T.y0 || y >= T.y1) return;
+      T.st = 1; T.t0 = now; T.ax = W + 6;
+    }
+    var tp = firOf(T.k).tips, n = Math.floor((now - T.t0) / 125);   // (the game's frames, eight a second)
+    var bx0 = Math.round(T.k * FIRS + hash(T.k * 43 + 2) * FIRS - uoff) + tp[T.i], by0 = ub + tp[T.i + 1] - 1;   // its feet's row, on the bough
+    if (T.st < 3 && (bx0 < -6 || bx0 > W + 6)) { T.st = 0; T.done = true; return; }   // (the page jumped: it isn't carried along)
+    if (T.st === 1) {   // coming down: a fifth of the way that's left, each frame
+      var e = Math.pow(0.8, n); T.x = bx0 + (T.ax - bx0) * e; T.y = by0 - 2 - 60 * e;
+      if (n > 30 || (Math.abs(T.x - bx0) < 1.5 && 60 * e < 1.5)) { T.st = 2; T.t0 = now; T.sung = 0; n = 0; }
+    }
+    if (T.st === 2) {
+      if (T.sung < 3 && n >= 12 + T.sung * 60) { var p = clamp(bx0 / W, 0, 1); one('thrush-' + (T.sung % 2), 0.9 * (1 - p * 0.7), 0.9 * (0.3 + p * 0.7)); T.sung++; }
+      rows(n >= 30 && n < 60 && (n / 5 | 0) % 2 ? HERMIT.tip : n > 10 && n % 40 <= 12 ? HERMIT.sing : HERMIT.sit, HERMIT.tone, bx0 - 2, by0, false);
+      if (bx0 - man < 34 || n > 182) { T.st = 3; T.t0 = now; T.ax = bx0; T.y0f = by0 - 2; T.done = true; }
+    } else if (T.st === 3) {
+      var u = (now - T.t0) / 125; T.x = T.ax + 3 * u; T.y = T.y0f - 2 * u;
+      if (T.y < -10 || T.x > W + 10) T.st = 0;
+    }
+  }
+  function thrushFly(mist) {   // on the wing, coming or going
+    if (bird.st !== 1 && bird.st !== 3) return;
+    var s = FLAP[Math.floor((now - bird.t0) / 250) % 4];
+    rows(s, { X: g17(84 + 148 * mist * 0.25) }, Math.round(bird.x) - 2, Math.round(bird.y) + s.length - 1, false);
+  }
+  // Now and then a bird goes through the wood (Birds.kt's fly-bys): flap, flap, glide; a near one dark before the
+  // understory, a far one small and pale behind the middle trees. By the clock, by day, down on the path.
+  function flyby(nearOne, mist, sky) {
+    var slot = Math.floor(now / 26000); if (hash(slot * 91 + 7) > 0.55 || (hash(slot * 13 + 1) < 0.34) !== nearOne) return;
+    var n = Math.floor((now - slot * 26000) / 125), go = n * (nearOne ? 4.5 : 2.5), x = Math.round(hash(slot * 5 + 2) < 0.5 ? -6 + go : W + 6 - go);
+    if (x < -8 || x > W + 8) return;
+    var s = (nearOne ? FLAP : FLAPFAR)[(n >> 1) % 4], v = nearOne ? g17(84 + 148 * mist * 0.25) : Math.min(g17(176 + 56 * mist * 0.8), g17(sky) - 34);
+    rows(s, { X: v }, x, Math.round(GROUND * (0.2 + 0.48 * hash(slot * 3 + 9))) + Math.trunc(Math.sin(n * 0.4) * 1.2) + s.length - 1, false);
+  }
+  var nd = { s: -1, b: 0, x: 0 }, dip = { flew: -1, x: 0 };
+
   function draw() {
     if (!buf) return;
     var y = scrollY, atTop = y < firstEnd;
-    var t = clamp(y / Math.max(1, campA + innerHeight * 0.3), 0, 1), d = day(t);
+    var t = clamp(y / Math.max(1, campA + innerHeight * 0.3), 0, 1), d = day(t), hr = t;   // (hr for the sound: t is used again below)
     var cam = walked(y) / S * K;                            // the wood's x at the left edge
     var lp = lookB > lookA ? clamp((y - lookA) / (lookB - lookA), 0, 1) : 0;
     var LMAX = H * 3.2, up = 1 - lp * lp * (3 - 2 * lp);          // from the crowns down the trunks to the path
@@ -998,6 +1222,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       var tone = mix(L - 95, sky, clamp(fade + d.mist * (0.9 - li * 0.3), 0, 0.95)), body = q17(tone);
       if (li === 0) farB = body = Math.min(body, q17(sky) - 17);          // (far: one level off the air)
       if (li === 1) { body = Math.min(body, farB - 17); if (body === 153) body = farB >= 187 ? 170 : 136; midB = body; }   // (middle: never Kumo's own grey)
+      if (li === 1 && lift === 0 && !camping && d.dark < 0.3 && !bird.st) flyby(false, d.mist, sky);
       if (li === 1 && lp > 0.12 && lp < 0.9) {
         // the geese going over (Birds.drawFar: a leader and two lines trailing back, each a body and a wing beating),
         // deep in the wood behind the middle trees, crossing as the view comes down from the crowns
@@ -1017,6 +1242,8 @@ document.querySelectorAll('button.jp').forEach(function (b) {
           if (hash(uk * 71 + 9) < 0.72) dots(firOf(uk), Math.round(uk * UST + hash(uk * 43 + 2) * UST - uoff), ub, midB);
         var rb = GROUND - 1 + lift;                                       // the sorrel's rim and the sword ferns behind the path
         for (var rk = Math.floor((cam - 20) / FT); rk <= Math.floor((cam + W + 20) / FT); rk++) dots(rimOf(rk), Math.round(rk * FT - cam), rb, qo);
+        thrushSit(y, cam, uoff, ub, lift > 0 || camping || d.dark > 0.3);
+        if (lift === 0 && !camping && d.dark < 0.3 && !bird.st) flyby(true, d.mist, sky);
       }
       for (var yy = Math.max(0, base); yy < H; yy++) for (var x = 0; x < W; x++) buf[yy * W + x] = mix(tone, L - 40, 0.5);   // its floor
       var off = cam * sp, k0 = Math.floor((off - 60) / step), k1 = Math.ceil((off + W + 60) / step), made = [];
@@ -1047,6 +1274,14 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       }
       for (var i = 0; i < made.length; i += 3) crown(made[i], made[i + 1], made[i + 2], body);   // (after the trunks: a bough across another lies over it)
     });
+    // up in the crowns a needle comes down, turning (View.kt's drawCrownLife), one every fifteen seconds; left
+    // behind with the boughs as the view goes down
+    if (lift > H * 0.3) {
+      var ns = Math.floor(now / 15000), nn = Math.floor((now - ns * 15000) / 125);
+      if (ns !== nd.s) { nd.s = ns; nd.b = lift; nd.x = Math.round(W * (0.6 + 0.25 * hash(ns * 7 + 1))); }
+      var ny = nn * 2 - 8 - (nd.b - lift), nx = nd.x + Math.round(3 * Math.sin(nn * 0.2));
+      px(nx, ny, 119); if (nn % 4 < 2) px(nx + 1, ny, 136);
+    }
     // the ground (the game's floor): the lip behind the path, the path, the duff in bands darker toward us, and what
     // lies on it; in front of the path each row slides a little faster than the last, up to the near trunks' speed
     var GR = GROUND + lift, PA = PATH + lift;
@@ -1124,6 +1359,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       }
     } else if (dusk) {                                      // the lantern lit, swinging from his hand
       var fr = idle < 450 ? ((Math.floor(cam / 2.2) % 8) + 8) % 8 : 0, lf = F.lanternwalk[fr];
+      if (idle < 450) footfall(cam, true);
       cell(lf.n, ox, oy, flip);
       if (cells) glass = [ox + (flip ? CW - 1 - lf.glass[0] : lf.glass[0]), oy + lf.glass[1]];
     } else {
@@ -1135,6 +1371,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       if (idle < 450 && !looking) {
         var fr = ((Math.floor(cam / 2.2) % 8) + 8) % 8;
         wf = A.walk[fr]; kf = B.walk[fr];
+        if (!over) footfall(cam, false);   // (over the creek: his boot on the stones, below)
         var ha = Math.max(crA, ox + (flip ? CW - 45 : 12)), hb = Math.min(crB, ox + (flip ? CW - 13 : 44));   // water thrown up round Kumo's hooves
         if (ha <= hb) for (var i = 0; i < 9; i++) px((ha + hb >> 1) - 8 + Math.floor(hash(Math.floor(now / 120) * 19 + i) * 17), PA + 1 - Math.floor(hash(Math.floor(now / 120) * 23 + i + 40) * 6), 246);
       } else {
@@ -1151,7 +1388,8 @@ document.querySelectorAll('button.jp').forEach(function (b) {
         for (var i = 0; i < stN; i++) if (Math.abs(st0 + i * STONE + 2 - foot) < Math.abs(best - foot)) best = st0 + i * STONE + 2;
         best += wxm;                                                        // (kept in the wood's own x, so the scroll doesn't drag him)
         if (skipS.to === null) { skipS.from = skipS.to = foot + wxm; skipS.t0 = -1e9; }
-        if (best !== skipS.to) { var u0 = clamp((now - skipS.t0) / 460, 0, 1); skipS.from = Math.round(skipS.from + (skipS.to - skipS.from) * u0); skipS.to = best; skipS.t0 = now; }
+        if (best !== skipS.to) { var u0 = clamp((now - skipS.t0) / 460, 0, 1); skipS.from = Math.round(skipS.from + (skipS.to - skipS.from) * u0); skipS.to = best; skipS.t0 = now;
+          if (now - hopAt > 300 && Math.abs(best - skipS.from) > 5) { hopAt = now; one('hop-' + (Math.random() * 3 | 0), 0.316, 0.316, 0.94 + Math.random() * 0.12, 0.34); } }   // (his boot landing on the stone)
         var su = still ? 1 : clamp((now - skipS.t0) / 460, 0, 1);
         hx0 = Math.round(skipS.from + (skipS.to - skipS.from) * su) - wxm - foot;
         if (su < 1) { var sk = su < 0.2 ? 3 : su < 0.45 ? 4 : su < 0.75 ? 5 : 0; wf = A.skip[sk]; hop = -Math.round(4 * Math.sin(Math.PI * clamp((su - 0.15) / 0.7, 0, 1))); }
@@ -1165,12 +1403,33 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       }
     }
 
+    // the mushrooms coming up in the duff, nearer us than the path
+    for (var mi = 0; mi < shrooms.length; mi++) {
+      var mu = shrooms[mi], mx = Math.round(mu.x - Math.floor(cam * mu.f)); if (mx < -8 || mx > W) continue;
+      if (cx > -999 && mx + 8 > cx - mu.d * 0.9 - 3 && mx < cx + 37 + mu.d * 0.6) continue;   // (never standing in the creek)
+      shroom(mu, mx, GR + mu.d, clamp((W * 0.96 - mx) / (W * 0.42), 0, 1), figQ);
+    }
+    thrushFly(d.mist);
+    if (cx > -999) {   // the dipper (Game.dipper): bobbing on a stone above the crossing; off low down the water as they reach the bank
+      var dpx = cx + 15, dpy = GR + 4;
+      if (dpx > W + 4) dip.flew = -1;   // (back before the creek: on its stone again)
+      else if (dip.flew === -1 && things.creek + 30 - here < 14) { dip.flew = dpx > -8 && lift === 0 ? now : -2; dip.x = things.creek + 15; }
+      rows(DIPPER.stone, DIPPER.tone, dpx - 1, dpy + 2, false, qo);
+      if (dip.flew === -1) {
+        var dtk = Math.floor(now / 125), dsl = Math.floor(now / 8750);
+        rows(dtk % 11 < 2 || dtk % 37 < 2 ? DIPPER.dip : DIPPER.sit, DIPPER.tone, dpx, dpy, false, qo);
+        if (dsl !== dipCall) { dipCall = dsl; if (hash(dsl * 37 + 11) < 0.34 && dpx < W - 4 && lift === 0) one('dipper', 0.35, 0.5); }   // its call
+      } else if (dip.flew >= 0 && now - dip.flew < 3000) {
+        var dn = (now - dip.flew) / 125, dsh = FLAP[Math.floor(dn / 2) % 4];
+        rows(dsh, { X: 68 }, Math.round(dip.x - cam + dn * 1.5), Math.round(dpy - 3 + dn * 2.2) + dsh.length - 1, false);
+      }
+    }
     if (cx > -999) {                                        // the heron, in the shallows nearer us than the path (in front of them); lifts off as they come up
       var hx = things.creek + 30, gap = hx - here;
       var gone = hx - cam < -60;                            // (the creek well off the left edge)
       var thr = Math.min(70, Math.max(24, W - wxs - 110));
       if (gap > (still ? thr : 160)) heron.flew = -1;                       // (back before the creek: it's fishing again)
-      if (heron.flew < 0 && gap < thr && !gone) { heron.flew = now; heron.x = hx; heron.y = H - 4; heron.cam = cam; }
+      if (heron.flew < 0 && gap < thr && !gone) { heron.flew = now; heron.x = hx; heron.y = H - 4; heron.cam = cam; one('heron', 0.51, 0.33); }   // (its call as it lifts)
       if (heron.flew < 0) { if (!gone)
         rows(trimmed(['stand', 'stand', 'look', 'stand', 'preen', 'stand'][Math.floor(now / 1500) % 6]), ART.heron.tone, hx - cam, H - 4 + lift, false);
       } else if ((still ? (thr - gap) * 45 : now - heron.flew) < 9000 && cam - heron.cam < 260) {   // (nor carried off down the page by a jump)   // (once flown, it's flown)
@@ -1245,6 +1504,14 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     front.style.visibility = atTop ? 'hidden' : 'visible';
     var bg = Math.min(255, Math.round(sky / 17) * 17);
     document.documentElement.style.setProperty('--day', 'rgb(' + bg + ',' + bg + ',' + bg + ')');
+    if (sOn) {
+      // the beds at the game's levels (Sound.levels): the day's going with the light, nearer up in the crowns; the
+      // night's coming; the creek by how near; pulled back inside the lantern's light
+      var dk = clamp(d.dark / 0.85, 0, 1), far = things.creek !== undefined ? Math.abs(things.creek + 17 - here) : 1e9, pool = dusk && !camping ? 1 : 0;
+      level((1 - dk) * 0.8 * (1 + 0.4 * lift / LMAX), dk * (1 - 0.35 * pool), clamp(1 - far / 220, 0, 1) * 0.8 * (1 - 0.5 * pool), hr, dk, hr > 0.45, far < 500);
+      var over2 = lp > 0.12 && lp < 0.9;   // the geese honking as they go over
+      if (over2 && !geese) geese = one('geese', 0.7, 0.7); else if (!over2 && geese) { hush(geese); geese = null; }
+    }
   }
 
   var ticking = false;
