@@ -57,6 +57,7 @@
   .lede { color: var(--quiet); max-width: none; }   /* a section's opening line runs the full width (his choice, kept 2026-11-06) */
   .coming { font-weight: normal; color: var(--quiet); }   /* beside the game's title, in the page's quiet color */
   .coming[hidden] { display: none; }
+  .jump-label { color: var(--quiet); }   /* the row's name: plain words, not a link */
   .jump { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0.4rem 2rem; margin: 0 0 1.5rem; font-size: 1.2rem; }   /* the section links sit together on the left */
   .ethos { margin-bottom: 0; }
   .aside { font-size: 0.9rem; color: var(--quiet); margin: 0.9rem 0 0; }
@@ -212,6 +213,7 @@ often. If Obtainium says "rate limit exceeded", give it a free GitHub personal a
 one and keeps your data.</p>
 
 <nav class="jump" aria-label="Sections">
+<span class="jump-label">Categories:</span>
 <a href="#everyday">Everyday</a>
 <a href="#reading">Reading, writing, listening</a>
 <a href="#outdoors">Outdoors</a>
