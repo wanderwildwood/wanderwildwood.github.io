@@ -79,7 +79,8 @@
   dl.facts dd { margin: 0; }
   /* a short screen: the last page drawn tighter, so all of it shows over the camp */
   @media (max-height: 700px) {
-    .page.end { padding: 0.9rem 1.1rem 0.7rem; }
+    main { padding-bottom: calc(var(--strip, 30vh) + 1rem); }
+    .page.end { padding: 0.8rem 1.1rem 0.6rem; font-size: 0.9rem; line-height: 1.45; }
     .page.end p { margin-bottom: 0.6rem; }
     .page.end h2 { margin-bottom: 0.6rem; }
     .page.end a.btn { padding: 0.3rem 0.75rem; }
@@ -276,7 +277,7 @@
       <ul class="note">
         <li><img src="note-1.png" width="192" height="82" alt="" loading="lazy"><span>道の先をタップすると歩きだします。</span></li>
         <li><img src="note-2.png" width="192" height="66" alt="" loading="lazy"><span>何かのそばで長押しすると、それに合ったことをします。</span></li>
-        <li><img src="note-3.png" width="192" height="96" alt="" loading="lazy"><span>震えるまで押したまま、指を動かすとあたりを見回せます。</span></li>
+        <li><img src="note-3.png" width="192" height="96" alt="" loading="lazy"><span>震えるまで長押しして、そのまま指を動かすと、あたりを見回せます。</span></li>
         <li><img src="note-4.png" width="192" height="64" alt="" loading="lazy"><span>ノートは野営地にあります。夜にタップすると開きます。</span></li>
         <li><img src="note-5.png" width="192" height="78" alt="" loading="lazy"><span>誰かと歩く：夜の野営で、二台の電話の背中を合わせます。</span></li>
         <li><img src="note-6.png" width="192" height="64" alt="" loading="lazy"><span>ゆっくり行っても、なくすものはありません。</span></li>
@@ -719,7 +720,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       }
     }
     // three layers of trunks, the far ones paler (the mist between), each sliding at its own speed both ways
-    [[0.25, 64, 16, 0.62], [0.55, 104, 30, 0.32], [1.0, 190, 50, 0.0]].forEach(function (Lr, li) {
+    [[0.25, 64, 16, 0.66], [0.55, 104, 30, 0.48], [1.0, 190, 50, 0.0]].forEach(function (Lr, li) {
       var sp = Lr[0], step = Lr[1], wid = Lr[2], fade = Lr[3];
       var tone = mix(L - 95, sky, clamp(fade + d.mist * (0.9 - li * 0.3), 0, 0.95));
       var base = GROUND - 1 + li * 2 + Math.round(lift * RISE[li]);     // the layer's floor, on screen
