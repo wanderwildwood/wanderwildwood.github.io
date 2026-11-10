@@ -63,7 +63,7 @@ export const APPS = [
 // Mudita Center. `gate` names a default the app must not hold while it is hidden.
 export const STOCK = [
   { pkg: "com.mudita.contacts", name: "Contacts",
-    note: "Contacts live in Android's own address book, not in this app; Phone and Messaging still find them." },
+    note: "Contacts live in Android's own address book, not in this app; Handset and Messaging still find them." },
   { pkg: "com.mudita.messages", name: "Messages", gate: "sms",
     note: "Choose another texting app under Default apps first. While Messages is the texting default it stays." },
   { pkg: "com.mudita.calendar", name: "Calendar",
