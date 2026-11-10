@@ -422,7 +422,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     [back, front].forEach(function (c) { c.width = W; c.height = H; c.style.width = W * S + 'px'; c.style.height = H * S + 'px'; });
     document.documentElement.style.setProperty('--strip', STRIP * S + 'px');
     buf = new Float32Array(W * H);
-    img = bx.createImageData(W, H); fimg = fx.createImageData(W, STRIP);
+    img = bx.createImageData(W, H); fimg = fx.createImageData(W, H);
     place();
   }
 
@@ -837,13 +837,13 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       var hx = things.creek + 30, gap = hx - here;
       var gone = hx - cam < -60;                            // (the creek well off the left edge)
       if (gap > 160 || (gone && now - heron.flew > 8000)) heron.flew = -1;
-      if (heron.flew < 0 && hx - cam < W * 0.72 && !gone) { heron.flew = now; heron.x = hx; heron.y = H - 4; heron.cam = cam; }
+      if (heron.flew < 0 && gap < Math.min(80, Math.max(24, W - wxs - 110)) && !gone) { heron.flew = now; heron.x = hx; heron.y = H - 4; heron.cam = cam; }
       if (heron.flew < 0) { if (!gone)
         rows(trimmed(['stand', 'stand', 'look', 'stand', 'preen', 'stand'][Math.floor(now / 1500) % 6]), ART.heron.tone, hx - cam, H - 4 + lift, false);
       } else if (!still) {                                    // (asked for stillness, it's simply gone)
         var e = now - heron.flew, pose = e < 300 ? 'liftdown' : e < 600 ? 'liftup' : ['flyup', 'flymid', 'flydown', 'flymid'][Math.floor(e / 180) % 4];
         var fl = Math.max(0, e - 300);                         // (carried on with the view, so a fast scroll never runs it down)
-        rows(trimmed(pose), ART.heron.tone, heron.x + fl * 0.085 + Math.max(0, cam - heron.cam) - cam, heron.y - fl * 0.034 + lift, false);
+        rows(trimmed(pose), ART.heron.tone, heron.x + fl * 0.055 + Math.max(0, cam - heron.cam) - cam, heron.y - fl * 0.04 + lift, false);
       }
     }
 
@@ -897,16 +897,16 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     }
 
     // into the panel's 16 greys, ordered-dithered; the strip at the foot goes on the front canvas
-    var data = img.data, fd = fimg.data, top = H - STRIP;
+    var data = img.data, fd = fimg.data;
     for (var y = 0; y < H; y++) for (var x = 0; x < W; x++) {
       var v = clamp(buf[y * W + x], 0, 255) / 17, lo = Math.floor(v);
       var q = (v - lo) * 16 > BAYER[(y & 3) * 4 + (x & 3)] + 0.5 ? lo + 1 : lo;
       var g = Math.min(255, q * 17), i = (y * W + x) * 4;
       data[i] = data[i + 1] = data[i + 2] = g; data[i + 3] = 255;
-      if (y >= top) { var j = ((y - top) * W + x) * 4; fd[j] = fd[j + 1] = fd[j + 2] = g; fd[j + 3] = (y >= GR || fgm[y * W + x]) ? 255 : 0; }
+      fd[i] = fd[i + 1] = fd[i + 2] = g; fd[i + 3] = (y >= GR || fgm[y * W + x]) ? 255 : 0;   // (the front: the ground and whatever stands or flies before the pages)
     }
     bx.putImageData(img, 0, 0);
-    fx.putImageData(fimg, 0, top);
+    fx.putImageData(fimg, 0, 0);
     front.style.visibility = atTop ? 'hidden' : 'visible';
     var bg = Math.min(255, Math.round(sky / 17) * 17);
     document.documentElement.style.setProperty('--day', 'rgb(' + bg + ',' + bg + ',' + bg + ')');
