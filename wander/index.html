@@ -502,12 +502,13 @@ document.querySelectorAll('button.jp').forEach(function (b) {
         var x0 = Math.round(k * step + h * step * 0.6 - off), xc = x0 + wk / 2;
         var top = Math.round(base - tall * (0.94 + hash(k * 29 + li) * 0.12));
         for (var yy = Math.max(0, top); yy <= Math.min(H - 1, base); yy++) {
-          var hf = (base - yy) / (base - top), w = Math.max(2, wk * (1 - 0.92 * Math.pow(hf, 1.6)));   // narrowing up the trunk, most near the top
+          var hf = (base - yy) / (base - top), w = Math.max(2, wk * (1 - 0.88 * Math.pow(hf, 3.2)));   // a column, narrowing only toward the top
           var a = Math.round(xc - w / 2), b = Math.round(xc + w / 2);
           for (var x = Math.max(0, a); x < Math.min(W, b); x++) {
-            var edge = (x === a || x === b - 1) ? 6 : 0;
-            var groove = (li > 0 && hash(Math.floor(x - a + k * 97) * 17 + li) < 0.18) ? -10 : 0;   // the bark's long furrows
-            buf[yy * W + x] = tone + edge + groove;
+            var u = (x - a) / Math.max(1, b - a - 1);                       // across the trunk: lit on the left, round into shade
+            var shade = u < 0.12 ? 7 : u > 0.78 ? -9 : 0;
+            var groove = (li > 0 && hash(Math.floor(x - a + k * 97) * 17 + li) < 0.18) ? -8 : 0;   // the bark's long furrows
+            buf[yy * W + x] = tone + shade + groove;
           }
         }
         for (var f = 1; f <= 3; f++) for (var yy = base - 3 + f; yy <= base; yy++) { px(x0 - f, yy, tone); px(x0 + wk - 1 + f, yy, tone); }   // the foot flares
@@ -523,10 +524,15 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       buf[yy * W + x] = v;
     }
     var cx = things.creek !== undefined ? Math.round(things.creek - cam) : -999;
-    for (var yy = Math.max(0, GR + 1); yy < H; yy++) for (var x = cx - (yy - GR); x < cx + 40 + (yy - GR) * 0.5; x++) {
-      if (x < 0 || x >= W) continue;
-      var shine = ((Math.floor(x + cam) + yy * 3 + Math.floor(now / 400)) % 11 === 0) ? 40 : 0;
-      buf[yy * W + x] = mix(L - 30, 238, 0.25) + shine;
+    if (cx > -200 && cx < W + 200) for (var yy = Math.max(0, GR + 1); yy < H; yy++) {   // across the path, wider toward us, its banks wandering
+      var dz = yy - GR, wob = Math.round(Math.sin((yy + things.creek) * 0.45) * 1.5);
+      var a = cx - dz * 0.9 + wob, b = cx + 34 + dz * 0.6 - wob, water = mix(L - 26, 236, 0.22);
+      for (var x = Math.max(0, Math.round(a) - 1); x <= Math.min(W - 1, Math.round(b) + 1); x++) {
+        if (x < a || x > b) { buf[yy * W + x] = L - 70; continue; }            // the wet bank
+        var wx = Math.floor(x + cam), run = Math.floor(now / 500);
+        var ripple = ((wx + run * 2 + (yy % 3) * 5) % 13 < 3 && yy % 2 === 0) ? 22 : 0;   // dashes going downstream
+        buf[yy * W + x] = water + ripple - dz * 0.7;
+      }
     }
 
     var wxs = walkerX(), here = cam + wxs + 60;           // the walkers' x in the wood
