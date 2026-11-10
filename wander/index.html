@@ -33,7 +33,7 @@
   [hidden] { display: none !important; }
   .page {
     background: var(--paper); border: 2px solid var(--rule); max-width: 34rem;
-    padding: 1.4rem 1.5rem 1.2rem; margin: 0 0 var(--gap, 70vh);
+    padding: 1.4rem 1.5rem 1.2rem; margin: 0 0 var(--gap, 45vh);
     box-shadow: 4px 4px 0 rgba(0,0,0,.18);
   }
   .page.right { margin-left: auto; }
@@ -55,9 +55,10 @@
   [lang="ja"] { line-height: 1.8; }
   .note { list-style: none; padding: 0; margin: 0 0 1rem; }
   .note li { margin: 0 0 0.5rem; }
-  .guide { display: flex; gap: 1rem; align-items: flex-end; margin: 0.4rem 0 0; }
-  .guide img { display: block; width: 120px; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); }
-  .guide p { font-size: 0.9rem; margin: 0; }
+  .guide { display: flex; gap: 1.2rem; align-items: flex-start; }
+  .guide .note { flex: 1; }
+  .guide img { display: block; width: 132px; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); }
+  @media (max-width: 30rem) { .guide img { width: 96px; } }
   .still { display: block; width: 100%; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); margin: 0 0 1rem; }
   code { font-size: 0.8rem; word-break: break-all; }
   .buttons { display: flex; flex-wrap: wrap; gap: 0.8rem 1rem; margin: 0.2rem 0 1rem; align-items: center; }
@@ -67,8 +68,7 @@
   a.btn:active { transform: translate(3px, 3px); box-shadow: none; }
   a.btn img { width: 44px; height: 44px; image-rendering: pixelated; display: block; }
   a.btn.small { padding: 0.25rem 0.7rem; font-size: 0.95rem; }
-  .last { position: relative; min-height: 9rem; }
-  .last .mark { position: absolute; right: 1.2rem; bottom: 1rem; width: 66px; height: 66px; image-rendering: pixelated; }
+
   .foot { height: 60vh; }          /* room at the end for the camp, below the last page */
   .nowalk .foot { height: 2rem; }
 </style>
@@ -79,102 +79,159 @@
 <main>
   <p class="home"><a href="../">wander 彷徨う</a></p>
 
-  <section class="page" id="top" style="--gap: 55vh">
+  <section class="page" id="top" style="--gap: 50vh">
     <h1>Wander <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 散歩 sanpo</button></h1>
     <div class="en">
-      <p>An old man and Kumo the llama walk the coast redwoods of northern California, from the morning
-      mist to dusk. Gather mushrooms, light a fire, make tea, make camp. Nothing to win and no words on
-      the screen; the notebook keeps what you met.</p>
+      <p>A walk in the coast redwoods with Kumo the llama. One walk is one day, from the morning mist to
+      the lantern at dusk, and the game tells you nothing: no words on the screen, no score, nothing to win.
+      What you find is what you noticed.</p>
       <p class="quiet">Made for the Mudita Kompakt; runs on any phone with Android 12 or later.
       No internet, no ads, no accounts.</p>
-      <p class="buttons"><a class="btn small" href="#download">Tell me when it's out</a></p>
+      <p class="buttons"><a class="btn small" href="#soon">Tell me when it's out</a></p>
     </div>
     <div class="ja" lang="ja" hidden>
-      <p>老人とラマのクモが、北カリフォルニアの海岸のレッドウッドの森を、朝の霧から夕暮れまで歩きます。きのこを集め、火をおこし、お茶を淹れ、野営する。勝ち負けはなく、画面に言葉もありません。出会ったものはノートが覚えています。</p>
+      <p>ラマのクモと、海岸のレッドウッドの森を歩く。一度の散歩は一日。朝の霧から夕暮れのランタンまで。ゲームは何も教えません。画面に言葉はなく、点数も、勝ち負けもない。見つかるのは、気づいたものだけ。</p>
       <p class="quiet">Mudita Kompakt のために作りました。Android 12 以降の電話でも動きます。インターネットも広告もアカウントもありません。</p>
-      <p class="buttons"><a class="btn small" href="#download">出たら知らせて</a></p>
+      <p class="buttons"><a class="btn small" href="#soon">出たら知らせて</a></p>
     </div>
   </section>
 
-  <section class="page right" id="note" data-thing="deer">
+  <section class="page right" data-thing="slug">
+    <div class="en">
+      <h2>Stop, and the wood comes to you</h2>
+      <p>Walking, you see the path. Stand still and the wood goes on without you: mushrooms come up out of
+      the mist where there were none, a slug crosses the path, something stops in the trees to listen.
+      The light only crawls while you wait, so a long sit costs the day almost nothing. Wait long enough
+      and he sits down, and later lies back with his hat over his eyes.</p>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>立ち止まれば、森のほうから</h2>
+      <p>歩いているあいだは、道が見える。立ち止まると、森はかまわず続いていく。何もなかった霧の中からきのこが顔を出し、ナメクジが道を横切り、木々の奥で何かが立ち止まって耳をすます。待っているあいだ、日の光はほとんど進まない。長く座っても、一日はほとんど減らない。しばらくすると彼は腰をおろし、やがて帽子を目の上にのせて寝ころぶ。</p>
+    </div>
+  </section>
+
+  <section class="page" data-thing="deer">
+    <div class="en">
+      <h2>Kumo</h2>
+      <p>Kumo (雲, cloud) is pale and slow, and won't be hurried. It follows at the length of the lead,
+      chews its cud while you pick, and drops its head to graze whenever you stop. Its ears turn toward
+      what you haven't seen yet. Watch Kumo and you find more: the chanterelles you walked past, the
+      thing you'd have missed. Someone else sets the pace, and that's the gift.</p>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>クモ</h2>
+      <p>クモ（雲）は白っぽく、ゆっくりで、急かしても急がない。引き綱の長さだけ後ろをついて歩き、きのこを摘むあいだは反芻し、立ち止まればいつも頭を下げて草を食む。その耳は、まだ見ていないものの方へ向く。クモを見ていれば、もっと見つかる。通りすぎたアンズタケも、見落としていたものも。歩く速さを誰かが決めてくれる。それが贈りもの。</p>
+    </div>
+  </section>
+
+  <section class="page right">
+    <div class="en">
+      <h2>Take what you need</h2>
+      <p>The basket holds only so much. When the caps heap over its rim, the rest stay where they grew,
+      and the wood you come back to shows it. Hold on an old fire ring and he lets the lead fall slack,
+      kneels, and strikes a light with flint and steel. Hold on the fire and the kettle goes on: a cup of
+      tea, a sip, the cup resting on his knee, steaming, a while.</p>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>要るぶんだけ</h2>
+      <p>籠に入るのは決まった分だけ。かさが縁から盛りあがったら、残りは生えていた場所に残る。次に来たとき、森はそれを覚えている。古い焚き火の跡を長押しすると、彼は引き綱をゆるめ、膝をつき、火打ち石で火をおこす。火を長押しすればやかんがかかる。お茶を一杯、ひと口、湯気の立つカップを膝にのせて、しばらく。</p>
+    </div>
+  </section>
+
+  <section class="page" data-thing="creek">
+    <div class="en">
+      <h2>The coast redwoods</h2>
+      <p>Everything in the wood belongs to the redwoods of northern California, in its right season:
+      the heron in the creek's shallows, the dipper on its stone, the ravens, the glowworms at night.
+      Nothing is fought or hunted; the creatures are met, watched, and left be. The seasons are your real
+      ones, turned round if you live south of the equator, and the weather is too, when the phone knows it.</p>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>海岸のレッドウッド</h2>
+      <p>森にいるものはみな、北カリフォルニアのレッドウッドの森のもの。それぞれの季節に。浅瀬のサギ、石の上のカワガラス、ワタリガラス、夜のツチボタル。戦うものも、狩るものもない。生きものには出会い、眺め、そのままにしておく。季節はあなたの本当の季節。南半球ならひっくり返る。電話が知っていれば、天気も本当の天気。</p>
+    </div>
+  </section>
+
+  <section class="page right">
+    <div class="en">
+      <h2>One day, and only one</h2>
+      <p>About twelve minutes on foot; longer if you sit. At dusk the far trunks go first. He takes the
+      lantern off the basket and strikes a light into it, and they walk on inside its pool. Then camp: the
+      tent, Kumo lying down beside it. That's the day. Open the game again that night and they're there
+      asleep, and the notebook has drawn everything you met. The next walk is there in the morning, by
+      the real clock.</p>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>一日は、一度だけ</h2>
+      <p>歩けばおよそ十二分。座ればもっと長い。夕暮れには遠くの幹から消えていく。彼は籠からランタンをはずして火を入れ、ふたりはその光の輪の中を歩いていく。そして野営。テントと、そのそばに横になるクモ。それで一日。その夜にもう一度開くと、ふたりは眠っていて、ノートには出会ったものがみな描かれている。次の散歩は、本当の時計で、翌朝に。</p>
+    </div>
+  </section>
+
+  <section class="page" id="note">
     <div class="en">
       <h2>A field note</h2>
-      <ul class="note">
-        <li>Tap the path ahead to walk on.</li>
-        <li>Hold near a thing, and he does what it is for.</li>
-        <li>Press and hold till it buzzes, then drag to look around.</li>
-        <li>The notebook is at camp: at night, tap to open it.</li>
-        <li>Walk with someone: at the night camp, hold your two phones back to back.</li>
-        <li>Nothing is lost by going slowly.</li>
-      </ul>
       <div class="guide">
+        <ul class="note">
+          <li>Tap the path ahead to walk on.</li>
+          <li>Hold near a thing, and he does what it is for.</li>
+          <li>Press and hold till it buzzes, then drag to look around.</li>
+          <li>The notebook is at camp: at night, tap to open it.</li>
+          <li>Walk with someone: at the night camp, hold your two phones back to back.</li>
+          <li>Nothing is lost by going slowly.</li>
+        </ul>
         <a href="field-guide-print.png"><img src="field-guide.png" width="480" height="800" loading="lazy"
-           alt="The field note as one notebook page: each of the six lines beside a small drawing of the gesture"></a>
-        <p><small>Walking with someone needs NFC switched on in both phones, Wander open on both, and the notebook shut.</small><br>
-        <a href="field-guide.png">The field guide</a>, one page to keep on the phone; <a href="field-guide-print.png">a larger copy</a> prints well.</p>
+           alt="The field note as one notebook page: each line beside a small drawing of the gesture (a larger copy, to print)"></a>
       </div>
+      <p><small>Walking with someone needs NFC on in both phones, Wander open on both, and the notebook shut.</small></p>
     </div>
     <div class="ja" lang="ja" hidden>
       <h2>野帳</h2>
-      <ul class="note">
-        <li>道の先をタップすると歩きだします。</li>
-        <li>何かのそばで長押しすると、それに合ったことをします。</li>
-        <li>震えるまで押したまま、指を動かすとあたりを見回せます。</li>
-        <li>ノートは野営地にあります。夜にタップすると開きます。</li>
-        <li>誰かと歩く：夜の野営で、二台の電話の背中を合わせます。</li>
-        <li>ゆっくり行っても、なくすものはありません。</li>
-      </ul>
       <div class="guide">
+        <ul class="note">
+          <li>道の先をタップすると歩きだします。</li>
+          <li>何かのそばで長押しすると、それに合ったことをします。</li>
+          <li>震えるまで押したまま、指を動かすとあたりを見回せます。</li>
+          <li>ノートは野営地にあります。夜にタップすると開きます。</li>
+          <li>誰かと歩く：夜の野営で、二台の電話の背中を合わせます。</li>
+          <li>ゆっくり行っても、なくすものはありません。</li>
+        </ul>
         <a href="field-guide-print.png"><img src="field-guide.png" width="480" height="800" loading="lazy"
-           alt="野帳を一枚のノートのページに：六つの行と、それぞれの手の動きの小さな絵"></a>
+           alt="野帳を一枚のノートのページに（印刷用の大きな版）"></a>
       </div>
+      <p><small>誰かと歩くには、両方の電話で NFC をオンにし、両方で Wander を開き、ノートを閉じておきます。</small></p>
     </div>
   </section>
 
-  <section class="page" id="download" data-thing="creek">
-    <div class="en">
-      <h2>Download</h2>
-      <p>Coming soon. Write to me and I'll send you one short note the day it's out, and now and then a
-      little more about the game as it grows. Nothing else, and you can say stop any time.</p>
-      <p class="buttons"><a class="btn" href="mailto:email@wanderthe.dev?subject=Wander%20waitlist&amp;body=Please%20let%20me%20know%20when%20Wander%20is%20out.">Tell me when it's out</a></p>
-      <p><small>Or follow <a href="../feed.xml">the releases feed</a>: Wander comes out there too, with every app.</small></p>
-      <!-- At release, in place of "Coming soon." (fill from the .sha256 file; never type the hash):
-      <p><a href="{APK_URL}">sanpo-v{VERSION}.apk</a> · {SIZE} MB<br>
-      <small>SHA-256: <code>{SHA256}</code></small></p>
-      -->
-      <p>The download will be free. If you'd like to pay something, pay what you want straight to the llamas at
-      <a href="https://hotspringsllamas.org/donate/">Hot Springs Llamas</a>.</p>
-      <p class="buttons"><a class="btn" href="https://hotspringsllamas.org/donate/"><img src="llama.png" width="22" height="22" alt=""> Feed the llamas</a></p>
-    </div>
-    <div class="ja" lang="ja" hidden>
-      <h2>ダウンロード</h2>
-      <p>もうすぐ。メールをくだされば、出た日に短いお知らせを一通、ときどきゲームのことを少しだけお送りします。それ以外は送りません。いつでもやめられます。</p>
-      <p class="buttons"><a class="btn" href="mailto:email@wanderthe.dev?subject=Wander%20waitlist&amp;body=Wander%E3%81%8C%E5%87%BA%E3%81%9F%E3%82%89%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82">出たら知らせて</a></p>
-      <p><small><a href="../feed.xml">リリースのフィード</a>でも、ほかのアプリと一緒にお知らせします。</small></p>
-      <p>ダウンロードは無料になります。払いたい方は、好きな額を直接ラマたちへ（<a href="https://hotspringsllamas.org/donate/">Hot Springs Llamas</a>）。</p>
-      <p class="buttons"><a class="btn" href="https://hotspringsllamas.org/donate/"><img src="llama.png" width="22" height="22" alt=""> ラマにごはんを</a></p>
-    </div>
-  </section>
-
-  <section class="page right" id="license" data-thing="slug">
+  <section class="page right" id="soon" style="--gap: 0">
     <img class="still" src="../shots/sanpo.gif" width="960" height="480" loading="lazy"
          alt="Supper by the fire at nightfall, the dark wood all round: wander with the pan on, a cup of tea, the pipe, Kumo the llama lying by">
     <div class="en">
-      <h2>License</h2>
-      <p>Wander (its program, pictures and sounds) is shared under
-      <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>.
-      You may share it freely, as it is, with credit, and not for money. You may not change it, or share
-      anything made from it.</p>
+      <h2>Coming soon</h2>
+      <p>It isn't out yet. Write to me and I'll send one short note the day it is, and now and then a
+      little more about the game while it grows. Nothing else.</p>
+      <p class="buttons"><a class="btn" href="mailto:email@wanderthe.dev?subject=Wander%20waitlist&amp;body=Please%20let%20me%20know%20when%20Wander%20is%20out.">Tell me when it's out</a>
+      <small>or follow <a href="../feed.xml">the releases feed</a></small></p>
+      <!-- At release, in place of the two paragraphs above (fill from the .sha256 file; never type the hash):
+      <h2>Download</h2>
+      <p><a href="{APK_URL}">sanpo-v{VERSION}.apk</a> · {SIZE} MB<br>
+      <small>SHA-256: <code>{SHA256}</code></small></p>
+      -->
+      <p>It will be free. If you'd like to give something, give it to the llamas: all of it goes straight
+      to Hot Springs Llamas.</p>
+      <p class="buttons"><a class="btn" href="https://hotspringsllamas.org/donate/"><img src="llama.png" width="22" height="22" alt=""> Feed the llamas</a></p>
+      <p><small>Wander, its program, pictures and sounds, is shared under
+      <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>: pass it on as it is,
+      with credit, and not for money.</small></p>
     </div>
     <div class="ja" lang="ja" hidden>
-      <h2>ライセンス</h2>
-      <p><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>：そのままの形で、名前を添え、お金を取らずに自由に分けてください。変えたり、元にして何かを作って配ったりはできません。</p>
+      <h2>もうすぐ</h2>
+      <p>まだ出ていません。メールをくだされば、出た日に短いお知らせを一通、ときどきゲームのことを少しだけお送りします。それ以外は送りません。</p>
+      <p class="buttons"><a class="btn" href="mailto:email@wanderthe.dev?subject=Wander%20waitlist&amp;body=Wander%E3%81%8C%E5%87%BA%E3%81%9F%E3%82%89%E7%9F%A5%E3%82%89%E3%81%9B%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82">出たら知らせて</a>
+      <small><a href="../feed.xml">リリースのフィード</a>でも</small></p>
+      <p>無料になります。何か払いたい方は、ラマたちへ。すべてそのまま Hot Springs Llamas に届きます。</p>
+      <p class="buttons"><a class="btn" href="https://hotspringsllamas.org/donate/"><img src="llama.png" width="22" height="22" alt=""> ラマにごはんを</a></p>
+      <p><small><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja">CC BY-NC-ND 4.0</a>：そのままの形で、名前を添え、お金を取らずに分けてください。</small></p>
     </div>
-  </section>
-  <section class="page last" style="--gap: 0">
-    <p class="buttons"><a class="btn" href="https://hotspringsllamas.org/donate/"><span class="en">Feed the llamas</span><span class="ja" lang="ja" hidden>ラマにごはんを</span></a></p>
-    <p><small class="en">Every bit of what you give goes to the llamas at Hot Springs Llamas.</small><small class="ja" lang="ja" hidden>いただいたものは、すべて Hot Springs Llamas のラマたちへ。</small></p>
-    <a href="https://hotspringsllamas.org/donate/" aria-label="Feed the llamas"><img class="mark" src="llama.png" width="22" height="22" alt=""></a>
   </section>
   <div class="foot"></div>
 </main>
@@ -183,8 +240,8 @@
 document.querySelectorAll('button.jp').forEach(function (b) {
   b.addEventListener('click', function () {
     var ja = b.getAttribute('aria-pressed') !== 'true';
-    document.querySelectorAll('div.en, span.en, small.en').forEach(function (d) { d.hidden = ja; });
-    document.querySelectorAll('div.ja, span.ja, small.ja').forEach(function (d) { d.hidden = !ja; });
+    document.querySelectorAll('div.en').forEach(function (d) { d.hidden = ja; });
+    document.querySelectorAll('div.ja').forEach(function (d) { d.hidden = !ja; });
     document.documentElement.lang = ja ? 'ja' : 'en';
     b.setAttribute('aria-pressed', ja ? 'true' : 'false');
   });
