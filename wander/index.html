@@ -73,14 +73,10 @@
   .fig.crop { aspect-ratio: 396 / 174; object-fit: cover; object-position: 50% 100%; }   /* a taller scene, cut to the others' shape from the top */
   .kinds { display: block; width: 100%; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); margin: 0 0 0.9rem; }
   code { font-size: 0.8rem; word-break: break-all; }
-  dl.facts { margin: 0; }
   /* the maker, drawn as the game draws */
   .maker { float: left; width: 160px; height: 184px; margin: 0.1rem 1.2rem 0.6rem 0; image-rendering: pixelated; border: 2px solid var(--rule); }
   @media (max-width: 560px) { .maker { width: 120px; height: 138px; margin-right: 1rem; } }
-  .grays { display: block; width: 160px; max-width: 100%; height: 10px; margin-top: 0.45rem; border: 1px solid var(--rule); background: linear-gradient(to right, rgb(0,0,0) 0.00% 6.25%,rgb(17,17,17) 6.25% 12.50%,rgb(34,34,34) 12.50% 18.75%,rgb(51,51,51) 18.75% 25.00%,rgb(68,68,68) 25.00% 31.25%,rgb(85,85,85) 31.25% 37.50%,rgb(102,102,102) 37.50% 43.75%,rgb(119,119,119) 43.75% 50.00%,rgb(136,136,136) 50.00% 56.25%,rgb(153,153,153) 56.25% 62.50%,rgb(170,170,170) 62.50% 68.75%,rgb(187,187,187) 68.75% 75.00%,rgb(204,204,204) 75.00% 81.25%,rgb(221,221,221) 81.25% 87.50%,rgb(238,238,238) 87.50% 93.75%,rgb(255,255,255) 93.75% 100.00%); }
-  dl.facts dt { font-weight: 600; font-size: 0.9rem; color: var(--quiet); margin: 0.7rem 0 0.1rem; }
-  dl.facts dt:first-child { margin-top: 0; }
-  dl.facts dd { margin: 0; }
+  .grays { display: block; width: 100%; height: 12px; margin-top: 0.7rem; border: 1px solid var(--rule); background: linear-gradient(to right, rgb(0,0,0) 0.00% 6.25%,rgb(17,17,17) 6.25% 12.50%,rgb(34,34,34) 12.50% 18.75%,rgb(51,51,51) 18.75% 25.00%,rgb(68,68,68) 25.00% 31.25%,rgb(85,85,85) 31.25% 37.50%,rgb(102,102,102) 37.50% 43.75%,rgb(119,119,119) 43.75% 50.00%,rgb(136,136,136) 50.00% 56.25%,rgb(153,153,153) 56.25% 62.50%,rgb(170,170,170) 62.50% 68.75%,rgb(187,187,187) 68.75% 75.00%,rgb(204,204,204) 75.00% 81.25%,rgb(221,221,221) 81.25% 87.50%,rgb(238,238,238) 87.50% 93.75%,rgb(255,255,255) 93.75% 100.00%); }
   /* a short screen: the last page drawn tighter, so all of it shows over the camp */
   @media (max-height: 700px) {
     main { padding-bottom: calc(var(--strip, 30vh) + 1rem); }
@@ -288,28 +284,22 @@
          alt="A frame of the game itself: the old man and Kumo on the path in morning mist, under pale trunks, a young conifer and sword ferns beside them."
          data-alt-ja="ゲームの一場面。朝霧の中、淡い幹の下の道に立つおじいさんとクモ。そばに若い針葉樹とシダ。"></picture>
     <div class="en">
-      <h2>Good to know</h2>
-      <dl class="facts">
-        <dt>Phones</dt><dd>Any Android phone from version 12 up, held upright. It was drawn for the Kompakt's E Ink screen, in sixteen grays.<span class="grays" aria-hidden="true"></span></dd>
-        <dt>Offline</dt><dd>It never goes online. No account, nothing collected.</dd>
-        <dt>Permissions</dt><dd>Two: vibration, for the small buzz when you press and hold, and NFC, which is only used to walk with someone.</dd>
-        <dt>Language</dt><dd>The game has no words, so there's nothing to translate.</dd>
-        <dt>Sound</dt><dd>Play it with the sound on. His boots sound different on roots, stone, mud, snow and water.</dd>
-        <dt>Battery</dt><dd>While he's sitting, the game keeps the screen awake for up to fifteen minutes so a long rest isn't cut short.</dd>
-        <dt>Your notebook</dt><dd>It's part of your phone's backup, and the game saves a copy to Documents/Wander every night.</dd>
-      </dl>
+      <h2>On your phone</h2>
+      <p>Wander runs on any Android phone from version 12 up, held upright. It was drawn for the Mudita
+      Kompakt's E Ink screen, in sixteen grays.<span class="grays" aria-hidden="true"></span></p>
+      <p>It never goes online: no account, nothing collected. It asks for two permissions. One is vibration,
+      for the small buzz when you press and hold. The other is NFC, which is only used to walk with someone.</p>
+      <p>Play it with the sound on. His boots sound different on roots, stone, mud, snow and water. There are
+      no words in the game, so there's nothing to translate.</p>
+      <p>Your notebook is kept in your phone's backup, and the game saves a copy to Documents/Wander every
+      night. While he's sitting, the screen stays awake for up to fifteen minutes, so a long rest isn't cut short.</p>
     </div>
     <div class="ja" lang="ja" hidden>
-      <h2>知っておくといいこと</h2>
-      <dl class="facts">
-        <dt>電話</dt><dd>Android 12 以降の電話なら、どれでも。縦向きで遊びます。Kompakt の E Ink 画面のために、十六階調のグレーで描きました。<span class="grays" aria-hidden="true"></span></dd>
-        <dt>オフライン</dt><dd>通信は一切しません。アカウントもなく、何も集めません。</dd>
-        <dt>権限</dt><dd>ふたつだけ。長押ししたときの小さな振動と、誰かと歩くときにだけ使う NFC。</dd>
-        <dt>言葉</dt><dd>ゲームの中に言葉がないので、翻訳するものがありません。</dd>
-        <dt>音</dt><dd>音を出して遊んでみてください。靴音が、木の根、石、泥、雪、水の上で、それぞれ違います。</dd>
-        <dt>電池</dt><dd>おじいさんが座っているあいだは、長い休憩が途中で切れないよう、最長十五分、画面をつけたままにします。</dd>
-        <dt>ノート</dt><dd>電話のバックアップに含まれます。そのうえ、ゲームが毎晩 Documents/Wander にも写しを保存します。</dd>
-      </dl>
+      <h2>あなたの電話で</h2>
+      <p>Wander は、Android 12 以降の電話なら、どれでも動きます。縦向きで遊びます。Mudita Kompakt の E Ink 画面のために、十六階調のグレーで描きました。<span class="grays" aria-hidden="true"></span></p>
+      <p>通信は一切しません。アカウントもなく、何も集めません。求める権限はふたつだけ。長押ししたときの小さな振動と、誰かと歩くときにだけ使う NFC です。</p>
+      <p>音を出して遊んでみてください。靴音が、木の根、石、泥、雪、水の上で、それぞれ違います。ゲームの中に言葉はないので、翻訳するものもありません。</p>
+      <p>ノートは電話のバックアップに含まれます。そのうえ、ゲームが毎晩 Documents/Wander にも写しを保存します。おじいさんが座っているあいだは、長い休憩が途中で切れないよう、最長十五分、画面をつけたままにします。</p>
     </div>
   </section>
 
