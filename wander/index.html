@@ -1138,7 +1138,8 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       }
       // (the skip itself goes in its own time, as it does in the game at his walking pace: the scroll says which stone
       // he's making for, and he springs to it, gathered, off, in the air, down; however slowly the page is turned)
-      if (over && foot >= crA - 2 && foot <= crB + 2) {
+      if (over && still) { var hk = (((foot - st0 + 1) % STONE) + STONE) % STONE >> 1; if (idle < 450 && !looking) { wf = A.skip[hk]; hop = HOP[hk]; } }   // (stillness asked for: the scroll takes him through the skip)
+      else if (over && foot >= crA - 2 && foot <= crB + 2) {
         var best = foot < (crA + crB) / 2 ? crA - 3 : crB + 3, wxm = Math.round(cam);
         for (var i = 0; i < stN; i++) if (Math.abs(st0 + i * STONE + 2 - foot) < Math.abs(best - foot)) best = st0 + i * STONE + 2;
         best += wxm;                                                        // (kept in the wood's own x, so the scroll doesn't drag him)
@@ -1160,12 +1161,14 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     if (cx > -999) {                                        // the heron, in the shallows nearer us than the path (in front of them); lifts off as they come up
       var hx = things.creek + 30, gap = hx - here;
       var gone = hx - cam < -60;                            // (the creek well off the left edge)
-      if (gap > 160) heron.flew = -1;                       // (back before the creek: it's fishing again)
-      if (heron.flew < 0 && gap < Math.min(70, Math.max(24, W - wxs - 110)) && !gone) { heron.flew = now; heron.x = hx; heron.y = H - 4; heron.cam = cam; }
+      var thr = Math.min(70, Math.max(24, W - wxs - 110));
+      if (gap > (still ? thr : 160)) heron.flew = -1;                       // (back before the creek: it's fishing again)
+      if (heron.flew < 0 && gap < thr && !gone) { heron.flew = now; heron.x = hx; heron.y = H - 4; heron.cam = cam; }
       if (heron.flew < 0) { if (!gone)
         rows(trimmed(['stand', 'stand', 'look', 'stand', 'preen', 'stand'][Math.floor(now / 1500) % 6]), ART.heron.tone, hx - cam, H - 4 + lift, false);
-      } else if (!still && now - heron.flew < 9000) {         // (asked for stillness, it's simply gone; and once flown, it's flown)
-        var e = now - heron.flew, pose = e < 300 ? 'liftdown' : e < 600 ? 'liftup' : ['flyup', 'flymid', 'flydown', 'flymid'][Math.floor(e / 180) % 4];
+      } else if ((still ? (thr - gap) * 45 : now - heron.flew) < 9000) {   // (once flown, it's flown)
+        // (asked for stillness, nothing moves by itself: the scroll carries the flight, forward and back)
+        var e = still ? (thr - gap) * 45 : now - heron.flew, pose = e < 300 ? 'liftdown' : e < 600 ? 'liftup' : ['flyup', 'flymid', 'flydown', 'flymid'][Math.floor(e / 180) % 4];
         var fl = Math.max(0, e - 300);                         // (carried on with the view, so a fast scroll never runs it down)
         // up and back over their heads, across the whole picture and in front of the pages: seen however narrow the window
         rows(trimmed(pose), ART.heron.tone, heron.x - fl * 0.045 + Math.max(0, cam - heron.cam) - cam, heron.y - fl * 0.042 + lift, e >= 300);
