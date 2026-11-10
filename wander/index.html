@@ -428,6 +428,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   // Where the things along the way stand, in the wood's own pixels; and the two stretches of the page that
   // aren't walking: the look up the trunks (data-look) and the night's camp at the foot (data-camp).
   var K = 0.45;                                             // game px walked per CSS px scrolled
+  var skipS = { from: 0, to: null, t0: 0 };
   var STONE = 12, HOP = [0, 0, 0, 0, -3, -2];               // the stepping stones' pitch; over the creek, both feet off between them
   var things = {}, firstEnd = 0, lookA = 1e9, lookB = 1e9, campA = 1e9, campB = 1e9;
   function walkerX() { return Math.round(W * 0.28); }
@@ -981,8 +982,9 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     var hz = GROUND - 1 + Math.round(lift * RISE[0]), mistK = clamp(d.mist / 0.3, 0, 1);
     for (var yy = 0; yy < H; yy++) {
       var high = clamp((lift - yy) / LMAX, 0, 1);
-      var v = mix(mix(sky, L, yy / H), 238, Math.min(1, high * 1.6)), beam = 7 * Math.min(1, high * 4), row = yy * W;
+      var v = mix(lift > 0 ? mix(sky, L, yy / H) : sky, 238, Math.min(1, high * 1.6)), beam = 7 * Math.min(1, high * 4), row = yy * W;
       if (yy <= hz && yy > hz - 70) v = mix(v, 238, d.mist * 0.9 * (1 - (hz - yy) / 70));
+      if (high <= 0) v = Math.round(v / 17) * 17;                  // (down on the path the air is flat grey, as the game's is: the depth is in the layers)
       skyRow[yy] = v;
       if (beam <= 0) { for (var x = 0; x < W; x++) buf[row + x] = v; continue; }
       for (var x = 0; x < W; x++) {
@@ -993,7 +995,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     // three layers of trunks, the far ones paler (the mist between), each sliding at its own speed both ways; each
     // layer's tone one of the sixteen greys, as the game's are, its bark and edges a step either side
     var q17 = function (v) { return Math.round(v / 17) * 17; };
-    var qo = Math.round((L - 212) / 17) * 17;                 // the game's daylight greys, taken down with the light
+    var qo = Math.round((Math.min(L, 206) - 206) / 17) * 17;                 // the game's daylight greys, taken down with the light
     var farB = 0, midB = 0, feet = [];
     [[0.25, 64, 16, 0.66], [0.55, 104, 30, 0.48], [1.0, 190, 50, 0.0]].forEach(function (Lr, li) {
       var sp = Lr[0], step = Lr[1], wid = Lr[2], fade = Lr[3];
@@ -1126,20 +1128,27 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       if (idle < 450 && !looking) {
         var fr = ((Math.floor(cam / 2.2) % 8) + 8) % 8;
         wf = A.walk[fr]; kf = B.walk[fr];
-        if (over) { var hk = (((foot - st0 + 1) % STONE) + STONE) % STONE >> 1; wf = A.skip[hk]; hop = HOP[hk]; }
         var ha = Math.max(crA, ox + (flip ? CW - 45 : 12)), hb = Math.min(crB, ox + (flip ? CW - 13 : 44));   // water thrown up round Kumo's hooves
         if (ha <= hb) for (var i = 0; i < 9; i++) px((ha + hb >> 1) - 8 + Math.floor(hash(Math.floor(now / 120) * 19 + i) * 17), PA + 1 - Math.floor(hash(Math.floor(now / 120) * 23 + i + 40) * 6), 246);
       } else {
-        if (over && foot >= crA && foot <= crB) {
-          var best = foot < (crA + crB) / 2 ? crA - 3 : crB + 3;
-          for (var i = 0; i < stN; i++) if (Math.abs(st0 + i * STONE + 2 - foot) < Math.abs(best - foot)) best = st0 + i * STONE + 2;
-          hx0 = best - foot;
-        }
         wf = !looking && idle > 9000 && idle % 9000 < 1800 ? A.lookup[0] : A.stand[0];
         if (idle < 2500 && !looking) kf = B.stand[0];
         else { var g = Math.floor(Math.max(0, idle - 2500) / 800) % 6; kf = g < 3 ? B.graze[0] : g === 3 ? B.graze_up[0] : B.chew[g % 2]; }
         if (idle % 5200 < 600 && kf === B.stand[0]) kf = B.tail[Math.floor(idle / 200) % 3];
       }
+      // (the skip itself goes in its own time, as it does in the game at his walking pace: the scroll says which stone
+      // he's making for, and he springs to it, gathered, off, in the air, down; however slowly the page is turned)
+      if (over && foot >= crA - 2 && foot <= crB + 2) {
+        var best = foot < (crA + crB) / 2 ? crA - 3 : crB + 3, wxm = Math.round(cam);
+        for (var i = 0; i < stN; i++) if (Math.abs(st0 + i * STONE + 2 - foot) < Math.abs(best - foot)) best = st0 + i * STONE + 2;
+        best += wxm;                                                        // (kept in the wood's own x, so the scroll doesn't drag him)
+        if (skipS.to === null) { skipS.from = skipS.to = foot + wxm; skipS.t0 = -1e9; }
+        if (best !== skipS.to) { var u0 = clamp((now - skipS.t0) / 460, 0, 1); skipS.from = Math.round(skipS.from + (skipS.to - skipS.from) * u0); skipS.to = best; skipS.t0 = now; }
+        var su = still ? 1 : clamp((now - skipS.t0) / 460, 0, 1);
+        hx0 = Math.round(skipS.from + (skipS.to - skipS.from) * su) - wxm - foot;
+        if (su < 1) { var sk = su < 0.2 ? 3 : su < 0.45 ? 4 : su < 0.75 ? 5 : 0; wf = A.skip[sk]; hop = -Math.round(4 * Math.sin(Math.PI * clamp((su - 0.15) / 0.7, 0, 1))); }
+        else if (idle < 450 && !looking) wf = A.skip[1];
+      } else skipS.to = null;
       cell(kf.n, ox, oy, flip); cell(wf.n, ox + hx0, oy + hop, flip);
       var hl = kf.halter || B.stand[0].halter, hd = wf.hand;   // the lead, halter to hand, sagging between
       if (cells && hl && hd) for (var i = 0; i <= 60; i++) {
@@ -1151,30 +1160,15 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     if (cx > -999) {                                        // the heron, in the shallows nearer us than the path (in front of them); lifts off as they come up
       var hx = things.creek + 30, gap = hx - here;
       var gone = hx - cam < -60;                            // (the creek well off the left edge)
-      if (gap > 160 || (gone && now - heron.flew > 8000)) heron.flew = -1;
-      if (heron.flew < 0 && gap < Math.min(80, Math.max(24, W - wxs - 110)) && !gone) { heron.flew = now; heron.x = hx; heron.y = H - 4; heron.cam = cam; }
+      if (gap > 160) heron.flew = -1;                       // (back before the creek: it's fishing again)
+      if (heron.flew < 0 && gap < Math.min(70, Math.max(24, W - wxs - 110)) && !gone) { heron.flew = now; heron.x = hx; heron.y = H - 4; heron.cam = cam; }
       if (heron.flew < 0) { if (!gone)
         rows(trimmed(['stand', 'stand', 'look', 'stand', 'preen', 'stand'][Math.floor(now / 1500) % 6]), ART.heron.tone, hx - cam, H - 4 + lift, false);
-      } else if (!still) {                                    // (asked for stillness, it's simply gone)
+      } else if (!still && now - heron.flew < 9000) {         // (asked for stillness, it's simply gone; and once flown, it's flown)
         var e = now - heron.flew, pose = e < 300 ? 'liftdown' : e < 600 ? 'liftup' : ['flyup', 'flymid', 'flydown', 'flymid'][Math.floor(e / 180) % 4];
         var fl = Math.max(0, e - 300);                         // (carried on with the view, so a fast scroll never runs it down)
-        rows(trimmed(pose), ART.heron.tone, heron.x + fl * 0.055 + Math.max(0, cam - heron.cam) - cam, heron.y - fl * 0.04 + lift, false);
-      }
-    }
-
-    // the near trunks (Forest.nearTrunks), nearer than the path and quicker than it, passing in front of them: few, dark,
-    // none where the page opens, none over the creek as they cross it, none where the camp will be. Behind the pages.
-    if (lift === 0) {
-      var noff = cam * 1.5, NST = 470, campX = campA < 1e9 ? walked(campA) / S * K * 1.5 : -1e9, fordX = cx > -999 ? (things.creek - wxs) * 1.5 : -1e9;
-      for (var nk = Math.floor((noff - 90) / NST); nk <= Math.floor((noff + W + 30) / NST); nk++) {
-        if (hash(nk * 61 + 11) < 0.3) continue;
-        var nw = 30 + Math.floor(hash(nk * 17 + 3) * 13), nX = nk * NST + Math.round(hash(nk * 29 + 5) * NST * 0.6), nx = nX - Math.floor(noff);
-        if (nX < W + 40) continue;
-        if (nX - campX > wxs - 60 - nw && nX - campX < wxs + 150) continue;
-        if (nX - fordX > wxs - 70 - nw && nX - fordX < wxs + 130) continue;
-        var nB = barkOf(3, nk, nw), nb = Math.max(17, 68 + qo);
-        column(nB, 3, nx + nw / 2, nx, nw, H - 4, 1e9, null, 0, 0, 0, nb, 0, H - 2, 0, 0, 2);
-        dots(nB.rt, nx, H - 4, nb, 2);
+        // up and back over their heads, across the whole picture and in front of the pages: seen however narrow the window
+        rows(trimmed(pose), ART.heron.tone, heron.x - fl * 0.045 + Math.max(0, cam - heron.cam) - cam, heron.y - fl * 0.042 + lift, e >= 300);
       }
     }
 
@@ -1222,7 +1216,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
             lit = r < 16 ? 1 : r < 26 ? 0.8 : r < 38 ? 0.6 : r < 52 ? 0.42 : 0;
           }
           if (tentAt && v >= 205 && v <= 237 && Math.abs(x - tentAt[0]) < 24 && Math.abs(yy - tentAt[1]) < 20) continue;   // the tent's own glow
-          buf[i] = v * (keep + d.dark * lit);
+          buf[i] = Math.round(v * (keep + d.dark * lit) / 17) * 17;      // (the dark in whole greys, flat, as the game's)
         }
       }
     }
@@ -1234,7 +1228,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       var q = (v - lo) * 16 > BAYER[(y & 3) * 4 + (x & 3)] + 0.5 ? lo + 1 : lo;
       var g = Math.min(255, q * 17), i = (y * W + x) * 4;
       data[i] = data[i + 1] = data[i + 2] = g; data[i + 3] = 255;
-      fd[i] = fd[i + 1] = fd[i + 2] = g; fd[i + 3] = (y >= GR || fgm[y * W + x] === 1) ? 255 : 0;   // (the front: the ground and whatever stands or flies before the pages)
+      fd[i] = fd[i + 1] = fd[i + 2] = g; fd[i + 3] = (y >= GR || fgm[y * W + x]) ? 255 : 0;   // (the front: the ground and whatever stands or flies before the pages)
     }
     bx.putImageData(img, 0, 0);
     fx.putImageData(fimg, 0, 0);
