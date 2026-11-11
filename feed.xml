@@ -4,8 +4,64 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-11T04:47:45Z</updated>
+  <updated>2026-11-11T16:11:53Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Messaging 1.35.31</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.31"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.31</id>
+    <updated>2026-11-11T16:11:53Z</updated>
+    <content type="text">Messaging 1.35.31: The first time you attach a picture or a file on a phone that has another files app, such as Cabinet, Messaging asks once which app to choose files with. The choice stays in Settings, under Sending, as &quot;Choose files with&quot;.</content>
+  </entry>
+  <entry>
+    <title>Atlas 0.1.3</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.3"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.3</id>
+    <updated>2026-11-11T14:55:01Z</updated>
+    <content type="text">Atlas 0.1.3: a map without the download. Where no region is on the phone, the download panel now has a second button, &quot;Show it online&quot;. Atlas asks once, then draws the map from a map server (OpenFreeMap, or one of your own set in Settings) as you look at it, in the same black and white, with your position and the route on it. A switch keeps it to Wi-Fi. Downloaded regions are drawn from the phone as before. Also fixed: the download panel stayed hidden after an online route was closed. PRIVACY.md says what is sent and to whom.</content>
+  </entry>
+  <entry>
+    <title>Music Box 2.18.37</title>
+    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.37"/>
+    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.37</id>
+    <updated>2026-11-11T13:18:02Z</updated>
+    <content type="text">Music Box 2.18.37: the download is 9.6 MB instead of 37 MB (unused code is now left out of the app)</content>
+  </entry>
+  <entry>
+    <title>Audio Reader 1.3.61</title>
+    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.61"/>
+    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.61</id>
+    <updated>2026-11-11T13:17:54Z</updated>
+    <content type="text">Audio Reader 1.3.61: the download is 5.4 MB instead of 30 MB (unused code is now left out of the app); a list whose rows arrive a moment late now opens on its first row</content>
+  </entry>
+  <entry>
+    <title>Birding 1.7.42</title>
+    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.42"/>
+    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.42</id>
+    <updated>2026-11-11T13:12:42Z</updated>
+    <content type="text">Birding 1.7.42: the download is 12 MB instead of 23 MB (it carried its sound-recognition code for three kinds of processor the phone does not have); a list whose rows arrive a moment late now opens on its first row</content>
+  </entry>
+  <entry>
+    <title>Translate 0.9.21</title>
+    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.21"/>
+    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.21</id>
+    <updated>2026-11-11T13:12:30Z</updated>
+    <content type="text">Translate 0.9.21: the download is 20 MB instead of 37 MB (it carried a second copy of its translation and text-reading code for a processor the phone does not have); a list whose rows arrive a moment late now opens on its first row</content>
+  </entry>
+  <entry>
+    <title>Feeds 0.6.10</title>
+    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.10"/>
+    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.10</id>
+    <updated>2026-11-11T13:11:58Z</updated>
+    <content type="text">Feeds 0.6.10: the download is 34 MB instead of 59 MB (it carried the feed parser for three kinds of processor the phone does not have); a list whose rows arrive a moment late now opens on its first row</content>
+  </entry>
+  <entry>
+    <title>Atlas 0.1.2</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.2"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.2</id>
+    <updated>2026-11-11T12:47:07Z</updated>
+    <content type="text">Atlas 0.1.2: a route without the map. When the map for a route is not on the phone, Atlas asks once, then gets the route from a routing server (the FOSSGIS one, or one of your own set in Settings) and guides along it on the card. Say no and it downloads the map instead, as before. PRIVACY.md says what is sent and to whom.</content>
+  </entry>
   <entry>
     <title>Atlas 0.1.1</title>
     <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.1"/>
@@ -110,13 +166,6 @@
     <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.55</id>
     <updated>2026-11-10T15:06:57Z</updated>
     <content type="text">Mailbox 0.1.55: after you pick Reply or Reply all, the choice sheet closes instead of waiting on the message when you come back; a message left open no longer crashes the app when Android brings it back; the mail connection library has its latest security fix</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.26</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.26"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.26</id>
-    <updated>2026-11-10T02:22:33Z</updated>
-    <content type="text">Messaging 1.35.26: the message box follows the line you are typing once a long message fills it, instead of running on out of sight</content>
   </entry>
   <entry>
     <title>Engraver 0.0.10</title>
@@ -376,54 +425,5 @@
     <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.35</id>
     <updated>2026-11-08T13:16:39Z</updated>
     <content type="text">Music Box 2.18.35: nothing of the app goes into a Google backup or a phone-to-phone transfer any more; Save a backup in Settings is the way to move playlists and kept stations</content>
-  </entry>
-  <entry>
-    <title>Remote 0.2.20</title>
-    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.20"/>
-    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.20</id>
-    <updated>2026-11-08T13:15:37Z</updated>
-    <content type="text">Remote 0.2.20: dotted rules between the rows of the device lists; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
-  </entry>
-  <entry>
-    <title>Recipes 0.2.18</title>
-    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.18"/>
-    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.18</id>
-    <updated>2026-11-08T13:15:23Z</updated>
-    <content type="text">Recipes 0.2.18: dotted rules between the rows of the recipe list; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup); Save every recipe to a file is the way to move them</content>
-  </entry>
-  <entry>
-    <title>I Ching 0.1.4</title>
-    <link href="https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.4"/>
-    <id>https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.4</id>
-    <updated>2026-11-08T13:15:11Z</updated>
-    <content type="text">I Ching 0.1.4: dotted rules between the rows of the journal and the 64 hexagrams; exporting and restoring the journal go through Cabinet&#x27;s screens when Cabinet is installed, the phone&#x27;s own otherwise; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup); Export the journal is the way to move it</content>
-  </entry>
-  <entry>
-    <title>Birding 1.7.41</title>
-    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.41"/>
-    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.41</id>
-    <updated>2026-11-08T13:14:55Z</updated>
-    <content type="text">Birding 1.7.41: dotted rules between the rows of the lists; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup); its own backup file is the way to move its data</content>
-  </entry>
-  <entry>
-    <title>Glance 0.1.46</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.46"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.46</id>
-    <updated>2026-11-08T13:10:29Z</updated>
-    <content type="text">Glance 0.1.46: &quot;Messaging: unread&quot; and &quot;Mailbox: unread&quot; are switches in Glance&#x27;s settings now, on by default, so a line can be turned off right here; under each, a row opens that app&#x27;s own lock-screen setting.</content>
-  </entry>
-  <entry>
-    <title>Detour 0.1.25</title>
-    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.25"/>
-    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.25</id>
-    <updated>2026-11-08T13:02:48Z</updated>
-    <content type="text">Detour 0.1.25: a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck; Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup)</content>
-  </entry>
-  <entry>
-    <title>Tarot 0.1.20</title>
-    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.20"/>
-    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.20</id>
-    <updated>2026-11-08T13:01:37Z</updated>
-    <content type="text">Tarot 0.1.20: Android&#x27;s phone-to-phone transfer no longer copies the app&#x27;s data to a new phone (it never went into a Google backup); Export the journal is the way to move it</content>
   </entry>
 </feed>
