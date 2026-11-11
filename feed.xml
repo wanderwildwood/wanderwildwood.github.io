@@ -4,8 +4,22 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-10T22:02:13Z</updated>
+  <updated>2026-11-11T03:50:53Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Atlas 0.1.0</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.0"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.0</id>
+    <updated>2026-11-11T03:50:53Z</updated>
+    <content type="text">Atlas 0.1.0, the first release: an offline map of the world for E Ink, built from CoMaps. Download a region, then search it and get directions by car, on foot or by bicycle with no connection. While you drive, a card shows the next turn in large type, the two after it and the speed limit; the map waits one tap away and moves in steps. Home and your recent destinations are one tap from the map. The map is black and white, with black-edged roads, and nothing glides or fades.</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.30</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.30"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.30</id>
+    <updated>2026-11-11T03:34:46Z</updated>
+    <content type="text">Messaging 1.35.30: A message that is only a picture can now be deleted. Hold the picture and choose Delete at the end of its menu; it asks first, as the trash does.</content>
+  </entry>
   <entry>
     <title>Mailbox 0.1.56</title>
     <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.56"/>
@@ -91,13 +105,6 @@
     <content type="text">Mailbox 0.1.55: after you pick Reply or Reply all, the choice sheet closes instead of waiting on the message when you come back; a message left open no longer crashes the app when Android brings it back; the mail connection library has its latest security fix</content>
   </entry>
   <entry>
-    <title>Messaging 1.35.26</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.26"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.26</id>
-    <updated>2026-11-10T02:22:33Z</updated>
-    <content type="text">Messaging 1.35.26: the message box follows the line you are typing once a long message fills it, instead of running on out of sight</content>
-  </entry>
-  <entry>
     <title>Engraver 0.0.10</title>
     <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.10"/>
     <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.10</id>
@@ -131,13 +138,6 @@
     <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.8</id>
     <updated>2026-11-09T17:01:47Z</updated>
     <content type="text">Engraver 0.0.8: the top bars match the other apps. The home screen is titled Engraver with the settings cog; About is reached from the info icon on Settings. The folder&#x27;s name is shown in Settings.</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.25</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.25"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.25</id>
-    <updated>2026-11-09T17:01:21Z</updated>
-    <content type="text">Messaging 1.35.25: GIF search refuses the certificate authorities Signal no longer trusts; a broken session with nothing to resend is finished with a null message, as Signal does</content>
   </entry>
   <entry>
     <title>Glance 0.1.49</title>
