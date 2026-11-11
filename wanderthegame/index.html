@@ -1125,6 +1125,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   function nearTrunk(x, cam) {   // a near trunk standing across x (as the layers place them)
     for (var k = Math.floor((cam + x - 130) / 190); k <= Math.ceil((cam + x + 20) / 190); k++) {
       var x0 = Math.round(k * 190 + hash(k * 7 + 2026) * 114 - cam), wk = Math.round(50 * (0.6 + hash(k * 13 + 2) * 0.8));
+      if (things.creek !== undefined && x0 + wk > things.creek - cam - 18 && x0 < things.creek - cam + 52) continue;   // (the one left out at the creek)
       if (x > x0 - 10 && x < x0 + wk + 10) return true;
     }
     return false;
@@ -1255,6 +1256,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       for (var k = k0; k <= k1; k++) {
         var h = hash(k * 7 + li * 1013), wk = Math.round(wid * (0.6 + hash(k * 13 + li) * 0.8));
         var x0 = Math.round(k * step + h * step * 0.6 - off), xc = x0 + wk / 2;
+        if (li === 2 && things.creek !== undefined && x0 + wk > things.creek - cam - 18 && x0 < things.creek - cam + 52) continue;   // (no near trunk standing at the creek's head)
         var hOld = -Math.round(-tall * (0.94 + hash(k * 29 + li) * 0.12)), T = null, tip = -1e6, tipH = 0, hF = 0, wS = 0;
         if (lift > 0) {                                                    // up the trunk: how high it goes, and its crown
           wS = Math.max(2, wk * (1 - 0.88 * Math.pow(H / hOld, 3.2)));
