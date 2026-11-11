@@ -19,9 +19,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"VideoGame","name":"Wander","alternateName":"散歩 sanpo","url":"https://wanderthe.dev/wanderthegame/","image":"https://wanderthe.dev/wanderthegame/og.png","description":"A walking game: one day in the redwoods with an old man and Kumo the llama.","genre":"Walking game","gamePlatform":"Android","operatingSystem":"Android 12 or later","applicationCategory":"Game","inLanguage":["en","ja"],"author":{"@type":"Person","name":"wander wildwood","url":"https://wanderthe.dev/"}}
 </script>
-<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
-<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="seal.svg">
+<link rel="icon" type="image/png" href="seal-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="seal-180.png">
 <style>
   /* The page is one day's walk. The wood behind is drawn the way the game draws it: a small picture in
      16 greys, dithered, scaled up in whole pixels. The words sit on notebook pages (the game's paper, 232,
@@ -49,6 +49,7 @@
   .home { font-size: 0.9rem; margin: 0 0 1rem; }
   .home a { color: var(--ink); background: var(--paper); padding: 0.1rem 0.4rem; border: 2px solid var(--rule); text-decoration: none; }
   h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 0.8rem; letter-spacing: -0.01em; }
+  .seal { float: right; width: 3.4rem; height: auto; margin: 0.2rem 0 0.5rem 1rem; transform: rotate(-2deg); }
   h2 { font-size: 1.15rem; font-weight: 600; color: var(--quiet); margin: 0 0 0.9rem;
     padding-bottom: 0.4rem; border-bottom: 2px solid var(--rule); text-wrap: balance; }
   p { margin: 0 0 0.9rem; text-wrap: pretty; }
@@ -151,6 +152,7 @@
   <section class="page" id="top" style="--gap: 0">
     <h1>Wander <button type="button" class="jp" aria-pressed="false" title="日本語で読む" aria-label="散歩 sanpo: 日本語で読む (read in Japanese)">/ 散歩 sanpo</button></h1>
     <div class="en">
+      <img class="seal" src="seal.svg" width="64" height="91" alt="The game's seal: WANDER in two columns, WAN and DER, stamped in rough ink." data-alt-ja="ゲームの印。WANDER の文字を二列（WAN と DER）に、かすれたインクで押した判。">
       <p>Wander is a walking game. You guide an old man and his llama, Kumo, through the coast redwoods.
       Each time you play is one day: out in the morning mist, into the tent by lantern light.</p>
       <p>Nothing on the screen tells you what to do. There's no score and nothing to win. The game is
@@ -158,6 +160,7 @@
       <p class="buttons"><a class="btn small" href="#soon">Tell me when it's out</a></p>
     </div>
     <div class="ja" lang="ja" hidden>
+      <img class="seal" src="seal.svg" width="64" height="91" alt="ゲームの印。WANDER の文字を二列（WAN と DER）に、かすれたインクで押した判。">
       <p>Wander は、歩くゲームです。おじいさんと、ラマのクモ（雲）を導いて、海岸のレッドウッドの森を歩きます。一度遊ぶと、それが一日。朝の霧の中へ出かけ、ランタンの明かりでテントに入ります。</p>
       <p>画面は何も教えてくれません。点数も、勝ち負けもありません。立ち止まって眺めたものが、そのままゲームになります。</p>
       <p class="buttons"><a class="btn small" href="#soon">出たら知らせて</a></p>
