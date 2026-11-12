@@ -4,6 +4,7 @@
 // BEGIN app names (written by _tools/make-tweaks-names.py)
 export const APPS = [
   ["com.wanderwildwood.soroban", "Abacus"],
+  ["com.wanderwildwood.chizu", "Atlas"],
   ["com.wanderwildwood.mimidoku", "Audio Reader"],
   ["com.wanderwildwood.tancho", "Birding"],
   ["com.wanderwildwood.zeni", "Bitcoin"],
@@ -43,6 +44,7 @@ export const APPS = [
   ["com.wanderwildwood.shoka", "Shelf"],
   ["com.wanderwildwood.soramoyo", "Sky"],
   ["com.wanderwildwood.solitaire", "Solitaire"],
+  ["com.wanderwildwood.utahon", "Songbook"],
   ["com.wanderwildwood.sokudokei", "Speedometer"],
   ["com.wanderwildwood.seizu", "Star Chart"],
   ["com.wanderwildwood.tarot", "Tarot"],
