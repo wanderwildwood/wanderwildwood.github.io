@@ -4,434 +4,428 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-12T03:31:07Z</updated>
+  <updated>2026-11-12T19:33:54Z</updated>
   <author><name>wander wildwood</name></author>
   <entry>
-    <title>Memo 0.3.29</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.29"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.29</id>
-    <updated>2026-11-12T03:31:07Z</updated>
-    <content type="text">Memo 0.3.29: with Nextcloud sync, a note that came from the server is no longer fetched again at every sync. Nothing was lost before; the sync did more work than it had to.</content>
+    <title>Music Box 2.18.40</title>
+    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.40"/>
+    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.40</id>
+    <updated>2026-11-12T19:33:54Z</updated>
+    <content type="text">Music Box 2.18.40: testFullDebugUnitTest testStoreDebugUnitTest assembleFullRelease</content>
   </entry>
   <entry>
-    <title>Recipes 0.2.19</title>
-    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.19"/>
-    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.19</id>
-    <updated>2026-11-12T03:30:56Z</updated>
-    <content type="text">Recipes 0.2.19: with Nextcloud sync, a recipe that came from the server no longer looks changed there at every sync, and one you then change on the phone is no longer kept twice, the second as &quot;… (phone)&quot;. If you have such a pair, delete the one you do not want. The download now carries the code for one kind of processor (arm64), which is what the Kompakt and the Supernote tablets have.</content>
+    <title>Cabinet 0.9.14</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.14"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.14</id>
+    <updated>2026-11-12T19:32:30Z</updated>
+    <content type="text">Cabinet 0.9.14: an app given a folder can ask where a file in it sits, so Music Box can save a song&#x27;s details there; a file is no longer made or renamed before its name is checked</content>
   </entry>
   <entry>
-    <title>Songbook 0.1.7</title>
-    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.7"/>
-    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.7</id>
-    <updated>2026-11-12T03:08:27Z</updated>
-    <content type="text">Songbook 0.1.7. If you sync with Nextcloud: your songs move into a folder for each artist there, by themselves, at the next sync; nothing to do.
+    <title>Datebook 0.1.65</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.65"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.65</id>
+    <updated>2026-11-12T19:26:45Z</updated>
+    <content type="text">Datebook 0.1.65: the reminder of an all-day event is set as a day and a time of day (on the day, the day before, two days or a week before, at any time); Settings has New all-day events remind; an evening reminder on the day is no longer dropped</content>
+  </entry>
+  <entry>
+    <title>Atlas 0.1.8</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.8"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.8</id>
+    <updated>2026-11-12T18:18:22Z</updated>
+    <content type="text">Atlas 0.1.8: the Settings rows Atlas does not have (3D buildings, mobile data, the log file, the profile) are hidden before a page opens, so none shows for a moment; the help file no longer has an entry about voice instructions</content>
+  </entry>
+  <entry>
+    <title>Field Kit 0.1.25</title>
+    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.25"/>
+    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.25</id>
+    <updated>2026-11-12T17:40:11Z</updated>
+    <content type="text">Field Kit 0.1.25: the download carries only the one processor these devices have (arm64)</content>
+  </entry>
+  <entry>
+    <title>Detour 0.1.27</title>
+    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.27"/>
+    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.27</id>
+    <updated>2026-11-12T17:36:20Z</updated>
+    <content type="text">Detour 0.1.27: the download carries only the one processor these devices have (arm64)</content>
+  </entry>
+  <entry>
+    <title>Time 0.2.25</title>
+    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.25"/>
+    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.25</id>
+    <updated>2026-11-12T17:34:33Z</updated>
+    <content type="text">Time 0.2.25: the download carries only the one processor these devices have (arm64)</content>
+  </entry>
+  <entry>
+    <title>Car Check 0.1.22</title>
+    <link href="https://github.com/wanderwildwood/tenken/releases/tag/v0.1.22"/>
+    <id>https://github.com/wanderwildwood/tenken/releases/tag/v0.1.22</id>
+    <updated>2026-11-12T17:32:31Z</updated>
+    <content type="text">Car Check 0.1.22: the download carries only the one processor these devices have (arm64)</content>
+  </entry>
+  <entry>
+    <title>Mailbox 0.1.58</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.58"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.58</id>
+    <updated>2026-11-12T17:30:39Z</updated>
+    <content type="text">Mailbox 0.1.58: the download carries only the one processor these devices have (arm64)</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.64</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.64"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.64</id>
+    <updated>2026-11-12T17:26:54Z</updated>
+    <content type="text">Datebook 0.1.64: the download carries only the one processor these devices have (arm64)</content>
+  </entry>
+  <entry>
+    <title>Tarot 0.1.23</title>
+    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.23"/>
+    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.23</id>
+    <updated>2026-11-12T17:26:39Z</updated>
+    <content type="text">Tarot 0.1.23: the download carries only the one processor these devices have (arm64)</content>
+  </entry>
+  <entry>
+    <title>Cabinet 0.9.13</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.13"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.13</id>
+    <updated>2026-11-12T17:23:39Z</updated>
+    <content type="text">Cabinet 0.9.13: the download carries only the one processor these devices have (arm64)</content>
+  </entry>
+  <entry>
+    <title>Mushroom Journal 0.3.37</title>
+    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.37"/>
+    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.37</id>
+    <updated>2026-11-12T17:22:30Z</updated>
+    <content type="text">Mushroom Journal 0.3.37: the download carries only the one processor these devices have (arm64)
 
-Fixed: a setlist or a song changed on the phone after a sync could be kept twice, the second as &quot;… (phone)&quot;. Auto scroll now steps a third of a page at shorter waits, so it is seen to move at every speed. Chords reach over the words instead of pushing them apart. A pedal&#x27;s first press turns the page.
-
-New: an Artists tab, several links read in turn, setlists in the sync, chords named in a sentence move with the key, Nextcloud sign-in typed first.</content>
+**Full Changelog**: https://github.com/wanderwildwood/kinokocho/compare/v0.3.36...v0.3.37</content>
   </entry>
   <entry>
-    <title>Songbook 0.1.6</title>
-    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.6"/>
-    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.6</id>
-    <updated>2026-11-12T01:46:33Z</updated>
-    <content type="text">Songbook 0.1.6, the first release. Chords, words and tab kept on the phone, to play from without a connection.
-
-Share a song&#x27;s page from the browser, or paste its address (or several), and the sheet is saved; or type or paste one, ChordPro included. Press a chord for its box (guitar, ukulele, mandolin). Transpose with − and +. Auto scroll moves the sheet half a page at a time, at a speed from 1 to 9. Songs sit in a folder for each artist and in setlists you make. A page-turn pedal&#x27;s keys turn the page, and the sheet turns sideways with the phone. Optional sync with your own Nextcloud, one ChordPro file per song.
-
-The pedal keys have been tried with a keyboard&#x27;s keys, not yet with a pedal.</content>
+    <title>Abacus 0.2.29</title>
+    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.29"/>
+    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.29</id>
+    <updated>2026-11-12T17:20:41Z</updated>
+    <content type="text">Abacus 0.2.29: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Atlas 0.1.5</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.5"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.5</id>
-    <updated>2026-11-11T22:28:50Z</updated>
-    <content type="text">Atlas 0.1.5. An address looked up online now opens under its own name, in ordinary capitals, where it used to take the name of the nearest thing on the map. The words shown while the phone waits for its position are shorter and fit the screen.</content>
+    <title>Music Box 2.18.39</title>
+    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.39"/>
+    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.39</id>
+    <updated>2026-11-12T17:18:53Z</updated>
+    <content type="text">Music Box 2.18.39: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Audio Reader 1.3.62</title>
-    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.62"/>
-    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.62</id>
-    <updated>2026-11-11T21:49:07Z</updated>
-    <content type="text">Audio Reader 1.3.62: on Folders and Bookmarks the scrollbar ends above the add button, so its down arrow is no longer under it</content>
+    <title>Sky 0.13.10</title>
+    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.10"/>
+    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.10</id>
+    <updated>2026-11-12T17:17:44Z</updated>
+    <content type="text">Sky 0.13.10: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Torrents 0.1.23</title>
-    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.23"/>
-    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.23</id>
-    <updated>2026-11-11T21:48:58Z</updated>
-    <content type="text">Torrents 0.1.23: no splash at launch; the add button shows its + again (it had turned solid black); the scrollbar on the torrent and feed lists ends above the add button, so its down arrow is no longer under it; a list whose rows arrive a moment late opens on its first row</content>
+    <title>Dictionary 0.1.23</title>
+    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.23"/>
+    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.23</id>
+    <updated>2026-11-12T17:14:19Z</updated>
+    <content type="text">Dictionary 0.1.23: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Memo 0.3.28</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.28"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.28</id>
-    <updated>2026-11-11T21:48:45Z</updated>
-    <content type="text">Memo 0.3.28: one + on the notes list: tap it and it opens out to paper, voice and text, and folds back when you choose one or touch the list; the scrollbar on the notes and tasks lists ends above the + button, so its down arrow is no longer under it</content>
+    <title>Solitaire 0.1.21</title>
+    <link href="https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.21"/>
+    <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.21</id>
+    <updated>2026-11-12T17:14:15Z</updated>
+    <content type="text">Solitaire 0.1.21: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Passwords 0.1.25</title>
-    <link href="https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.25"/>
-    <id>https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.25</id>
-    <updated>2026-11-11T21:48:15Z</updated>
-    <content type="text">Passwords 0.1.25: the scrollbar on the Codes and All lists ends above the + button, so its down arrow turns the page instead of opening a new entry; no scrollbar flashes up on the unlock page while the vault opens; a list whose rows arrive a moment late opens on its first row; the download carries code for the phone&#x27;s processor only</content>
+    <title>Handset 0.1.34</title>
+    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.34"/>
+    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.34</id>
+    <updated>2026-11-12T17:11:37Z</updated>
+    <content type="text">Handset 0.1.34: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Atlas 0.1.4</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.4"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.4</id>
-    <updated>2026-11-11T21:47:20Z</updated>
-    <content type="text">Atlas 0.1.4. The map list has two tabs, Downloaded and All maps, and all maps are browsed by continent. Under an address typed into Search, a row offers to look it up online where the map data has no house number: the US Census geocoder in the United States, Photon elsewhere. It asks once and sends nothing while you type. A line on the map says so when the phone is slow to find its position. The streamed map marks the chosen place. Atlas is light only now, and the download is 8 MB smaller. PRIVACY.md says what is sent and to whom.</content>
+    <title>Speedometer 0.1.29</title>
+    <link href="https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.29"/>
+    <id>https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.29</id>
+    <updated>2026-11-12T17:11:27Z</updated>
+    <content type="text">Speedometer 0.1.29: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Messaging 1.35.32</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.32"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.32</id>
-    <updated>2026-11-11T18:47:55Z</updated>
-    <content type="text">Messaging 1.35.32: A chosen message now has a frame around it, so chosen pictures and texts are easy to see. The character count beside the message box takes in your signature. Settings, under Sending, has a switch to stop adding the signature without deleting it.</content>
+    <title>Lens 0.1.36</title>
+    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.36"/>
+    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.36</id>
+    <updated>2026-11-12T17:08:51Z</updated>
+    <content type="text">Lens 0.1.36: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Messaging 1.35.31</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.31"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.31</id>
-    <updated>2026-11-11T16:11:53Z</updated>
-    <content type="text">Messaging 1.35.31: The first time you attach a picture or a file on a phone that has another files app, such as Cabinet, Messaging asks once which app to choose files with. The choice stays in Settings, under Sending, as &quot;Choose files with&quot;.</content>
+    <title>Star Chart 0.5.19</title>
+    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.19"/>
+    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.19</id>
+    <updated>2026-11-12T17:05:33Z</updated>
+    <content type="text">Star Chart 0.5.19: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Atlas 0.1.3</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.3"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.3</id>
-    <updated>2026-11-11T14:55:01Z</updated>
-    <content type="text">Atlas 0.1.3: a map without the download. Where no region is on the phone, the download panel now has a second button, &quot;Show it online&quot;. Atlas asks once, then draws the map from a map server (OpenFreeMap, or one of your own set in Settings) as you look at it, in the same black and white, with your position and the route on it. A switch keeps it to Wi-Fi. Downloaded regions are drawn from the phone as before. Also fixed: the download panel stayed hidden after an online route was closed. PRIVACY.md says what is sent and to whom.</content>
+    <title>Glance 0.1.51</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.51"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.51</id>
+    <updated>2026-11-12T17:04:18Z</updated>
+    <content type="text">Glance 0.1.51: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Music Box 2.18.37</title>
-    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.37"/>
-    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.37</id>
-    <updated>2026-11-11T13:18:02Z</updated>
-    <content type="text">Music Box 2.18.37: the download is 9.6 MB instead of 37 MB (unused code is now left out of the app)</content>
+    <title>Wallet 0.1.24</title>
+    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.24"/>
+    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.24</id>
+    <updated>2026-11-12T17:03:11Z</updated>
+    <content type="text">Wallet 0.1.24: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Audio Reader 1.3.61</title>
-    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.61"/>
-    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.61</id>
-    <updated>2026-11-11T13:17:54Z</updated>
-    <content type="text">Audio Reader 1.3.61: the download is 5.4 MB instead of 30 MB (unused code is now left out of the app); a list whose rows arrive a moment late now opens on its first row</content>
+    <title>Hum 0.1.24</title>
+    <link href="https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.24"/>
+    <id>https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.24</id>
+    <updated>2026-11-12T17:02:00Z</updated>
+    <content type="text">Hum 0.1.24: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Birding 1.7.42</title>
-    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.42"/>
-    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.42</id>
-    <updated>2026-11-11T13:12:42Z</updated>
-    <content type="text">Birding 1.7.42: the download is 12 MB instead of 23 MB (it carried its sound-recognition code for three kinds of processor the phone does not have); a list whose rows arrive a moment late now opens on its first row</content>
+    <title>Tuner 0.1.48</title>
+    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.48"/>
+    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.48</id>
+    <updated>2026-11-12T17:00:15Z</updated>
+    <content type="text">Tuner 0.1.48: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Translate 0.9.21</title>
-    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.21"/>
-    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.21</id>
-    <updated>2026-11-11T13:12:30Z</updated>
-    <content type="text">Translate 0.9.21: the download is 20 MB instead of 37 MB (it carried a second copy of its translation and text-reading code for a processor the phone does not have); a list whose rows arrive a moment late now opens on its first row</content>
+    <title>Pictures 0.8.22</title>
+    <link href="https://github.com/wanderwildwood/garo/releases/tag/v0.8.22"/>
+    <id>https://github.com/wanderwildwood/garo/releases/tag/v0.8.22</id>
+    <updated>2026-11-12T16:59:08Z</updated>
+    <content type="text">Pictures 0.8.22: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Feeds 0.6.10</title>
-    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.10"/>
-    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.10</id>
-    <updated>2026-11-11T13:11:58Z</updated>
-    <content type="text">Feeds 0.6.10: the download is 34 MB instead of 59 MB (it carried the feed parser for three kinds of processor the phone does not have); a list whose rows arrive a moment late now opens on its first row</content>
+    <title>Parked 0.2.15</title>
+    <link href="https://github.com/wanderwildwood/okiba/releases/tag/v0.2.15"/>
+    <id>https://github.com/wanderwildwood/okiba/releases/tag/v0.2.15</id>
+    <updated>2026-11-12T16:56:12Z</updated>
+    <content type="text">Parked 0.2.15: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Atlas 0.1.2</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.2"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.2</id>
-    <updated>2026-11-11T12:47:07Z</updated>
-    <content type="text">Atlas 0.1.2: a route without the map. When the map for a route is not on the phone, Atlas asks once, then gets the route from a routing server (the FOSSGIS one, or one of your own set in Settings) and guides along it on the card. Say no and it downloads the map instead, as before. PRIVACY.md says what is sent and to whom.</content>
+    <title>Medicine 0.1.33</title>
+    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.33"/>
+    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.33</id>
+    <updated>2026-11-12T16:54:33Z</updated>
+    <content type="text">Medicine 0.1.33: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Atlas 0.1.1</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.1"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.1</id>
-    <updated>2026-11-11T04:47:45Z</updated>
-    <content type="text">Atlas 0.1.1: a favorite or a track no longer has a color to pick, and the disc beside it is black; the panel shows sixteen greys, so the choice had nothing to show for it. A place&#x27;s long description is set in the same type as the rest of the app.</content>
+    <title>Practice 0.2.6</title>
+    <link href="https://github.com/wanderwildwood/nikka/releases/tag/v0.2.6"/>
+    <id>https://github.com/wanderwildwood/nikka/releases/tag/v0.2.6</id>
+    <updated>2026-11-12T16:53:33Z</updated>
+    <content type="text">Practice 0.2.6: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Messaging 1.35.30</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.30"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.30</id>
-    <updated>2026-11-11T03:34:46Z</updated>
-    <content type="text">Messaging 1.35.30: A message that is only a picture can now be deleted. Hold the picture and choose Delete at the end of its menu; it asks first, as the trash does.</content>
+    <title>Remote 0.2.24</title>
+    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.24"/>
+    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.24</id>
+    <updated>2026-11-12T16:51:47Z</updated>
+    <content type="text">Remote 0.2.24: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Mailbox 0.1.56</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.56"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.56</id>
-    <updated>2026-11-10T22:02:13Z</updated>
-    <content type="text">Mailbox 0.1.56: On a phone whose system drives a notification light (KompaktOS), a new account&#x27;s mail now blinks it, and an account you already have can be switched in its settings under Notification light. That row shows only on a phone with a light.</content>
+    <title>Audio Reader 1.3.63</title>
+    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.63"/>
+    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.63</id>
+    <updated>2026-11-12T16:50:32Z</updated>
+    <content type="text">Audio Reader 1.3.63: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Messaging 1.35.29</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.29"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.29</id>
-    <updated>2026-11-10T22:02:05Z</updated>
-    <content type="text">Messaging 1.35.29: On a phone whose system drives a notification light (KompaktOS), a Signal message now blinks it, as an SMS already did. Nothing changes on a phone without one.</content>
+    <title>Connections 0.2.34</title>
+    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.34"/>
+    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.34</id>
+    <updated>2026-11-12T16:48:22Z</updated>
+    <content type="text">Connections 0.2.34: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Sky 0.13.8</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.8"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.8</id>
-    <updated>2026-11-10T22:01:59Z</updated>
-    <content type="text">Sky 0.13.8: On a phone whose system drives a notification light (KompaktOS), a weather alert now blinks it. Nothing changes on a phone without one. Also: a list that fills in after its screen opens starts on its first row; About names Glance and Clock as the apps that may ask Sky for the weather</content>
+    <title>Atlas 0.1.7</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.7"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.7</id>
+    <updated>2026-11-12T16:46:29Z</updated>
+    <content type="text">Atlas 0.1.7: the voice rows are gone (Atlas shows directions on screen and never asks for a speech engine; the speed camera setting is now under Settings, Navigation); the profile row no longer shows for a moment as Settings opens; the outdoors map and the map for a car&#x27;s screen are in ink; a guard for a place out at sea with the streamed map or address lookup on</content>
   </entry>
   <entry>
-    <title>Time 0.2.23</title>
-    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.23"/>
-    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.23</id>
-    <updated>2026-11-10T22:01:53Z</updated>
-    <content type="text">Time 0.2.23: On a phone whose system drives a notification light (KompaktOS), a missed alarm now blinks it. Nothing changes on a phone without one. Also: a list that fills in after its screen opens starts on its first row</content>
+    <title>I Ching 0.1.6</title>
+    <link href="https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.6"/>
+    <id>https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.6</id>
+    <updated>2026-11-12T16:45:28Z</updated>
+    <content type="text">I Ching 0.1.6: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Medicine 0.1.31</title>
-    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.31"/>
-    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.31</id>
-    <updated>2026-11-10T22:01:46Z</updated>
-    <content type="text">Medicine 0.1.31: On a phone whose system drives a notification light (KompaktOS), a dose that is due or a refill reminder now blinks it. Nothing changes on a phone without one. Also: a list that fills in after its screen opens starts on its first row</content>
+    <title>Typewriter 0.1.42</title>
+    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.42"/>
+    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.42</id>
+    <updated>2026-11-12T16:43:37Z</updated>
+    <content type="text">Typewriter 0.1.42: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Memo 0.3.27</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.27"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.27</id>
-    <updated>2026-11-10T22:01:40Z</updated>
-    <content type="text">Memo 0.3.27: On a phone whose system drives a notification light (KompaktOS), a reminder now blinks it. Nothing changes on a phone without one.</content>
+    <title>Cycle 0.3.12</title>
+    <link href="https://github.com/wanderwildwood/cycle/releases/tag/v0.3.12"/>
+    <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.12</id>
+    <updated>2026-11-12T16:41:37Z</updated>
+    <content type="text">Cycle 0.3.12: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Datebook 0.1.62</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.62"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.62</id>
-    <updated>2026-11-10T22:01:29Z</updated>
-    <content type="text">Datebook 0.1.62: On a phone whose system drives a notification light (KompaktOS), an event reminder now blinks it. Nothing changes on a phone without one. Also: a list that fills in after its screen opens starts on its first row</content>
+    <title>Topo 0.2.17</title>
+    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.17"/>
+    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.17</id>
+    <updated>2026-11-12T16:39:28Z</updated>
+    <content type="text">Topo 0.2.17: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Handset 0.1.32</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.32"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.32</id>
-    <updated>2026-11-10T22:01:23Z</updated>
-    <content type="text">Handset 0.1.32: On a phone whose system drives a notification light (KompaktOS), a missed call or a new voicemail now blinks it. Nothing changes on a phone without one. Also: a list that fills in after its screen opens starts on its first row</content>
+    <title>Mesh 0.3.20</title>
+    <link href="https://github.com/wanderwildwood/amime/releases/tag/v0.3.20"/>
+    <id>https://github.com/wanderwildwood/amime/releases/tag/v0.3.20</id>
+    <updated>2026-11-12T16:35:03Z</updated>
+    <content type="text">Mesh 0.3.20: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Lens 0.1.34</title>
-    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.34"/>
-    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.34</id>
-    <updated>2026-11-10T18:21:54Z</updated>
-    <content type="text">Lens 0.1.34: the chosen mode, Photo or Video, is a black stone, so it is plain which one is on</content>
+    <title>Level 0.1.36</title>
+    <link href="https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.36"/>
+    <id>https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.36</id>
+    <updated>2026-11-12T16:31:40Z</updated>
+    <content type="text">Level 0.1.36: the download carries only the one processor these devices have (arm64)</content>
   </entry>
   <entry>
-    <title>Messaging 1.35.28</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.28"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.28</id>
-    <updated>2026-11-10T18:21:50Z</updated>
-    <content type="text">Messaging 1.35.28: in Desktop Sync, Forward now carries a message&#x27;s pictures along with its text</content>
+    <title>Chess+ 1.3.26-chessplus</title>
+    <link href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.26-chessplus"/>
+    <id>https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.26-chessplus</id>
+    <updated>2026-11-12T16:14:39Z</updated>
+    <content type="text">Chess+ 1.3.26: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
   </entry>
   <entry>
-    <title>Mailbox 0.1.55</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.55"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.55</id>
-    <updated>2026-11-10T15:06:57Z</updated>
-    <content type="text">Mailbox 0.1.55: after you pick Reply or Reply all, the choice sheet closes instead of waiting on the message when you come back; a message left open no longer crashes the app when Android brings it back; the mail connection library has its latest security fix</content>
+    <title>Remote 0.2.23</title>
+    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.23"/>
+    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.23</id>
+    <updated>2026-11-12T16:09:13Z</updated>
+    <content type="text">Remote 0.2.23: save the Kodi box to a file and restore it, checked whole before anything changes, never the password; the scrollbar ends above a floating button, so its lower arrow is not under it</content>
   </entry>
   <entry>
-    <title>Engraver 0.0.10</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.10"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.10</id>
-    <updated>2026-11-10T01:59:54Z</updated>
-    <content type="text">Engraver 0.0.10: tapping into the source brings the keyboard up and it stays (in 0.0.9 the layout flipped as the keyboard shrank the screen, and the keyboard closed again at once). Held across, a tap on the source folds the score away and the keyboard stays. A title stays centered over the music. Play follows the media volume, and the volume keys turn it on the full-screen score.</content>
+    <title>Engraver 0.0.12</title>
+    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.12"/>
+    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.12</id>
+    <updated>2026-11-12T16:08:51Z</updated>
+    <content type="text">Engraver 0.0.12: a More menu in the editor: Undo, Redo, Save as, Open in another app, Print and Delete; hold a score on the home list to copy or delete it; the system Back saves what was typed</content>
   </entry>
   <entry>
-    <title>Mailbox 0.1.54</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.54"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.54</id>
-    <updated>2026-11-10T01:51:20Z</updated>
-    <content type="text">Mailbox 0.1.54: a reply arrow at the start of the subject line shows which messages you have answered; in a thread it follows the newest message</content>
+    <title>Bitcoin 0.1.13</title>
+    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.13"/>
+    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.13</id>
+    <updated>2026-11-12T16:03:43Z</updated>
+    <content type="text">Bitcoin 0.1.13: the set-up note in Device info is three plain lines; the denomination dialog has the same menus as the rest of the app; the top bar title is the house size and not bold; the scrollbar ends above a floating button, so its lower arrow is not under it</content>
   </entry>
   <entry>
-    <title>Remote 0.2.22</title>
-    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.22"/>
-    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.22</id>
-    <updated>2026-11-10T01:38:47Z</updated>
-    <content type="text">Remote 0.2.22: if a computer does not answer, Remote now says so and how to fix it (remove the phone there and pair again while Remote is open); it says it is getting ready while Bluetooth is still taking it back after an update; the Kodi page reminds you to check Wi-Fi</content>
+    <title>Lens 0.1.35</title>
+    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.35"/>
+    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.35</id>
+    <updated>2026-11-12T16:02:08Z</updated>
+    <content type="text">Lens 0.1.35: the preview frame is copied on the main thread and processed in the background; the 23 partial translations are gone, so Lens is English until it has complete ones; the scrollbar ends above a floating button, so its lower arrow is not under it</content>
   </entry>
   <entry>
-    <title>Engraver 0.0.9</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.9"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.9</id>
-    <updated>2026-11-10T01:24:36Z</updated>
-    <content type="text">Engraver 0.0.9: tap the engraved score to read it on the whole screen, and Play it when the score has a \midi block (Android&#x27;s own synthesizer, nothing leaves the phone); Back returns to the editor. Side by side, a tap on the source folds the score away, as the Score button does. While the on-screen keyboard is up, the symbol keys step aside so the source keeps its lines, and pressing a symbol key no longer brings the keyboard up.</content>
+    <title>Handset 0.1.33</title>
+    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.33"/>
+    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.33</id>
+    <updated>2026-11-12T15:58:13Z</updated>
+    <content type="text">Handset 0.1.33: the missed-call notification is cleared only when Handset is the default phone app; German for the rest of the license page; the scrollbar ends above a floating button, so its lower arrow is not under it</content>
   </entry>
   <entry>
-    <title>Engraver 0.0.8</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.8"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.8</id>
-    <updated>2026-11-09T17:01:47Z</updated>
-    <content type="text">Engraver 0.0.8: the top bars match the other apps. The home screen is titled Engraver with the settings cog; About is reached from the info icon on Settings. The folder&#x27;s name is shown in Settings.</content>
+    <title>Star Chart 0.5.18</title>
+    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.18"/>
+    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.18</id>
+    <updated>2026-11-12T15:57:40Z</updated>
+    <content type="text">Star Chart 0.5.18: Point corrects the compass bearing from magnetic to true north for the chart&#x27;s place; the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
   </entry>
   <entry>
-    <title>Glance 0.1.49</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.49"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.49</id>
-    <updated>2026-11-09T17:00:52Z</updated>
-    <content type="text">Glance 0.1.49: the Apps list leaves out the phone&#x27;s own parts (WebView, SIM toolkit, location helper, search, Settings, the updater)</content>
+    <title>Recipes 0.2.20</title>
+    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.20"/>
+    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.20</id>
+    <updated>2026-11-12T15:57:18Z</updated>
+    <content type="text">Recipes 0.2.20: Save every recipe keeps the ticked ingredients, and bringing the file back restores them</content>
   </entry>
   <entry>
-    <title>Glance 0.1.48</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.48"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.48</id>
-    <updated>2026-11-09T16:27:19Z</updated>
-    <content type="text">Glance 0.1.48: Settings has one list of the phone&#x27;s apps, A to Z: switch on the ones you want on the lock screen, with each app&#x27;s own options under it</content>
+    <title>Birding 1.7.43</title>
+    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.43"/>
+    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.43</id>
+    <updated>2026-11-12T15:27:00Z</updated>
+    <content type="text">Birding 1.7.43: backups carry the recordings the log names and the settings, and a restore checks the whole file first; the scrollbar ends above a floating button, so its lower arrow is not under it</content>
   </entry>
   <entry>
-    <title>Music Box 2.18.36</title>
-    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.36"/>
-    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.36</id>
-    <updated>2026-11-09T15:16:20Z</updated>
-    <content type="text">Music Box 2.18.36: YouTube search and playback on the current NewPipe Extractor (0.27.0). A list whose rows arrive a moment late now opens on its first row.</content>
+    <title>Songbook 0.1.8</title>
+    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.8"/>
+    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.8</id>
+    <updated>2026-11-12T15:25:24Z</updated>
+    <content type="text">Songbook 0.1.8: auto scroll moves one line at a time; tablature follows the key when it fits the neck, with a note when it is shown as written; the key control is there for tablature-only songs</content>
   </entry>
   <entry>
-    <title>Mailbox 0.1.53</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.53"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.53</id>
-    <updated>2026-11-09T15:14:26Z</updated>
-    <content type="text">Mailbox 0.1.53: refuses mail servers whose certificate chain uses the compromised eMudhra certificate authority, as Thunderbird now does. A list whose rows arrive a moment late now opens on its first row.</content>
+    <title>Handheld Games 0.1.38</title>
+    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.38"/>
+    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.38</id>
+    <updated>2026-11-12T15:16:28Z</updated>
+    <content type="text">Handheld Games 0.1.38: the scrollbar ends above a floating button, so its lower arrow is not under it</content>
   </entry>
   <entry>
-    <title>Cabinet 0.9.11</title>
-    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.11"/>
-    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.11</id>
-    <updated>2026-11-09T15:11:15Z</updated>
-    <content type="text">Cabinet 0.9.11: Nearby finds LocalSend devices on networks where multicast never arrives, by asking every address on the Wi-Fi directly, as LocalSend itself does (#1).</content>
+    <title>Engraver 0.0.11</title>
+    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.11"/>
+    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.11</id>
+    <updated>2026-11-12T15:15:32Z</updated>
+    <content type="text">Engraver 0.0.11: the scrollbar ends above a floating button, so its lower arrow is not under it</content>
   </entry>
   <entry>
-    <title>Glance 0.1.47</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.47"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.47</id>
-    <updated>2026-11-09T15:09:25Z</updated>
-    <content type="text">Glance 0.1.47: Quiet hours (Settings, Sound): Do Not Disturb on a schedule for sleeping hours. A second call from the same number within 15 minutes still rings if you want it to, and alarms always do. A list whose rows arrive a moment late now opens on its first row.</content>
+    <title>Translate 0.9.22</title>
+    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.22"/>
+    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.22</id>
+    <updated>2026-11-12T15:15:18Z</updated>
+    <content type="text">Translate 0.9.22: the scrollbar ends above a floating button, so its lower arrow is not under it</content>
   </entry>
   <entry>
-    <title>Typewriter 0.1.40</title>
-    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.40"/>
-    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.40</id>
-    <updated>2026-11-09T14:48:55Z</updated>
-    <content type="text">Typewriter 0.1.40: the setting for which way the screen is held is now called Orientation, with Portrait and Landscape.</content>
+    <title>Topo 0.2.16</title>
+    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.16"/>
+    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.16</id>
+    <updated>2026-11-12T15:10:09Z</updated>
+    <content type="text">Topo 0.2.16: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
   </entry>
   <entry>
-    <title>Memo 0.3.26</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.26"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.26</id>
-    <updated>2026-11-09T14:48:45Z</updated>
-    <content type="text">Memo 0.3.26: the floating buttons step aside again while the keyboard is up, so they no longer sit over what you are typing.</content>
+    <title>Field Kit 0.1.24</title>
+    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.24"/>
+    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.24</id>
+    <updated>2026-11-12T15:09:22Z</updated>
+    <content type="text">Field Kit 0.1.24: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
   </entry>
   <entry>
-    <title>Engraver 0.0.7</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.7"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.7</id>
-    <updated>2026-11-09T14:38:21Z</updated>
-    <content type="text">Engraver 0.0.7: new scores start from a minimal template. Side by side, a Score button folds the score away while you edit, and Compile brings it back. In landscape the bar is slimmer and the symbol keys fit one row, with a key for the rest. While the keyboard is up, the title and the Compile row fold away (Settings: Bars while typing). A score that sets no paper size is engraved on A6, so it fits the screen. A chosen folder that has gone says so and offers to choose again. Settings name the orientation Portrait or Landscape.</content>
+    <title>Go 1.2.23</title>
+    <link href="https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.23"/>
+    <id>https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.23</id>
+    <updated>2026-11-12T15:08:36Z</updated>
+    <content type="text">Go 1.2.23: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
   </entry>
   <entry>
-    <title>Cabinet 0.9.10</title>
-    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.10"/>
-    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.10</id>
-    <updated>2026-11-09T12:33:58Z</updated>
-    <content type="text">Cabinet 0.9.10: installs on Android 11 too, so it runs on Supernote&#x27;s tablets such as the Manta</content>
+    <title>Datebook 0.1.63</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.63"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.63</id>
+    <updated>2026-11-12T15:06:39Z</updated>
+    <content type="text">Datebook 0.1.63: the scrollbar ends above a floating button, so its lower arrow is not under it</content>
   </entry>
   <entry>
-    <title>Memo 0.3.25</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.25"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.25</id>
-    <updated>2026-11-09T02:45:39Z</updated>
-    <content type="text">Memo 0.3.25: Today at the top of the notes list gathers what is due today or overdue: tasks, checklist items with a reminder, and notes whose reminder is today. Tick from there, hold a row to move it to tomorrow, next week or another day, and add a task for today by typing its name. Glance&#x27;s lock-screen panel shows Today above the pinned notes. Done tasks list the latest finished first. A list whose rows arrive late opens on its first row.</content>
+    <title>Dream Log 0.1.32</title>
+    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.32"/>
+    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.32</id>
+    <updated>2026-11-12T15:05:05Z</updated>
+    <content type="text">Dream Log 0.1.32: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
   </entry>
   <entry>
-    <title>Handheld Games 0.1.37</title>
-    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.37"/>
-    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.37</id>
-    <updated>2026-11-09T02:35:48Z</updated>
-    <content type="text">Handheld Games 0.1.37: games run at their own speed. They had run about 5% slow on the Kompakt, with the music dragging to match, because the emulator waited for the screen before each frame; it now keeps time by the clock.</content>
+    <title>Feeds 0.6.11</title>
+    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.11"/>
+    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.11</id>
+    <updated>2026-11-12T15:02:15Z</updated>
+    <content type="text">Feeds 0.6.11: the scrollbar ends above a floating button, so its lower arrow is not under it</content>
   </entry>
   <entry>
-    <title>Typewriter 0.1.39</title>
-    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.39"/>
-    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.39</id>
-    <updated>2026-11-09T00:01:47Z</updated>
-    <content type="text">Typewriter 0.1.39: with the lock on, the phone&#x27;s PIN screen comes up upright instead of squeezed sideways, and the screen turns back when you&#x27;re done.</content>
-  </entry>
-  <entry>
-    <title>Engraver 0.0.6</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.6"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.6</id>
-    <updated>2026-11-08T23:50:16Z</updated>
-    <content type="text">Engraver 0.0.6, the first release: type LilyPond and get an engraved score on the phone, with a PDF beside the file. LilyPond 2.26 runs on the device itself, with no internet permission. Pick a folder of .ly files (through Cabinet when it is installed); includes in that folder are followed. Held sideways, source and score sit side by side. For arm64 phones such as the Mudita Kompakt.</content>
-  </entry>
-  <entry>
-    <title>Typewriter 0.1.38</title>
-    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.38"/>
-    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.38</id>
-    <updated>2026-11-08T23:41:18Z</updated>
-    <content type="text">Typewriter 0.1.38: the diary can keep its own Diary folder, and a lock can ask for your phone&#x27;s screen lock before the diary, or the whole app, opens.</content>
-  </entry>
-  <entry>
-    <title>Bitcoin 0.1.12</title>
-    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.12"/>
-    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.12</id>
-    <updated>2026-11-08T22:43:00Z</updated>
-    <content type="text">Bitcoin 0.1.12: no Blockstream servers for the blockchain, prices, chart or explorer: balances come from electrum.jhoenicke.de, with fulcrum.grey.pw as the backup, and prices, the price chart and View in explorer from mempool.space; two-factor (2of2) and 2of3 multisig wallets are gone; your hardware wallet&#x27;s firmware is checked only when you ask for an update; Device info shows which PIN server your hardware wallet used, with a new help section about it; settings pages now look like the other apps&#x27; settings, with plain rows and a scrollbar in place of the page arrows.</content>
-  </entry>
-  <entry>
-    <title>Typewriter 0.1.37</title>
-    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.37"/>
-    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.37</id>
-    <updated>2026-11-08T22:06:42Z</updated>
-    <content type="text">Typewriter 0.1.37: new sheets saved as plain text, in a folder chosen through Cabinet, keep their .txt and show in the list again, as do ones already written that way.</content>
-  </entry>
-  <entry>
-    <title>Remote 0.2.21</title>
-    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.21"/>
-    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.21</id>
-    <updated>2026-11-08T16:03:38Z</updated>
-    <content type="text">Remote 0.2.21: after the phone is locked and unlocked, Remote registers with Bluetooth again by itself and reconnects to the computer it was driving, instead of failing to register until Bluetooth is turned off and on; a list whose rows arrive late opens on its first row</content>
-  </entry>
-  <entry>
-    <title>Handheld Games 0.1.36</title>
-    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.36"/>
-    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.36</id>
-    <updated>2026-11-08T14:54:03Z</updated>
-    <content type="text">Handheld Games 0.1.36: a settings page whose rows load a moment late (Settings → Advanced) no longer opens blank</content>
-  </entry>
-  <entry>
-    <title>Bitcoin 0.1.10</title>
-    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.10"/>
-    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.10</id>
-    <updated>2026-11-08T14:27:24Z</updated>
-    <content type="text">Bitcoin 0.1.10: the old wallet&#x27;s names, logos and links are gone from every screen and language, and a hardware wallet is simply your hardware wallet; help points to this app&#x27;s own help page; lists turn page by page on whole rows, with the row cut at the foot shown in long lists; links open in your chosen browser, or Android&#x27;s chooser when you have several.</content>
-  </entry>
-  <entry>
-    <title>Shelf 0.1.35</title>
-    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.35"/>
-    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.35</id>
-    <updated>2026-11-08T14:23:20Z</updated>
-    <content type="text">Shelf 0.1.35: an older Norwegian book filed under its ISBN-10 alone is found in the Nasjonalbiblioteket; a book from Portugal is looked up in PORBASE; a book no catalog knows is asked of K10plus, the German union catalog, before Google Books</content>
-  </entry>
-  <entry>
-    <title>Mailbox 0.1.52</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.52"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.52</id>
-    <updated>2026-11-08T14:11:57Z</updated>
-    <content type="text">Mailbox 0.1.52: Glance can open Mailbox at its own lock-screen setting (Settings, Notifications, Unread mail on the lock screen), and Back returns to Glance; a list whose first row is taller than the screen turns through it a page at a time instead of getting stuck</content>
-  </entry>
-  <entry>
-    <title>Tarot 0.1.21</title>
-    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.21"/>
-    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.21</id>
-    <updated>2026-11-08T14:09:35Z</updated>
-    <content type="text">Tarot 0.1.21: American spelling in three card texts (favor, favors)</content>
+    <title>Detour 0.1.26</title>
+    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.26"/>
+    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.26</id>
+    <updated>2026-11-12T15:01:50Z</updated>
+    <content type="text">Detour 0.1.26: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
   </entry>
 </feed>
