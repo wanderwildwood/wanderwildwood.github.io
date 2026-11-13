@@ -4,8 +4,29 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-12T22:51:34Z</updated>
+  <updated>2026-11-13T16:37:51Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Messaging 1.35.34</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.34"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.34</id>
+    <updated>2026-11-13T16:37:51Z</updated>
+    <content type="text">Messaging 1.35.34: a picture can be copied in one chat and pasted into another. Hold a picture in a text or Signal chat and choose Copy picture, then hold the message box of any chat and choose Paste. An empty message box now offers Paste too, for words as well as pictures</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.66</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.66"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.66</id>
+    <updated>2026-11-13T16:34:11Z</updated>
+    <content type="text">Datebook 0.1.66: with week numbers on, the month has a line between the week numbers and the first day, the same as between days</content>
+  </entry>
+  <entry>
+    <title>Atlas 0.1.9</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.9"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.9</id>
+    <updated>2026-11-13T14:55:30Z</updated>
+    <content type="text">Atlas 0.1.9: in Settings, Navigation, miles or kilometers is now a choice between mph and km/h, side by side, in place of the Miles and feet switch; in Settings, Advanced, the row for opening links is in place when the page opens</content>
+  </entry>
   <entry>
     <title>Messaging 1.35.33</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.33"/>
@@ -406,26 +427,5 @@
     <id>https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.23</id>
     <updated>2026-11-12T15:08:36Z</updated>
     <content type="text">Go 1.2.23: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.63</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.63"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.63</id>
-    <updated>2026-11-12T15:06:39Z</updated>
-    <content type="text">Datebook 0.1.63: the scrollbar ends above a floating button, so its lower arrow is not under it</content>
-  </entry>
-  <entry>
-    <title>Dream Log 0.1.32</title>
-    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.32"/>
-    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.32</id>
-    <updated>2026-11-12T15:05:05Z</updated>
-    <content type="text">Dream Log 0.1.32: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
-  </entry>
-  <entry>
-    <title>Feeds 0.6.11</title>
-    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.11"/>
-    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.11</id>
-    <updated>2026-11-12T15:02:15Z</updated>
-    <content type="text">Feeds 0.6.11: the scrollbar ends above a floating button, so its lower arrow is not under it</content>
   </entry>
 </feed>
