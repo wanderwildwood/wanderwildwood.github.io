@@ -4,8 +4,15 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-12T19:33:54Z</updated>
+  <updated>2026-11-12T22:51:34Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Messaging 1.35.33</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.33"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.33</id>
+    <updated>2026-11-12T22:51:34Z</updated>
+    <content type="text">Messaging 1.35.33: the list of people in a new message is brought up to date when it opens, so someone just added in the contacts app is there</content>
+  </entry>
   <entry>
     <title>Music Box 2.18.40</title>
     <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.40"/>
@@ -420,12 +427,5 @@
     <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.11</id>
     <updated>2026-11-12T15:02:15Z</updated>
     <content type="text">Feeds 0.6.11: the scrollbar ends above a floating button, so its lower arrow is not under it</content>
-  </entry>
-  <entry>
-    <title>Detour 0.1.26</title>
-    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.26"/>
-    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.26</id>
-    <updated>2026-11-12T15:01:50Z</updated>
-    <content type="text">Detour 0.1.26: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
   </entry>
 </feed>
