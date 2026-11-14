@@ -4,8 +4,15 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-13T16:37:51Z</updated>
+  <updated>2026-11-13T21:18:41Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Messaging 1.35.35</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.35"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.35</id>
+    <updated>2026-11-13T21:18:41Z</updated>
+    <content type="text">Messaging 1.35.35: the Signal &quot;Linked devices&quot; screen opens again; it closed the moment it was opened. New in Settings, under Display: Silence unknown senders. With it on, a text from a number that is not in your contacts raises no notification and waits under Unknown</content>
+  </entry>
   <entry>
     <title>Messaging 1.35.34</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.34"/>
@@ -420,12 +427,5 @@
     <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.24</id>
     <updated>2026-11-12T15:09:22Z</updated>
     <content type="text">Field Kit 0.1.24: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
-  </entry>
-  <entry>
-    <title>Go 1.2.23</title>
-    <link href="https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.23"/>
-    <id>https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.23</id>
-    <updated>2026-11-12T15:08:36Z</updated>
-    <content type="text">Go 1.2.23: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
   </entry>
 </feed>
