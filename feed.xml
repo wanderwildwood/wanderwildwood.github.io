@@ -4,8 +4,381 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-13T21:18:41Z</updated>
+  <updated>2026-11-15T02:49:32Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Cabinet 0.9.17</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.17"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.17</id>
+    <updated>2026-11-15T02:49:32Z</updated>
+    <content type="text">Cabinet 0.9.17: the grid&#x27;s pages hold whole rows, so a page turn brings twelve new pictures and no row is repeated</content>
+  </entry>
+  <entry>
+    <title>Cabinet 0.9.16</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.16"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.16</id>
+    <updated>2026-11-15T02:31:53Z</updated>
+    <content type="text">Cabinet 0.9.16: a grid of small pictures (Sort and show → Show as a grid); an app asking for a picture gets the camera&#x27;s folder as a grid, newest first</content>
+  </entry>
+  <entry>
+    <title>Lens 0.1.37</title>
+    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.37"/>
+    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.37</id>
+    <updated>2026-11-14T23:14:36Z</updated>
+    <content type="text">Lens 0.1.37: the Gallery button can open the newest picture in a folder you pick, set in Settings. New Dark mode switch in Settings.</content>
+  </entry>
+  <entry>
+    <title>Music Box 2.18.41</title>
+    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.41"/>
+    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.41</id>
+    <updated>2026-11-14T23:13:09Z</updated>
+    <content type="text">Music Box 2.18.41: a newer YouTube stream reader (NewPipeExtractor 0.27.1), so searches and streams keep working. New Dark mode switch in Settings.</content>
+  </entry>
+  <entry>
+    <title>Mailbox 0.1.59</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.59"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.59</id>
+    <updated>2026-11-14T23:10:06Z</updated>
+    <content type="text">Mailbox 0.1.59: safer cleaning of HTML email, with the updated jsoup library that fixes a way a crafted tag could slip past the cleaner. New Dark mode switch in General settings, under Display.</content>
+  </entry>
+  <entry>
+    <title>Bitcoin 0.1.14</title>
+    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.14"/>
+    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.14</id>
+    <updated>2026-11-14T23:06:50Z</updated>
+    <content type="text">Bitcoin 0.1.14: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Field Kit 0.1.26</title>
+    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.26"/>
+    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.26</id>
+    <updated>2026-11-14T23:06:33Z</updated>
+    <content type="text">Field Kit 0.1.26: dark mode, white on black, when Home&#x27;s switch is on</content>
+  </entry>
+  <entry>
+    <title>Dream Log 0.1.33</title>
+    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.33"/>
+    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.33</id>
+    <updated>2026-11-14T23:06:21Z</updated>
+    <content type="text">Dream Log 0.1.33: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Detour 0.1.28</title>
+    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.28"/>
+    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.28</id>
+    <updated>2026-11-14T23:06:07Z</updated>
+    <content type="text">Detour 0.1.28: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Songbook 0.1.9</title>
+    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.9"/>
+    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.9</id>
+    <updated>2026-11-14T23:06:00Z</updated>
+    <content type="text">Songbook 0.1.9: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Translate 0.9.23</title>
+    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.23"/>
+    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.23</id>
+    <updated>2026-11-14T23:05:52Z</updated>
+    <content type="text">Translate 0.9.23: dark mode, white on black, when Home&#x27;s switch is on</content>
+  </entry>
+  <entry>
+    <title>Time 0.2.26</title>
+    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.26"/>
+    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.26</id>
+    <updated>2026-11-14T23:05:41Z</updated>
+    <content type="text">Time 0.2.26: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Car Check 0.1.23</title>
+    <link href="https://github.com/wanderwildwood/tenken/releases/tag/v0.1.23"/>
+    <id>https://github.com/wanderwildwood/tenken/releases/tag/v0.1.23</id>
+    <updated>2026-11-14T23:05:32Z</updated>
+    <content type="text">Car Check 0.1.23: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Tarot 0.1.24</title>
+    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.24"/>
+    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.24</id>
+    <updated>2026-11-14T23:05:24Z</updated>
+    <content type="text">Tarot 0.1.24: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app; the cards keep their own greys</content>
+  </entry>
+  <entry>
+    <title>Birding 1.7.44</title>
+    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.44"/>
+    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.44</id>
+    <updated>2026-11-14T23:05:09Z</updated>
+    <content type="text">Birding 1.7.44: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Cabinet 0.9.15</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.15"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.15</id>
+    <updated>2026-11-14T23:05:01Z</updated>
+    <content type="text">Cabinet 0.9.15: dark mode, white on black, when Home&#x27;s switch is on</content>
+  </entry>
+  <entry>
+    <title>Abacus 0.2.30</title>
+    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.30"/>
+    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.30</id>
+    <updated>2026-11-14T23:04:54Z</updated>
+    <content type="text">Abacus 0.2.30: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Sky 0.13.11</title>
+    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.11"/>
+    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.11</id>
+    <updated>2026-11-14T23:04:45Z</updated>
+    <content type="text">Sky 0.13.11: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Solitaire 0.1.22</title>
+    <link href="https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.22"/>
+    <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.22</id>
+    <updated>2026-11-14T23:04:38Z</updated>
+    <content type="text">Solitaire 0.1.22: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Speedometer 0.1.30</title>
+    <link href="https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.30"/>
+    <id>https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.30</id>
+    <updated>2026-11-14T23:04:31Z</updated>
+    <content type="text">Speedometer 0.1.30: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Shelf 0.1.37</title>
+    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.37"/>
+    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.37</id>
+    <updated>2026-11-14T23:04:24Z</updated>
+    <content type="text">Shelf 0.1.37: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Star Chart 0.5.20</title>
+    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.20"/>
+    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.20</id>
+    <updated>2026-11-14T23:04:15Z</updated>
+    <content type="text">Star Chart 0.5.20: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Wallet 0.1.25</title>
+    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.25"/>
+    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.25</id>
+    <updated>2026-11-14T23:04:08Z</updated>
+    <content type="text">Wallet 0.1.25: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Tuner 0.1.49</title>
+    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.49"/>
+    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.49</id>
+    <updated>2026-11-14T23:04:01Z</updated>
+    <content type="text">Tuner 0.1.49: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Parked 0.2.16</title>
+    <link href="https://github.com/wanderwildwood/okiba/releases/tag/v0.2.16"/>
+    <id>https://github.com/wanderwildwood/okiba/releases/tag/v0.2.16</id>
+    <updated>2026-11-14T23:03:54Z</updated>
+    <content type="text">Parked 0.2.16: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.37</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.37"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.37</id>
+    <updated>2026-11-14T23:03:48Z</updated>
+    <content type="text">Messaging 1.35.37: new in Settings, under Signal: a switch to label SMS rows instead of Signal ones, so the one list marks whichever kind you have fewer of. New Dark mode switch in Settings. Group changes from someone you blocked no longer show up.</content>
+  </entry>
+  <entry>
+    <title>Memo 0.3.30</title>
+    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.30"/>
+    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.30</id>
+    <updated>2026-11-14T23:03:40Z</updated>
+    <content type="text">Memo 0.3.30: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Practice 0.2.7</title>
+    <link href="https://github.com/wanderwildwood/nikka/releases/tag/v0.2.7"/>
+    <id>https://github.com/wanderwildwood/nikka/releases/tag/v0.2.7</id>
+    <updated>2026-11-14T23:03:28Z</updated>
+    <content type="text">Practice 0.2.7: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Level 0.1.37</title>
+    <link href="https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.37"/>
+    <id>https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.37</id>
+    <updated>2026-11-14T23:03:21Z</updated>
+    <content type="text">Level 0.1.37: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Audio Reader 1.3.64</title>
+    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.64"/>
+    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.64</id>
+    <updated>2026-11-14T23:03:13Z</updated>
+    <content type="text">Audio Reader 1.3.64: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Go 1.2.24</title>
+    <link href="https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.24"/>
+    <id>https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.24</id>
+    <updated>2026-11-14T23:03:06Z</updated>
+    <content type="text">Go 1.2.24: dark mode, white on black, when Home&#x27;s switch is on</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.67</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.67"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.67</id>
+    <updated>2026-11-14T23:02:59Z</updated>
+    <content type="text">Datebook 0.1.67: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Recipes 0.2.21</title>
+    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.21"/>
+    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.21</id>
+    <updated>2026-11-14T23:02:52Z</updated>
+    <content type="text">Recipes 0.2.21: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Feeds 0.6.12</title>
+    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.12"/>
+    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.12</id>
+    <updated>2026-11-14T23:02:41Z</updated>
+    <content type="text">Feeds 0.6.12: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Mushroom Journal 0.3.38</title>
+    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.38"/>
+    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.38</id>
+    <updated>2026-11-14T23:02:31Z</updated>
+    <content type="text">Mushroom Journal 0.3.38: dark mode, white on black, when Home&#x27;s switch is on; the plates keep black lines on white
+
+**Full Changelog**: https://github.com/wanderwildwood/kinokocho/compare/v0.3.37...v0.3.38</content>
+  </entry>
+  <entry>
+    <title>Engraver 0.0.13</title>
+    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.13"/>
+    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.13</id>
+    <updated>2026-11-14T23:02:23Z</updated>
+    <content type="text">Engraver 0.0.13: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Dictionary 0.1.24</title>
+    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.24"/>
+    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.24</id>
+    <updated>2026-11-14T23:02:14Z</updated>
+    <content type="text">Dictionary 0.1.24: dark mode, white on black, when Home&#x27;s switch is on</content>
+  </entry>
+  <entry>
+    <title>Handset 0.1.35</title>
+    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.35"/>
+    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.35</id>
+    <updated>2026-11-14T23:02:06Z</updated>
+    <content type="text">Handset 0.1.35: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Torrents 0.1.24</title>
+    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.24"/>
+    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.24</id>
+    <updated>2026-11-14T23:01:49Z</updated>
+    <content type="text">Torrents 0.1.24: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Glance 0.1.52</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.52"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.52</id>
+    <updated>2026-11-14T23:01:40Z</updated>
+    <content type="text">Glance 0.1.52: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Hum 0.1.25</title>
+    <link href="https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.25"/>
+    <id>https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.25</id>
+    <updated>2026-11-14T23:01:33Z</updated>
+    <content type="text">Hum 0.1.25: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Pictures 0.8.23</title>
+    <link href="https://github.com/wanderwildwood/garo/releases/tag/v0.8.23"/>
+    <id>https://github.com/wanderwildwood/garo/releases/tag/v0.8.23</id>
+    <updated>2026-11-14T23:01:26Z</updated>
+    <content type="text">Pictures 0.8.23: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Medicine 0.1.34</title>
+    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.34"/>
+    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.34</id>
+    <updated>2026-11-14T23:01:19Z</updated>
+    <content type="text">Medicine 0.1.34: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Remote 0.2.25</title>
+    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.25"/>
+    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.25</id>
+    <updated>2026-11-14T23:01:10Z</updated>
+    <content type="text">Remote 0.2.25: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Connections 0.2.35</title>
+    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.35"/>
+    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.35</id>
+    <updated>2026-11-14T23:01:03Z</updated>
+    <content type="text">Connections 0.2.35: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>I Ching 0.1.7</title>
+    <link href="https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.7"/>
+    <id>https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.7</id>
+    <updated>2026-11-14T23:00:55Z</updated>
+    <content type="text">I Ching 0.1.7: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Typewriter 0.1.43</title>
+    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.43"/>
+    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.43</id>
+    <updated>2026-11-14T23:00:49Z</updated>
+    <content type="text">Typewriter 0.1.43: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Cycle 0.3.13</title>
+    <link href="https://github.com/wanderwildwood/cycle/releases/tag/v0.3.13"/>
+    <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.13</id>
+    <updated>2026-11-14T23:00:41Z</updated>
+    <content type="text">Cycle 0.3.13: dark mode, white on black, when Home&#x27;s switch is on</content>
+  </entry>
+  <entry>
+    <title>Topo 0.2.18</title>
+    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.18"/>
+    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.18</id>
+    <updated>2026-11-14T23:00:33Z</updated>
+    <content type="text">Topo 0.2.18: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
+  <entry>
+    <title>Chess+ 1.3.27-chessplus</title>
+    <link href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.27-chessplus"/>
+    <id>https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.27-chessplus</id>
+    <updated>2026-11-14T23:00:25Z</updated>
+    <content type="text">Chess+ 1.3.27: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app; the download carries arm64 only</content>
+  </entry>
+  <entry>
+    <title>Mesh 0.3.21</title>
+    <link href="https://github.com/wanderwildwood/amime/releases/tag/v0.3.21"/>
+    <id>https://github.com/wanderwildwood/amime/releases/tag/v0.3.21</id>
+    <updated>2026-11-14T23:00:15Z</updated>
+    <content type="text">Mesh 0.3.21: dark mode, white on black, when Home&#x27;s switch is on</content>
+  </entry>
+  <entry>
+    <title>Atlas 0.1.10</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.10"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.10</id>
+    <updated>2026-11-14T23:00:13Z</updated>
+    <content type="text">Atlas 0.1.10: hold a finger on the map to open what is there (a shop, a building, a saved place), or to mark a bare point, with Route to, Save and, while a route is up, Add stop; the mark on a selected place is a black ring with a dot; a search button on the turn card finds fuel, food or anything else during a trip, and Add stop puts it on the way; a trip sent back to its plan offers Resume in place of Start; a Dark mode switch in Settings, Interface (white on black; the map keeps its own colors)</content>
+  </entry>
+  <entry>
+    <title>Passwords 0.1.26</title>
+    <link href="https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.26"/>
+    <id>https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.26</id>
+    <updated>2026-11-14T23:00:07Z</updated>
+    <content type="text">Passwords 0.1.26: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
+  </entry>
   <entry>
     <title>Messaging 1.35.35</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.35"/>
@@ -54,378 +427,5 @@
     <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.14</id>
     <updated>2026-11-12T19:32:30Z</updated>
     <content type="text">Cabinet 0.9.14: an app given a folder can ask where a file in it sits, so Music Box can save a song&#x27;s details there; a file is no longer made or renamed before its name is checked</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.65</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.65"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.65</id>
-    <updated>2026-11-12T19:26:45Z</updated>
-    <content type="text">Datebook 0.1.65: the reminder of an all-day event is set as a day and a time of day (on the day, the day before, two days or a week before, at any time); Settings has New all-day events remind; an evening reminder on the day is no longer dropped</content>
-  </entry>
-  <entry>
-    <title>Atlas 0.1.8</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.8"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.8</id>
-    <updated>2026-11-12T18:18:22Z</updated>
-    <content type="text">Atlas 0.1.8: the Settings rows Atlas does not have (3D buildings, mobile data, the log file, the profile) are hidden before a page opens, so none shows for a moment; the help file no longer has an entry about voice instructions</content>
-  </entry>
-  <entry>
-    <title>Field Kit 0.1.25</title>
-    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.25"/>
-    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.25</id>
-    <updated>2026-11-12T17:40:11Z</updated>
-    <content type="text">Field Kit 0.1.25: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Detour 0.1.27</title>
-    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.27"/>
-    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.27</id>
-    <updated>2026-11-12T17:36:20Z</updated>
-    <content type="text">Detour 0.1.27: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Time 0.2.25</title>
-    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.25"/>
-    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.25</id>
-    <updated>2026-11-12T17:34:33Z</updated>
-    <content type="text">Time 0.2.25: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Car Check 0.1.22</title>
-    <link href="https://github.com/wanderwildwood/tenken/releases/tag/v0.1.22"/>
-    <id>https://github.com/wanderwildwood/tenken/releases/tag/v0.1.22</id>
-    <updated>2026-11-12T17:32:31Z</updated>
-    <content type="text">Car Check 0.1.22: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Mailbox 0.1.58</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.58"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.58</id>
-    <updated>2026-11-12T17:30:39Z</updated>
-    <content type="text">Mailbox 0.1.58: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.64</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.64"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.64</id>
-    <updated>2026-11-12T17:26:54Z</updated>
-    <content type="text">Datebook 0.1.64: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Tarot 0.1.23</title>
-    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.23"/>
-    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.23</id>
-    <updated>2026-11-12T17:26:39Z</updated>
-    <content type="text">Tarot 0.1.23: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Cabinet 0.9.13</title>
-    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.13"/>
-    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.13</id>
-    <updated>2026-11-12T17:23:39Z</updated>
-    <content type="text">Cabinet 0.9.13: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Mushroom Journal 0.3.37</title>
-    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.37"/>
-    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.37</id>
-    <updated>2026-11-12T17:22:30Z</updated>
-    <content type="text">Mushroom Journal 0.3.37: the download carries only the one processor these devices have (arm64)
-
-**Full Changelog**: https://github.com/wanderwildwood/kinokocho/compare/v0.3.36...v0.3.37</content>
-  </entry>
-  <entry>
-    <title>Abacus 0.2.29</title>
-    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.29"/>
-    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.29</id>
-    <updated>2026-11-12T17:20:41Z</updated>
-    <content type="text">Abacus 0.2.29: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Music Box 2.18.39</title>
-    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.39"/>
-    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.39</id>
-    <updated>2026-11-12T17:18:53Z</updated>
-    <content type="text">Music Box 2.18.39: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Sky 0.13.10</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.10"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.10</id>
-    <updated>2026-11-12T17:17:44Z</updated>
-    <content type="text">Sky 0.13.10: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Dictionary 0.1.23</title>
-    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.23"/>
-    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.23</id>
-    <updated>2026-11-12T17:14:19Z</updated>
-    <content type="text">Dictionary 0.1.23: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Solitaire 0.1.21</title>
-    <link href="https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.21"/>
-    <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.21</id>
-    <updated>2026-11-12T17:14:15Z</updated>
-    <content type="text">Solitaire 0.1.21: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Handset 0.1.34</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.34"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.34</id>
-    <updated>2026-11-12T17:11:37Z</updated>
-    <content type="text">Handset 0.1.34: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Speedometer 0.1.29</title>
-    <link href="https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.29"/>
-    <id>https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.29</id>
-    <updated>2026-11-12T17:11:27Z</updated>
-    <content type="text">Speedometer 0.1.29: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Lens 0.1.36</title>
-    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.36"/>
-    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.36</id>
-    <updated>2026-11-12T17:08:51Z</updated>
-    <content type="text">Lens 0.1.36: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Star Chart 0.5.19</title>
-    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.19"/>
-    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.19</id>
-    <updated>2026-11-12T17:05:33Z</updated>
-    <content type="text">Star Chart 0.5.19: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Glance 0.1.51</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.51"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.51</id>
-    <updated>2026-11-12T17:04:18Z</updated>
-    <content type="text">Glance 0.1.51: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Wallet 0.1.24</title>
-    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.24"/>
-    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.24</id>
-    <updated>2026-11-12T17:03:11Z</updated>
-    <content type="text">Wallet 0.1.24: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Hum 0.1.24</title>
-    <link href="https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.24"/>
-    <id>https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.24</id>
-    <updated>2026-11-12T17:02:00Z</updated>
-    <content type="text">Hum 0.1.24: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Tuner 0.1.48</title>
-    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.48"/>
-    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.48</id>
-    <updated>2026-11-12T17:00:15Z</updated>
-    <content type="text">Tuner 0.1.48: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Pictures 0.8.22</title>
-    <link href="https://github.com/wanderwildwood/garo/releases/tag/v0.8.22"/>
-    <id>https://github.com/wanderwildwood/garo/releases/tag/v0.8.22</id>
-    <updated>2026-11-12T16:59:08Z</updated>
-    <content type="text">Pictures 0.8.22: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Parked 0.2.15</title>
-    <link href="https://github.com/wanderwildwood/okiba/releases/tag/v0.2.15"/>
-    <id>https://github.com/wanderwildwood/okiba/releases/tag/v0.2.15</id>
-    <updated>2026-11-12T16:56:12Z</updated>
-    <content type="text">Parked 0.2.15: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Medicine 0.1.33</title>
-    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.33"/>
-    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.33</id>
-    <updated>2026-11-12T16:54:33Z</updated>
-    <content type="text">Medicine 0.1.33: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Practice 0.2.6</title>
-    <link href="https://github.com/wanderwildwood/nikka/releases/tag/v0.2.6"/>
-    <id>https://github.com/wanderwildwood/nikka/releases/tag/v0.2.6</id>
-    <updated>2026-11-12T16:53:33Z</updated>
-    <content type="text">Practice 0.2.6: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Remote 0.2.24</title>
-    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.24"/>
-    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.24</id>
-    <updated>2026-11-12T16:51:47Z</updated>
-    <content type="text">Remote 0.2.24: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Audio Reader 1.3.63</title>
-    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.63"/>
-    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.63</id>
-    <updated>2026-11-12T16:50:32Z</updated>
-    <content type="text">Audio Reader 1.3.63: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Connections 0.2.34</title>
-    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.34"/>
-    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.34</id>
-    <updated>2026-11-12T16:48:22Z</updated>
-    <content type="text">Connections 0.2.34: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Atlas 0.1.7</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.7"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.7</id>
-    <updated>2026-11-12T16:46:29Z</updated>
-    <content type="text">Atlas 0.1.7: the voice rows are gone (Atlas shows directions on screen and never asks for a speech engine; the speed camera setting is now under Settings, Navigation); the profile row no longer shows for a moment as Settings opens; the outdoors map and the map for a car&#x27;s screen are in ink; a guard for a place out at sea with the streamed map or address lookup on</content>
-  </entry>
-  <entry>
-    <title>I Ching 0.1.6</title>
-    <link href="https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.6"/>
-    <id>https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.6</id>
-    <updated>2026-11-12T16:45:28Z</updated>
-    <content type="text">I Ching 0.1.6: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Typewriter 0.1.42</title>
-    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.42"/>
-    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.42</id>
-    <updated>2026-11-12T16:43:37Z</updated>
-    <content type="text">Typewriter 0.1.42: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Cycle 0.3.12</title>
-    <link href="https://github.com/wanderwildwood/cycle/releases/tag/v0.3.12"/>
-    <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.12</id>
-    <updated>2026-11-12T16:41:37Z</updated>
-    <content type="text">Cycle 0.3.12: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Topo 0.2.17</title>
-    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.17"/>
-    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.17</id>
-    <updated>2026-11-12T16:39:28Z</updated>
-    <content type="text">Topo 0.2.17: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Mesh 0.3.20</title>
-    <link href="https://github.com/wanderwildwood/amime/releases/tag/v0.3.20"/>
-    <id>https://github.com/wanderwildwood/amime/releases/tag/v0.3.20</id>
-    <updated>2026-11-12T16:35:03Z</updated>
-    <content type="text">Mesh 0.3.20: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Level 0.1.36</title>
-    <link href="https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.36"/>
-    <id>https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.36</id>
-    <updated>2026-11-12T16:31:40Z</updated>
-    <content type="text">Level 0.1.36: the download carries only the one processor these devices have (arm64)</content>
-  </entry>
-  <entry>
-    <title>Chess+ 1.3.26-chessplus</title>
-    <link href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.26-chessplus"/>
-    <id>https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.26-chessplus</id>
-    <updated>2026-11-12T16:14:39Z</updated>
-    <content type="text">Chess+ 1.3.26: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
-  </entry>
-  <entry>
-    <title>Remote 0.2.23</title>
-    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.23"/>
-    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.23</id>
-    <updated>2026-11-12T16:09:13Z</updated>
-    <content type="text">Remote 0.2.23: save the Kodi box to a file and restore it, checked whole before anything changes, never the password; the scrollbar ends above a floating button, so its lower arrow is not under it</content>
-  </entry>
-  <entry>
-    <title>Engraver 0.0.12</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.12"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.12</id>
-    <updated>2026-11-12T16:08:51Z</updated>
-    <content type="text">Engraver 0.0.12: a More menu in the editor: Undo, Redo, Save as, Open in another app, Print and Delete; hold a score on the home list to copy or delete it; the system Back saves what was typed</content>
-  </entry>
-  <entry>
-    <title>Bitcoin 0.1.13</title>
-    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.13"/>
-    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.13</id>
-    <updated>2026-11-12T16:03:43Z</updated>
-    <content type="text">Bitcoin 0.1.13: the set-up note in Device info is three plain lines; the denomination dialog has the same menus as the rest of the app; the top bar title is the house size and not bold; the scrollbar ends above a floating button, so its lower arrow is not under it</content>
-  </entry>
-  <entry>
-    <title>Lens 0.1.35</title>
-    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.35"/>
-    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.35</id>
-    <updated>2026-11-12T16:02:08Z</updated>
-    <content type="text">Lens 0.1.35: the preview frame is copied on the main thread and processed in the background; the 23 partial translations are gone, so Lens is English until it has complete ones; the scrollbar ends above a floating button, so its lower arrow is not under it</content>
-  </entry>
-  <entry>
-    <title>Handset 0.1.33</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.33"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.33</id>
-    <updated>2026-11-12T15:58:13Z</updated>
-    <content type="text">Handset 0.1.33: the missed-call notification is cleared only when Handset is the default phone app; German for the rest of the license page; the scrollbar ends above a floating button, so its lower arrow is not under it</content>
-  </entry>
-  <entry>
-    <title>Star Chart 0.5.18</title>
-    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.18"/>
-    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.18</id>
-    <updated>2026-11-12T15:57:40Z</updated>
-    <content type="text">Star Chart 0.5.18: Point corrects the compass bearing from magnetic to true north for the chart&#x27;s place; the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
-  </entry>
-  <entry>
-    <title>Recipes 0.2.20</title>
-    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.20"/>
-    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.20</id>
-    <updated>2026-11-12T15:57:18Z</updated>
-    <content type="text">Recipes 0.2.20: Save every recipe keeps the ticked ingredients, and bringing the file back restores them</content>
-  </entry>
-  <entry>
-    <title>Birding 1.7.43</title>
-    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.43"/>
-    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.43</id>
-    <updated>2026-11-12T15:27:00Z</updated>
-    <content type="text">Birding 1.7.43: backups carry the recordings the log names and the settings, and a restore checks the whole file first; the scrollbar ends above a floating button, so its lower arrow is not under it</content>
-  </entry>
-  <entry>
-    <title>Songbook 0.1.8</title>
-    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.8"/>
-    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.8</id>
-    <updated>2026-11-12T15:25:24Z</updated>
-    <content type="text">Songbook 0.1.8: auto scroll moves one line at a time; tablature follows the key when it fits the neck, with a note when it is shown as written; the key control is there for tablature-only songs</content>
-  </entry>
-  <entry>
-    <title>Handheld Games 0.1.38</title>
-    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.38"/>
-    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.38</id>
-    <updated>2026-11-12T15:16:28Z</updated>
-    <content type="text">Handheld Games 0.1.38: the scrollbar ends above a floating button, so its lower arrow is not under it</content>
-  </entry>
-  <entry>
-    <title>Engraver 0.0.11</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.11"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.11</id>
-    <updated>2026-11-12T15:15:32Z</updated>
-    <content type="text">Engraver 0.0.11: the scrollbar ends above a floating button, so its lower arrow is not under it</content>
-  </entry>
-  <entry>
-    <title>Translate 0.9.22</title>
-    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.22"/>
-    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.22</id>
-    <updated>2026-11-12T15:15:18Z</updated>
-    <content type="text">Translate 0.9.22: the scrollbar ends above a floating button, so its lower arrow is not under it</content>
-  </entry>
-  <entry>
-    <title>Topo 0.2.16</title>
-    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.16"/>
-    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.16</id>
-    <updated>2026-11-12T15:10:09Z</updated>
-    <content type="text">Topo 0.2.16: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
-  </entry>
-  <entry>
-    <title>Field Kit 0.1.24</title>
-    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.24"/>
-    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.24</id>
-    <updated>2026-11-12T15:09:22Z</updated>
-    <content type="text">Field Kit 0.1.24: the scrollbar ends above a floating button, so its lower arrow is not under it; a list whose rows load late opens on its first row</content>
   </entry>
 </feed>
