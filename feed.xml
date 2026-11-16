@@ -4,8 +4,374 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-15T02:49:32Z</updated>
+  <updated>2026-11-16T02:46:27Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Messaging 1.35.39</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.39"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.39</id>
+    <updated>2026-11-16T02:46:27Z</updated>
+    <content type="text">Messaging 1.35.39: dark mode follows the phone&#x27;s own dark setting where it has one. A backup folder that is gone says so and asks for the folder again; a recording, voice message or video that will not play says so in a dialog that stays. Back from Groups or Unknown goes to the first tab. Text dialogs open with the cursor in the field and the keyboard up. Screen readers hear the small icon buttons by name. About says what &quot;Feed the llamas&quot; does.</content>
+  </entry>
+  <entry>
+    <title>Atlas 0.1.11</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.11"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.11</id>
+    <updated>2026-11-16T02:37:15Z</updated>
+    <content type="text">Atlas 0.1.11: dark mode follows the phone&#x27;s own dark setting where it has one; page arrows are plain at the ends of a list and named for screen readers; a list that gets shorter under its page comes back to its last real page; About says what &quot;Feed the llamas&quot; does.</content>
+  </entry>
+  <entry>
+    <title>Birding 1.7.45</title>
+    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.45"/>
+    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.45</id>
+    <updated>2026-11-16T02:34:06Z</updated>
+    <content type="text">Birding 1.7.45: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Bitcoin 0.1.15</title>
+    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.15"/>
+    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.15</id>
+    <updated>2026-11-16T02:28:22Z</updated>
+    <content type="text">Bitcoin 0.1.15: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Field Kit 0.1.27</title>
+    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.27"/>
+    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.27</id>
+    <updated>2026-11-16T02:28:04Z</updated>
+    <content type="text">Field Kit 0.1.27: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Dream Log 0.1.34</title>
+    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.34"/>
+    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.34</id>
+    <updated>2026-11-16T02:27:53Z</updated>
+    <content type="text">Dream Log 0.1.34: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Detour 0.1.29</title>
+    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.29"/>
+    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.29</id>
+    <updated>2026-11-16T02:27:40Z</updated>
+    <content type="text">Detour 0.1.29: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Songbook 0.1.10</title>
+    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.10"/>
+    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.10</id>
+    <updated>2026-11-16T02:27:32Z</updated>
+    <content type="text">Songbook 0.1.10: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Translate 0.9.24</title>
+    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.24"/>
+    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.24</id>
+    <updated>2026-11-16T02:27:23Z</updated>
+    <content type="text">Translate 0.9.24: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Time 0.2.27</title>
+    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.27"/>
+    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.27</id>
+    <updated>2026-11-16T02:27:13Z</updated>
+    <content type="text">Time 0.2.27: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Car Check 0.1.24</title>
+    <link href="https://github.com/wanderwildwood/tenken/releases/tag/v0.1.24"/>
+    <id>https://github.com/wanderwildwood/tenken/releases/tag/v0.1.24</id>
+    <updated>2026-11-16T02:27:06Z</updated>
+    <content type="text">Car Check 0.1.24: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Mailbox 0.1.61</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.61"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.61</id>
+    <updated>2026-11-16T02:26:51Z</updated>
+    <content type="text">Mailbox 0.1.61: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Tarot 0.1.25</title>
+    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.25"/>
+    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.25</id>
+    <updated>2026-11-16T02:26:36Z</updated>
+    <content type="text">Tarot 0.1.25: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Cabinet 0.9.18</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.18"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.18</id>
+    <updated>2026-11-16T02:26:25Z</updated>
+    <content type="text">Cabinet 0.9.18: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Abacus 0.2.31</title>
+    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.31"/>
+    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.31</id>
+    <updated>2026-11-16T02:26:12Z</updated>
+    <content type="text">Abacus 0.2.31: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Sky 0.13.12</title>
+    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.12"/>
+    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.12</id>
+    <updated>2026-11-16T02:26:05Z</updated>
+    <content type="text">Sky 0.13.12: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Solitaire 0.1.23</title>
+    <link href="https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.23"/>
+    <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.23</id>
+    <updated>2026-11-16T02:25:58Z</updated>
+    <content type="text">Solitaire 0.1.23: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Speedometer 0.1.31</title>
+    <link href="https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.31"/>
+    <id>https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.31</id>
+    <updated>2026-11-16T02:25:50Z</updated>
+    <content type="text">Speedometer 0.1.31: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Shelf 0.1.38</title>
+    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.38"/>
+    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.38</id>
+    <updated>2026-11-16T02:25:40Z</updated>
+    <content type="text">Shelf 0.1.38: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Lens 0.1.38</title>
+    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.38"/>
+    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.38</id>
+    <updated>2026-11-16T02:25:31Z</updated>
+    <content type="text">Lens 0.1.38: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Star Chart 0.5.21</title>
+    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.21"/>
+    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.21</id>
+    <updated>2026-11-16T02:25:20Z</updated>
+    <content type="text">Star Chart 0.5.21: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Wallet 0.1.26</title>
+    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.26"/>
+    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.26</id>
+    <updated>2026-11-16T02:25:10Z</updated>
+    <content type="text">Wallet 0.1.26: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Tuner 0.1.50</title>
+    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.50"/>
+    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.50</id>
+    <updated>2026-11-16T02:25:02Z</updated>
+    <content type="text">Tuner 0.1.50: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Parked 0.2.17</title>
+    <link href="https://github.com/wanderwildwood/okiba/releases/tag/v0.2.17"/>
+    <id>https://github.com/wanderwildwood/okiba/releases/tag/v0.2.17</id>
+    <updated>2026-11-16T02:24:52Z</updated>
+    <content type="text">Parked 0.2.17: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Memo 0.3.31</title>
+    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.31"/>
+    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.31</id>
+    <updated>2026-11-16T02:24:42Z</updated>
+    <content type="text">Memo 0.3.31: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Practice 0.2.8</title>
+    <link href="https://github.com/wanderwildwood/nikka/releases/tag/v0.2.8"/>
+    <id>https://github.com/wanderwildwood/nikka/releases/tag/v0.2.8</id>
+    <updated>2026-11-16T02:24:30Z</updated>
+    <content type="text">Practice 0.2.8: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Audio Reader 1.3.66</title>
+    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.66"/>
+    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.66</id>
+    <updated>2026-11-16T02:24:23Z</updated>
+    <content type="text">Audio Reader 1.3.66: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Go 1.2.26</title>
+    <link href="https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.26"/>
+    <id>https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.26</id>
+    <updated>2026-11-16T02:24:15Z</updated>
+    <content type="text">Go 1.2.26: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.68</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.68"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.68</id>
+    <updated>2026-11-16T02:24:01Z</updated>
+    <content type="text">Datebook 0.1.68: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Recipes 0.2.22</title>
+    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.22"/>
+    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.22</id>
+    <updated>2026-11-16T02:23:54Z</updated>
+    <content type="text">Recipes 0.2.22: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Feeds 0.6.13</title>
+    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.13"/>
+    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.13</id>
+    <updated>2026-11-16T02:23:42Z</updated>
+    <content type="text">Feeds 0.6.13: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Mushroom Journal 0.3.39</title>
+    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.39"/>
+    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.39</id>
+    <updated>2026-11-16T02:23:32Z</updated>
+    <content type="text">Mushroom Journal 0.3.39: dark mode follows the phone&#x27;s own dark setting where it has one
+
+**Full Changelog**: https://github.com/wanderwildwood/kinokocho/compare/v0.3.38...v0.3.39</content>
+  </entry>
+  <entry>
+    <title>Handheld Games 0.1.39</title>
+    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.39"/>
+    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.39</id>
+    <updated>2026-11-16T02:23:24Z</updated>
+    <content type="text">Handheld Games 0.1.39: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Engraver 0.0.14</title>
+    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.14"/>
+    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.14</id>
+    <updated>2026-11-16T02:23:14Z</updated>
+    <content type="text">Engraver 0.0.14: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Music Box 2.18.42</title>
+    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.42"/>
+    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.42</id>
+    <updated>2026-11-16T02:23:04Z</updated>
+    <content type="text">Music Box 2.18.42: the lock-screen strip has no outline; a gone folder says so; fixes from the store review</content>
+  </entry>
+  <entry>
+    <title>Dictionary 0.1.25</title>
+    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.25"/>
+    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.25</id>
+    <updated>2026-11-16T02:22:55Z</updated>
+    <content type="text">Dictionary 0.1.25: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Handset 0.1.36</title>
+    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.36"/>
+    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.36</id>
+    <updated>2026-11-16T02:22:47Z</updated>
+    <content type="text">Handset 0.1.36: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Torrents 0.1.25</title>
+    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.25"/>
+    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.25</id>
+    <updated>2026-11-16T02:22:30Z</updated>
+    <content type="text">Torrents 0.1.25: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Glance 0.1.53</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.53"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.53</id>
+    <updated>2026-11-16T02:22:21Z</updated>
+    <content type="text">Glance 0.1.53: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Hum 0.1.26</title>
+    <link href="https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.26"/>
+    <id>https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.26</id>
+    <updated>2026-11-16T02:22:13Z</updated>
+    <content type="text">Hum 0.1.26: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Pictures 0.8.24</title>
+    <link href="https://github.com/wanderwildwood/garo/releases/tag/v0.8.24"/>
+    <id>https://github.com/wanderwildwood/garo/releases/tag/v0.8.24</id>
+    <updated>2026-11-16T02:22:01Z</updated>
+    <content type="text">Pictures 0.8.24: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Medicine 0.1.35</title>
+    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.35"/>
+    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.35</id>
+    <updated>2026-11-16T02:21:54Z</updated>
+    <content type="text">Medicine 0.1.35: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Remote 0.2.26</title>
+    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.26"/>
+    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.26</id>
+    <updated>2026-11-16T02:21:46Z</updated>
+    <content type="text">Remote 0.2.26: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Connections 0.2.37</title>
+    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.37"/>
+    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.37</id>
+    <updated>2026-11-16T02:21:37Z</updated>
+    <content type="text">Connections 0.2.37: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>I Ching 0.1.8</title>
+    <link href="https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.8"/>
+    <id>https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.8</id>
+    <updated>2026-11-16T02:21:27Z</updated>
+    <content type="text">I Ching 0.1.8: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Typewriter 0.1.44</title>
+    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.44"/>
+    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.44</id>
+    <updated>2026-11-16T02:21:19Z</updated>
+    <content type="text">Typewriter 0.1.44: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Cycle 0.3.15</title>
+    <link href="https://github.com/wanderwildwood/cycle/releases/tag/v0.3.15"/>
+    <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.15</id>
+    <updated>2026-11-16T02:21:11Z</updated>
+    <content type="text">Cycle 0.3.15: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Topo 0.2.19</title>
+    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.19"/>
+    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.19</id>
+    <updated>2026-11-16T02:21:02Z</updated>
+    <content type="text">Topo 0.2.19: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Chess+ 1.3.28-chessplus</title>
+    <link href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.28-chessplus"/>
+    <id>https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.28-chessplus</id>
+    <updated>2026-11-16T02:20:53Z</updated>
+    <content type="text">Chess+ 1.3.28: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Mesh 0.3.22</title>
+    <link href="https://github.com/wanderwildwood/amime/releases/tag/v0.3.22"/>
+    <id>https://github.com/wanderwildwood/amime/releases/tag/v0.3.22</id>
+    <updated>2026-11-16T02:20:42Z</updated>
+    <content type="text">Mesh 0.3.22: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Passwords 0.1.27</title>
+    <link href="https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.27"/>
+    <id>https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.27</id>
+    <updated>2026-11-16T02:20:35Z</updated>
+    <content type="text">Passwords 0.1.27: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
+  <entry>
+    <title>Level 0.1.38</title>
+    <link href="https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.38"/>
+    <id>https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.38</id>
+    <updated>2026-11-16T02:20:19Z</updated>
+    <content type="text">Level 0.1.38: dark mode follows the phone&#x27;s own dark setting where it has one</content>
+  </entry>
   <entry>
     <title>Cabinet 0.9.17</title>
     <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.17"/>
@@ -61,371 +427,5 @@
     <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.33</id>
     <updated>2026-11-14T23:06:21Z</updated>
     <content type="text">Dream Log 0.1.33: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Detour 0.1.28</title>
-    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.28"/>
-    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.28</id>
-    <updated>2026-11-14T23:06:07Z</updated>
-    <content type="text">Detour 0.1.28: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Songbook 0.1.9</title>
-    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.9"/>
-    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.9</id>
-    <updated>2026-11-14T23:06:00Z</updated>
-    <content type="text">Songbook 0.1.9: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Translate 0.9.23</title>
-    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.23"/>
-    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.23</id>
-    <updated>2026-11-14T23:05:52Z</updated>
-    <content type="text">Translate 0.9.23: dark mode, white on black, when Home&#x27;s switch is on</content>
-  </entry>
-  <entry>
-    <title>Time 0.2.26</title>
-    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.26"/>
-    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.26</id>
-    <updated>2026-11-14T23:05:41Z</updated>
-    <content type="text">Time 0.2.26: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Car Check 0.1.23</title>
-    <link href="https://github.com/wanderwildwood/tenken/releases/tag/v0.1.23"/>
-    <id>https://github.com/wanderwildwood/tenken/releases/tag/v0.1.23</id>
-    <updated>2026-11-14T23:05:32Z</updated>
-    <content type="text">Car Check 0.1.23: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Tarot 0.1.24</title>
-    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.24"/>
-    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.24</id>
-    <updated>2026-11-14T23:05:24Z</updated>
-    <content type="text">Tarot 0.1.24: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app; the cards keep their own greys</content>
-  </entry>
-  <entry>
-    <title>Birding 1.7.44</title>
-    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.44"/>
-    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.44</id>
-    <updated>2026-11-14T23:05:09Z</updated>
-    <content type="text">Birding 1.7.44: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Cabinet 0.9.15</title>
-    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.15"/>
-    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.15</id>
-    <updated>2026-11-14T23:05:01Z</updated>
-    <content type="text">Cabinet 0.9.15: dark mode, white on black, when Home&#x27;s switch is on</content>
-  </entry>
-  <entry>
-    <title>Abacus 0.2.30</title>
-    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.30"/>
-    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.30</id>
-    <updated>2026-11-14T23:04:54Z</updated>
-    <content type="text">Abacus 0.2.30: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Sky 0.13.11</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.11"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.11</id>
-    <updated>2026-11-14T23:04:45Z</updated>
-    <content type="text">Sky 0.13.11: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Solitaire 0.1.22</title>
-    <link href="https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.22"/>
-    <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.22</id>
-    <updated>2026-11-14T23:04:38Z</updated>
-    <content type="text">Solitaire 0.1.22: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Speedometer 0.1.30</title>
-    <link href="https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.30"/>
-    <id>https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.30</id>
-    <updated>2026-11-14T23:04:31Z</updated>
-    <content type="text">Speedometer 0.1.30: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Shelf 0.1.37</title>
-    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.37"/>
-    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.37</id>
-    <updated>2026-11-14T23:04:24Z</updated>
-    <content type="text">Shelf 0.1.37: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Star Chart 0.5.20</title>
-    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.20"/>
-    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.20</id>
-    <updated>2026-11-14T23:04:15Z</updated>
-    <content type="text">Star Chart 0.5.20: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Wallet 0.1.25</title>
-    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.25"/>
-    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.25</id>
-    <updated>2026-11-14T23:04:08Z</updated>
-    <content type="text">Wallet 0.1.25: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Tuner 0.1.49</title>
-    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.49"/>
-    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.49</id>
-    <updated>2026-11-14T23:04:01Z</updated>
-    <content type="text">Tuner 0.1.49: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Parked 0.2.16</title>
-    <link href="https://github.com/wanderwildwood/okiba/releases/tag/v0.2.16"/>
-    <id>https://github.com/wanderwildwood/okiba/releases/tag/v0.2.16</id>
-    <updated>2026-11-14T23:03:54Z</updated>
-    <content type="text">Parked 0.2.16: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.37</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.37"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.37</id>
-    <updated>2026-11-14T23:03:48Z</updated>
-    <content type="text">Messaging 1.35.37: new in Settings, under Signal: a switch to label SMS rows instead of Signal ones, so the one list marks whichever kind you have fewer of. New Dark mode switch in Settings. Group changes from someone you blocked no longer show up.</content>
-  </entry>
-  <entry>
-    <title>Memo 0.3.30</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.30"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.30</id>
-    <updated>2026-11-14T23:03:40Z</updated>
-    <content type="text">Memo 0.3.30: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Practice 0.2.7</title>
-    <link href="https://github.com/wanderwildwood/nikka/releases/tag/v0.2.7"/>
-    <id>https://github.com/wanderwildwood/nikka/releases/tag/v0.2.7</id>
-    <updated>2026-11-14T23:03:28Z</updated>
-    <content type="text">Practice 0.2.7: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Level 0.1.37</title>
-    <link href="https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.37"/>
-    <id>https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.37</id>
-    <updated>2026-11-14T23:03:21Z</updated>
-    <content type="text">Level 0.1.37: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Audio Reader 1.3.64</title>
-    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.64"/>
-    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.64</id>
-    <updated>2026-11-14T23:03:13Z</updated>
-    <content type="text">Audio Reader 1.3.64: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Go 1.2.24</title>
-    <link href="https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.24"/>
-    <id>https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.24</id>
-    <updated>2026-11-14T23:03:06Z</updated>
-    <content type="text">Go 1.2.24: dark mode, white on black, when Home&#x27;s switch is on</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.67</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.67"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.67</id>
-    <updated>2026-11-14T23:02:59Z</updated>
-    <content type="text">Datebook 0.1.67: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Recipes 0.2.21</title>
-    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.21"/>
-    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.21</id>
-    <updated>2026-11-14T23:02:52Z</updated>
-    <content type="text">Recipes 0.2.21: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Feeds 0.6.12</title>
-    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.12"/>
-    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.12</id>
-    <updated>2026-11-14T23:02:41Z</updated>
-    <content type="text">Feeds 0.6.12: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Mushroom Journal 0.3.38</title>
-    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.38"/>
-    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.38</id>
-    <updated>2026-11-14T23:02:31Z</updated>
-    <content type="text">Mushroom Journal 0.3.38: dark mode, white on black, when Home&#x27;s switch is on; the plates keep black lines on white
-
-**Full Changelog**: https://github.com/wanderwildwood/kinokocho/compare/v0.3.37...v0.3.38</content>
-  </entry>
-  <entry>
-    <title>Engraver 0.0.13</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.13"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.13</id>
-    <updated>2026-11-14T23:02:23Z</updated>
-    <content type="text">Engraver 0.0.13: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Dictionary 0.1.24</title>
-    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.24"/>
-    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.24</id>
-    <updated>2026-11-14T23:02:14Z</updated>
-    <content type="text">Dictionary 0.1.24: dark mode, white on black, when Home&#x27;s switch is on</content>
-  </entry>
-  <entry>
-    <title>Handset 0.1.35</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.35"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.35</id>
-    <updated>2026-11-14T23:02:06Z</updated>
-    <content type="text">Handset 0.1.35: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Torrents 0.1.24</title>
-    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.24"/>
-    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.24</id>
-    <updated>2026-11-14T23:01:49Z</updated>
-    <content type="text">Torrents 0.1.24: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Glance 0.1.52</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.52"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.52</id>
-    <updated>2026-11-14T23:01:40Z</updated>
-    <content type="text">Glance 0.1.52: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Hum 0.1.25</title>
-    <link href="https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.25"/>
-    <id>https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.25</id>
-    <updated>2026-11-14T23:01:33Z</updated>
-    <content type="text">Hum 0.1.25: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Pictures 0.8.23</title>
-    <link href="https://github.com/wanderwildwood/garo/releases/tag/v0.8.23"/>
-    <id>https://github.com/wanderwildwood/garo/releases/tag/v0.8.23</id>
-    <updated>2026-11-14T23:01:26Z</updated>
-    <content type="text">Pictures 0.8.23: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Medicine 0.1.34</title>
-    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.34"/>
-    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.34</id>
-    <updated>2026-11-14T23:01:19Z</updated>
-    <content type="text">Medicine 0.1.34: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Remote 0.2.25</title>
-    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.25"/>
-    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.25</id>
-    <updated>2026-11-14T23:01:10Z</updated>
-    <content type="text">Remote 0.2.25: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Connections 0.2.35</title>
-    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.35"/>
-    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.35</id>
-    <updated>2026-11-14T23:01:03Z</updated>
-    <content type="text">Connections 0.2.35: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>I Ching 0.1.7</title>
-    <link href="https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.7"/>
-    <id>https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.7</id>
-    <updated>2026-11-14T23:00:55Z</updated>
-    <content type="text">I Ching 0.1.7: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Typewriter 0.1.43</title>
-    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.43"/>
-    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.43</id>
-    <updated>2026-11-14T23:00:49Z</updated>
-    <content type="text">Typewriter 0.1.43: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Cycle 0.3.13</title>
-    <link href="https://github.com/wanderwildwood/cycle/releases/tag/v0.3.13"/>
-    <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.13</id>
-    <updated>2026-11-14T23:00:41Z</updated>
-    <content type="text">Cycle 0.3.13: dark mode, white on black, when Home&#x27;s switch is on</content>
-  </entry>
-  <entry>
-    <title>Topo 0.2.18</title>
-    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.18"/>
-    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.18</id>
-    <updated>2026-11-14T23:00:33Z</updated>
-    <content type="text">Topo 0.2.18: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Chess+ 1.3.27-chessplus</title>
-    <link href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.27-chessplus"/>
-    <id>https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.27-chessplus</id>
-    <updated>2026-11-14T23:00:25Z</updated>
-    <content type="text">Chess+ 1.3.27: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app; the download carries arm64 only</content>
-  </entry>
-  <entry>
-    <title>Mesh 0.3.21</title>
-    <link href="https://github.com/wanderwildwood/amime/releases/tag/v0.3.21"/>
-    <id>https://github.com/wanderwildwood/amime/releases/tag/v0.3.21</id>
-    <updated>2026-11-14T23:00:15Z</updated>
-    <content type="text">Mesh 0.3.21: dark mode, white on black, when Home&#x27;s switch is on</content>
-  </entry>
-  <entry>
-    <title>Atlas 0.1.10</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.10"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.10</id>
-    <updated>2026-11-14T23:00:13Z</updated>
-    <content type="text">Atlas 0.1.10: hold a finger on the map to open what is there (a shop, a building, a saved place), or to mark a bare point, with Route to, Save and, while a route is up, Add stop; the mark on a selected place is a black ring with a dot; a search button on the turn card finds fuel, food or anything else during a trip, and Add stop puts it on the way; a trip sent back to its plan offers Resume in place of Start; a Dark mode switch in Settings, Interface (white on black; the map keeps its own colors)</content>
-  </entry>
-  <entry>
-    <title>Passwords 0.1.26</title>
-    <link href="https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.26"/>
-    <id>https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.26</id>
-    <updated>2026-11-14T23:00:07Z</updated>
-    <content type="text">Passwords 0.1.26: dark mode, white on black, with a switch in Settings; Home&#x27;s one switch turns it on in every app</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.35</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.35"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.35</id>
-    <updated>2026-11-13T21:18:41Z</updated>
-    <content type="text">Messaging 1.35.35: the Signal &quot;Linked devices&quot; screen opens again; it closed the moment it was opened. New in Settings, under Display: Silence unknown senders. With it on, a text from a number that is not in your contacts raises no notification and waits under Unknown</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.34</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.34"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.34</id>
-    <updated>2026-11-13T16:37:51Z</updated>
-    <content type="text">Messaging 1.35.34: a picture can be copied in one chat and pasted into another. Hold a picture in a text or Signal chat and choose Copy picture, then hold the message box of any chat and choose Paste. An empty message box now offers Paste too, for words as well as pictures</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.66</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.66"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.66</id>
-    <updated>2026-11-13T16:34:11Z</updated>
-    <content type="text">Datebook 0.1.66: with week numbers on, the month has a line between the week numbers and the first day, the same as between days</content>
-  </entry>
-  <entry>
-    <title>Atlas 0.1.9</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.9"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.9</id>
-    <updated>2026-11-13T14:55:30Z</updated>
-    <content type="text">Atlas 0.1.9: in Settings, Navigation, miles or kilometers is now a choice between mph and km/h, side by side, in place of the Miles and feet switch; in Settings, Advanced, the row for opening links is in place when the page opens</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.33</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.33"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.33</id>
-    <updated>2026-11-12T22:51:34Z</updated>
-    <content type="text">Messaging 1.35.33: the list of people in a new message is brought up to date when it opens, so someone just added in the contacts app is there</content>
-  </entry>
-  <entry>
-    <title>Music Box 2.18.40</title>
-    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.40"/>
-    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.40</id>
-    <updated>2026-11-12T19:33:54Z</updated>
-    <content type="text">Music Box 2.18.40: testFullDebugUnitTest testStoreDebugUnitTest assembleFullRelease</content>
-  </entry>
-  <entry>
-    <title>Cabinet 0.9.14</title>
-    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.14"/>
-    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.14</id>
-    <updated>2026-11-12T19:32:30Z</updated>
-    <content type="text">Cabinet 0.9.14: an app given a folder can ask where a file in it sits, so Music Box can save a song&#x27;s details there; a file is no longer made or renamed before its name is checked</content>
   </entry>
 </feed>
