@@ -4,8 +4,15 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-17T21:35:48Z</updated>
+  <updated>2026-11-18T01:00:00Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Atlas 0.1.14</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.14"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.14</id>
+    <updated>2026-11-18T01:00:00Z</updated>
+    <content type="text">Atlas 0.1.14: search is the directory. The Categories tab is now Directory, a place opens on its own page with phone, address, the week&#x27;s hours and website from the downloaded map, and Settings › Interface › Start on can open Atlas there instead of on the map</content>
+  </entry>
   <entry>
     <title>Feeds 0.6.17</title>
     <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.17"/>
@@ -424,12 +431,5 @@
     <content type="text">Mushroom Journal 0.3.40: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader
 
 **Full Changelog**: https://github.com/wanderwildwood/kinokocho/compare/v0.3.39...v0.3.40</content>
-  </entry>
-  <entry>
-    <title>Engraver 0.0.15</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.15"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.15</id>
-    <updated>2026-11-16T22:20:56Z</updated>
-    <content type="text">Engraver 0.0.15: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
   </entry>
 </feed>
