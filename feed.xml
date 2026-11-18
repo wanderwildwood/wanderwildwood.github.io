@@ -4,8 +4,19 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-17T13:46:44Z</updated>
+  <updated>2026-11-17T21:35:48Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Feeds 0.6.17</title>
+    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.17"/>
+    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.17</id>
+    <updated>2026-11-17T21:35:48Z</updated>
+    <content type="text">Feeds 0.6.17
+
+- Podcasts play again. Since 0.6.5 an episode could stay at 0:00 and never start; it now plays, and keeps your place as before.
+- Audio files on this phone: in Add feed, pick a folder of sound files and it becomes one podcast in the Podcasts row, with your place, the speed button and the sleep timer. Files are read on the phone and never sent anywhere.
+- Find a podcast: search a show by name in Add feed and subscribe with one tap. The name you type goes to Apple&#x27;s podcast directory only when you press Search.</content>
+  </entry>
   <entry>
     <title>Messaging 1.35.42</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.42"/>
@@ -420,12 +431,5 @@
     <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.15</id>
     <updated>2026-11-16T22:20:56Z</updated>
     <content type="text">Engraver 0.0.15: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Handset 0.1.37</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.37"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.37</id>
-    <updated>2026-11-16T22:20:46Z</updated>
-    <content type="text">Handset 0.1.37: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
   </entry>
 </feed>
