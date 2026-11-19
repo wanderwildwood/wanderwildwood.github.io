@@ -214,8 +214,10 @@
   .app h4 a.mk:hover { color: var(--ink); text-decoration: none; }
   .mk svg { display: inline-block; height: 0.8em; vertical-align: -0.04em; }
   .mk.hut svg { width: 0.96em; }
-  .mk.nc svg { width: 1.97em; }
-  .hut + .nc { margin-left: 0.3em; }
+  .mk.nc svg { width: 1.45em; }
+  .hut + .nc { margin-left: 0.25em; }
+  .app h4 .tail { white-space: nowrap; }
+  .app h4:has(.mk) { letter-spacing: -0.01em; word-spacing: -0.06em; }   /* a hair tighter where the marks share the line, so the longest titles (Audio Reader) stay on one */   /* the romaji and its marks stay together: if the title is long, they go to the next line as one */
   p .hut-inline, li .hut-inline { width: 0.96em; height: 0.8em; vertical-align: -0.06em; color: var(--quiet); }
   li .nc-inline { width: 1.97em; height: 0.8em; vertical-align: -0.06em; color: var(--quiet); }
 
@@ -336,7 +338,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="kotozute">
   <img class="shot" src="shots/kotozute.png" data-dark="shots/dark/kotozute.png" width="400" height="627" loading="lazy"
        alt="The Messaging inbox: conversations newest first, under All, Groups and Unknown tabs">
-  <h4>Messaging <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 言伝 kotozute</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></h4>
+  <h4>Messaging <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 言伝 kotozute</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">SMS, MMS and Signal in one inbox, and a page your phone serves to your own computer
   so you can text from a keyboard. Signal voice calls too. With <a href="#hitome">Glance</a>, what
   is unread on the lock screen; with <a href="#ibasho">Whereabouts</a>, Send where I am.</p>
@@ -352,7 +354,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="itodenwa">
   <img class="shot" src="shots/itodenwa.png" data-dark="shots/dark/itodenwa.png" width="400" height="627" loading="lazy"
        alt="Handset&#x27;s Recents tab: calls with Ada Whitlock, Tomas Reyes, Nina Park and others, each with a direction arrow and time, and missed calls in bold">
-  <h4>Handset <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 糸電話 itodenwa</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></h4>
+  <h4>Handset <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 糸電話 itodenwa</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">Favorites, Recents, Contacts and a keypad. Nothing in a list dials on a touch, a call is
   answered by holding the button down, and numbers you don't know can ring, stay silent or be
   turned away. The other half of <a href="#kotozute">Messaging</a>.</p>
@@ -368,7 +370,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="enishi">
   <img class="shot" src="shots/enishi.png" data-dark="shots/dark/enishi.png" width="400" height="627" loading="lazy"
        alt="Connections: the All list of people">
-  <h4>Connections <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 縁 enishi</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></h4>
+  <h4>Connections <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 縁 enishi</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></span></h4>
   <p class="en">Everyone you know, under tabs for all, favorites and groups. A person's page lists each number
   to call or text, then your recent calls with them. <a href="#kotozute">Messaging</a> and <a
   href="#tayori">Mailbox</a> use it. It can sync with your own
@@ -385,7 +387,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="tayori">
   <img class="shot" src="shots/tayori.png" data-dark="shots/dark/tayori.png" width="400" height="627" loading="lazy"
        alt="The Mailbox inbox: messages newest first, each with its sender and first lines">
-  <h4>Mailbox <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 便り tayori</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></h4>
+  <h4>Mailbox <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 便り tayori</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">Any mail account that takes a password, read and written in black and white, a page
   at a time. Thunderbird for Android, redrawn for this screen. Pictures in a message load only when
   you ask. With <a href="#hitome">Glance</a>, what is unread on the lock screen.</p>
@@ -401,7 +403,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="koyomi">
   <img class="shot" src="shots/koyomi.png" data-dark="shots/dark/koyomi.png" width="400" height="627" loading="lazy"
        alt="Datebook month view for November 2026: a full month of made-up events (choir practice every Tuesday, lunch with Ada, dentist, farmers market, Thanksgiving), with today&#x27;s date highlighted">
-  <h4>Datebook <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 暦 koyomi</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></h4>
+  <h4>Datebook <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 暦 koyomi</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></span></h4>
   <p class="en">Month, week, day and agenda, with repeats of every ordinary shape and reminders that light the
   screen. It syncs with your own Nextcloud or other CalDAV server, or follows a calendar by its link. With
   <a href="#hitome">Glance</a>, today's events on the lock screen.</p>
@@ -417,7 +419,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="tokei">
   <img class="shot" src="shots/tokei.png" data-dark="shots/dark/tokei.png" width="400" height="627" loading="lazy"
        alt="Time&#x27;s Timer tab: Tea 5 min ready to start, Bread and Laundry running with the time each rings, and a 1 h Slow cooker timer">
-  <h4>Time <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 時計 tokei</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></h4>
+  <h4>Time <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 時計 tokei</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">Alarms without a limit, in groups such as Office and Home that switch on, off or skip a day
   together. Timers that ring with the phone locked, a stopwatch, a world clock. With <a href="#soramoyo">Sky</a>, a line of weather as it rings.</p>
   <p class="ja" lang="ja" hidden>数に限りのないアラームを、「仕事」「家」のようにまとめて、一度に入れたり切ったり一日休ませたり。ロック中でも鳴るタイマー、ストップウォッチ、世界時計。<a href="#soramoyo">空模様</a>と使えば、鳴る画面に天気が一行。</p>
@@ -432,7 +434,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="shashinki">
   <img class="shot" src="shots/shashinki.png" data-dark="shots/dark/shashinki.png" width="400" height="627" loading="lazy"
        alt="Lens viewfinder showing the emulator&#x27;s scene of a small house, with Shadows turned on (bold), the last picture&#x27;s thumbnail, the shutter and the flash button">
-  <h4>Lens <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 写真機 shashinki</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></h4>
+  <h4>Lens <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 写真機 shashinki</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">Photos and video laid out as Mudita's own camera is, with HDR, Night and QR codes
   read as you point. A code can go to <a href="#satsuire">Wallet</a> as a card, a sign-in code to
   <a href="#aikotoba">Passwords</a>. Open Camera underneath; nothing drawn over the viewfinder.</p>
@@ -448,7 +450,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="garo">
   <img class="shot" src="shots/garo.png" data-dark="shots/dark/garo.png" width="400" height="627" loading="lazy"
        alt="Pictures showing the Walks folder: a three-across grid of grayscale landscapes (mountain ridges, a path, pine forest, plowed fields)">
-  <h4>Pictures <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 画廊 garō</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></h4>
+  <h4>Pictures <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 画廊 garō</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></span></h4>
   <p class="en">The pictures on the phone, by folder, a page at a time. Crop, turn or write on one, and save it
   where you choose. With your own Immich or Nextcloud server, its pictures too, and the camera
   backed up there.</p>
@@ -480,7 +482,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="hitome">
   <img class="shot" src="shots/hitome.png" data-dark="shots/dark/hitome.png" width="400" height="627" loading="lazy"
        alt="The Kompakt lock screen: today's four events, the weather, unread texts and missed calls under the clock, and Music Box's controls above the padlock">
-  <h4>Glance <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 一目 hitome</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></h4>
+  <h4>Glance <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 一目 hitome</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">Today's events, the weather and what is unread, on the lock screen, from
   <a href="#koyomi">Datebook</a>, <a href="#soramoyo">Sky</a>, <a href="#kotozute">Messaging</a> and
   <a href="#tayori">Mailbox</a>, with pinned notes and the next dose too, in the size you choose.
@@ -497,7 +499,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="tana">
   <img class="shot" src="shots/tana.png" data-dark="shots/dark/tana.png" width="400" height="627" loading="lazy"
        alt="Cabinet with two files chosen in the Shared folder on a home server, with Copy, Move, Delete and More along the foot">
-  <h4>Cabinet <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 棚 tana</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></h4>
+  <h4>Cabinet <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 棚 tana</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></span></h4>
   <p class="en">A file manager, with the shared drives on your own servers as places like any other, and other
   apps open and save through it. A copy is written whole or not at all. PDFs open and print here;
   a track (.gpx) opens in <a href="#chikei">Topo</a>.</p>
@@ -529,7 +531,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="aikotoba">
   <img class="shot" src="shots/aikotoba.png" data-dark="shots/dark/aikotoba.png" width="400" height="627" loading="lazy"
        alt="Passwords' Codes tab: five made-up accounts, each with its six-digit two-step code and the seconds left">
-  <h4>Passwords <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 合言葉 aikotoba</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></h4>
+  <h4>Passwords <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 合言葉 aikotoba</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">Sign-ins and their two-step codes in a KeePass file, the same one KeePassXC opens on
   a computer. Press a code to copy it; fill sign-ins in other apps. It locks when the screen goes
   dark; a copy clears after thirty seconds. No internet.</p>
@@ -624,7 +626,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="yumecho">
   <img class="shot" src="shots/yumecho.png" data-dark="shots/dark/yumecho.png" width="400" height="627" loading="lazy"
        alt="Dream Log&#x27;s log screen: the Arm for the night button above dreams grouped by night">
-  <h4>Dream Log <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 夢帳 yumechō</button> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></h4>
+  <h4>Dream Log <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 夢帳 yumechō</button> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></span></h4>
   <p class="en">Arm it before sleep; if a dream wakes you, press a volume key in the dark and say it. By morning
   it is written down, transcribed on the phone itself. Each dream keeps its recording, and its
   words can go to <a href="#oboegaki">Memo</a> or your Nextcloud.</p>
@@ -674,7 +676,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="mimidoku">
   <img class="shot" src="shots/mimidoku.png" data-dark="shots/dark/mimidoku.png" width="400" height="627" loading="lazy"
        alt="Audio Reader&#x27;s player: The Wind in the Willows by Kenneth Grahame, chapter 4 Mr. Badger at 0:11:35 of 0:30:30, with Back, Sleep, Speed, Marks, Lock and More along the top">
-  <h4>Audio Reader <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 耳読 mimidoku</button> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></h4>
+  <h4>Audio Reader <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 耳読 mimidoku</button> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></span></h4>
   <p class="en">An audiobook player. Point it at a folder of books, tell it once how they are laid out, and it
   keeps your place in each one. It also reads an Audiobookshelf server or a Nextcloud folder.
   Chapters, a sleep timer, playback speed and bookmarks.</p>
@@ -690,7 +692,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="jimeikin">
   <img class="shot" src="shots/jimeikin.png" data-dark="shots/dark/jimeikin.png" width="400" height="627" loading="lazy"
        alt="The Songs list in Music Box: made-up songs by Nina Park, Tomas Reyes Quartet and Ada Whitlock">
-  <h4>Music Box <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 自鳴琴 jimeikin</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></h4>
+  <h4>Music Box <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 自鳴琴 jimeikin</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">A music player for a folder of your own music, a music server you run, internet radio and
   YouTube Music. Downloads stay on the phone as ordinary music files. Rename any song, album or artist, and heart the songs you love.</p>
   <p class="ja" lang="ja" hidden>音楽プレーヤー。自分の音楽のフォルダ、自分で動かす音楽サーバー、ネットラジオ、YouTube Musicに。ダウンロードした曲は普通の音楽ファイルとして電話に残る。曲、アルバム、アーティストの名前は自由に変えられ、好きな曲にはハートを。</p>
@@ -705,7 +707,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="kirinuki">
   <img class="shot" src="shots/kirinuki.png" data-dark="shots/dark/kirinuki.png" width="400" height="627" loading="lazy"
        alt="Feeds listing the feeds, the Podcasts folder opened on two podcasts, a gemlog among them">
-  <h4>Feeds <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 切抜 kirinuki</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></h4>
+  <h4>Feeds <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 切抜 kirinuki</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></span></h4>
   <p class="en">Feeds read as plain text, with Gemini, gopher and Spartan alongside, and podcasts played under
   their show notes, marked once heard; fetched on wifi, read with the radio off. The volume keys
   turn the page. No account, or sync with FreshRSS, Miniflux or Nextcloud News.</p>
@@ -737,7 +739,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="jibiki">
   <img class="shot" src="shots/jibiki.png" data-dark="shots/dark/jibiki.png" width="400" height="627" loading="lazy"
        alt="Dictionary&#x27;s word page for &quot;quiet&quot;: pronunciation, part of speech, numbered meanings with example lines, and tappable opposite and near words">
-  <h4>Dictionary <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 字引 jibiki</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></h4>
+  <h4>Dictionary <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 字引 jibiki</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">An English dictionary and thesaurus in the menu over selected text, in any app.
   Press another word and it goes back into what you were writing. Geese finds goose and stopped
   finds stop, among some 136,000 words, all on the phone.</p>
@@ -753,7 +755,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="oboegaki">
   <img class="shot" src="shots/oboegaki.png" data-dark="shots/dark/oboegaki.png" width="400" height="627" loading="lazy"
        alt="Memo&#x27;s note list, newest first: a to-do for today at the top, then a pinned Groceries list and notes filed in Home and Trips folders, with the new-note button">
-  <h4>Memo <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 覚書 oboegaki</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></h4>
+  <h4>Memo <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 覚書 oboegaki</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></span></h4>
   <p class="en">Notes, lists and scanned pages, as plain Markdown on your own Nextcloud or the phone. A shared
   list can be ticked on one phone while added to on another. Voice notes are written down on the
   phone; Desktop Sync opens it all on your computer.</p>
@@ -769,7 +771,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="kondate">
   <img class="shot" src="shots/kondate.png" data-dark="shots/dark/kondate.png" width="400" height="627" loading="lazy"
        alt="Recipes: Lemon Barley Soup scaled to serve 6, the first two ingredients ticked off">
-  <h4>Recipes <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 献立 kondate</button> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></h4>
+  <h4>Recipes <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 献立 kondate</button> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></span></h4>
   <p class="en">A recipe book that keeps a recipe page's words, not the life story above them. Send what you
   lack to <a href="#oboegaki">Memo</a> as a shopping list, and cook a step to a screen with <a href="#tokei">Time</a> timers. Your Nextcloud keeps a copy.</p>
   <p class="ja" lang="ja" hidden>料理の手帳。レシピのページを共有すれば言葉だけを残し、前置きの身の上話は残さない。足りない材料は<a href="#oboegaki">覚書</a>へ買い物リストとして、作るときは一画面に一手順、時間は<a href="#tokei">時計</a>のタイマーで。自分のNextcloudにも写しを。</p>
@@ -784,7 +786,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="tsuyaku">
   <img class="shot" src="shots/tsuyaku.png" data-dark="shots/dark/tsuyaku.png" width="400" height="627" loading="lazy"
        alt="Translate turning a Spanish note to Ada into English, with Copy, Share and To Memo buttons below">
-  <h4>Translate <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 通訳 tsūyaku</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></h4>
+  <h4>Translate <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 通訳 tsūyaku</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">Translation between English and 59 languages, on the phone, in the menu over
   selected text beside <a href="#jibiki">Dictionary</a>. Words in a picture too. Each language
   downloads once; nothing translated leaves the phone. A translation can be copied, shared or sent
@@ -801,7 +803,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="shoka">
   <img class="shot" src="shots/shoka.png" data-dark="shots/dark/shoka.png" width="400" height="627" loading="lazy"
        alt="Shelf&#x27;s Shelf order tab in Sections: Fiction (3) and Crime &amp; mystery (2) with numbered books, a search-the-catalog field, and a &#x27;Try again&#x27; button for the one book not found">
-  <h4>Shelf <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 書架 shoka</button> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></h4>
+  <h4>Shelf <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 書架 shoka</button> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></span></h4>
   <p class="en">Scan a book's barcode and Shelf finds its Dewey number and its place on your
   shelves, by number or in broad sections with Fiction first. Shared through Nextcloud, or saved as
   a spreadsheet. With <a href="#mimidoku">Audio Reader</a>, Listen opens a book you have a recording
@@ -928,7 +930,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="soramoyo">
   <img class="shot" src="shots/soramoyo.png" data-dark="shots/dark/soramoyo.png" width="400" height="627" loading="lazy"
        alt="Sky&#x27;s Today page: 50°F, mostly cloudy, ENE wind 13 mph with gusts to 29, the high and low, no rain likely in the next 12 hours, and a strip of hourly temperatures">
-  <h4>Sky <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 空模様 soramoyō</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></h4>
+  <h4>Sky <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 空模様 soramoyō</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">The days ahead, the rain radar, the moon and the sun's hours, and your own weather station if
   you have one. In the US, weather and wildfire alerts. Air quality too, modeled rather than
   measured. With <a href="#hitome">Glance</a>, the weather on the lock screen.</p>
@@ -1010,7 +1012,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <div class="app" id="utahon">
   <img class="shot" src="shots/utahon.png" data-dark="shots/dark/utahon.png" width="400" height="627" loading="lazy"
        alt="Songbook showing a song called Paper Boats, its chords set over the words of the first verse, with buttons for auto scroll and chords below">
-  <h4>Songbook <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 歌本 utahon</button> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></h4>
+  <h4>Songbook <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 歌本 utahon</button> <a class="mk nc" href="home/#nextcloud" title="Signs in with Home's Nextcloud account" aria-label="Signs in with Home's Nextcloud account" data-ja-title="庵のNextcloudアカウントでサインインできる"><svg aria-hidden="true"><use href="#nc"/></svg></a></span></h4>
   <p class="en">Chords, words and tab saved from the page they were found on or typed in, to play
   from offline. Press a chord for its box, move the key with − and +, and let the sheet step on.
   Folders by artist, setlists and ChordPro files.</p>
