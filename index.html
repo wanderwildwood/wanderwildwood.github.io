@@ -71,7 +71,8 @@
   .coming { font-weight: normal; color: var(--quiet); }   /* beside the game's title, in the page's quiet color */
   .coming[hidden] { display: none; }
   .jump-label { font-weight: 700; color: var(--ink); }   /* the row's name: bold so it isn't lost, and plain words, not a link */
-  .jump { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0.4rem 2rem; margin: 0 0 1.5rem; font-size: 1.2rem; }   /* the section links sit together on the left */
+  .jump { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0.4rem 2rem; margin: 0 0 1.5rem; font-size: 1.2rem; }   /* on a phone the section links wrap from the left */
+  @media (min-width: 48rem) { .jump { justify-content: space-between; } }   /* wider, the row spreads across the whole column */
   .ethos { margin-bottom: 0; }
   .aside { font-size: 0.9rem; color: var(--quiet); margin: 0.9rem 0 0; }
   /* The one thing on the page that asks for something: the llama from the tattoo, large, and a button. */
