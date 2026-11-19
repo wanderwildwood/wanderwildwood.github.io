@@ -11,16 +11,16 @@
 <script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
 <style>
   :root {
-    --ink: #2b2620;
-    --quiet: #6d6458;
-    --rule: #ded5c6;
-    --paper: #f4efe4;
+    --ink: #29241e;
+    --quiet: #5a5247;
+    --rule: #cbc1b1;
+    --paper: #e2dccf; --line: #8c7f6c;
   }
   /* Dark follows the computer or phone, unless the button in the corner has been pressed (theme.js). */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; color-scheme: dark; }
+    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --line: #776b5b; color-scheme: dark; }
   }
-  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; color-scheme: dark; }
+  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --line: #776b5b; color-scheme: dark; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -40,8 +40,8 @@
     border-bottom: 1px solid var(--rule);
   }
   p { margin: 0 0 1.1rem; }
-  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; }
-  a:hover { text-decoration-style: dotted; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--line); }
+  a:hover { text-decoration-style: dotted; text-decoration-color: currentColor; }
   .lede { color: var(--quiet); }
   .back { font-size: 0.9rem; color: var(--quiet); margin-bottom: 1.6rem; }
   ol { padding-left: 1.3rem; margin: 0 0 1.1rem; }
