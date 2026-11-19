@@ -150,6 +150,7 @@
   .app h4 { font-size: 1.1rem; font-weight: 600; margin: 0 0 0.2rem; }
   /* The Japanese name, which the repository and the file are called by: there, but second. */
   h1 .jp, .app h4 .jp { font-weight: 400; color: var(--quiet); }
+  .app h4 .jp { font-size: 0.8em; }   /* smaller than the name, so the longest titles with marks (Audio Reader) keep to one line in a four-across card */
   /* Press an app's Japanese name and its description is read in Japanese instead. */
   button.jp { font: inherit; font-weight: 400; color: var(--quiet); background: none;
     border: 0; padding: 0; cursor: pointer; text-align: left;
@@ -212,12 +213,11 @@
      colour: the app can sign in with Home's Nextcloud account. A card can have either, both or neither. */
   .mk { color: var(--quiet); margin-left: 0.15em; }
   .app h4 a.mk:hover { color: var(--ink); text-decoration: none; }
-  .mk svg { display: inline-block; height: 0.8em; vertical-align: -0.04em; }
-  .mk.hut svg { width: 0.96em; }
-  .mk.nc svg { width: 1.45em; }
+  .mk svg { display: inline-block; height: 0.7em; vertical-align: -0.04em; }   /* sized to the smaller romaji beside them */
+  .mk.hut svg { width: 0.84em; }
+  .mk.nc svg { width: 1.27em; }
   .hut + .nc { margin-left: 0.25em; }
-  .app h4 .tail { white-space: nowrap; }
-  .app h4:has(.mk) { letter-spacing: -0.01em; word-spacing: -0.06em; }   /* a hair tighter where the marks share the line, so the longest titles (Audio Reader) stay on one */   /* the romaji and its marks stay together: if the title is long, they go to the next line as one */
+  .app h4 .tail { white-space: nowrap; }   /* the romaji and its marks stay together: if the title is long, they go to the next line as one */
   p .hut-inline, li .hut-inline { width: 0.96em; height: 0.8em; vertical-align: -0.06em; color: var(--quiet); }
   li .nc-inline { width: 1.97em; height: 0.8em; vertical-align: -0.06em; color: var(--quiet); }
 
