@@ -61,8 +61,9 @@ export const APPS = [
 
 // Mudita's own apps that one of the above, or another app, can stand in for. Left off on
 // purpose: the dialer (it also draws the call screen and is the fallback for emergency
-// calls), the launcher, Settings, setup, updates, the keyboard, eSIM, the app store and
-// Mudita Center. `gate` names a default the app must not hold while it is hidden.
+// calls), the launcher, Settings, setup, updates, the keyboard, eSIM and Mudita Center.
+// InkApps, the store, is offered for anyone who wants no route to web pages on the phone.
+// `gate` names a default the app must not hold while it is hidden.
 export const STOCK = [
   { pkg: "com.mudita.contacts", name: "Contacts",
     note: "Contacts live in Android's own address book, not in this app; Handset and Messaging still find them." },
@@ -85,6 +86,8 @@ export const STOCK = [
   { pkg: "com.mudita.maps", name: "Maps" },
   { pkg: "com.mudita.meditation", name: "Meditation" },
   { pkg: "com.mudita.chess", name: "Chess" },
+  { pkg: "com.mudita.inkapps", name: "InkApps",
+    note: "Closes the store, and with it the web pages its sign-in and QR scanner can open. Its icon stays but no longer opens. Apps already installed from it stay, but it can't update them while hidden." },
 ];
 
 // Names for packages the background list may show; anything else is shown by its package.
