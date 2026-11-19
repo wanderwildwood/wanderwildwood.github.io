@@ -4,8 +4,1302 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-18T01:00:00Z</updated>
+  <updated>2026-11-19T05:27:18Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Tuner 0.1.53</title>
+    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.53"/>
+    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.53</id>
+    <updated>2026-11-19T05:27:18Z</updated>
+    <content type="text"># Tuner 0.1.53
+
+- A readout to tune by: below the strings, the note in large type, how many cents flat or sharp with which way to turn, and a scale from −50 to +50 cents with a dot where the pitch sits
+- The reading holds still on a held note: it shows the middle of each half second&#x27;s readings and redraws only when that moves three cents or more
+- When the string dies away the last reading stays, grayed, until another note is aimed at
+- In tune also says by how many cents
+- The pitch graph is a tap away: a tap on the readout shows the graph in its place, a tap on the graph brings the readout back, and the choice is remembered</content>
+  </entry>
+  <entry>
+    <title>Feeds 0.6.19</title>
+    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.19"/>
+    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.19</id>
+    <updated>2026-11-19T04:44:44Z</updated>
+    <content type="text"># Feeds 0.6.19
+
+- A Reading row under Podcasts, for the feeds that are in no folder: tap it for every article from them, or its + to show the feeds</content>
+  </entry>
+  <entry>
+    <title>Shelf 0.1.40</title>
+    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.40"/>
+    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.40</id>
+    <updated>2026-11-19T04:13:25Z</updated>
+    <content type="text"># Shelf 0.1.40
+
+- The bar with Scan and Shelf order is the same height as the other apps&#x27; top bars
+- Spreadsheet export keeps every text cell from running as a formula, and a book known only by its LCCN survives the round trip
+- A QR sign-in is checked with the server before it is kept
+- Books found without the Library of Congress are looked up there again quietly, two a minute and never ahead of a fresh scan; with no connection, the asking waits for one to come back
+- The tabs always fit across the screen
+- Listen asks only the real Audio Reader, before a title goes out or a book is opened
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Sync compares files from a compressing web server as the same file
+- An unreadable catalog is kept aside, and a failed write no longer closes the app
+- Nothing is saved, synced or imported until the library has loaded, and a book added meanwhile is kept
+- Import matches a row known by its LCCN alone, so books still waiting for a lookup no longer hide it as already here
+- A Dewey number with a stray mark is saved clean and no longer crashes Sections
+- A lookup only the unreachable catalogs might know is a miss, not tried every minute
+- Genre fill with a catalog out of reach waits for the next start instead of ending for good
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.72</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.72"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.72</id>
+    <updated>2026-11-19T04:13:16Z</updated>
+    <content type="text"># Datebook 0.1.72
+
+- Month: today&#x27;s frame is twice as heavy, so it stands out at a glance on e-ink</content>
+  </entry>
+  <entry>
+    <title>Atlas 0.1.15</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.15"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.15</id>
+    <updated>2026-11-19T04:08:09Z</updated>
+    <content type="text"># Atlas 0.1.15
+
+- Follow trail: Walk to here follows a trail from where you meet it to the spot marked on it, kept across restarts; away from the trail, Walk to the trail plans a walking route to its nearest point
+- Walk to here has its own icon: a walking figure with a flag ahead
+- Dark mode reaches the wait dialogs for moving maps and sharing or importing bookmarks; the streamed map and the OpenStreetMap profile picture keep their colors
+- Own-server dialogs say that a plain http:// address is taken for a server at home, and is sent unencrypted
+- A contact&#x27;s address tapped into the search, or used for directions from the place screen, is not kept in the search history
+- A bug report carries the phone&#x27;s system information as text in the mail rather than the app&#x27;s log, and log archives left by earlier reports are deleted
+- Place types use US English (Highway, not Motorway); British and New Zealand English keep Motorway
+- Bookmark notes load nothing from the network, so a picture in an imported note does not tell its server the place was opened
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Walk to here starts from a fresh, close position, stops on the pass of the trail that was marked, and finds the marked spot on a trail made of several lines; deleting the followed track ends following
+- An online address lookup tries Photon when the Census geocoder cannot be reached
+- Fastest for one trip no longer turns off avoid-motorways set in Settings
+- On a phone that turns sideways, the navigation and downloader panels no longer close the app
+- Another app can no longer plan a route through the map&#x27;s own extras, or close the app with a bookmark or track that is gone
+- Search asks Contacts off the main thread as you type
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Birding 1.7.48</title>
+    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.48"/>
+    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.48</id>
+    <updated>2026-11-19T04:07:19Z</updated>
+    <content type="text"># Birding 1.7.48
+
+- A place gone stale or unknown stops weighing the answers, and a detection is no longer stamped with a stale place, even with the screen left in front
+- Listening lets go of the microphone on stop
+- The species list keeps its search across a return
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A newer run of the same bird no longer crashes the app with a duplicate row
+- Restore keeps the old log until the new one has been read, and detections after a restore land in the restored log
+- A restore on a full phone says the phone is too full, not that the backup is damaged
+- A backup naming a bird the app has no name for is refused, and the log leaves such a line off rather than failing on it
+- Removing a row from the condensed Heard log no longer takes another day&#x27;s readings with it
+- A microphone that will not open says Not listening with a notice why, and a press to listen tries again
+- A recording is written whole or not at all, and recordings kept for the session are no longer cleared by a change of font size, language or dark mode
+- Species names with a comma are quoted in the spreadsheet
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Chess+ 1.3.30-chessplus</title>
+    <link href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.30-chessplus"/>
+    <id>https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.30-chessplus</id>
+    <updated>2026-11-19T04:07:07Z</updated>
+    <content type="text"># Chess+ 1.3.30
+
+- When the engine fails while choosing a move it is started again; if it still cannot play, the game is kept, not resigned and deleted
+- A saved game that cannot be read is no longer deleted silently: a message offers Keep or Discard, and a new game over it asks first
+- Two players: Undo with a move placed but not confirmed takes back only that move
+- New game saves the chosen difficulty and move hints before the game starts
+- Statistics: Clear all asks with a second tap on the button instead of a dialog
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- An engine that stops answering is ended after two seconds and started again on the next move, and a restarted engine is no longer disturbed by the old one
+- Leaving the no-engine message goes back to the menu without bringing the message back
+- A damaged copy of the engine&#x27;s net is made again instead of staying missing
+- A computer move canceled before its search began no longer waits forever
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Topo 0.2.22</title>
+    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.22"/>
+    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.22</id>
+    <updated>2026-11-19T04:06:57Z</updated>
+    <content type="text"># Topo 0.2.22
+
+- A Geocaches map layer, off until added under Layers: open a geocache GPX file or Pocket Query zip from the map menu or another app, and, with signal, see the Opencaching sites&#x27; caches for the map on the screen. Each cache shows its kind, a tick once found and a cross after a did-not-find; its sheet has the hint, the description, Navigate, Found it, Not found and a note. Field notes export for Geocaching.com or Opencaching. A saved area keeps its caches too
+- Save this area tries a failed tile again after a pause; an area that could not be fetched in full says how many map and elevation tiles are missing and offers to fetch just those
+- Save this area still fetches the map tiles when the elevation server is out of reach, and an elevation tile the server does not have is not counted as missing
+- Save this area says when the fruit and nut trees or the streets could not be kept with it
+- Opening a GPX file of waypoints asks before adding them as beacons and turns down a file of thousands
+- Backup says that saved areas are not in it and are saved again on a new phone
+- Settings has an Open DuraSpeed row on a phone that has DuraSpeed
+- My region packs only keeps the Forage and Streets layers off the network too
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- The bottom bar says Navigate in full, rather than a cut-off Navigat...
+- The Location and Elevation home-screen widgets draw again rather than closing the app on each update
+- Backups restore again when saved areas or the Forage and Streets layers hold many files: tiles are left out and fetched again on use
+- Zoomed-out and edge map tiles a saved area kept are drawn with no signal too
+- Deleting a saved area finishes removing its tiles even if the page is left part way, and tiles left by a save that failed or was closed are removed
+- Importing or removing an elevation model touches that model only; a zip that is not an elevation model leaves the loaded one as it was, and a model imported before this version is removed by Remove and replaced by a new import
+- A region pack named like the viewed terrain, the imported model or a saved area&#x27;s elevation no longer replaces it
+- A region pack download left part way is not reported as a failure, and leaves no partial file
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Detour 0.1.31</title>
+    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.31"/>
+    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.31</id>
+    <updated>2026-11-19T04:06:47Z</updated>
+    <content type="text"># Detour 0.1.31
+
+- The walk&#x27;s destination survives the app being stopped in the background
+- Back from Settings returns to the walk
+- Settings turns its pages like the app&#x27;s other lists
+- The GPS and the compass are let go while the screen is away and start again on the way back
+- Arrived is said only from a live position sure to within 50 meters
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A newer GPS fix is always taken, even a little less sure than the last, and a clock set back during a walk no longer freezes the position
+- A permission dialog closed with Back is not taken as refused for good, Ask every time still asks again, and a refusal Android stopped asking about is recognized in later runs
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Star Chart 0.5.23</title>
+    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.23"/>
+    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.23</id>
+    <updated>2026-11-19T04:06:39Z</updated>
+    <content type="text"># Star Chart 0.5.23
+
+- Planets&#x27; brightness is worked out for the night from their distance and phase, not their brightest ever
+- Where: the phone&#x27;s newest location is used, and a place taken from the phone still says so after the app is closed
+- When: a chosen moment survives the app being stopped in the background
+- The first-run question about where you are is not asked again when the window is rebuilt
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Outer planets near the end of the tables are placed from their own day
+- A position that is not a number is not taken as a place, and a stored one asks again instead of showing Greenwich unasked
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Audio Reader 1.3.69</title>
+    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.69"/>
+    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.69</id>
+    <updated>2026-11-19T04:06:30Z</updated>
+    <content type="text"># Audio Reader 1.3.69
+
+- A book whose first file is renamed, or gains a file in front, keeps its place, bookmarks and chapter marks
+- Listening on after the screen is gone keeps its place
+- A file another app opens comes in paused, so playback starts only when you press play
+- Server sync: a downloaded book whose file changes on the server goes back to Download, which fetches the new file instead of the player stopping at it; while it waits, the book stays in Downloaded and can still be removed
+- Only the app, the system and the controllers it vouches for (notification, Bluetooth, lock screen) can see or steer what is playing, and Open with takes only a file or a document
+- On Android 13 and later, notifications are asked for once, the first time a book is kept
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A folder that fails to list part way keeps its books, places and bookmarks
+- A file gone from a book&#x27;s folder leaves its chapter list, so the player no longer stops at it; a file the server no longer has leaves it too, unless its audio is on the phone, so the book can be downloaded again
+- Restoring places moves the book in the strip and in the player, so Play does not carry on from the old place
+- Opening the book already in the player carries on from where it is, instead of going a few seconds back
+- Opening a book in a player stopped from a headset plays instead of sitting still
+- An odd Audiobookshelf answer says &quot;not Audiobookshelf&quot; instead of crashing the app; a pasted key loses the line break it brought, and a key that cannot be used is said in words instead of crashing
+- Lengths and tags are read on Android 9 too
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Bitcoin 0.1.18</title>
+    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.18"/>
+    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.18</id>
+    <updated>2026-11-19T03:54:26Z</updated>
+    <content type="text"># Bitcoin 0.1.18
+
+- A fingerprint added to the phone turns fingerprint unlock off for wallets with a PIN, which then ask for it, and each wallet says so once; this works from the first start after the update, and fingerprint unlock set up again afterward is kept
+- Other apps can no longer crash the wallet, switch Hide amounts on, or open the developer screen; a wallet opened from outside must be one this app holds, a link reaches Send only when it is a bitcoin: link, and the notification&#x27;s Log out tells no other app the wallet&#x27;s id
+- The screen where a recovery phrase is typed is kept out of screenshots and the Recents picture
+- Over Tor or a proxy, price requests go one at a time and wait ten seconds at most, so amounts no longer queue behind them, and they no longer reconnect during a hardware wallet&#x27;s PIN or genuine check
+- The Electrum backup server gives way to the first one again when it stops answering
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A failed price fetch waits a minute before trying again, and a rate more than an hour old is not used
+- A lock-screen price for the currency just changed from is dropped
+- A payment link opens Send once, not again when the app is recreated or reopened from Recents
+- The backup Electrum server stays chosen when two connections both find the first not answering
+- The fingerprint prompt comes up without a pause
+- An answered fingerprint notice no longer comes back after another change to the wallet, such as its passphrase setting
+- The connected notification of a hardware wallet that is not remembered opens it again
+- Hardware wallet replies are logged only in debug builds
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Field Kit 0.1.30</title>
+    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.30"/>
+    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.30</id>
+    <updated>2026-11-19T03:54:09Z</updated>
+    <content type="text"># Field Kit 0.1.30
+
+- On the lock screen a reminder numbers a patient, never names them, also when the phone locks with the reminder screen up
+- Each patient has their own reminder: with several overdue, all are reminded, the one due first first, and a shortened interval is never passed over
+- No screenshots or Recents picture of an assessment or its note, and the keyboard is asked not to learn what is typed in them; autocorrect stays
+- The note&#x27;s first line carries the day the assessment began, not only its times
+- The note never takes a location more than five minutes old as where the patient is
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A later patient&#x27;s reminder is no longer lost behind an earlier one, and the alarm no longer goes off again and again
+- A patient file that cannot be read at start no longer cancels the alarm or takes down the reminder
+- Vitals typed before the first answer stay with the patient they begin
+- Vitals typed but not yet saved stay through an aid page, the note or the read-out, and the 15-second count buzzes even with another screen open
+- A deleted, discarded or cleared note is removed when its ten minutes are up, not only the next time the app opens
+- A last note replaced by a newer one waits for Undo, and putting one back never wipes the newer
+- Typing in an assessment is saved when the typing pauses, not at every letter
+- A picked emergency contact survives the app being stopped
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Dream Log 0.1.37</title>
+    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.37"/>
+    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.37</id>
+    <updated>2026-11-19T03:53:58Z</updated>
+    <content type="text"># Dream Log 0.1.37
+
+- Keep dreams in Memo sends nothing unless the app answering is the real Memo, checked before every send, and names an app answering in Memo&#x27;s place as the one turned away
+- Nextcloud sign-in keeps to https and the server you typed; an account the server names on another address is not kept, and its new app password is taken back
+- A dream is sent to Nextcloud again only when its own words change
+- A press while armed that leaves nothing recorded gives one long buzz, not the two of a recording that stopped
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A sleeping phone no longer stays armed for days; a press after the longest night records that dream and disarms when it ends, and the disarm never cuts a recording short
+- A storage error ends the recording instead of the app
+- A recording cut off by a stopped app is kept on the next start, and one that failed before a second was heard is not kept as an empty dream
+- A dream that could not be read or written stays waiting rather than heard as nothing or stopping the app, and one that stopped the app three times is no longer tried at every start
+- An empty log answering for several notes in Memo removes none of them
+- Saving the words to a file says so when there is nothing to save, and a failed write leaves no cut-off file
+- A quick change of languages no longer leaves one chosen whose model was just deleted, and a model already here is not fetched twice
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Songbook 0.1.13</title>
+    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.13"/>
+    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.13</id>
+    <updated>2026-11-19T03:53:47Z</updated>
+    <content type="text"># Songbook 0.1.13
+
+- Anything shared in from another app waits for a yes before it is read or brought in, and the question, or a list of pages being read, comes back when the window is rebuilt
+- Songbook no longer offers itself for every JSON file: a saved songbook comes in through Settings
+- Browser sign-in keeps to https and the server it started with, and carries on when you leave the screen
+- Open page opens a song&#x27;s plain http address over https, and shows only for a web page
+- A song being typed comes back when the window is rebuilt
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A song the phone could not read, or a phone with none of its songs, deletes nothing on Nextcloud
+- Every song deleted here is deleted on Nextcloud, and a song folder made again there deletes nothing here
+- An artist&#x27;s folder left empty is taken away only while it is still as it was listed, so a song another phone has just put in it stays
+- A damaged song file comes back from the server, and a song the server refuses no longer stops the setlists
+- An edit to a song a sync changed keeps both, the edit as the phone&#x27;s copy
+- Setlist edits no longer write over lists a sync just brought in, and a setlist file that cannot be read is set aside so the next sync takes the server&#x27;s lists
+- A sheet ChordPro cannot carry whole is kept word for word
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Translate 0.9.27</title>
+    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.27"/>
+    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.27</id>
+    <updated>2026-11-19T03:53:38Z</updated>
+    <content type="text"># Translate 0.9.27
+
+- Picture reading keeps a line whose last word is faint, and the words read are not written to the log
+- A second picture arriving during a read is read next instead of deleted, and a picture still waiting at a fresh start is read too
+- The read-from-a-picture line goes once the text is edited by hand
+- Reopened from Recents, the app keeps your draft instead of taking back the text or picture it first started with
+- Other apps can no longer put text in place of your draft
+- Language packs come only from the two catalog hosts: a redirect elsewhere is refused
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Two language pack downloads no longer clash, and deleting a pack spares what a running download needs
+- A finished pack no longer turns back to not downloaded
+- Storage filling up during a pack download is reported as no room, not as offline
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Time 0.2.30</title>
+    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.30"/>
+    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.30</id>
+    <updated>2026-11-19T03:53:29Z</updated>
+    <content type="text"># Time 0.2.30
+
+- Where the alarm service cannot start, the notification sounds the alarm itself, following its sound and vibration settings: Silent only vibrates, and vibration off only sounds
+- World clock: cities take their names in your language, and search finds either name
+- Only apps allowed to set alarms can change them, and asking for an alarm that exists but is off switches it on
+- German: the app is called Time, as the launcher shows it
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A change of the phone&#x27;s clock or time zone no longer makes a running timer missed or ring late, and the list shows the minutes it has left
+- Save on a timer&#x27;s edit screen while it rings ends the ring, and no longer writes over a ring, stop or extra minute that came while the screen was open
+- A new length for a timer started on the fly no longer deletes it
+- A repeating alarm still rings today after the clock jumped forward
+- A ring left from a stopped process or from before a restart is marked missed at once, not rung again with the next alarm, and a timer it leaves at Time&#x27;s up is reset
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Car Check 0.1.26</title>
+    <link href="https://github.com/wanderwildwood/tenken/releases/tag/v0.1.26"/>
+    <id>https://github.com/wanderwildwood/tenken/releases/tag/v0.1.26</id>
+    <updated>2026-11-19T03:53:21Z</updated>
+    <content type="text"># Car Check 0.1.26
+
+- Readings say so when the car has stopped answering
+- Clearing the codes, on a second tap, is the one thing the app asks the car to change, and the home line no longer says Read-only
+- The reminder goes to Datebook and the codes to Memo only when each is the real app
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Trouble codes end only when all three requests have answered, and a car with no stored codes no longer ends the reading before the pending ones are asked for
+- A clear the car refused is not sent again after it has been reported
+- The check-engine light is not shown when the car does not answer the question about it
+- Remind me means this time tomorrow by the phone&#x27;s clock, so a night the clocks change is not an hour out
+- Disconnect cuts short a connection still being made
+- A dismissed Bluetooth prompt is not taken for Android refusing
+- The page you had open survives the window being rebuilt, and opens Home instead when no car is behind it anymore
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Mailbox 0.1.64</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.64"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.64</id>
+    <updated>2026-11-19T03:53:13Z</updated>
+    <content type="text"># Mailbox 0.1.64
+
+- Settings export carries text size, turn with the phone, the lock-screen unread count, and dark mode when the app&#x27;s own switch is set
+- Account setup: a Gmail, iCloud or Zoho address is set up from the settings the app carries, with no lookup
+- Server check: after 30 seconds the slow server is named, and an answer that comes later still counts
+- Contacts requests go to Connections only when it is the real one
+- Glance&#x27;s unread count changes when the unread widget does
+- Push info&#x27;s Learn more opens the Push email section of the README
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A failed settings import changes none of Mailbox&#x27;s own settings, and a file from before them leaves them as they are
+- Saving a remote picture over an existing file leaves it as it was when the download is too large or cut off
+- A remote picture over plain http is refused before a file is made
+- A canceled Export as EML no longer turns the next attachment save into an export
+- Picking a sound in account settings no longer stops the page reading the notification channel back
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Tarot 0.1.27</title>
+    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.27"/>
+    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.27</id>
+    <updated>2026-11-19T03:52:56Z</updated>
+    <content type="text"># Tarot 0.1.27
+
+- Today: the card and its date follow the day when the app is opened again after midnight
+- Settings: a damaged journal kept aside can be exported as it is
+- Card meanings in American spelling
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A reading that cannot be saved says so instead of closing the app, and a note that cannot be saved stays in its dialog with the reason
+- Undo keeps its bar when the reading could not be put back
+- A backup that could not be restored says so, not that the file could not be read
+- A journal file that cannot be read is kept aside rather than closing the app at every start, and is never saved over
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Cabinet 0.9.21</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.21"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.21</id>
+    <updated>2026-11-19T03:52:46Z</updated>
+    <content type="text"># Cabinet 0.9.21
+
+- A save from another app that does not reach the server, or that the app let go of, is kept in Download/Unsent saves, with a notification that opens it and shows no file name on the lock screen; why it did not go is said in plain words
+- A save kept inside the app for want of room moves to Download at a later start, once there is room, and one still going up when the app was stopped is kept in Unsent saves
+- A server folder given to another app through the file picker reaches only that saved server, never the phone&#x27;s own files
+- Folder, search, trash and text lists show no page counter: the scrollbar shows where you are, as in the other apps
+- Nearby lists only devices that take HTTPS, and stops a file that runs past its offered size
+- Rename allows a new case of the same name (notes.txt to Notes.txt)
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Paste: two files of one name from search results, or names that differ only by case, no longer replace each other, a name that differs from one in the folder only by case is asked about first, and a stopped WebDAV copy is not uploaded half done
+- Share and Open from a server: two picked files of one name come as two files, the second numbered
+- A copy from a server never lands outside the folder it goes into
+- A search that was replaced stops adding to the new one
+- A saved server password the keystore cannot open just now is kept
+- Nearby: a page closed while the server is still starting stops that server, and an odd request ends only its own connection, never the app
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Abacus 0.2.34</title>
+    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.34"/>
+    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.34</id>
+    <updated>2026-11-19T03:52:38Z</updated>
+    <content type="text"># Abacus 0.2.34
+
+- A new icon: an abacus
+- A function half typed into Graph comes back if the phone stops the app
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A number in E form stays one number when the sum goes on: 1E+3 squared is 1E+6
+- Programmer: NOT after a bracket applies to that bracket only, and digits typed onto a negative number go on correctly
+- = gives its answer once, and drops it if keys were pressed meanwhile
+- Paste drops words whole, and a decimal written with the other mark stays a decimal
+- Converter: a pasted sin, cos or tan follows the degrees or radians setting
+- Clear tape deletes the saved tape, so a full phone cannot bring the old sums back
+- A tape that cannot be saved no longer stops the answer from showing
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Sky 0.13.15</title>
+    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.15"/>
+    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.15</id>
+    <updated>2026-11-19T03:52:30Z</updated>
+    <content type="text"># Sky 0.13.15
+
+- A new icon: a rain cloud
+- Alerts come from the US Weather Service for every place and, outside the US, from KDE&#x27;s alert server as well; when the Weather Service fails for a place that may be in the US, the alerts shown and kept stay as they were
+- Radar tries again on the next return after a load that failed
+- German: the app is called Sky, as the launcher shows it
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Instant alerts: Turn off on the notification works at once instead of waiting on the servers
+- Instant alerts make the new subscription before letting the old one go, replace a key the server rejects, keep trying to delete a subscription the server did not confirm but not one it refused outright, and take down a channel given up while offline once the connection is back
+- The time rain or snow starts or stops, on the lock screen and in Wander, is read on the place&#x27;s own clock, so it is right across a change of the clocks
+- Once the forecast&#x27;s start or stop of rain or snow has passed, Wander is given the sky after it, not the one before
+- A weather station gets five seconds, so a slow one does not outlast the refresh
+- An Instant alerts service refused in the background stops cleanly
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Solitaire 0.1.25</title>
+    <link href="https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.25"/>
+    <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.25</id>
+    <updated>2026-11-19T03:52:23Z</updated>
+    <content type="text"># Solitaire 0.1.25
+
+- Spider deals over empty columns once fewer cards than columns are left on the table
+- FreeCell: Deal # asks for a second tap when a game is under way
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A saved game that no longer replays is kept aside, and the game goes on from the moves that still do
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Speedometer 0.1.33</title>
+    <link href="https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.33"/>
+    <id>https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.33</id>
+    <updated>2026-11-19T03:52:15Z</updated>
+    <content type="text"># Speedometer 0.1.33
+
+- Speed, heights and accuracy are rounded to the nearest whole number, not cut
+- A fix older than five seconds dashes only the speed and shows the searching line, while position, altitude and sea-level pressure stay; a location provider switched off says so
+- The scrollbar sits at the screen&#x27;s edge
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- The meter keeps its screen through a dark-mode or font-size change
+- A location dialog dismissed the first time is not shown as turned off for good, a later yes clears the blocked wording, and a refusal is remembered across launches
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Lens 0.1.40</title>
+    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.40"/>
+    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.40</id>
+    <updated>2026-11-19T03:52:05Z</updated>
+    <content type="text"># Lens 0.1.40
+
+- A new icon: an aperture
+- A photo or video taken for another app never carries where it was taken, is written only to the address that app gave, and never overwrites a picture Lens saved itself
+- A photo another app asks for is taken as one plain picture, even with HDR+ or Night left on; asked for without an address, it is kept in Lens&#x27;s folder as well as handed back as a preview
+- A scan another app asks for opens in photo mode, where codes are read, even when Lens was last left in video
+- Datebook, Passwords, Wallet and Pictures are handed a scanned event, code or picture only when they are the real apps
+- A link in a code opens only in an app that takes links from a browser
+- Over the lock screen, settings open only after the phone is unlocked
+- A two-step sign-in code read from a QR code is not shown again and has no Copy: it goes only to Passwords or the authenticator
+- The Menu key opens the same settings as the settings button
+- A photo that could not be saved, a video that failed or ran out of room, and a camera that could not start are said on screen
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A Wi-Fi code Android cannot take is copied rather than closing the app
+- The gallery circle empties when the last picture is gone
+- The bar follows the window that comes back after another app&#x27;s photo or scan
+- The Menu key keeps working in that window, and neither it nor the settings button closes the camera while a photo is taken
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Wallet 0.1.29</title>
+    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.29"/>
+    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.29</id>
+    <updated>2026-11-19T03:51:55Z</updated>
+    <content type="text"># Wallet 0.1.29
+
+- A card handed in while another is being edited asks before leaving the unsaved one
+- A scanned card joins the group shown
+- A card&#x27;s dates go to Datebook only when it is the real Datebook
+- The export password uses a password keyboard when shown
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Dates chosen by hand no longer shift a day when you move time zones, and an exported first day counts in Catima for the whole day
+- Edit accepts an end on the same day as the start, whatever the hours
+- A pass date without a zone or time is read in the phone&#x27;s zone, and one that cannot be read is left out instead of refusing the pass
+- Each pass in a bundle is copied out under a name of its own
+- Canceling or a failed export no longer deletes or damages a file that was there before
+- Save adds a new card once however often it is pressed
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Tuner 0.1.52</title>
+    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.52"/>
+    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.52</id>
+    <updated>2026-11-19T03:51:41Z</updated>
+    <content type="text"># Tuner 0.1.52
+
+- The metronome stops for a call or another player
+- Tuner no longer offers itself for every text file: instruments, temperaments and stretch tunings come in through Load from file
+- Load temperaments: a file where some have errors loads the clean ones and says how many were skipped
+- Stretch-tuning and temperament editor rows are parted by the dotted rule
+- A recording&#x27;s audio is wiped when the tuner stops listening, and let go once saved or canceled
+- On Android 13 and later, notifications are asked for once
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A damaged instruments list or temperament, or a file that cannot be read or is over 1 MB, is refused instead of crashing or freezing
+- Saving a stretch tuning or a recording to a file that cannot be written says so instead of crashing, and the saved notice comes only after the write
+- Metronome beats keep showing past a day of play
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Parked 0.2.19</title>
+    <link href="https://github.com/wanderwildwood/okiba/releases/tag/v0.2.19"/>
+    <id>https://github.com/wanderwildwood/okiba/releases/tag/v0.2.19</id>
+    <updated>2026-11-19T03:51:33Z</updated>
+    <content type="text"># Parked 0.2.19
+
+- Notifications are asked about on first launch, not at the first ring
+- Opening the app sets the meter&#x27;s alarm again, so one dropped by a force-stop or by exact alarms being taken back still rings
+- A running meter says that after a restart it rings only once the phone is unlocked, and that a ring more than two minutes late is only shown as missed
+- The quiet notification channel is called &quot;Meter alarm, getting ready&quot; and says what it is for
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Putting the missed notice away no longer stops a ring
+- Setting the phone&#x27;s clock during a ring neither stretches nor cuts its two minutes
+- A ticket time in the hour the clock repeats in autumn is taken the second time round, not tomorrow
+- A warning&#x27;s quieting that arrives as the end starts no longer silences the end
+- An answer to the location question after the window was rebuilt is not taken for a refusal
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Memo 0.3.34</title>
+    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.34"/>
+    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.34</id>
+    <updated>2026-11-19T03:51:22Z</updated>
+    <content type="text"># Memo 0.3.34
+
+- The line above the notes opens two short menus: tap what is shown to choose the kind of note, a folder or the Trash, and tap the order to choose newest first, oldest first or by title; the current choice is ticked
+- A new icon: a pinned note
+- Lock screen: a pinned note lists its first open items under its title, then how many more; an item already under Today is not shown twice
+- Sign out, a new server folder or a new WebDAV server send the phone&#x27;s copy up first, and keep it if that sync fails, saying so at once
+- An emptied server folder offers to send the notes on this phone up to it, or to keep them on this phone
+- Voice notes: only the Record shortcut starts the microphone at once; a Record request from another app opens a screen with a Start button
+- Voice notes: a recording cut short by a closed app or a full phone is found at the next opening, its length put right, and kept as a note
+- A voice note&#x27;s words find the note after its recording was renamed or moved
+- A note that cannot be saved just now says so and keeps its text
+- Tasks: the app password goes only to the server&#x27;s own domain, also under shared names such as ts.net or duckdns.org, and a link elsewhere is not followed
+- Desktop Sync and plain http treat a Tailscale address as safe only while the phone is on Tailscale, and a connection that says nothing for 10 seconds is closed
+- Pictures shared in from another app are taken only from that app, never from a file path or Memo&#x27;s own files
+- Scanned pages keep their colors in dark mode
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A notes folder gone or emptied on the server no longer deletes every note on the phone
+- A file the server lists outside the notes folder is left alone
+- Switching to a new server folder can no longer pull the old folder&#x27;s notes into the phone&#x27;s copy
+- A note that cannot be read is not opened or written over, and keeps its reminders
+- Back, archive, move, pin and delete keep a note open when the folder will not take it, and say when they could not be done
+- A recording begun while the app looks for cut-short ones is left to finish
+- The Start screen no longer shows a write-down switch that did nothing; the recording screen asks instead
+- Sign out and a move off Nextcloud keep a task the last sync could not send
+- A note&#x27;s embed that points outside its folder opens nothing, and one that cannot be found no longer stops the note
+- A repeating task due at a UTC time keeps its hour across the clock change
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Practice 0.2.10</title>
+    <link href="https://github.com/wanderwildwood/nikka/releases/tag/v0.2.10"/>
+    <id>https://github.com/wanderwildwood/nikka/releases/tag/v0.2.10</id>
+    <updated>2026-11-19T03:51:08Z</updated>
+    <content type="text"># Practice 0.2.10
+
+- A restart during a sitting ends it, logged for the time sat until the shutdown, and puts Do Not Disturb back without waiting for the app to be opened
+- A sitting still under way when the app was stopped is set going again when the app is opened
+- A bell that cannot start the service rings from the alarm itself
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Breathing cues stop as soon as the session ends, also when the app is put away
+- Today turns at midnight with the app left open, so a tick after it marks the new day
+- A restore refuses a file over 5 MB, and a failed save removes only the empty file it made
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Level 0.1.40</title>
+    <link href="https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.40"/>
+    <id>https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.40</id>
+    <updated>2026-11-19T03:50:59Z</updated>
+    <content type="text"># Level 0.1.40
+
+- Calibrate zeroes against the steadied reading, and its tap-again words ask about the same way of holding the phone the zero is saved under
+- The Settings scrollbar sits at the screen&#x27;s edge
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Turned sideways, the bubble goes to the high side again, not the low one
+- Percent near upright reads &gt;9999.9% instead of a stray number
+- Lying flat, the smoothing no longer starts over near level
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Go 1.2.28</title>
+    <link href="https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.28"/>
+    <id>https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.28</id>
+    <updated>2026-11-19T03:50:50Z</updated>
+    <content type="text"># Go 1.2.28
+
+- Undo out of a finished game comes back to your move, and passes are counted again after Undo
+- A finished game GNU Go cannot count is kept and counted again at the next start; if it fails again, the engine&#x27;s failure is shown instead of the app hanging
+- The About button uses the house Info icon
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- New game while GNU Go is thinking keeps the old game&#x27;s move out of the new one
+- A game counted at startup while a new game begins no longer deletes the new game&#x27;s save
+- A game GNU Go resigned is not resumed on the next start
+- The game in progress is written whole, so a kill mid-write keeps it
+- A Set up position is not left on disk once the engine has read it, even when the engine fails to read it
+- An engine that fails or refuses its set-up is stopped rather than left running
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.71</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.71"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.71</id>
+    <updated>2026-11-19T03:50:42Z</updated>
+    <content type="text"># Datebook 0.1.71
+
+- A new icon: a tear-off day
+- Month: today&#x27;s cell has a solid frame, so it is found at a glance on a busy month
+- Edit every one moves a series only by the change made to the opened occurrence, on the series&#x27; own clock, so a date moved across a change of the clocks keeps the series&#x27; time and its exceptions
+- A reminder due at or after its event&#x27;s end rings instead of being dropped, unless it is seen more than two hours late, and all-day reminders from a followed calendar no longer ring again after each fetch
+- Over a locked phone the full-screen reminder shows only &quot;Reminder&quot; and the time, as does the notification when the phone hides notification content; the event&#x27;s title and place appear once the phone is unlocked
+- A large followed calendar goes in a chunk at a time, so it can be saved at all
+- Server sync sends your password only to the server&#x27;s own name, also under shared names such as ts.net or duckdns.org; over plain http it waits until the server asks for it; a picture given as a link is fetched only from your own server
+- Datebook syncs calendars only and no longer asks for contacts or task-app permissions
+- About credits DAVx5, dav4jvm and synctools, whose code the server sync is
+- German: the app is called Datebook, as the launcher shows it
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- An event half written comes back as it was after the system stops the app in the background
+- A reminder pressed while an event is being written leaves the editor open instead of throwing the event away
+- Removing a series&#x27; repeat writes the new event first and undoes it if the old one cannot be changed
+- A calendar unfollowed while it is being fetched stays unfollowed
+- Two fetches of one followed calendar at once no longer leave it empty
+- An open event from a followed calendar, or one a reminder opens, is found again after a fetch instead of showing as gone
+- An edited occurrence brought in from a file is no longer dropped by a server sync
+- A calendar list the server refuses or answers unclearly keeps the calendars it did not read
+- Events, the account and server addresses are kept out of the system log
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.43</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.43"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.43</id>
+    <updated>2026-11-19T03:50:29Z</updated>
+    <content type="text"># Messaging 1.35.43
+
+- Signal attachments are now stored encrypted on the phone, including ones waiting to be sent; voice notes and view-once videos play from memory. Attachments from before are encrypted in the background. Because of this, an older version of Messaging cannot be installed over this one
+- When the phone will not release the key to Signal attachments, the app says so where you meet one: a notice that nothing was deleted, captions that read &quot;Attachment (locked)&quot;, a view-once picture that is not spent, and a line in Settings, which offers to remove what can never be opened if the key is gone for good. Messages are unaffected
+- Signal attachments are opened, saved, shared and sent to Desktop Sync a piece at a time, never read whole into memory
+- Signal&#x27;s service layer is updated to upstream Signal Android 90a6ddce46 (v8.36.2); the Signal connection is now kept alive by Signal&#x27;s own library rather than by the app waking the phone on a schedule
+- A new icon: a paper airplane
+- Dark mode reaches dialogs, the date and time pickers and the toolbar menus, and the status bar shows the black page
+- Signal calls, group changes, polls and cards, and Signal&#x27;s refusal of a phone, read in the phone&#x27;s language
+- A scheduled Signal message that fails to send says so in a notification and stays in Scheduled; one that went out, or waits on a changed safety number, leaves Scheduled, and one that did not go is not sent again on its own
+- Linking to a Signal account with no phone number says plainly that this device cannot join it
+- A scanned link code adds a linked device only after a confirmation that says what the new device can do
+- Desktop Sync with HTTPS on does not start, and Settings says why, when its certificate cannot be prepared, instead of serving plainly; its VPN-only setting trusts a VPN address only while a VPN on the phone holds one
+- Contacts requests go to Connections only when it is the real app
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Editing a scheduled message no longer runs the app out of memory, and the original and edited copies are never both sent
+- A scheduled text with a picture to several people, not as a group, brings the picture to everyone, not only the first
+- Without the exact-alarm permission a scheduled message still goes out, once
+- A Signal call that rings while Android will not start the call service still shows its notification and call screen
+- A Signal call that ends before it starts no longer crashes the app, and neither does a Keep Signal connected restart the system will not allow
+- A Signal history copy is refused, and says why, while the attachment key is locked, and an attachment whose copy fails partway is not left cut short
+- Losing the attachment key before anything was encrypted no longer leaves every new attachment refused for good, and a device linked after a change of account gets its own media key
+- Discarding or sending an attachment deletes its file only when the file is the app&#x27;s own copy
+- Another app can no longer hand the compose screen a part of the message store to attach
+- Desktop Sync shows a picture message&#x27;s part only if it is a picture, sound or video; anything else is a download
+- A backup that could not be written says so and leaves no partial file; a restore of a received text on the same phone no longer copies it twice
+- Messaging no longer asks for storage access on Android 11 and later</content>
+  </entry>
+  <entry>
+    <title>Recipes 0.2.25</title>
+    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.25"/>
+    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.25</id>
+    <updated>2026-11-19T03:50:15Z</updated>
+    <content type="text"># Recipes 0.2.25
+
+- Saving an edit after a sync changed the recipe keeps both, the edit as the phone&#x27;s copy, even when the sync came in before the system stopped the app
+- A recipe half typed in, and your place in the app, come back after the system stops the app in the background
+- A page or text shared in while a recipe is being typed opens over it, and Back finds the typing as it was
+- Recipe files come in only through Settings; the app no longer offers itself for every JSON file
+- A recipe&#x27;s source line opens only a web page&#x27;s address
+- The shopping list goes to Notes, and contacts to Connections, only when they are the real apps; otherwise the list is shared through the chooser
+- German: the app is called Recipes, as the launcher shows it
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- When the recipe folder has gone from the server, nothing is deleted on the phone
+- Nextcloud: the app&#x27;s own recipes come back from the server word for word, as typed
+- Nextcloud: a sign-in finished in the browser is kept even when the app&#x27;s screen closed meanwhile, and an old sign-in problem is forgotten once a sign-in works
+- A recipe the storage would not take is said, and the editor stays open; a file brought in says how many came in, and a sync ends as failed rather than stopping the app
+- A yield a sync brings while the recipe is open no longer scales every amount to 0
+- Ticks are read again when a sync brings other ingredients
+- A time kept in words survives a pull from the server
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Feeds 0.6.18</title>
+    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.18"/>
+    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.18</id>
+    <updated>2026-11-19T03:50:04Z</updated>
+    <content type="text"># Feeds 0.6.18
+
+- Gallery posts show every picture and its caption, not only the first
+- A feed address typed without http:// or https:// tries https first
+- An address handed in by another app is shown with an Open button before anything is fetched
+- Settings has an Open DuraSpeed row on phones that have it
+- A feed whose address holds a login stays on the phone and is not offered to the server, and the login goes only to the feed&#x27;s own address, never after a redirect elsewhere or to a proxy
+- A feed server is reached over plain http only on Wi-Fi, Ethernet or a VPN, and a Tailscale address only while a VPN is up
+- Feeds and pages over 50 MB, and OPML files over 8 MB, are refused instead of read whole into memory
+- Logs in a release carry only the kind of failure, never titles or addresses
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A server answer with no subscription list is an error, not an empty list that removes every synced feed
+- A feed the phone cannot fetch stays on the server and no longer stops the rest of the sync, and a feed deleted on the phone stays deleted when the server fails to unsubscribe it
+- An imported OPML file asking for 0 articles per feed no longer empties server feeds or stops gemlog syncs
+- A later sync keeps each gemlog and phlog entry&#x27;s saved text, reading time and snippet
+- A sync cut short, or the daily cleanup running beside it, never leaves a broken or empty article
+- A Google Reader unread or starred list cut at its cap leaves the rest as they were
+- Keep on an address the download service will not take says the download failed instead of closing the app, and Save page and Keep no longer close the app on Android 14 and newer
+- A capsule that cannot be reached shows the text could not be loaded instead of closing the app
+- Export over an existing file leaves no tail of the old one
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Mushroom Journal 0.3.42</title>
+    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.42"/>
+    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.42</id>
+    <updated>2026-11-19T03:49:50Z</updated>
+    <content type="text"># Mushroom Journal 0.3.42
+
+- The place a camera or gallery wrote into a photograph, XMP included, is taken out as it comes in, and again before a share or a backup; a HEIC or other picture the phone cannot edit is saved again as a plain JPEG, and one that cannot be cleaned is kept out
+- Roughly where I am asks the network and GPS at once, so a wood with no cell or Wi-Fi still finds you; it does not take a position more than fifteen minutes old, and asks for a fresh one for up to 20 seconds, saying so while it looks
+- Throwing away a find takes its photographs with it, and the journal offers Undo until you move on
+- Changing a find already in the journal goes back to it rather than asking whether to throw it away
+- The key&#x27;s questions, answers and common names are in American spelling
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Save it on a find with nothing answered keeps it, and closing a find at once keeps its last edit
+- A find deleted from the journal goes whole when the app is left, and a backup made while its Undo shows leaves it out
+- Taking the place out of a photograph that is stopped halfway leaves the picture whole
+- Restore reads a backup with many photographs one at a time without freezing the screen, and each find goes in whole; it stops short of filling the phone, and a find whose photograph could not be written is said and comes in on the next restore
+- Backups zip the photographs in the background, and two started close together are both whole
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Handheld Games 0.1.41</title>
+    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.41"/>
+    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.41</id>
+    <updated>2026-11-19T03:49:41Z</updated>
+    <content type="text"># Handheld Games 0.1.41
+
+- Leaving a game whose save could not be written keeps it open and says so; leaving again closes it
+- Game box: the first sync remembers the box, Sync says when a different machine answers at its address, and a game of your own with a box game&#x27;s name is left unpaired so their saves stay apart
+- Game box: of two games with the same name in one box folder only one is copied, and Sync says how many were left out; a file too large to be a game, cheat or save is passed over and the rest of the sync goes on
+- Only the core built into the app is loaded; the download of a missing core is gone
+- The app no longer asks for storage access
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A game&#x27;s background saves still happen after a very long session, when Android stops the game service
+- Restoring saves opens each game on its restored save
+- Two games with the same name found in one scan never share a save
+- Files from the game box are written whole before they replace anything
+- A zipped game is unpacked only inside its own folder and up to a size limit, and a copy cut short is never kept
+- Back while a game is still loading closes it instead of locking its menu
+- A library scan stopped part way removes nothing
+- A game link with no game number shows the could-not-load dialog instead of crashing
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Engraver 0.0.16</title>
+    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.16"/>
+    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.16</id>
+    <updated>2026-11-19T03:49:31Z</updated>
+    <content type="text"># Engraver 0.0.16
+
+- What is typed is saved the moment the app goes out of sight, and a dark-mode, font, size or language change no longer rebuilds the editor
+- LilyPond&#x27;s unpacked files are checked before it starts and unpacked again if anything changed
+- One compile at a time, each with a two-minute limit; LilyPond&#x27;s messages are kept to their start and end, and a score that ran out of memory is not run a second time
+- Scores over 2 MB are not opened, and say so
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A save that fails says so, and Compile no longer counts it saved; a failed save leaves the old score whole rather than empty
+- After a failed save, typing more or a save that works brings the warning back for the next failure
+- Compile works on a copy of the open score, so the folder&#x27;s size limit never leaves it out
+- Choosing a new folder lets go of the one chosen before
+- A score that could not be read is not opened empty
+- A failed compile no longer leaves a blank Score pane
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Music Box 2.18.45</title>
+    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.45"/>
+    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.45</id>
+    <updated>2026-11-19T03:49:22Z</updated>
+    <content type="text"># Music Box 2.18.45
+
+- A track of 20 minutes or more, and a file in an Audiobooks or Podcasts folder, start where it was stopped, also when the player reaches it by itself or by a headset&#x27;s Next, and its row says where
+- The queue keeps a song queued twice in its own place, a restored queue comes back on its song and keeps its order from before a shuffle, and a reshuffle while paused stays paused
+- Playback keeps the phone and Wi-Fi awake while it plays, and briefly between songs so the next one starts with the screen off
+- A song saved without an artist reads &quot;Unknown artist&quot; in the phone&#x27;s own language, in the app, the media notification and on Bluetooth displays
+- YouTube&#x27;s cookie and referer go only to YouTube&#x27;s streams
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A song handed over with a place to start from is no longer sent back to its beginning
+- Repeat reaches a YouTube song
+- Server sync, folder scan and YouTube downloads replace their rows in one step, and a failed step says so in plain words
+- A folder that does not answer during a scan keeps its songs instead of having them taken for deleted
+- Deleting a song keeps its row when the file could not be reached, and a song whose file is already gone can be deleted again
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Dictionary 0.1.27</title>
+    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.27"/>
+    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.27</id>
+    <updated>2026-11-19T03:49:13Z</updated>
+    <content type="text"># Dictionary 0.1.27
+
+- A word selected with a comma, quote or ellipsis is found, and swapping in a synonym keeps that punctuation, possessives included (&quot;dog&#x27;s&quot; becomes &quot;hound&#x27;s&quot;)
+- Going Back to a word in Looked up lately does not move it to the top
+- A very long selection is cut to its start before it is looked up
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A failed unpack or damaged word list is said on the screen instead of crashing at every start; a word list that fails to read says so rather than &quot;not in this dictionary&quot;, and is opened again when you come back to the app
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Handset 0.1.38</title>
+    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.38"/>
+    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.38</id>
+    <updated>2026-11-19T03:49:04Z</updated>
+    <content type="text"># Handset 0.1.38
+
+- A new icon: two tin cans bent into a handset, and the name is plain Handset
+- Call back and voicemail from a notification ask for the unlock on a locked phone before dialing
+- During a call, a silenced call stays off the call screen but keeps a quiet notification with Answer and Decline, a second call gives one short buzz and rings in full once the first call ends, and neither favorites nor repeat callers ring through Total silence
+- A call that Do Not Disturb lets ring brings up the call screen
+- After an emergency call everything rings, even where Android leaves that call out of the call log
+- Contacts go to Connections, and call notes to Notes, only when they are the real apps
+- German: the text calls the app by its name, Handset, as the launcher does
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A network that says voicemail is waiting without a count still gets the notification
+- The panel goes dark at the ear for calls longer than an hour too
+- Missed calls are marked seen only when Recents itself is showing, or when you Call back or Message from the notification, so the next one is not counted twice
+- A screening decision after its four-second deadline leaves nothing behind, and an old decision is never applied to the next call
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Torrents 0.1.28</title>
+    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.28"/>
+    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.28</id>
+    <updated>2026-11-19T03:48:47Z</updated>
+    <content type="text"># Torrents 0.1.28
+
+- Settings &gt; Appearance shows the Dark mode switch again, and dark mode reaches the Scheduling time picker
+- Feeds and .torrent links go through the proxy when one is set; with Require proxy on, they are never fetched around it, and not through a SOCKS proxy at all, since that could leave the site&#x27;s name looked up on the phone
+- Through an HTTP proxy with a login, the login goes to the proxy only and is no longer passed on to the site; a redirect from https to plain http is refused
+- Settings rows have no black lines between them, and the explanation rows lose their info icon
+- The Wi-Fi switch in Scheduling is gone (Android ignores it for this app)
+- The first-start storage warning that named another version of the app is gone
+- Crash reports carry only the error, the app&#x27;s version and the phone&#x27;s model
+- Dark mode, the file picker and Show in Cabinet trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Feed auto-download no longer crashes or waits forever when Android will not start the engine from the background; an item with no torrent link no longer stops the rest, and items that keep failing stay unread
+- A feed item with no title is named by its link instead of stopping the refresh, and a link that is not a web address or magnet says so instead of closing the app
+- A daily shutdown sets the next day&#x27;s shutdown, not a start at that hour
+- A torrent that fails to be added, or cannot be loaded at start, no longer keeps the others from loading or the engine from stopping
+- A feed filter tries every pattern line
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Glance 0.1.56</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.56"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.56</id>
+    <updated>2026-11-19T03:48:36Z</updated>
+    <content type="text"># Glance 0.1.56
+
+- The lock-screen panel follows dark mode, including Home&#x27;s dark switch
+- With the phone set to show no notifications, or no silent ones, on the lock screen, Glance leaves them out too
+- The lock-screen panel steps aside while the power menu is up, so it no longer covers Power off and Restart
+- Settings has an Open DuraSpeed row on a Kompakt
+- Today&#x27;s events and a new calendar grant reach the panel at once
+- The torch is now called the flashlight
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A song playing in Music Box K shows on the panel instead of being dropped
+- Changing Let repeat callers ring during quiet hours no longer turns them off
+- An app put on later is watched too
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Hum 0.1.28</title>
+    <link href="https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.28"/>
+    <id>https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.28</id>
+    <updated>2026-11-19T03:48:29Z</updated>
+    <content type="text"># Hum 0.1.28
+
+- Notes are timed by the real spacing of their readings, so a long take no longer drifts late against the grid, and an older take&#x27;s pitch line stays under its notes
+- A sound file shared from another app asks &quot;Read &lt;name&gt;?&quot; before anything of it is read; shared while a take is being made, the question stays open with Read waiting until the take is done
+- Read a recording asks to read only the picked file, and keeps no lasting hold on it
+- Saving a take to a file runs in the background and streams the recording; Send writes its file in the background too
+- Long takes are read and played a stretch at a time, so they no longer run the phone out of memory
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Stop pressed before recording starts is kept, and a failure while finding the notes is said instead of crashing
+- A take cut off while recording, while being read in or before its notes were found comes back at the next start with its name, click tempo and beat one; one whose reading fails is kept for a later start rather than deleted
+- A delete cut off midway no longer brings the recording back as a new take
+- A restore cut off midway puts the old library back, and a restore waits until nothing is being recorded or read
+- A damaged WAV file is refused instead of read forever
+- A second Play no longer cuts off the first one&#x27;s sound
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Pictures 0.8.27</title>
+    <link href="https://github.com/wanderwildwood/garo/releases/tag/v0.8.27"/>
+    <id>https://github.com/wanderwildwood/garo/releases/tag/v0.8.27</id>
+    <updated>2026-11-19T03:48:21Z</updated>
+    <content type="text"># Pictures 0.8.27
+
+- A backup names where it backs up to, stops if that changes, and passes over a picture the server will not take, counting it; Back up now tries the passed-over pictures again
+- A backup keeps the place a picture was taken (Share still leaves it out), and asks for that permission whenever the gallery opens with backing up on
+- Immich backup keeps its record per account, so a new key starts afresh, and a picture already there from an earlier version is not sent a second time
+- Share by tap closes its connection when the share ends, and serves at most four at once
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A backup run that meets a server refusing picture after picture, a missing folder or a locked file fails and is tried again, rather than passing pictures over for good
+- Save as empties a file chosen to be replaced before writing it, and a picture that did not compress is not reported saved
+- Receive by tap fills the place chosen even when the screen was redrawn meanwhile, or leaves no empty file there
+- Immich pictures go straight to storage rather than into memory, and Immich albums show a picture listed on two pages once
+- A video saved or shared from Nextcloud is no longer dropped from the cache it was just fetched into
+- A file or content address into the app&#x27;s own storage, handed in by another app, is not opened
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Medicine 0.1.38</title>
+    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.38"/>
+    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.38</id>
+    <updated>2026-11-19T03:48:12Z</updated>
+    <content type="text"># Medicine 0.1.38
+
+- A dose taken early and then unmarked rings when its time comes, and Clear the log keeps a dose taken early so its time does not ring again
+- An old dose stops asking after 12 hours, and a notification whose dose is gone closes when pressed
+- A medicine&#x27;s page takes in doses marked taken while it was open, and opening a refill notice or calendar event from it keeps what was typed there
+- Restore keeps a pharmacy or doctor link only when it is a contact on the phone, catches reminders up from no earlier than a month before the backup, and refuses a schedule it could not set
+- Refills go to Datebook, and contacts to Connections, only when they are the real apps
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Two medicines with the same name and amount no longer crash the Log tab
+- A second dose taken when needed in the same minute is kept
+- Take early and Take now count from the medicine as it is now
+- Set pharmacy and Set doctor keep doses marked meanwhile
+- A medicine added after a restore never takes over a deleted one&#x27;s log entries
+- Pressing the test reminder again shows it on a screen already up, and answering from the notification shade takes it off
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Remote 0.2.29</title>
+    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.29"/>
+    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.29</id>
+    <updated>2026-11-19T03:48:04Z</updated>
+    <content type="text"># Remote 0.2.29
+
+- The swipe pad queues every direction and tap and sends them in order
+- Kodi: the login is sent only to its own box, and only once the box asks for it on this network; a changed address in the login dialog is not sent the password filled in for the box that asked
+- Kodi: a 100.64.x.x address counts as home only while a VPN such as Tailscale is up
+- A Bluetooth connection the other device made sends the buttons too
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A held volume key sends its press once, so Kodi&#x27;s volume stops when the key is let go
+- A Kodi search no longer loses a box that the last search was still finding
+- A Kodi error is shown short and on one line, and an odd answer is a refusal, not a crash
+- Bluetooth starts again on returning to the device list early, keeps one connection through Bluetooth going off and on, and no longer registers the app as a keyboard after it was stopped
+- A device with no class and an unbound tile no longer crash
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Connections 0.2.40</title>
+    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.40"/>
+    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.40</id>
+    <updated>2026-11-19T03:47:56Z</updated>
+    <content type="text"># Connections 0.2.40
+
+- A new icon: two linked rings
+- Sync fetches a contact&#x27;s photo only from your own server, up to 4 MiB
+- Over plain http, the sync password waits until the server asks for it, and on shared addresses such as ts.net or duckdns.org it goes only to your server&#x27;s own name, never to a neighbor&#x27;s
+- Turning off a server address book or removing the account asks first and sends its waiting changes before it leaves the phone; a send that fails leaves it in place and says so
+- Reading a .vcf, backups included, keeps the picture and the relation, messenger, IM and SIP rows
+- A number with * or # in it goes to the dialer to be seen first
+- Field Kit is offered only when it is the real app
+- The app no longer asks for task-app permissions or to manage contacts accounts
+- German: the text calls the app by its name, Connections, as the launcher does
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- An address book list the server answered only in part keeps the books it did not read, so none leaves the phone for it
+- A read-only server address book is not offered for edits a sync would throw away
+- A birthday and an anniversary on one date stay two, and a changed one is written to every copy of the person
+- Saving an edit checks only the numbers and addresses typed or changed, so an older stored one never blocks it
+- Undo puts a deleted person back where they were stored, with their full picture, and deleting several keeps Undo for everyone who went even when some could not be deleted
+- A backup that wrote nothing is a failure and clears no older ones
+- A released build writes nothing of the sync to the system log
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>I Ching 0.1.10</title>
+    <link href="https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.10"/>
+    <id>https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.10</id>
+    <updated>2026-11-19T03:47:47Z</updated>
+    <content type="text"># I Ching 0.1.10
+
+- Today turns to the new day when the app is opened again the next day, is left open past midnight, or the clock or time zone changes, and Cast keeps the day it is pressed
+- A journal that could only be read in part, or was written by a newer version, is copied aside before the next save; the tab says so once, and Settings saves that copy where you choose
+- German: the app is called I Ching, as the launcher shows it
+- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A journal file that cannot be read is moved aside instead of crashing the app
+- A second press on Read or Keep before the screen redraws no longer closes the app
+- Export on a phone with nothing to save a file says it could not be saved instead of closing the app
+- Restore reads no further than its size limit
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Typewriter 0.1.46</title>
+    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.46"/>
+    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.46</id>
+    <updated>2026-11-19T03:47:39Z</updated>
+    <content type="text"># Typewriter 0.1.46
+
+- While a lock is set, the app is kept out of screenshots and the Recents picture
+- With the diary locked, deleting a diary page asks for the phone&#x27;s lock first, and every copy of a day&#x27;s page is locked with it: a numbered one, a sync clash copy, and the copies sync apps make
+- Search reads nothing while the diary&#x27;s lock is up
+- A save that fails is tried again at once; if a sheet was left cut short, the words are saved beside it and you are told so
+- A sheet not in UTF-8, or too big, is not opened rather than spoiled on the first save
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Words typed while a clash copy is made, while a changed sheet is read back, or before coming back from the lock screen or a dark-mode switch stay on the page
+- New, Today and opening a sheet write the page being left first and stay put if it could not be written, so its last words are not lost
+- Today, New or a sheet tapped twice opens one page rather than making the day&#x27;s page twice or leaving empty sheets
+- A sheet changed elsewhere always shows what arrived when the app comes back
+- Rename waits on its save, and a name with a period in it keeps the sheet&#x27;s extension
+- Coming back to the app lists the folder again without opening the last sheet on its own
+- A keyboard with arrow keys connecting or dropping no longer remakes the screen
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Cycle 0.3.17</title>
+    <link href="https://github.com/wanderwildwood/cycle/releases/tag/v0.3.17"/>
+    <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.17</id>
+    <updated>2026-11-19T03:47:30Z</updated>
+    <content type="text"># Cycle 0.3.17
+
+- What you enter on a day is saved as the app goes out of sight, not only when the day is closed
+- Today follows the date when the app is opened again after midnight
+- The app is kept out of screenshots and the Recents picture, and the keyboard is asked not to learn what is typed in notes and tags
+- Import and restore turn down a file over 5 MB, saying it is too large, and keep a day&#x27;s own moods, symptoms and note beside an imported one
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- A backup saved again on a computer with a byte-order mark is still read as a backup, and a blank line in a note survives an editor that strips trailing spaces
+- A note and its tags read back from a file stay within the day screen&#x27;s limits, with the day&#x27;s own text first
+- Changing how heavy an imported start was keeps its length unknown
+- A backup written over an older file replaces it whole
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Mesh 0.3.24</title>
+    <link href="https://github.com/wanderwildwood/amime/releases/tag/v0.3.24"/>
+    <id>https://github.com/wanderwildwood/amime/releases/tag/v0.3.24</id>
+    <updated>2026-11-19T03:47:22Z</updated>
+    <content type="text"># Mesh 0.3.24
+
+- Each conversation keeps its newest 500 messages and can be deleted
+- Meshtastic channel threads follow the channel&#x27;s name and key, not its slot, and the message log no longer holds the channel keys themselves
+- A message log the app cannot read is kept aside, and a row on the main list (also shown with no radio connected) saves a copy of it
+- The channel key fields and a pasted channel link are password fields, so the keyboard does not learn the keys
+- Connecting another radio clears the last radio&#x27;s people from the list; conversations stay
+- A pairing Android refuses says so
+- A released build no longer writes the Meshtastic radio trace to the system log
+- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Send again on a Meshtastic message no longer closes the app: it waits for a radio, goes out again and waits for its answer
+- Answers after a reconnect, or to a conversation deleted mid-send, are no longer matched to the wrong message
+- A direct message left unanswered at a disconnect is marked so, and a MeshCore radio after a Meshtastic one is treated as MeshCore again
+- A Bluetooth link that cannot be set up, keeps failing to read, or never answers is closed instead of left hanging; connecting closes an earlier link first, and that link&#x27;s disconnect no longer ends the new one
+- The unnamed main channel keeps its conversation when the modem preset changes
+- The message log is written to disk whole before it replaces the old one, and a log this version cannot read is kept aside, never written over
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
+  <entry>
+    <title>Passwords 0.1.29</title>
+    <link href="https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.29"/>
+    <id>https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.29</id>
+    <updated>2026-11-19T03:47:14Z</updated>
+    <content type="text"># Passwords 0.1.29
+
+- Autofill matches a sign-in box inside a frame to its own site, not the page around it, and a sign-in picked on a web page inside another app is not remembered for that app
+- Autofill believes a web page&#x27;s site only from a known browser, checked by its signing certificate; EinkBro joins the known browsers
+- A vault file handed in by another app opens for this time only, after a yes when a different vault is already here; Close goes back to the remembered vault, which keeps its fingerprint unlock, and the app keeps no lasting right to the other file
+- With a change not yet saved to the file, locking, opening a different vault or closing asks first
+- Put back the file from before says it also brings back the master password the file had then
+- Choosing a different vault forgets the fingerprint key made for the old one
+- A code&#x27;s secret typed by hand goes through a password keyboard, which learns nothing from it
+- The QR scanner&#x27;s camera picture keeps its colors in dark mode
+- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
+
+## Fixed
+
+- Saves to the vault file go one at a time; a save cut short no longer replaces the copy kept from before, and a password change that could not be written leaves the old password in place
+- A password change that met a file changed elsewhere writes the new password when you choose Replace, and is let go if you close the dialog or the vault locks
+- A put-back that fails keeps the copy from before, and closing a vault forgets only its own copy
+- A save that wrote nothing says the file is as it was, not that it may be damaged
+- A lock while the vault is opening, reloading or saving holds
+- A sign-in picked in an app that shows a web view elsewhere on its screen can be remembered for that app again
+- A QR picture or codes file shared to Passwords is read to the end
+- A very large vault file, or one asking for more unlocking work than a phone can do, is refused with a message instead of ending the app or running for hours
+- Editing an entry keeps a code the app cannot read, rather than dropping it
+- The Autofill window no longer offers a New vault row that made an empty file
+- A tap on the scrollbar lands on the right row after the screen changes</content>
+  </entry>
   <entry>
     <title>Atlas 0.1.14</title>
     <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.14"/>
@@ -44,392 +1338,5 @@
     <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.47</id>
     <updated>2026-11-17T13:10:49Z</updated>
     <content type="text">Birding 1.7.47: the BirdNET model comes with the app: it works offline from the first run, no download; the internet is used only for photos</content>
-  </entry>
-  <entry>
-    <title>Field Kit 0.1.29</title>
-    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.29"/>
-    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.29</id>
-    <updated>2026-11-17T13:09:50Z</updated>
-    <content type="text">Field Kit 0.1.29: Glance counts an &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Music Box 2.18.44</title>
-    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.44"/>
-    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.44</id>
-    <updated>2026-11-17T13:09:46Z</updated>
-    <content type="text">Music Box 2.18.44: the server login is no longer kept in song addresses; YouTube sign-in opens only Google and YouTube pages; Glance counts an &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Time 0.2.29</title>
-    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.29"/>
-    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.29</id>
-    <updated>2026-11-17T13:04:41Z</updated>
-    <content type="text">Time 0.2.29: Glance counts an &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Wallet 0.1.28</title>
-    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.28"/>
-    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.28</id>
-    <updated>2026-11-17T13:00:32Z</updated>
-    <content type="text">Wallet 0.1.28: Glance counts an &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Audio Reader 1.3.68</title>
-    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.68"/>
-    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.68</id>
-    <updated>2026-11-17T12:59:23Z</updated>
-    <content type="text">Audio Reader 1.3.68: Shelf&#x27;s book lookup answers only Shelf&#x27;s release build; Glance counts an &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Cabinet 0.9.20</title>
-    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.20"/>
-    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.20</id>
-    <updated>2026-11-17T12:55:39Z</updated>
-    <content type="text">Cabinet 0.9.20: plain http only at home or on a VPN, also for saved servers; the Nearby key is sealed; Bouncy Castle 1.85.2</content>
-  </entry>
-  <entry>
-    <title>Connections 0.2.39</title>
-    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.39"/>
-    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.39</id>
-    <updated>2026-11-17T12:55:21Z</updated>
-    <content type="text">Connections 0.2.39: sync sends the password only over https, or plain http at home or on a VPN; a plain http address elsewhere is named as the reason</content>
-  </entry>
-  <entry>
-    <title>Medicine 0.1.37</title>
-    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.37"/>
-    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.37</id>
-    <updated>2026-11-17T12:55:15Z</updated>
-    <content type="text">Medicine 0.1.37: Glance counts an &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Glance 0.1.55</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.55"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.55</id>
-    <updated>2026-11-17T12:50:06Z</updated>
-    <content type="text">Glance 0.1.55: an app&#x27;s own &quot;and n more&quot; line is counted as n in &quot;+N more&quot;</content>
-  </entry>
-  <entry>
-    <title>Memo 0.3.33</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.33"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.33</id>
-    <updated>2026-11-17T12:49:54Z</updated>
-    <content type="text">Memo 0.3.33: plain http only to a server at home or on a VPN, also for saved servers; Glance counts Today&#x27;s &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Dream Log 0.1.36</title>
-    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.36"/>
-    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.36</id>
-    <updated>2026-11-17T12:45:37Z</updated>
-    <content type="text">Dream Log 0.1.36: no plain http, said to Android in a network security config; the model download stops at once if it runs past its known size</content>
-  </entry>
-  <entry>
-    <title>Songbook 0.1.12</title>
-    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.12"/>
-    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.12</id>
-    <updated>2026-11-17T12:40:24Z</updated>
-    <content type="text">Songbook 0.1.12: no plain http, said to Android in a network security config</content>
-  </entry>
-  <entry>
-    <title>Torrents 0.1.27</title>
-    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.27"/>
-    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.27</id>
-    <updated>2026-11-17T12:39:14Z</updated>
-    <content type="text">Torrents 0.1.27: streaming is off on a new install and its address carries a fresh key; the proxy password is sealed; feeds never open outside entities; libtorrent4j 2.1.0-39; Add tag and Add channel fit above the keyboard, and Back lets go of picked torrents. Torrents now needs Android 9 or later</content>
-  </entry>
-  <entry>
-    <title>Abacus 0.2.33</title>
-    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.33"/>
-    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.33</id>
-    <updated>2026-11-17T12:35:04Z</updated>
-    <content type="text">Abacus 0.2.33: works offline: exchange rates of November 16, 2026 come with the app, and it has no internet permission</content>
-  </entry>
-  <entry>
-    <title>Sky 0.13.14</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.14"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.14</id>
-    <updated>2026-11-17T12:33:56Z</updated>
-    <content type="text">Sky 0.13.14: no plain http and system certificates only; the alarm&#x27;s weather line and the lock-screen refresh answer only Clock&#x27;s and Glance&#x27;s release builds; Glance counts an &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.70</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.70"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.70</id>
-    <updated>2026-11-17T12:28:55Z</updated>
-    <content type="text">Datebook 0.1.70: the week&#x27;s number in Week view; the date picker&#x27;s weeks start on the day chosen in Settings; sync sends the password only over https, or plain http at home or on a VPN; Glance counts an &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Recipes 0.2.24</title>
-    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.24"/>
-    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.24</id>
-    <updated>2026-11-17T12:25:46Z</updated>
-    <content type="text">Recipes 0.2.24: a Nextcloud at home or on a VPN can be reached over plain http again; everything else goes over https only</content>
-  </entry>
-  <entry>
-    <title>Translate 0.9.26</title>
-    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.26"/>
-    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.26</id>
-    <updated>2026-11-17T12:25:08Z</updated>
-    <content type="text">Translate 0.9.26: language packs come only from the two catalog hosts over https, picture-reading files are checked by SHA-256, and other apps can no longer start a download</content>
-  </entry>
-  <entry>
-    <title>Pictures 0.8.26</title>
-    <link href="https://github.com/wanderwildwood/garo/releases/tag/v0.8.26"/>
-    <id>https://github.com/wanderwildwood/garo/releases/tag/v0.8.26</id>
-    <updated>2026-11-17T12:24:59Z</updated>
-    <content type="text">Pictures 0.8.26: plain http is refused, and Immich calls never follow a redirect with your key</content>
-  </entry>
-  <entry>
-    <title>Mushroom Journal 0.3.41</title>
-    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.41"/>
-    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.41</id>
-    <updated>2026-11-17T12:20:36Z</updated>
-    <content type="text">Mushroom Journal 0.3.41: fully offline: iNaturalist publishing is removed and the app has no internet permission</content>
-  </entry>
-  <entry>
-    <title>Bitcoin 0.1.17</title>
-    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.17"/>
-    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.17</id>
-    <updated>2026-11-17T12:15:21Z</updated>
-    <content type="text">Bitcoin 0.1.17: system certificates only; Guava 33.7.2; Glance counts an &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Remote 0.2.28</title>
-    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.28"/>
-    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.28</id>
-    <updated>2026-11-17T12:11:02Z</updated>
-    <content type="text">Remote 0.2.28: Kodi&#x27;s answers are read within size limits</content>
-  </entry>
-  <entry>
-    <title>Atlas 0.1.13</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.13"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.13</id>
-    <updated>2026-11-17T12:10:09Z</updated>
-    <content type="text">Atlas 0.1.13: system certificates only, no user-added ones; Guava 33.7.2; the bookmark notes view reads no files from the phone; Favorites is spelled the American way in every English</content>
-  </entry>
-  <entry>
-    <title>Mailbox 0.1.63</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.63"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.63</id>
-    <updated>2026-11-17T12:08:53Z</updated>
-    <content type="text">Mailbox 0.1.63: TLS 1.0 and 1.1 are no longer offered; the mail view has no file access; a mail&#x27;s background picture keeps its colors in dark; Glance counts an &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Topo 0.2.21</title>
-    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.21"/>
-    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.21</id>
-    <updated>2026-11-17T12:05:40Z</updated>
-    <content type="text">Topo 0.2.21: Apple Maps links use https</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.41</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.41"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.41</id>
-    <updated>2026-11-17T12:03:36Z</updated>
-    <content type="text">Messaging 1.35.41: the message store is never opened unencrypted when the phone&#x27;s key storage fails: a &quot;Messages are locked&quot; screen says what to do, and nothing is deleted; libsignal 0.107.0 and RingRTC 2.74.0, as Signal Android pins them; plain http refused; the app&#x27;s log stays out of the system log; the old MMS network path is removed; the status strip stays over a full-screen picture in dark; Glance counts an &quot;and n more&quot; line as n</content>
-  </entry>
-  <entry>
-    <title>Feeds 0.6.15</title>
-    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.15"/>
-    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.15</id>
-    <updated>2026-11-17T12:02:28Z</updated>
-    <content type="text">Feeds 0.6.15: an OPML file from another app asks before importing; plain http is allowed only where feeds need it; jsoup 1.23.2</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.40</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.40"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.40</id>
-    <updated>2026-11-16T22:48:19Z</updated>
-    <content type="text">Messaging 1.35.40: a picture opened full screen has a black surround in dark; a picture or video added to a message keeps its real colors in dark; the selection menu&#x27;s More list is dark; the Dark mode row in Settings is just its name and its switch</content>
-  </entry>
-  <entry>
-    <title>Time 0.2.28</title>
-    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.28"/>
-    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.28</id>
-    <updated>2026-11-16T22:25:55Z</updated>
-    <content type="text">Time 0.2.28: the World tab&#x27;s time here shows its seconds; dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Torrents 0.1.26</title>
-    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.26"/>
-    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.26</id>
-    <updated>2026-11-16T22:25:44Z</updated>
-    <content type="text">Torrents 0.1.26: dark mode made simple: every dialog and menu follows it, and the three dots, the + button and a tag&#x27;s dots open the house list; the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Glance 0.1.54</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.54"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.54</id>
-    <updated>2026-11-16T22:25:34Z</updated>
-    <content type="text">Glance 0.1.54: a long list from any app (tasks due today, say) is cut to what fits with &quot;+N more&quot; on the lock screen, not left out whole; dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Wallet 0.1.27</title>
-    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.27"/>
-    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.27</id>
-    <updated>2026-11-16T22:25:25Z</updated>
-    <content type="text">Wallet 0.1.27: the export password&#x27;s Cancel and Save stay above the keyboard; Settings loses its scrollbar again once the keyboard has closed; the Groups window has a heading and stays above the keyboard, the keyboard&#x27;s own key moves on and saves in Export; the About&#x27;s &quot;no browser&quot; note stays until closed; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Mailbox 0.1.62</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.62"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.62</id>
-    <updated>2026-11-16T22:25:07Z</updated>
-    <content type="text">Mailbox 0.1.62: pictures in a mail, attachment thumbnails and the picture viewer keep their real colors in dark; dark mode made simple: every dialog, sheet and menu follows it, selection handles show; the About&#x27;s Privacy, Terms and Licenses open as full pages; a long press on an identity opens its menu by the row; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Topo 0.2.20</title>
-    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.20"/>
-    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.20</id>
-    <updated>2026-11-16T22:24:52Z</updated>
-    <content type="text">Topo 0.2.20: photo maps keep their real colors in dark; dark mode made simple: every dialog, sheet and menu follows it, selection handles show; the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode switch is on the Settings page itself; About&#x27;s Close and Back close it; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Field Kit 0.1.28</title>
-    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.28"/>
-    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.28</id>
-    <updated>2026-11-16T22:24:41Z</updated>
-    <content type="text">Field Kit 0.1.28: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Detour 0.1.30</title>
-    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.30"/>
-    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.30</id>
-    <updated>2026-11-16T22:24:23Z</updated>
-    <content type="text">Detour 0.1.30: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Songbook 0.1.11</title>
-    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.11"/>
-    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.11</id>
-    <updated>2026-11-16T22:24:15Z</updated>
-    <content type="text">Songbook 0.1.11: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Car Check 0.1.25</title>
-    <link href="https://github.com/wanderwildwood/tenken/releases/tag/v0.1.25"/>
-    <id>https://github.com/wanderwildwood/tenken/releases/tag/v0.1.25</id>
-    <updated>2026-11-16T22:24:07Z</updated>
-    <content type="text">Car Check 0.1.25: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Tarot 0.1.26</title>
-    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.26"/>
-    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.26</id>
-    <updated>2026-11-16T22:23:56Z</updated>
-    <content type="text">Tarot 0.1.26: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Birding 1.7.46</title>
-    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.46"/>
-    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.46</id>
-    <updated>2026-11-16T22:23:47Z</updated>
-    <content type="text">Birding 1.7.46: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Cabinet 0.9.19</title>
-    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.19"/>
-    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.19</id>
-    <updated>2026-11-16T22:23:38Z</updated>
-    <content type="text">Cabinet 0.9.19: a press counts when the finger lifts; dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Abacus 0.2.32</title>
-    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.32"/>
-    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.32</id>
-    <updated>2026-11-16T22:23:28Z</updated>
-    <content type="text">Abacus 0.2.32: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Handheld Games 0.1.40</title>
-    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.40"/>
-    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.40</id>
-    <updated>2026-11-16T22:23:19Z</updated>
-    <content type="text">Handheld Games 0.1.40: save-state pictures keep their real colors in dark; dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Sky 0.13.13</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.13"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.13</id>
-    <updated>2026-11-16T22:23:09Z</updated>
-    <content type="text">Sky 0.13.13: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Speedometer 0.1.32</title>
-    <link href="https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.32"/>
-    <id>https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.32</id>
-    <updated>2026-11-16T22:23:01Z</updated>
-    <content type="text">Speedometer 0.1.32: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Music Box 2.18.43</title>
-    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.43"/>
-    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.43</id>
-    <updated>2026-11-16T22:22:53Z</updated>
-    <content type="text">Music Box 2.18.43: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Shelf 0.1.39</title>
-    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.39"/>
-    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.39</id>
-    <updated>2026-11-16T22:22:43Z</updated>
-    <content type="text">Shelf 0.1.39: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Lens 0.1.39</title>
-    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.39"/>
-    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.39</id>
-    <updated>2026-11-16T22:22:32Z</updated>
-    <content type="text">Lens 0.1.39: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Bitcoin 0.1.16</title>
-    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.16"/>
-    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.16</id>
-    <updated>2026-11-16T22:22:17Z</updated>
-    <content type="text">Bitcoin 0.1.16: About closes again with Close and Back; dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Memo 0.3.32</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.32"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.32</id>
-    <updated>2026-11-16T22:21:55Z</updated>
-    <content type="text">Memo 0.3.32: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Practice 0.2.9</title>
-    <link href="https://github.com/wanderwildwood/nikka/releases/tag/v0.2.9"/>
-    <id>https://github.com/wanderwildwood/nikka/releases/tag/v0.2.9</id>
-    <updated>2026-11-16T22:21:44Z</updated>
-    <content type="text">Practice 0.2.9: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.69</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.69"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.69</id>
-    <updated>2026-11-16T22:21:33Z</updated>
-    <content type="text">Datebook 0.1.69: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Recipes 0.2.23</title>
-    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.23"/>
-    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.23</id>
-    <updated>2026-11-16T22:21:25Z</updated>
-    <content type="text">Recipes 0.2.23: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Translate 0.9.25</title>
-    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.25"/>
-    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.25</id>
-    <updated>2026-11-16T22:21:15Z</updated>
-    <content type="text">Translate 0.9.25: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader</content>
-  </entry>
-  <entry>
-    <title>Mushroom Journal 0.3.40</title>
-    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.40"/>
-    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.40</id>
-    <updated>2026-11-16T22:21:06Z</updated>
-    <content type="text">Mushroom Journal 0.3.40: dark mode made simple (dialogs, menus and selection handles follow it), and the About&#x27;s Privacy, Terms and Licenses open as full pages; the Dark mode row in Settings is just its name and its switch, and a row not shown at the foot of a page is not read out by a screen reader
-
-**Full Changelog**: https://github.com/wanderwildwood/kinokocho/compare/v0.3.39...v0.3.40</content>
   </entry>
 </feed>
