@@ -8,6 +8,7 @@
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
 <style>
   :root {
     --ink: #2b2620;
@@ -15,9 +16,11 @@
     --rule: #ded5c6;
     --paper: #f4efe4;
   }
+  /* Dark follows the computer or phone, unless the button in the corner has been pressed (theme.js). */
   @media (prefers-color-scheme: dark) {
-    :root { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; }
+    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; color-scheme: dark; }
   }
+  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; color-scheme: dark; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -97,9 +100,16 @@
   .drop p { margin: 0 0 0.6rem; }
   .drop p:last-child { margin: 0; }
   .empty { color: var(--quiet); font-size: 0.9rem; }
+  /* Light or dark, in the corner. */
+  button.theme { position: absolute; top: 0.9rem; right: 1rem; width: 2.25rem; height: 2.25rem;
+    padding: 0.45rem; background: none; border: 0; color: var(--quiet); cursor: pointer; }
+  button.theme:hover { color: var(--ink); }
+  button.theme svg { display: block; width: 100%; height: 100%; }
+  button.theme[aria-pressed="true"] .moon, button.theme:not([aria-pressed="true"]) .sun { display: none; }
 </style>
 </head>
 <body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
 <main>
 
 <p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
@@ -241,5 +251,6 @@ private_dns_mode off</code>, Automatic <code>settings delete global private_dns_
 
 </main>
 <script type="module" src="page.js"></script>
+<script src="../theme.js"></script>
 </body>
 </html>

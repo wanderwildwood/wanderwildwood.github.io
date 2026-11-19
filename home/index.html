@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home 庵</title>
+<meta name="description" content="How Home, a plain home screen for the Mudita Kompakt, works: one Nextcloud account for the apps, Your apps, what it sends, and how to go back.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/home/">
+<meta property="og:title" content="Home 庵">
+<meta property="og:description" content="A plain home screen for the Mudita Kompakt, and how it works.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<style>
+  :root {
+    --ink: #2b2620;
+    --quiet: #6d6458;
+    --rule: #ded5c6;
+    --paper: #f4efe4;
+    color-scheme: light;
+  }
+  /* Dark follows the phone or computer, unless the button at the top has been pressed. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 3rem 1.25rem 5rem;
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.65 Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (max-width: 32rem) { body { padding: 2rem 1rem 4rem; } }
+  main { max-width: 70rem; margin: 0 auto; }
+  p, ol, ul { max-width: 34rem; }
+  :target { scroll-margin-top: 1.5rem; }
+  h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 1.4rem; letter-spacing: -0.01em; }
+  h2 {
+    font-size: 1.2rem; font-weight: 600; color: var(--quiet);
+    margin: 3rem 0 1.25rem; padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 1.1rem; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { text-decoration-style: dotted; }
+  .lede { color: var(--quiet); }
+  .back { font-size: 0.9rem; color: var(--quiet); margin-bottom: 1.6rem; }
+  ol, ul { padding-left: 1.3rem; margin: 0 0 1.1rem; }
+  li { margin-bottom: 0.5rem; }
+  b { font-weight: 600; }
+  [hidden] { display: none !important; }
+  .ja { line-height: 1.75; }
+  /* The Japanese name: press it and the page is read in Japanese instead. */
+  h1 .jp { font-weight: 400; color: var(--quiet); }
+  button.jp { font: inherit; font-weight: 400; color: var(--quiet); background: none;
+    border: 0; padding: 0; cursor: pointer; text-align: left;
+    text-decoration: underline dotted; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  button.jp[aria-pressed="true"] { color: var(--ink); }
+  /* The eleven apps, two columns on a computer, one on a phone. */
+  ul.apps { list-style: none; padding: 0; columns: 2 12rem; column-gap: 2rem; max-width: 34rem; }
+  ul.apps li { break-inside: avoid; margin-bottom: 0.3rem; }
+  ul.apps .jn { color: var(--quiet); }
+  .hut { width: 0.96em; height: 0.8em; vertical-align: -0.06em; color: var(--quiet); }
+  /* Light or dark, in the corner. */
+  button.theme { position: absolute; top: 0.9rem; right: 1rem; width: 2.25rem; height: 2.25rem;
+    padding: 0.45rem; background: none; border: 0; color: var(--quiet); cursor: pointer; }
+  button.theme:hover { color: var(--ink); }
+  button.theme svg { display: block; width: 100%; height: 100%; }
+  button.theme[aria-pressed="true"] .moon, button.theme:not([aria-pressed="true"]) .sun { display: none; }
+</style>
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="hut" viewBox="18 21.5 45 37.5"><path fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" d="M20.69,44.88C24.81,39.50 30.44,31.69 36.44,25.38C38.25,24.00 42.00,23.88 43.94,25.12C50.12,31.38 55.75,39.19 60.31,44.38M24.44,44.75C34.81,44.12 46.06,44.19 56.81,44.62M28.31,44.88C28.12,48.56 28.19,52.31 28.50,56.00M52.81,44.75C53.06,48.56 52.94,52.31 52.62,56.12M37.06,56.00C36.88,53.56 36.94,51.38 37.25,49.25C39.50,49.00 42.00,49.00 44.19,49.31C44.44,51.50 44.38,53.75 44.12,56.00M22.69,56.50C34.19,55.88 47.31,56.00 58.81,56.62"/></symbol></svg>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<h1>Home <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 庵 iori</button></h1>
+
+<p class="lede en">How Home works: what it adds to inkOS, what it keeps on the phone, what it sends,
+and how to go back to the phone's own home screen.</p>
+<p class="lede ja" lang="ja" hidden>庵のしくみ。inkOSに足したもの、電話に残すもの、送るもの、そして電話のもとのホーム画面への戻り方。</p>
+
+<section id="what">
+<h2><span class="en">What Home is</span><span class="ja" lang="ja" hidden>庵とは</span></h2>
+<div class="en">
+<p>A plain home screen of words for E Ink phones: the apps you choose, by name, and a drawer
+with the rest. It is made and tried on the Mudita Kompakt, on Mudita's own system (MuditaOS K)
+and on <a href="https://github.com/gezimos/KompaktOS">KompaktOS</a>, and it installs on other
+phones from Android 10 on.</p>
+<p>It is a fork of <a href="https://github.com/gezimos/inkos">inkOS</a> by gezimos. Everything
+inkOS does still works. Home is its own app, so it installs beside inkOS, not over it. What it
+adds:</p>
+<ul>
+  <li>A first run of six pages: welcome and privacy, setup, your apps, default apps, Nextcloud,
+  theme and home apps. <b>Settings → Run setup again</b> opens it again; nothing is reset.</li>
+  <li><a href="#nextcloud">One Nextcloud account</a> for the apps from this site.</li>
+  <li><a href="#your-apps">Your apps</a>, to install and update them.</li>
+  <li>Dark mode. On MuditaOS, <b>Settings → Dark mode</b> turns Home dark, and the apps from this
+  site follow it. On KompaktOS and other phones, Home follows the phone's own dark setting.</li>
+  <li>Default apps: one row for each kind of thing the apps open (calls, texts, contacts,
+  calendar, alarms, pictures, maps and more), saying which app Android uses now. Press a row
+  that is not chosen, pick the app, then Always.</li>
+  <li>Up to three lines under the home apps from <a href="../#hitome">Glance</a>: today's events,
+  the weather, what is unread. A press opens the app the line came from.</li>
+  <li>Folders in the app drawer, and music controls on the lock screen for any player.</li>
+</ul>
+<p>For Settings, pinch on an empty part of the home screen, then press All Settings.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p>電子ペーパーの電話のための、文字だけの素朴なホーム画面。選んだアプリが名前で並び、ほかはアプリ一覧に。Mudita Kompaktで、Mudita自身のシステム（MuditaOS K）と<a href="https://github.com/gezimos/KompaktOS">KompaktOS</a>の上で作り、試している。Android 10以降のほかの電話にも入る。</p>
+<p>gezimosの<a href="https://github.com/gezimos/inkos">inkOS</a>から分かれたもの。inkOSでできることは、そのまま残る。庵は別のアプリなので、inkOSの上書きではなく、並べて入る。足したもの：</p>
+<ul>
+  <li>六ページの初回設定。ようこそとプライバシー、セットアップ、アプリ、既定のアプリ、Nextcloud、テーマとホームのアプリ。「<b>Settings → Run setup again</b>」（設定 → セットアップをもう一度）でまた開ける。何もリセットされない。</li>
+  <li>このサイトのアプリのための、<a href="#nextcloud">ひとつのNextcloudアカウント</a>。</li>
+  <li>アプリを入れて更新する<a href="#your-apps">「Your apps」</a>。</li>
+  <li>ダークモード。MuditaOSでは「<b>Settings → Dark mode</b>」で庵が暗くなり、このサイトのアプリもそれに従う。KompaktOSやほかの電話では、電話自身のダーク設定に従う。</li>
+  <li>既定のアプリ。アプリが開くものの種類（通話、メッセージ、連絡先、カレンダー、アラーム、写真、地図など）ごとに一行で、いまAndroidがどのアプリを使うかを示す。選ばれていない行を押し、アプリを選んで「Always」（常時）。</li>
+  <li>ホームのアプリの下に、<a href="../#hitome">一目</a>からの行を三つまで。今日の予定、天気、未読。押せば、その行のアプリが開く。</li>
+  <li>アプリ一覧のフォルダーと、どのプレーヤーでも使えるロック画面の音楽の操作。</li>
+</ul>
+<p>設定は、ホーム画面の何もないところをピンチして、「All Settings」を押す。</p>
+</div>
+</section>
+
+<section id="nextcloud">
+<h2><span class="en">One Nextcloud account</span><span class="ja" lang="ja" hidden>ひとつのNextcloudアカウント</span></h2>
+<div class="en">
+<p>Sign in to your Nextcloud once, on the first run's Nextcloud page or in <b>Settings → Nextcloud
+account</b>. Home opens Nextcloud's own login in the browser. On a phone with no browser, type an
+app password (made in Nextcloud on another device: Settings, Security, Devices &amp; sessions;
+name it Home) or your login password. A login password is used once to get an app password,
+and only that is kept. The server's address has to start with https.</p>
+<p>Home keeps that one app password locked with a key in the phone's keystore, in a file left out
+of backups. In Nextcloud's list of devices it is one entry, so removing it there signs every app
+out at once. Signing out in Home also asks the server to delete it.</p>
+<p>An app that can use it has a row <b>Use the phone's Nextcloud account</b>. Home hands the
+account to these apps only, each checked by its package name and by the key its releases are
+signed with; anything else gets nothing. On this site they carry Home's hut
+<svg class="hut" aria-hidden="true"><use href="#hut"/></svg> after their name.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p>Nextcloudには一度だけサインインする。初回設定のNextcloudのページか、「<b>Settings → Nextcloud account</b>」で。庵はブラウザーでNextcloud自身のログインを開く。ブラウザーのない電話では、アプリパスワード（別の機器のNextcloudで、Settings、Security、Devices &amp; sessionsから作る。名前はHomeに）か、ログインパスワードを打ち込む。ログインパスワードは、アプリパスワードをもらうために一度だけ使い、残すのはアプリパスワードだけ。サーバーのアドレスはhttpsで始まるもの。</p>
+<p>庵はそのアプリパスワードをひとつだけ、電話のキーストアの鍵で閉じて、バックアップから外したファイルに置く。Nextcloudの機器の一覧では一行なので、そこで消せば、どのアプリも一度にサインアウトする。庵でサインアウトすると、サーバーにも消すよう頼む。</p>
+<p>使えるアプリには「<b>Use the phone's Nextcloud account</b>」（電話のNextcloudアカウントを使う）という行がある。庵はアカウントをこれらのアプリにだけ渡し、パッケージ名とリリースの署名の鍵で一つずつ確かめる。ほかには何も渡さない。このサイトでは、名前のあとに庵の小屋の印 <svg class="hut" aria-hidden="true"><use href="#hut"/></svg> がついている。</p>
+</div>
+<ul class="apps">
+  <li><a href="../#enishi">Connections</a> <span class="jn" lang="ja">縁</span></li>
+  <li><a href="../#koyomi">Datebook</a> <span class="jn" lang="ja">暦</span></li>
+  <li><a href="../#garo">Pictures</a> <span class="jn" lang="ja">画廊</span></li>
+  <li><a href="../#tana">Cabinet</a> <span class="jn" lang="ja">棚</span></li>
+  <li><a href="../#yumecho">Dream Log</a> <span class="jn" lang="ja">夢帳</span></li>
+  <li><a href="../#mimidoku">Audio Reader</a> <span class="jn" lang="ja">耳読</span></li>
+  <li><a href="../#kirinuki">Feeds</a> <span class="jn" lang="ja">切抜</span></li>
+  <li><a href="../#oboegaki">Memo</a> <span class="jn" lang="ja">覚書</span></li>
+  <li><a href="../#kondate">Recipes</a> <span class="jn" lang="ja">献立</span></li>
+  <li><a href="../#shoka">Shelf</a> <span class="jn" lang="ja">書架</span></li>
+  <li><a href="../#utahon">Songbook</a> <span class="jn" lang="ja">歌本</span></li>
+</ul>
+<p class="en">Each of them still works without Home, with its own sign-in. An app that does not
+have the row yet signs in on its own, as before.</p>
+<p class="ja" lang="ja" hidden>どのアプリも、庵がなくても自分のサインインで動く。その行がまだないアプリは、これまでどおり自分でサインインする。</p>
+</section>
+
+<section id="your-apps">
+<h2><span class="en">Your apps, and how each download is checked</span><span class="ja" lang="ja" hidden>「Your apps」と、ダウンロードの確かめ方</span></h2>
+<div class="en">
+<p><b>Settings → Your apps</b> lists the apps from this site, the core ones first, each with what
+it is, the version on the phone or Not installed, and Install, Update or Up to date. The list is
+read from <a href="../apps.json">wanderthe.dev/apps.json</a>; Home keeps a copy for when there is
+no connection.</p>
+<p>Install or Update downloads the app from its own GitHub release. Home installs it only when:</p>
+<ul>
+  <li>its size and checksum (SHA-256) are the ones on the list,</li>
+  <li>it is the app and the version the list names,</li>
+  <li>it is signed with the key on the list, and no other,</li>
+  <li>and that key is the one Home already holds for that app.</li>
+</ul>
+<p>So the list on this site cannot change an app's key or bring in an app Home does not know. An
+update must also be signed like the app already on the phone. If anything does not match,
+nothing is installed. The downloaded file is deleted either way.</p>
+<p>Android asks once to let Home install apps (Install unknown apps), and asks before each first
+install. From Android 12 on, an app Home installed is then updated without asking again.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p>「<b>Settings → Your apps</b>」に、このサイトのアプリが並ぶ。主なアプリが先。それぞれに何をするものか、電話の中の版か「Not installed」（未インストール）、そして「Install」「Update」「Up to date」。一覧は<a href="../apps.json">wanderthe.dev/apps.json</a>から読み、つながらないときのために写しを残す。</p>
+<p>「Install」か「Update」を押すと、そのアプリ自身のGitHubのリリースからダウンロードする。入れるのは、次がすべて合うときだけ：</p>
+<ul>
+  <li>大きさとチェックサム（SHA-256）が一覧のとおり。</li>
+  <li>一覧にあるアプリと版、そのもの。</li>
+  <li>一覧の鍵だけで署名されている。</li>
+  <li>その鍵が、庵がそのアプリについてもともと持っている鍵と同じ。</li>
+</ul>
+<p>だから、このサイトの一覧が、アプリの鍵を替えたり、庵の知らないアプリを持ち込んだりはできない。更新は、電話にあるアプリと同じ署名でなければならない。合わなければ何も入れない。ダウンロードしたファイルは、どちらにしても消す。</p>
+<p>Androidは一度だけ、庵にアプリを入れさせてよいか（「Install unknown apps」）を聞き、初めて入れるアプリごとに確認する。Android 12以降では、庵が入れたアプリは、そのあと聞かれずに更新できる。</p>
+</div>
+</section>
+
+<section id="network">
+<h2><span class="en">What Home sends</span><span class="ja" lang="ja" hidden>庵が送るもの</span></h2>
+<div class="en">
+<p>Nothing about you. Home has no server of its own. Unlike inkOS it may use the internet, for
+these things only:</p>
+<ul>
+  <li><b>Your apps</b>: when you open it, it reads the list from wanderthe.dev/apps.json, and
+  downloads from GitHub the apps you ask for.</li>
+  <li><b>Ecosystem apps</b>: when you open that list in Settings, or press Get or Update, it asks
+  GitHub for each app's latest release and downloads the ones you ask for. The first run's page
+  of apps reaches nothing until you press GET.</li>
+  <li><b>Nextcloud</b>: only the server you sign in to, to sign in and to sign out.</li>
+</ul>
+<p>Settings, usage counts and everything on the home screen stay on the phone. Glance's lines come
+from Glance on the phone and do not leave it. A crash report is sent only if you choose to, as an
+email from your own mail app.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p>あなたについては何も送らない。庵には自分のサーバーがない。inkOSと違ってインターネットを使うが、次のことだけ：</p>
+<ul>
+  <li><b>Your apps</b>：開いたときにwanderthe.dev/apps.jsonから一覧を読み、頼んだアプリをGitHubからダウンロードする。</li>
+  <li><b>Ecosystem apps</b>：設定でその一覧を開くか、「Get」「Update」を押したとき、各アプリの最新のリリースをGitHubに聞き、頼んだものをダウンロードする。初回設定のアプリのページは、「GET」を押すまでどこにもつながらない。</li>
+  <li><b>Nextcloud</b>：サインインしたサーバーにだけ、サインインとサインアウトのために。</li>
+</ul>
+<p>設定、使った回数、ホーム画面に出るものは、すべて電話に残る。一目の行は電話の中の一目から来て、外へは出ない。クラッシュの報告は、送ると決めたときだけ、自分のメールアプリからのメールとして。</p>
+</div>
+</section>
+
+<section id="home-app">
+<h2><span class="en">Setting it as the home app, and going back</span><span class="ja" lang="ja" hidden>ホームのアプリにする、もとに戻す</span></h2>
+<div class="en">
+<p>Download <a href="https://github.com/wanderwildwood/iori/releases/latest/download/iori.apk">iori.apk</a>
+and open it. Every release is signed with the same key, so a newer one installs over it and keeps
+your settings. <a href="https://github.com/ImranR98/Obtainium">Obtainium</a> can keep it updated:
+add <a href="https://github.com/wanderwildwood/iori">github.com/wanderwildwood/iori</a>.</p>
+<p>The first run's Setup page makes Home the screen the phone opens to. Later, it is
+<b>Settings → Advanced → Set as default launcher</b>.</p>
+<p>To go back to the phone's own home screen, press <b>Settings → Advanced → Exit Home</b> and pick
+it (on a Kompakt with MuditaOS K, Mudita's own home screen). From a computer, it is under Default
+apps on <a href="../mktweaks/#defaults">Kompakt tweaks</a>. Uninstalling Home leaves the phone with
+its own home screen too.</p>
+<p>To Android, Home and inkOS are two separate apps: accessibility, notification access, widgets
+and shortcuts are given to each on its own. On Android 13 and later, if Home's switches for
+accessibility or notification access are greyed out, open its App info, press ⋮, then Allow
+restricted settings.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p><a href="https://github.com/wanderwildwood/iori/releases/latest/download/iori.apk">iori.apk</a>をダウンロードして開く。どのリリースも同じ鍵で署名しているので、新しいものはそのまま上に入り、設定も残る。<a href="https://github.com/ImranR98/Obtainium">Obtainium</a>で更新を追うなら、<a href="https://github.com/wanderwildwood/iori">github.com/wanderwildwood/iori</a>を加える。</p>
+<p>初回設定の「Setup」のページで、庵を電話が開くホーム画面にできる。あとからなら「<b>Settings → Advanced → Set as default launcher</b>」。</p>
+<p>電話のもとのホーム画面に戻すには、「<b>Settings → Advanced → Exit Home</b>」を押して、もとのものを選ぶ（MuditaOS KのKompaktなら、Mudita自身のホーム画面）。パソコンからなら、<a href="../mktweaks/#defaults">Kompakt tweaks</a>の「Default apps」で。庵をアンインストールしても、電話はもとのホーム画面に戻る。</p>
+<p>Androidにとって、庵とinkOSは別々のアプリ。ユーザー補助、通知へのアクセス、ウィジェット、ショートカットは、それぞれに別に与える。Android 13以降で、庵のユーザー補助や通知へのアクセスのスイッチが灰色なら、アプリ情報を開き、⋮を押して「Allow restricted settings」（制限付き設定を許可）。</p>
+</div>
+</section>
+
+<section id="credit">
+<h2><span class="en">Credit and licence</span><span class="ja" lang="ja" hidden>クレジットとライセンス</span></h2>
+<div class="en">
+<p>Home is free software under the GNU General Public License, version 3. Nearly all of it is
+<a href="https://github.com/gezimos/inkos">inkOS</a> by <a href="https://github.com/gezimos">gezimos</a>,
+GPL-3.0. inkOS was first forked from <a href="https://github.com/DroidWorksStudio/mLauncher">mLauncher</a>,
+itself a fork of <a href="https://github.com/tanujnotes/Olauncher">Olauncher</a>, both GPL-3.0.
+The lock-screen music strip follows gezimos's <a href="https://github.com/gezimos/Katapult">Katapult</a>.</p>
+<p><b>Settings → About Home → Licenses</b> lists every library and font with its licence. If inkOS
+has made your phone better, the coffee cup in About Home opens gezimos's Buy Me a Coffee. For
+plain inkOS, go to <a href="https://github.com/gezimos/inkos">gezimos's repository</a>.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p>庵はフリーソフトウェアで、ライセンスはGNU General Public License, version 3。そのほとんどは<a href="https://github.com/gezimos">gezimos</a>の<a href="https://github.com/gezimos/inkos">inkOS</a>（GPL-3.0）。inkOSは<a href="https://github.com/DroidWorksStudio/mLauncher">mLauncher</a>から分かれ、mLauncherは<a href="https://github.com/tanujnotes/Olauncher">Olauncher</a>から分かれたもの。どちらもGPL-3.0。ロック画面の音楽の帯は、gezimosの<a href="https://github.com/gezimos/Katapult">Katapult</a>にならった。</p>
+<p>「<b>Settings → About Home → Licenses</b>」に、すべてのライブラリーとフォントとそのライセンス。inkOSで電話がよくなったと思ったら、About Homeのコーヒーカップから、gezimosのBuy Me a Coffeeへ。素のinkOSは<a href="https://github.com/gezimos/inkos">gezimosのリポジトリー</a>に。</p>
+</div>
+</section>
+
+</main>
+<script>
+document.querySelectorAll('button.jp').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var ja = b.getAttribute('aria-pressed') !== 'true';
+    document.querySelectorAll('main .en').forEach(function (e) { e.hidden = ja; });
+    document.querySelectorAll('main .ja').forEach(function (e) { e.hidden = !ja; });
+    document.documentElement.lang = ja ? 'ja' : 'en';
+    b.setAttribute('aria-pressed', ja ? 'true' : 'false');
+  });
+});
+</script>
+<script src="../theme.js"></script>
+</body>
+</html>
