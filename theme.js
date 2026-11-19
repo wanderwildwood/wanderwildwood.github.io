@@ -4,7 +4,8 @@
 // The line in each page's <head> sets data-theme before anything is drawn.
 //
 // In dark, a screenshot with data-dark shows that file instead (the apps' own dark mode), and
-// Kumo's <picture> follows the button as well as the system.
+// Kumo's and Wander's <picture> follow the button as well as the system (Wander by day in light,
+// at nightfall in dark).
 (function () {
   var root = document.documentElement;
   var mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
@@ -27,6 +28,11 @@
     });
     document.querySelectorAll('source[data-dark-source]').forEach(function (s) {
       s.media = chosen ? (dark ? 'all' : 'not all') : '(prefers-color-scheme: dark)';
+    });
+    // A picture with a day and a night version (Wander's) says which one is showing.
+    document.querySelectorAll('img[data-dark-alt]').forEach(function (img) {
+      if (!img.hasAttribute('data-light-alt')) img.setAttribute('data-light-alt', img.getAttribute('alt'));
+      img.setAttribute('alt', img.getAttribute(dark ? 'data-dark-alt' : 'data-light-alt'));
     });
   }
 
