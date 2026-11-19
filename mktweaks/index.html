@@ -101,8 +101,9 @@
   .drop p:last-child { margin: 0; }
   .empty { color: var(--quiet); font-size: 0.9rem; }
   /* Light or dark, in the corner. */
-  button.theme { position: absolute; top: 0.9rem; right: 1rem; width: 2.25rem; height: 2.25rem;
-    padding: 0.45rem; background: none; border: 0; color: var(--quiet); cursor: pointer; }
+  button.theme { position: fixed; top: calc(0.9rem + env(safe-area-inset-top, 0px)); right: calc(1rem + env(safe-area-inset-right, 0px));
+    width: 2.25rem; height: 2.25rem; z-index: 50; padding: 0.45rem; cursor: pointer; color: var(--quiet);
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 50%; }   /* stays in the corner as the page scrolls, on a small disc of paper so it reads over pictures */
   button.theme:hover { color: var(--ink); }
   button.theme svg { display: block; width: 100%; height: 100%; }
   button.theme[aria-pressed="true"] .moon, button.theme:not([aria-pressed="true"]) .sun { display: none; }
