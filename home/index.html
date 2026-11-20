@@ -52,8 +52,8 @@
   h1 { font-size: 1.9rem; font-weight: 600; margin: 0 0 1rem; letter-spacing: -0.01em; line-height: 1.25; }
   h2 {
     font-size: 1.2rem; font-weight: 600; color: var(--quiet);
-    margin: 3rem 0 1.25rem; padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--rule);
+    margin: 3.2rem 0 1.25rem; padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--rule);   /* ruled off in 2px, as the game's page and the home page have them */
   }
   p { margin: 0 0 1.1rem; }
   a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--line); }
@@ -61,6 +61,10 @@
   a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
   .lede { color: var(--quiet); }
   .back { font-size: 0.9rem; color: var(--quiet); margin-bottom: 1.6rem; }
+  /* the way back as a small tab on the paper, as the game's page has it */
+  .back a { display: inline-block; color: var(--ink); text-decoration: none; background: var(--raise);
+    border: 2px solid var(--rule); padding: 0.1rem 0.6rem; }
+  .back a:hover { border-color: var(--ink); }
   ol, ul { padding-left: 1.3rem; margin: 0 0 1.1rem; }
   li { margin-bottom: 0.5rem; }
   b { font-weight: 600; }
@@ -101,6 +105,7 @@
   a.btn:active { transform: translate(3px, 3px); box-shadow: none; }
   a.btn.plain { background: none; box-shadow: none; border-color: var(--rule); }
   a.btn.plain:active { transform: none; }
+  a.btn.plain:hover { border-color: var(--ink); }
   .toc { display: flex; flex-wrap: wrap; gap: 0.2rem 1.4rem; font-size: 0.92rem; color: var(--quiet); max-width: 34rem; }
   .toc[hidden] { display: none; }
 
@@ -135,6 +140,7 @@
   button.daynight { font: inherit; font-size: 0.9rem; color: var(--ink); background: var(--raise); cursor: pointer;
     border: 2px solid var(--ink); padding: 0.3rem 0.8rem; box-shadow: 3px 3px 0 var(--ink);
     display: inline-flex; align-items: center; gap: 0.5rem; }
+  button.daynight:hover { background: var(--paper); }
   button.daynight:active { transform: translate(3px, 3px); box-shadow: none; }
   button.daynight svg { width: 1.1rem; height: 1.1rem; }
   button.daynight[aria-pressed="true"] .moon, button.daynight:not([aria-pressed="true"]) .sun { display: none; }
