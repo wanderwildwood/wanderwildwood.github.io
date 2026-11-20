@@ -1,7 +1,7 @@
 // Wander, from the game, along the way down a page, moving as the game's own page moves him: by the scroll.
 // Scrolled down, he goes on; scrolled back, he goes back. On the main page he only looks out, still, from behind
-// the picture of each app the game quietly knows about (the cards named in data-cards: nothing says why). On Home's page he walks in from the
-// right margin, looks up, and sits down; scrolled back, he gets up and walks off. A press on him opens the game's page.
+// the picture of each app the game quietly knows about (the cards named in data-cards: nothing says why). On Home's page he walks in along the
+// bottom of the screen and stays there, looks up, and sits down by the end; scrolled back, he gets up and walks off. A press on him opens the game's page.
 // Drawn from shots/wander-peek.png: fourteen frames of 14x37 from the game's own sheet (stand, look up, the
 // eight of the walk, the three of sitting down, and sitting).
 (function () {
@@ -59,28 +59,30 @@
         });
       });
   } else {
-    // In from the right margin beside one part of the page, in the page, scrolling with it.
-    var at = document.querySelector((script && script.dataset.at) || 'main');
-    var main = document.querySelector('main') || document.body;
-    if (!at) return;
+    // Along the foot of the screen, as on the game's page: scrolled down, he walks in from the right edge and
+    // stops a little way in, staying at the bottom of the screen while the page goes by; he looks up, and by
+    // the end of the page he has sat down. Scrolled back, he gets up and walks off the way he came.
     var w = figure();
+    w.style.position = 'fixed';
+    w.style.bottom = '0';
     w.style.zIndex = '40';
     document.body.appendChild(w);
     players.push(function () {
+      var span = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      var p = clamp(scrollY / span);
+      var narrow = innerWidth < 52 * 16;
+      // where he stops: in the margin on a wide screen; on a phone, just left of the small phone in the corner
+      var main = document.querySelector('main') || document.body;
       var room = innerWidth - main.getBoundingClientRect().right;
-      if (room < W * S + 24) { w.style.visibility = 'hidden'; return; }   // no margin to stand in: he stays in the game
-      var r = at.getBoundingClientRect(), vh = innerHeight;
-      var p = clamp((vh * 0.95 - r.top) / (vh * 0.75));
-      var into = Math.min(Math.max(room * 0.45 - W * S / 2, 12), 140);
+      var into = narrow ? Math.round(5.2 * 16 + 0.8 * 16 + 10) : Math.min(Math.max(room * 0.5 - W * S / 2, 16), 160);
       var off = -W * S - 4;
       var x, n;
-      if (p < 0.5) { var a = part(p, 0.05, 0.5); x = off + (into - off) * a; n = a > 0 && a < 1 ? walkFrame(x - off) : STAND; }
-      else if (p < 0.68) { x = into; n = LOOK; }
-      else { x = into; var s = part(p, 0.68, 0.9); n = s >= 1 ? SIT : s <= 0 ? LOOK : SITDOWN + Math.min(2, Math.floor(s * 3)); }
-      face(w, true);                                     // he has come in from the right: facing the page
+      if (p < 0.22) { var a = part(p, 0.03, 0.22); x = off + (into - off) * a; n = a > 0 && a < 1 ? walkFrame(x - off) : STAND; }
+      else if (p < 0.8) { x = into; n = part(p, 0.3, 0.5) > 0 && p < 0.7 ? LOOK : STAND; }
+      else { x = into; var s = part(p, 0.8, 0.95); n = s >= 1 ? SIT : s <= 0 ? STAND : SITDOWN + Math.min(2, Math.floor(s * 3)); }
+      face(w, true);                                     // come in from the right, facing into the page
       w.style.right = snap(x) + 'px';
-      w.style.top = Math.round(r.top + scrollY + 24) + 'px';
-      w.style.visibility = p > 0.05 ? 'visible' : 'hidden';
+      w.style.visibility = p > 0.03 ? 'visible' : 'hidden';
       pose(w, n);
     });
   }
