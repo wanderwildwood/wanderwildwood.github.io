@@ -4,8 +4,17 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-19T19:21:26Z</updated>
+  <updated>2026-11-20T01:03:30Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Glance 0.1.57</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.57"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.57</id>
+    <updated>2026-11-20T01:03:30Z</updated>
+    <content type="text"># Glance 0.1.57
+
+- On the lock screen, Memo&#x27;s items now sit set in under their note, with the text following close after the bullet</content>
+  </entry>
   <entry>
     <title>Messaging 1.35.45</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.45"/>
@@ -1335,37 +1344,6 @@
 - A Bluetooth link that cannot be set up, keeps failing to read, or never answers is closed instead of left hanging; connecting closes an earlier link first, and that link&#x27;s disconnect no longer ends the new one
 - The unnamed main channel keeps its conversation when the modem preset changes
 - The message log is written to disk whole before it replaces the old one, and a log this version cannot read is kept aside, never written over
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Passwords 0.1.29</title>
-    <link href="https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.29"/>
-    <id>https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.29</id>
-    <updated>2026-11-19T03:47:14Z</updated>
-    <content type="text"># Passwords 0.1.29
-
-- Autofill matches a sign-in box inside a frame to its own site, not the page around it, and a sign-in picked on a web page inside another app is not remembered for that app
-- Autofill believes a web page&#x27;s site only from a known browser, checked by its signing certificate; EinkBro joins the known browsers
-- A vault file handed in by another app opens for this time only, after a yes when a different vault is already here; Close goes back to the remembered vault, which keeps its fingerprint unlock, and the app keeps no lasting right to the other file
-- With a change not yet saved to the file, locking, opening a different vault or closing asks first
-- Put back the file from before says it also brings back the master password the file had then
-- Choosing a different vault forgets the fingerprint key made for the old one
-- A code&#x27;s secret typed by hand goes through a password keyboard, which learns nothing from it
-- The QR scanner&#x27;s camera picture keeps its colors in dark mode
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and dark mode keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Saves to the vault file go one at a time; a save cut short no longer replaces the copy kept from before, and a password change that could not be written leaves the old password in place
-- A password change that met a file changed elsewhere writes the new password when you choose Replace, and is let go if you close the dialog or the vault locks
-- A put-back that fails keeps the copy from before, and closing a vault forgets only its own copy
-- A save that wrote nothing says the file is as it was, not that it may be damaged
-- A lock while the vault is opening, reloading or saving holds
-- A sign-in picked in an app that shows a web view elsewhere on its screen can be remembered for that app again
-- A QR picture or codes file shared to Passwords is read to the end
-- A very large vault file, or one asking for more unlocking work than a phone can do, is refused with a message instead of ending the app or running for hours
-- Editing an entry keeps a code the app cannot read, rather than dropping it
-- The Autofill window no longer offers a New vault row that made an empty file
 - A tap on the scrollbar lands on the right row after the screen changes</content>
   </entry>
 </feed>
