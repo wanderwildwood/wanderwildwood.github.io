@@ -1,7 +1,6 @@
 // Wander, from the game, along the way down a page, moving as the game's own page moves him: by the scroll.
-// Scrolled down, he goes on; scrolled back, he goes back. On the main page he rises from behind the picture
-// of each app the game quietly knows about (the cards named in data-cards: nothing says why), looks out over
-// its top at the visitor, and sinks out of sight again as it goes. On Home's page he walks in from the
+// Scrolled down, he goes on; scrolled back, he goes back. On the main page he only looks out, still, from behind
+// the picture of each app the game quietly knows about (the cards named in data-cards: nothing says why). On Home's page he walks in from the
 // right margin, looks up, and sits down; scrolled back, he gets up and walks off. A press on him opens the game's page.
 // Drawn from shots/wander-peek.png: fourteen frames of 14x37 from the game's own sheet (stand, look up, the
 // eight of the walk, the three of sitting down, and sitting).
@@ -51,18 +50,12 @@
         var w = figure();
         card.insertBefore(w, card.firstChild);
         players.push(function () {
-          var r = card.getBoundingClientRect(), vh = innerHeight;
-          // 0 as the card's top comes up past 90% of the screen, 1 as it goes over 20%
-          var p = clamp((vh * 0.9 - r.top) / (vh * 0.7));
           var top = holder.offsetTop, lift = H * S * 0.34;
-          var wide = holder.getBoundingClientRect().width;
-          var right = holder.offsetLeft + wide - W * S - 6;   // at the picture's right, clear of a heading or links above
-          var up = part(p, 0, 0.2) - part(p, 0.8, 1);      // up from behind as it comes, down again as it goes
-          var n = up >= 1 ? LOOK : STAND;                  // once up, he looks out at the visitor
+          var right = holder.offsetLeft + holder.getBoundingClientRect().width - W * S - 6;   // at the picture's right
           w.style.left = snap(right) + 'px';
-          w.style.top = snap(top - lift * up) + 'px';
-          w.style.visibility = up > 0 ? 'visible' : 'hidden';
-          pose(w, n);
+          w.style.top = snap(top - lift) + 'px';
+          w.style.visibility = 'visible';
+          pose(w, LOOK);                                   // just there, still, looking out over the top
         });
       });
   } else {
