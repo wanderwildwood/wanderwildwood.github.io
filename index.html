@@ -161,7 +161,7 @@
   #sanpo .descrow { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 0.6rem 2.5rem; }   /* the two columns as one group, centred under the picture */
   /* the words on the left, about as wide as the two buttons; beside them the note, and the buttons under the note */
   #sanpo .descrow .desc { flex: 0 1 26.5rem; min-width: 0; }
-  #sanpo .descrow .desc p:last-of-type { margin-bottom: 0; }
+  #sanpo .descrow .desc p.ja:last-of-type, #sanpo .descrow .desc p.links { margin-bottom: 0; }
   /* the game's WANDER seal beside the words, out in the margin at their left, the words flush under the title; in the page's ink (so it turns light at night) */
   /* the game's WANDER seal stamped on the picture's bottom left corner, in the page's ink (light at night,
      on the night picture) */
@@ -174,6 +174,8 @@
   #sanpo .desc h4 { margin-top: 0; }
   #sanpo .side .links.go { margin: 1.1rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.8rem; }   /* centred under the note */
   #sanpo .side .links.go .gobtn { margin: 0; }
+  #sanpo .desc .links.go { margin: 1.1rem 0 0; }   /* the walk under the words; Tell me when it's out stays under the note */
+  #sanpo .desc .links.go .gobtn { margin: 0; }
   #sanpo .peeknote { position: relative; margin: 0;   /* in a little from the picture's edge */ padding: 0.75rem 1.1rem 0.8rem;
     background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 4px 4px 0 var(--hard);
     font-size: 0.95rem; line-height: 1.55; }
@@ -396,12 +398,13 @@
   There is nothing to win and no words on the screen.</p>
   <p class="ja" lang="ja" hidden>ラマのクモとレッドウッドの森を歩く。立ち止まり、気づき、つながることの、静かでASMRのようなゲーム。Mudita Kompaktのために作った。</p>
   <p class="ja" lang="ja" hidden>一度の散歩は一日。朝の霧から夕暮れまで、本当の時計でおよそ十二分。勝ち負けはなく、画面に言葉もない。</p>
+  <p class="links go"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a></p>
   </div>
   <div class="side">
   <p class="en peeknote"><a class="peekmark" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>Where Wander peeks out over an app further down this page, that app and the game are
   connected: the game quietly takes something of it into the wood.</p>
   <p class="ja peeknote" lang="ja" hidden><a class="peekmark" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>このページの下のほうで、アプリの上からwanderがのぞいていたら、そのアプリとゲームはつながっている。ゲームはそっと、そのアプリから何かを森へ持ちこむ。</p>
-  <p class="links go"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></p>
+  <p class="links go"><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></p>
   </div>
   </div>
 
