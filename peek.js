@@ -11,7 +11,8 @@
   var STAND = 0, LOOK = 1, WALK = 2, SITDOWN = 10, SIT = 13;
   var STRIDE = 2 * S;                              // a walk frame for every two of his pixels gone, as the game steps him
 
-  function figure() {
+  var feathered = ((script && script.dataset.feather) || '').split(',');   // cards where he has the feather in his hat band, as the game draws it
+  function figure(feather) {
     var a = document.createElement('a');
     a.className = 'wander-peek';
     a.href = base + 'wanderthegame/';
@@ -19,7 +20,7 @@
     a.setAttribute('aria-hidden', 'true');
     a.tabIndex = -1;
     a.style.cssText = 'position:absolute;display:block;width:' + W * S + 'px;height:' + H * S + 'px;' +
-      'background:url(' + base + 'shots/wander-peek.png) 0 0/' + W * S * N + 'px ' + H * S + 'px no-repeat;' +
+      'background:url(' + base + (feather ? 'shots/wander-peek-feather.png' : 'shots/wander-peek.png') + ') 0 0/' + W * S * N + 'px ' + H * S + 'px no-repeat;' +
       'image-rendering:pixelated;cursor:pointer;z-index:0;visibility:hidden;';
     return a;
   }
@@ -47,7 +48,7 @@
         if (getComputedStyle(card).position === 'static') card.style.position = 'relative';
         holder.style.position = 'relative';
         holder.style.zIndex = '1';
-        var w = figure();
+        var w = figure(feathered.indexOf(card.id) >= 0);
         card.insertBefore(w, card.firstChild);
         players.push(function () {
           var top = holder.offsetTop, lift = H * S * 0.34;
