@@ -27,15 +27,15 @@
      quiet 5:1 and up. --raise is the Home card's ground; --edge and --lift frame the screenshots,
      which are white E Ink screens and would glare on the paper without an edge. */
   :root {
-    --ink: #29241e;
-    --quiet: #5a5247;
-    --rule: #cbc1b1;
-    --paper: #e2dccf;
-    --raise: #e9e4d9;
-    --line: #8c7f6c;     /* a link's underline */
-    --edge: #bfb4a2;
-    --lift: 0 1px 1px rgba(60, 45, 25, .10), 0 10px 22px -14px rgba(60, 45, 25, .45);
-    --hard: rgba(40, 30, 15, .2);   /* a hard shadow, as the game's page has: the light from one side, no blur */
+    --ink: #252422;      /* (11-20, his pick "B": the paper an E Ink grey, nearly neutral, in place of the warm unbleached paper) */
+    --quiet: #52504c;
+    --rule: #c1bfb8;
+    --paper: #d9d8d3;
+    --raise: #e2e1dc;
+    --line: #83817b;     /* a link's underline */
+    --edge: #b3b1aa;
+    --lift: 0 1px 1px rgba(40, 40, 38, .10), 0 10px 22px -14px rgba(40, 40, 38, .45);
+    --hard: rgba(30, 30, 28, .2);   /* a hard shadow, as the game's page has: the light from one side, no blur */
     --floor: #7a7a7a;    /* the game's forest floor, under Wander's card and under Kumo at the foot */
     color-scheme: light;
   }
@@ -364,7 +364,7 @@
   .nw { white-space: nowrap; }
   /* E Ink is not white: the Kompakt's screen is a soft grey with ink a little short of black. Each
      screenshot is toned to it in light mode (dark mode has its own dark shots); the stop-motion photo is left alone. */
-  :root { --eink: contrast(0.88) brightness(0.96) sepia(0.06); }
+  :root { --eink: contrast(0.88) brightness(0.96); }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --eink: none; } }
   :root[data-theme="dark"] { --eink: none; }
   .shot { filter: var(--eink); }
