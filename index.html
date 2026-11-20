@@ -137,7 +137,12 @@
   #sanpo p { max-width: none; }   /* the game's text runs the width of its picture */
   /* The note that says what his peeks mean, as a small card he looks out over, as he does over the app
      pictures below: the top of him above its edge, the rest behind it. */
-  #sanpo .peeknote { position: relative; max-width: 44rem; margin: 3.4rem 0 1.1rem; padding: 0.75rem 1.1rem 0.8rem;
+  /* the two buttons and the note on one row, the note filling the rest of it; under each other on a phone */
+  #sanpo .walkrow { display: flex; flex-wrap: wrap; align-items: center; gap: 3.4rem 1.6rem; padding-top: 0.6rem; }
+  @media (min-width: 48rem) { #sanpo .walkrow { padding-top: 3.2rem; } }   /* room above for his hat when the note is beside the buttons */
+  #sanpo .walkrow .links.go { margin: 0 0 0.1rem; flex: 0 1 auto; display: flex; flex-wrap: wrap; gap: 0.6rem 0; }
+  #sanpo .walkrow .gobtn { margin-bottom: 0; }
+  #sanpo .peeknote { position: relative; flex: 1 1 18rem; min-width: 0; max-width: 40rem; margin: 0; padding: 0.75rem 1.1rem 0.8rem;
     background: var(--raise); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 4px 4px 0 var(--hard);
     font-size: 0.95rem; line-height: 1.55; }
   #sanpo .peeknote[hidden] { display: none; }
@@ -289,10 +294,12 @@
   There is nothing to win and no words on the screen.</p>
   <p class="ja" lang="ja" hidden>ラマのクモとレッドウッドの森を歩く。立ち止まり、気づき、つながることの、静かでASMRのようなゲーム。Mudita Kompaktのために作り、Kompaktで試している。</p>
   <p class="ja" lang="ja" hidden>一度の散歩は一日。朝の霧から夕暮れまで、本当の時計でおよそ十二分。勝ち負けはなく、画面に言葉もない。</p>
+  <div class="walkrow">
+  <p class="links go"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></p>
   <p class="en peeknote"><span class="peekmark" aria-hidden="true"></span>Where Wander peeks out over an app further down this page, that app and the game are
   connected: the game quietly takes something of it into the wood.</p>
   <p class="ja peeknote" lang="ja" hidden><span class="peekmark" aria-hidden="true"></span>このページの下のほうで、アプリの上からwanderがのぞいていたら、そのアプリとゲームはつながっている。ゲームはそっと、そのアプリから何かを森へ持ちこむ。</p>
-  <p class="links go"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></p>
+  </div>
 </div>
 </div>
 
