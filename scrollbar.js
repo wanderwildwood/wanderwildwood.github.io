@@ -72,9 +72,9 @@
   thumb.addEventListener('pointercancel', function () { dragging = false; });
   addEventListener('scroll', paint, { passive: true });
 
-  // The wheel a little faster than the browser's own step (his word, 11-20): half as far again, at once, no glide.
+  // The wheel a little faster than the browser's own step (his word, 11-20): twice as far (1.5 at first, then "a touch faster still"), at once, no glide.
   // Pinch-zoom (ctrl), sideways wheels, and anything inside the page that scrolls on its own are left to the browser.
-  var WHEEL = 1.5;
+  var WHEEL = 2;
   function scrollsItself(t) {
     for (var e = t; e && e !== document.body && e !== root; e = e.parentElement) {
       var o = getComputedStyle(e).overflowY;
