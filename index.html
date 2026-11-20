@@ -193,8 +193,11 @@
   /* With two columns: the buttons at the head of the left one, the list's items after them, filling
      the left column's other two places and the right column's three. */
   @media (min-width: 64rem) {
-    /* the picture as tall as the words beside it, and the words a little closer, so they end together */
-    .app.home { grid-template-columns: 16.5rem minmax(0, 1fr); padding: 1.3rem 1.5rem 1.1rem; gap: 1rem 2rem; }
+    /* the words a little closer */
+    /* the picture exactly as wide as the app cards' pictures below: one of the grid's four columns
+       (the page is min(70rem, the window less 2.5rem) wide, with three gaps of 1.75rem) */
+    .app.home { grid-template-columns: calc((min(70rem, 100vw - 2.5rem) - 3 * 1.75rem) / 4) minmax(0, 1fr);
+      padding: 1.3rem 1.5rem 1.1rem; gap: 1rem 2rem; }
     .app.home ul.adds li { margin-bottom: 0.4rem; line-height: 1.45; }
     .app.home .home-text > p.en, .app.home .home-text > p.ja { margin-bottom: 0.8rem; }
     .app.home .actions { grid-column: 1; grid-row: 4; align-self: start; }   /* rows 1-3: the name, the links, the words */
