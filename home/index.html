@@ -255,6 +255,12 @@
   .flow { min-width: 0; }
   .story .split { grid-template-columns: minmax(0, 1fr); }   /* beside the phone, a part's drawing goes under its words */
   .story .split > figure { margin-top: 0.5rem; }
+  /* the account's fan is narrow enough to sit beside its words wherever the column has the room */
+  #nextcloud { container-type: inline-size; }
+  @container (min-width: 44rem) {
+    #nextcloud .split { grid-template-columns: minmax(0, 30rem) auto; gap: 0 2rem; align-items: center; }
+    #nextcloud .split > figure.fan { margin: 0; }
+  }
   .hero { grid-template-columns: minmax(0, 1fr); }
   .stage { align-self: stretch; }
   .stage .phone { position: sticky; top: 4.5rem; max-width: 16.5rem; margin-top: 4rem; }
