@@ -19,13 +19,13 @@
    "name": "Messaging",
    "summary": "SMS, MMS and Signal in one inbox, and a page your phone serves to your own computer so you can text from a keyboard.",
    "core": true,
-   "versionName": "1.35.45",
-   "versionCode": 10350045,
-   "apk": "https://github.com/wanderwildwood/kotozute/releases/download/v1.35.45/kotozute.apk",
-   "sha256": "b3210529e00409fe2630e1eeb70c7043b7c0e09ba80c016bec316419bbbd4d5b",
+   "versionName": "1.35.46",
+   "versionCode": 10350046,
+   "apk": "https://github.com/wanderwildwood/kotozute/releases/download/v1.35.46/kotozute.apk",
+   "sha256": "9277fec30642b6f4749b51a5bac4333773579042b48e49930198e1097ecd0b78",
    "certSha256": "f4adf9a4ba3644c7ee15e0fb3619bd9c6f25073acd36d69d3bad9cd7f1a2fbcf",
    "minSdk": 26,
-   "size": 59256579
+   "size": 59256651
   },
   {
    "package": "com.wanderwildwood.enishi",
@@ -35,7 +35,7 @@
    "versionName": "0.2.41",
    "versionCode": 69,
    "apk": "https://github.com/wanderwildwood/enishi/releases/download/v0.2.41/enishi.apk",
-   "sha256": "42c820148aeeee1836add08f5bec569b6c3256abefebbc12ffebf187031e32ee",
+   "sha256": "c32eee33ce0ed3783468549f8100e172422ea7d1c652299c8440f76ce18e1d38",
    "certSha256": "def146af0a169328cee14b3cb40db62f8d352fadf1e20371dbcf68018c8a5c5b",
    "minSdk": 25,
    "size": 3937797
@@ -48,7 +48,7 @@
    "versionName": "0.1.73",
    "versionCode": 74,
    "apk": "https://github.com/wanderwildwood/koyomi/releases/download/v0.1.73/koyomi.apk",
-   "sha256": "4338844fa6078990259294899b1276b58a6b0a13439e3f873a2ebf9eb858b132",
+   "sha256": "25f44a16747f1fe88e44313c7ffb79bcf981a21e0221d01b036040ed795e7fbb",
    "certSha256": "96f0e571a4e14ce861d40e4f6c536adac2026fa271b8a4ec932eb922351957bd",
    "minSdk": 25,
    "size": 4902638
@@ -58,13 +58,13 @@
    "name": "Memo",
    "summary": "Notes, lists and scanned pages, as plain Markdown on your own Nextcloud or the phone.",
    "core": true,
-   "versionName": "0.3.34",
-   "versionCode": 59,
-   "apk": "https://github.com/wanderwildwood/oboegaki/releases/download/v0.3.34/oboegaki.apk",
-   "sha256": "2dd361104c0a60f883f3edb0dc4ba8919aedc36d0399be7af13ee168df83231f",
+   "versionName": "0.3.35",
+   "versionCode": 60,
+   "apk": "https://github.com/wanderwildwood/oboegaki/releases/download/v0.3.35/oboegaki.apk",
+   "sha256": "5c1ca0bd2713de3b7a8c695a8408c7e1ebf600c3a409e9d354ec9e409b1c7ef6",
    "certSha256": "20e289f7dcdd22e11dc4dfdb46ecd1b883615f3350904c7575afc1849632514e",
    "minSdk": 30,
-   "size": 66718241
+   "size": 66734797
   },
   {
    "package": "com.wanderwildwood.tayori",
@@ -87,7 +87,7 @@
    "versionName": "0.8.28",
    "versionCode": 53,
    "apk": "https://github.com/wanderwildwood/garo/releases/download/v0.8.28/garo.apk",
-   "sha256": "693fedae9d1a325b63e20dc71a3b0732484a1ff18454ff5547b72affcab4c6ae",
+   "sha256": "1a875d51bc21e0303890b727ca1502d124d4e3e8d96676e0a4626a9537530137",
    "certSha256": "fb01c054c1e349eb5df5937c7e6c4968824dd719ada7566342dfcb1a562d96c5",
    "minSdk": 31,
    "size": 3722052
@@ -113,7 +113,7 @@
    "versionName": "0.9.22",
    "versionCode": 53,
    "apk": "https://github.com/wanderwildwood/tana/releases/download/v0.9.22/tana.apk",
-   "sha256": "bf9f319b53c16895f197df1cbb79199c0df47ffb9f42167d93c8c2a5c13fe31b",
+   "sha256": "0bf923caa2693968519e766d7307c1447e691bf924d32d8f0b7f27a91fa9df9f",
    "certSha256": "2b3995b71fe50c7514d975b8df753b1ea9695e695c3c4d1f1ed83d64c81afe86",
    "minSdk": 30,
    "size": 5475109
@@ -123,13 +123,13 @@
    "name": "Passwords",
    "summary": "Sign-ins and their two-step codes in a KeePass file, the same one KeePassXC opens on a computer.",
    "core": true,
-   "versionName": "0.1.29",
-   "versionCode": 30,
-   "apk": "https://github.com/wanderwildwood/aikotoba/releases/download/v0.1.29/aikotoba.apk",
-   "sha256": "34930313d7110788b37c1e0f4851e0f9d3606b76458cc954e6c748daac0a218d",
+   "versionName": "0.1.30",
+   "versionCode": 31,
+   "apk": "https://github.com/wanderwildwood/aikotoba/releases/download/v0.1.30/aikotoba.apk",
+   "sha256": "486e38702c6e50191fca27ce38862a2628d4009c61d87e1f4b6a2b82a2f94d86",
    "certSha256": "9b9fbd10920e2c8a94609f3aa9a1bb11213e36d5d21b53c973de11033fba25e1",
    "minSdk": 31,
-   "size": 4507717
+   "size": 4504649
   },
   {
    "package": "com.wanderwildwood.tokei",
@@ -149,10 +149,10 @@
    "name": "Glance",
    "summary": "Today's events, the weather and what is unread, on the lock screen, from Datebook, Sky, Messaging and Mailbox, with pinned notes and the next dose too, in the size you choose.",
    "core": true,
-   "versionName": "0.1.56",
-   "versionCode": 57,
-   "apk": "https://github.com/wanderwildwood/hitome/releases/download/v0.1.56/hitome.apk",
-   "sha256": "e1dc42e833326dbe9a4aa198cadbf6e421a433e568b34488a021d379becf0e7d",
+   "versionName": "0.1.57",
+   "versionCode": 58,
+   "apk": "https://github.com/wanderwildwood/hitome/releases/download/v0.1.57/hitome.apk",
+   "sha256": "32ebf8fa7bf4b407fa6d6f00c713ed029128a3e598e8bc691afc14ba389154d6",
    "certSha256": "8b5ad77e1b6c23ad805c7aef9864967bfefbafd442e43a472ab212f0593248b8",
    "minSdk": 31,
    "size": 2787951
@@ -243,7 +243,7 @@
    "versionName": "0.1.41",
    "versionCode": 42,
    "apk": "https://github.com/wanderwildwood/shoka/releases/download/v0.1.41/shoka.apk",
-   "sha256": "e9d7d587b38d8a23a4e011fa695e8c045521a4949bb9f66e3fd7467ef72757cb",
+   "sha256": "84c3bbf53ca1da43879ff0fed833611b6e5f042474a55d4898efadc0dab1695d",
    "certSha256": "7479c85dab42dd4e97629ccff0b7eb62e1f09722b9da86ab781737286a5c6342",
    "minSdk": 30,
    "size": 13754272
@@ -448,13 +448,13 @@
    "name": "Mushroom Journal",
    "summary": "Write a mushroom down while standing over it, and work out at home what it might be.",
    "core": false,
-   "versionName": "0.3.42",
-   "versionCode": 51,
-   "apk": "https://github.com/wanderwildwood/kinokocho/releases/download/v0.3.42/kinokocho.apk",
-   "sha256": "6abd75dd3d5be84f601eb9796c98246f00e8e0d267e62196962d2f8054bee9b9",
+   "versionName": "0.3.43",
+   "versionCode": 52,
+   "apk": "https://github.com/wanderwildwood/kinokocho/releases/download/v0.3.43/kinokocho.apk",
+   "sha256": "856b515739a4c7930701b441c26d833e6fb941a3e89dc13ece5d86a5135f8442",
    "certSha256": "d08ec862513896a11d962c283dfb7c004c4fbfff3382bba4aaea1411c2c5b6e7",
    "minSdk": 31,
-   "size": 4244261
+   "size": 4241769
   },
   {
    "package": "com.wanderwildwood.seizu",
@@ -552,13 +552,13 @@
    "name": "Tarot",
    "summary": "",
    "core": false,
-   "versionName": "0.1.27",
-   "versionCode": 28,
-   "apk": "https://github.com/wanderwildwood/tarot/releases/download/v0.1.27/tarot.apk",
-   "sha256": "5470c90e5b68a4d6557d790dc45a8c99aa47a0298a2e17ed1af65cdebeb08184",
+   "versionName": "0.1.28",
+   "versionCode": 29,
+   "apk": "https://github.com/wanderwildwood/tarot/releases/download/v0.1.28/tarot.apk",
+   "sha256": "5a610211b4ee0f1e784d739062f068ae7b07ff7bee58d42b175d76cf4975128b",
    "certSha256": "7ca9d3570f89790fee8d3ac2e2457e20913fd0f49608053962c068b180ac44e0",
    "minSdk": 31,
-   "size": 26665748
+   "size": 26665668
   },
   {
    "package": "com.wanderwildwood.hanauta",
@@ -607,7 +607,7 @@
    "versionName": "0.1.14",
    "versionCode": 15,
    "apk": "https://github.com/wanderwildwood/utahon/releases/download/v0.1.14/utahon.apk",
-   "sha256": "8b0d513398495301d1094a5610f2f3d5cc354fa387e1af1a08c2fe97cb63f750",
+   "sha256": "520237603106d26ebb78230070af0ba697849fd1a714139d9e2a970b8c8aca8f",
    "certSha256": "b6f04691f0e4a0b75bad3ec496a8503661fc96c830082e7861495c1499dd3ae8",
    "minSdk": 30,
    "size": 3227942
