@@ -143,11 +143,13 @@
   #sanpo .descrow .desc { flex: 0 1 26.5rem; min-width: 0; }
   #sanpo .descrow .desc p:last-of-type { margin-bottom: 0; }
   /* the game's WANDER seal beside the words, out in the margin at their left, the words flush under the title; in the page's ink (so it turns light at night) */
-  #sanpo .desc { position: relative; }
-  #sanpo .seal { position: absolute; left: -3.6rem; top: 3.8rem; width: 2.6rem; height: 3.7rem; background: var(--quiet);
+  /* the game's WANDER seal stamped on the picture's bottom left corner, in the page's ink (light at night,
+     on the night picture) */
+  #sanpo .shotwrap { position: relative; }
+  #sanpo .seal { position: absolute; left: 1.1rem; bottom: 1.6rem; width: 2.6rem; height: 3.7rem; background: var(--ink); opacity: 0.85;
     -webkit-mask: url(wanderthegame/seal.svg) center / contain no-repeat; mask: url(wanderthegame/seal.svg) center / contain no-repeat; }
-  #sanpo .seal:hover { background: var(--ink); }
-  @media (max-width: 64rem) { #sanpo .seal { position: static; float: right; margin: -2.2rem 0 0.3rem 1rem; } }   /* no margin to sit in: at the right of the title's line instead */
+  #sanpo .seal:hover { opacity: 1; }
+  @media (max-width: 36rem) { #sanpo .seal { left: 0.6rem; bottom: 0.8rem; width: 1.8rem; height: 2.6rem; } }
   #sanpo .descrow .side { flex: 0 1 30rem; min-width: 0; padding-top: 2.9rem; }   /* room for his hat */
   #sanpo .desc h4 { margin-top: 0; }
   #sanpo .side .links.go { margin: 1.1rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.8rem; }   /* centred under the note */
@@ -294,13 +296,15 @@
 
 <div class="apps" id="wander">
 <div class="app full" id="sanpo">
+  <div class="shotwrap">
   <a class="shotlink" href="wanderthegame/"><picture><source srcset="shots/sanpo.gif" media="(prefers-color-scheme: dark)" data-dark-source><img class="shot" src="shots/sanpo-day.gif" width="960" height="480" loading="eager"
        alt="By day at a ring of stones, wander lights a fire, Kumo the llama lying by: the kettle on, a cup of tea, then the pipe. Opens the game's own page."
        data-dark-alt="Supper by the fire at nightfall, the dark wood all round: wander with the pan on, a cup of tea, the pipe, Kumo the llama lying by. Opens the game's own page."></picture></a>
+  <a class="seal" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>
+  </div>
   <div class="descrow">
   <div class="desc">
   <h4><a href="wanderthegame/">Wander</a> <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 散歩 sanpo</button> <span class="coming en">&mdash; Coming soon</span><span class="coming ja" lang="ja" hidden>&mdash; もうすぐ</span></h4>
-  <a class="seal" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>
   <p class="en">A walk in the redwoods with Kumo the llama: a quiet, ASMR-like game about stopping,
   noticing and connecting. Made for the Mudita Kompakt.</p>
   <p class="en">One walk is one day, about twelve minutes by the real clock, from the morning mist to dusk.
