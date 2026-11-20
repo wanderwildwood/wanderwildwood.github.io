@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home 庵</title>
+<meta name="description" content="How Home, a plain home screen for the Mudita Kompakt, works: one Nextcloud account for the apps, Your apps, what it sends, and how to go back.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/home/">
+<meta property="og:title" content="Home 庵">
+<meta property="og:description" content="A plain home screen for the Mudita Kompakt, and how it works.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<style>
+  /* The same paper as the home page: day a calm unbleached paper, night the same with the lamp out.
+     Text is WCAG AA or better on both. */
+  :root {
+    --ink: #29241e;
+    --quiet: #5a5247;
+    --rule: #cbc1b1;
+    --paper: #e2dccf;
+    --raise: #e9e4d9;
+    --line: #8c7f6c;     /* a link's underline */
+    --body: #3a362f;     /* the phone */
+    --body-edge: #3a362f;
+    --hard: rgba(40, 30, 15, .2);   /* a hard shadow, as the pages of the game's page have */
+    --screen: #f1f0ec; --screen-ink: #161616;
+    color-scheme: light;
+  }
+  /* Dark follows the phone or computer, unless the button at the top has been pressed. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --body: #2c2924; --body-edge: #4a443a; --hard: rgba(0, 0, 0, .55); --screen: #0c0c0c; --screen-ink: #e9e9e9; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --body: #2c2924; --body-edge: #4a443a; --hard: rgba(0, 0, 0, .55); --screen: #0c0c0c; --screen-ink: #e9e9e9; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html { overflow-x: hidden; }
+  body {
+    margin: 0;
+    padding: 3rem 1.25rem 5rem;
+    background: var(--paper);
+    color: var(--ink);
+    font: 17px/1.65 Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+    -webkit-text-size-adjust: 100%;
+    transition: background-color .5s, color .5s;
+  }
+  @media (max-width: 32rem) { body { padding: 2rem 1rem 4rem; } }
+  main { max-width: 70rem; margin: 0 auto; }
+  p, ol, ul { max-width: 34rem; }
+  :target, section { scroll-margin-top: 1.5rem; }
+  h1 { font-size: 1.9rem; font-weight: 600; margin: 0 0 1rem; letter-spacing: -0.01em; line-height: 1.25; }
+  h2 {
+    font-size: 1.2rem; font-weight: 600; color: var(--quiet);
+    margin: 3rem 0 1.25rem; padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 1.1rem; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--line); }
+  a:hover { text-decoration-style: dotted; text-decoration-color: currentColor; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .lede { color: var(--quiet); }
+  .back { font-size: 0.9rem; color: var(--quiet); margin-bottom: 1.6rem; }
+  ol, ul { padding-left: 1.3rem; margin: 0 0 1.1rem; }
+  li { margin-bottom: 0.5rem; }
+  b { font-weight: 600; }
+  [hidden] { display: none !important; }
+  .ja { line-height: 1.75; }
+  /* The Japanese name: press it and the page is read in Japanese instead. */
+  h1 .jp { font-weight: 400; color: var(--quiet); }
+  button.jp { font: inherit; font-weight: 400; color: var(--quiet); background: none;
+    border: 0; padding: 0; cursor: pointer; text-align: left;
+    text-decoration: underline dotted; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  button.jp[aria-pressed="true"] { color: var(--ink); }
+  .hut, .nc { height: 0.8em; vertical-align: -0.06em; color: var(--quiet); }
+  .hut { width: 0.96em; } .nc { width: 1.97em; }
+  /* Light or dark, in the corner. */
+  button.theme { position: fixed; top: calc(0.9rem + env(safe-area-inset-top, 0px)); right: calc(1rem + env(safe-area-inset-right, 0px));
+    width: 2.25rem; height: 2.25rem; z-index: 50; padding: 0.45rem; cursor: pointer; color: var(--quiet);
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 50%; }   /* stays in the corner as the page scrolls, on a small disc of paper so it reads over pictures */
+  @media (min-width: calc(1120px + 8rem)) {   /* with a margin to sit in: a little way out from the column (halfway between beside it and mid-margin), an inch down */
+    button.theme { top: 6rem; right: calc((100vw - 1120px) * 7 / 16 - 2.6875rem); }   /* between beside the column and where it was a smidge out */
+  }
+  button.theme:hover { color: var(--ink); }
+  button.theme svg { display: block; width: 100%; height: 100%; }
+  button.theme[aria-pressed="true"] .moon, button.theme:not([aria-pressed="true"]) .sun { display: none; }
+
+  /* ---- The top: the hut drawn, the name, and Home's screen writing itself out, a line at a time. ---- */
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) 17rem; gap: 2rem 4rem; align-items: center;
+    max-width: 62rem; margin-bottom: 1rem; }
+  .hero .hut-draw { display: block; width: 4.6rem; height: auto; margin: 0 0 0.9rem -0.2rem; color: var(--ink); overflow: visible; }
+  .hut-draw path { fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 1; stroke-dashoffset: 0; animation: draw 2.2s .2s cubic-bezier(.45, .1, .3, 1) both; }
+  @keyframes draw { from { stroke-dashoffset: 1; } }
+  .hero .lede { font-size: 1.08rem; }
+  .go { display: flex; flex-wrap: wrap; gap: 0.8rem 1rem; margin: 1.4rem 0 1.4rem; max-width: none; }
+  /* buttons as the game's page has them: a hard shadow, and pressed, they go down into it */
+  a.btn { display: inline-block; color: var(--ink); text-decoration: none; background: var(--raise);
+    border: 2px solid var(--ink); padding: 0.45rem 0.95rem; box-shadow: 3px 3px 0 var(--ink); line-height: 1.3; }
+  a.btn:hover { background: var(--paper); text-decoration: none; }
+  a.btn:active { transform: translate(3px, 3px); box-shadow: none; }
+  a.btn.plain { background: none; box-shadow: none; border-color: var(--rule); }
+  a.btn.plain:active { transform: none; }
+  .toc { display: flex; flex-wrap: wrap; gap: 0.2rem 1.4rem; font-size: 0.92rem; color: var(--quiet); max-width: 34rem; }
+  .toc[hidden] { display: none; }
+
+  .phone { margin: 0; justify-self: center; width: 100%; max-width: 17rem; }
+  .phone .body { background: var(--body); border: 1px solid var(--body-edge); border-radius: 1.5rem;
+    padding: 1.6rem 0.85rem 2.6rem; box-shadow: 6px 6px 0 var(--hard); position: relative; transition: background-color .5s; }
+  .phone .body::after { content: ""; position: absolute; left: 50%; bottom: 0.95rem; width: 2.4rem; height: 0.32rem;
+    margin-left: -1.2rem; border-radius: 0.2rem; background: rgba(255, 255, 255, .14); }   /* the home key */
+  .screen { container-type: inline-size; position: relative; overflow: hidden; aspect-ratio: 400 / 627;
+    background: var(--screen); color: var(--screen-ink); border-radius: 3px; padding: 13% 10% 0;
+    font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif; line-height: 1.25; }
+  .screen span { display: block; white-space: nowrap; }
+  .screen .t { font-size: 15cqw; font-weight: 300; letter-spacing: -0.02em; line-height: 1; }
+  .screen .d { font-size: 5.6cqw; margin: 2.5cqw 0 9cqw; opacity: .75; }
+  .screen .n { font-size: 8.4cqw; margin-bottom: 3.4cqw; }
+  .screen .g { font-size: 5.8cqw; opacity: .8; margin-left: 4cqw; position: relative; }
+  .screen .n + .g { margin-top: 5cqw; }
+  .screen .g::before { content: ""; position: absolute; left: -3.6cqw; top: 0.55em; width: 1.6cqw; height: 1.6cqw; border-radius: 50%; background: currentColor; }
+  /* E Ink draws in steps, not in smooth fades: the screen flashes once to clear, then each name is
+     written out a letter at a time and the Glance lines come in with a ghost before them. */
+  .screen::after { content: ""; position: absolute; inset: 0; background: var(--screen-ink); opacity: 0; pointer-events: none; }
+  .screen.flash::after { animation: refresh .5s steps(1, end) both; }
+  @keyframes refresh { 0% { opacity: 1; background: var(--screen-ink); } 45% { opacity: 1; background: var(--screen); } 100% { opacity: 0; } }
+  .screen .t, .screen .d { animation: ghost .5s steps(2, end) both; animation-delay: .55s; }
+  .screen .d { animation-delay: .85s; }
+  .screen .n { clip-path: inset(0 0 0 0); animation: type calc(var(--n) * 70ms) steps(var(--n), end) both; animation-delay: var(--at); }
+  .screen .g { animation: ghost .6s steps(2, end) both; animation-delay: var(--at); }
+  @keyframes type { from { clip-path: inset(0 100% 0 0); } }
+  @keyframes ghost { 0% { opacity: 0; } 50% { opacity: .3; } }
+  .phone figcaption { margin-top: 1.3rem; font-size: 0.88rem; color: var(--quiet); line-height: 1.5; }
+  .phone figcaption p { margin: 0 0 0.6rem; }
+  button.daynight { font: inherit; font-size: 0.9rem; color: var(--ink); background: var(--raise); cursor: pointer;
+    border: 2px solid var(--ink); padding: 0.3rem 0.8rem; box-shadow: 3px 3px 0 var(--ink);
+    display: inline-flex; align-items: center; gap: 0.5rem; }
+  button.daynight:active { transform: translate(3px, 3px); box-shadow: none; }
+  button.daynight svg { width: 1.1rem; height: 1.1rem; }
+  button.daynight[aria-pressed="true"] .moon, button.daynight:not([aria-pressed="true"]) .sun { display: none; }
+  @media (max-width: 46rem) {
+    .hero { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    .phone { justify-self: start; max-width: 13.5rem; }
+    h1 { font-size: 1.6rem; }
+    .hero .hut-draw { width: 3.8rem; }
+  }
+
+  /* ---- Sections come up into place as they are reached (only with the script, and only where
+     motion is welcome; otherwise they are simply there). ---- */
+  .js section.rv { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+  .js section.rv.seen { opacity: 1; transform: none; }
+
+  /* A section's text on the left, and on a wide screen its picture in the room to the right. */
+  .split { display: grid; grid-template-columns: minmax(0, 34rem) minmax(0, 1fr); gap: 1.5rem 4rem; align-items: start; }
+  .split > * { min-width: 0; }
+  @media (max-width: 52rem) { .split { grid-template-columns: minmax(0, 1fr); } }
+
+  /* One account: the hut, and a line out from it to each of the eleven apps, lit in turn. */
+  .fan { margin: 0.3rem 0 1.5rem; display: grid; grid-template-columns: 3.4rem 4.5rem minmax(0, 1fr); align-items: center; max-width: 24rem; }
+  .fan .from { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; color: var(--ink); }
+  .fan .from .big { width: 3.2rem; height: 2.7rem; }
+  .fan .from .nc { width: 2.3rem; height: 0.95rem; color: var(--quiet); }
+  .fan svg.lines { width: 100%; height: 22rem; overflow: visible; }   /* eleven rows of 2rem: each line ends at its name */
+  .fan .lines path { fill: none; stroke: var(--quiet); stroke-width: 1; stroke-dasharray: 1; }
+  ul.apps { list-style: none; padding: 0 0 0 0.6rem; margin: 0; }
+  ul.apps li { height: 2rem; line-height: 2rem; margin: 0; white-space: nowrap; }
+  .js .fan .lines path { stroke-dashoffset: 1; }
+  .js .fan li { opacity: .35; }
+  .js .seen .fan .lines path { stroke-dashoffset: 0; transition: stroke-dashoffset .5s ease-out; transition-delay: calc(.3s + var(--i) * .16s); }
+  .js .seen .fan li { opacity: 1; transition: opacity .3s steps(2, end); transition-delay: calc(.65s + var(--i) * .16s); }
+
+  /* The four checks on a download, ticked off one by one. */
+  ul.checks { list-style: none; padding: 0; }
+  ul.checks li { position: relative; padding-left: 2rem; }
+  ul.checks li::before { content: ""; position: absolute; left: 0; top: 0.3em; width: 1.05rem; height: 1.05rem;
+    border: 1.5px solid var(--ink); border-radius: 2px; }
+  ul.checks li::after { content: ""; position: absolute; left: 0.36rem; top: 0.42em; width: 0.32rem; height: 0.62rem;
+    border: solid var(--ink); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+  .js ul.checks li::after { opacity: 0; }
+  .js .seen ul.checks li::after { opacity: 1; transition: opacity .2s steps(1, end); }
+  .js .seen ul.checks li:nth-child(1)::after { transition-delay: .9s; }
+  .js .seen ul.checks li:nth-child(2)::after { transition-delay: 1.5s; }
+  .js .seen ul.checks li:nth-child(3)::after { transition-delay: 2.1s; }
+  .js .seen ul.checks li:nth-child(4)::after { transition-delay: 2.7s; }
+
+  .js .seen ul.checks li:nth-child(5)::after { transition-delay: 3.3s; }
+
+  /* The phone turns through three of Home's screens, with the flash an E Ink screen makes between
+     pages. The dots under it pick one. */
+  .screens { position: relative; }
+  .screens .screen:not(.on) { display: none; }
+  .screen .bar { display: flex; align-items: center; gap: 3cqw; font-size: 8cqw; margin: -4cqw 0 4cqw -2cqw;
+    padding-bottom: 3cqw; border-bottom: 1px solid currentColor; }
+  .screen .bar::before { content: "\2190"; font-size: 7cqw; }
+  .screen .row { display: flex; justify-content: space-between; align-items: baseline; gap: 2cqw; padding: 3cqw 0;
+    animation: ghost .5s steps(2, end) both; animation-delay: calc(.6s + var(--r) * .22s); }
+  .screen .row > b { font-weight: 400; font-size: 6.6cqw; }
+  .screen .row i { font-style: normal; font-size: 5.4cqw; }
+  .screen .row i b { font-weight: 700; }
+  .screen .say { display: block; white-space: normal; font-size: 5.8cqw; line-height: 1.4; margin-bottom: 4cqw;
+    animation: ghost .5s steps(2, end) both; animation-delay: calc(.6s + var(--r) * .32s); }
+  .screen .pill { display: inline-block; font-size: 5.2cqw; letter-spacing: .04em; border: 1px solid currentColor;
+    border-radius: 99px; padding: 1.6cqw 4.5cqw; margin-top: 2cqw;
+    animation: ghost .5s steps(2, end) both; animation-delay: calc(.6s + var(--r) * .32s); }
+  .dots { display: flex; gap: 0.55rem; justify-content: center; margin-top: 1rem; }
+  .dots button { width: 0.7rem; height: 0.7rem; padding: 0; border-radius: 50%; cursor: pointer;
+    border: 1.5px solid var(--ink); background: none; }
+  .dots button[aria-pressed="true"] { background: var(--ink); }
+
+  /* Your apps: a folder as the page shows it, and Install worked through its steps. */
+  .folder { margin: 0.4rem 0 1.5rem; max-width: 21rem; background: var(--raise); border: 1px solid var(--rule);
+    border-radius: 8px; padding: 0.9rem 1.1rem 0.6rem; box-shadow: 5px 5px 0 var(--hard);
+    font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif; font-size: 0.92rem; line-height: 1.35; }
+  .folder .fh { display: flex; justify-content: space-between; align-items: baseline; font-size: 1.05rem;
+    padding-bottom: 0.55rem; border-bottom: 1px solid var(--ink); margin-bottom: 0.2rem; }
+  .folder .fh small { font-size: 0.8rem; color: var(--quiet); }
+  .folder .app { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.2rem 0.8rem; align-items: center;
+    padding: 0.6rem 0; border-bottom: 1px dotted var(--rule); }
+  .folder .app:last-child { border-bottom: 0; }
+  .folder .app span { display: block; font-size: 0.8rem; color: var(--quiet); }
+  .folder .act { font: inherit; font-size: 0.72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--ink);
+    background: none; border: 1px solid var(--ink); border-radius: 99px; padding: 0.3rem 0.75rem; white-space: nowrap; }
+  .folder button.act { cursor: pointer; }
+  .folder button.act:disabled { cursor: default; border-style: dotted; color: var(--quiet); }
+  .folder .act.done { border-color: transparent; color: var(--quiet); }
+  .folder .step { display: none; font-size: 0.8rem; color: var(--quiet); grid-column: 1 / -1; }
+  .folder .step.on { display: block; animation: ghost .4s steps(2, end) both; }
+  .folder .meter { height: 3px; background: var(--rule); grid-column: 1 / -1; display: none; }
+  .folder .meter.on { display: block; }
+  .folder .meter i { display: block; height: 100%; width: 0; background: var(--ink); }
+  .folder .meter.on i { animation: fill 1.4s steps(10, end) forwards; }
+  .folder .fh small b { color: var(--ink); }   /* in tenths, as E Ink would draw it */
+  @keyframes fill { to { width: 100%; } }
+  .folder-note { font-size: 0.85rem; color: var(--quiet); max-width: 21rem; }
+
+  /* What Home sends: where it goes, drawn as the account's lines are, and the one place it never goes. */
+  .fan.reach { grid-template-columns: 3.4rem 4rem minmax(0, 1fr); max-width: 27rem; }
+  .fan.reach svg.lines { height: 8rem; }
+  .fan.reach ul.apps li { font-size: 0.92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .fan.reach ul.apps li span { color: var(--quiet); }
+  .fan.reach ul.apps li.none s { text-decoration-thickness: 1.5px; }
+  .fan.reach .lines path.none { stroke-dasharray: .04 .04; }
+  .js .fan.reach .lines path.none { stroke-dashoffset: 0; opacity: 0; }
+  .js .seen .fan.reach .lines path.none { opacity: 1; transition: opacity .3s steps(2, end); transition-delay: .9s; }
+
+  /* ---- The page as a walk beside Home: the words on the left, and on the right a phone that stays in view
+     and turns to the screen of whatever the words have come to. ---- */
+  .story { display: grid; grid-template-columns: minmax(0, 1fr) 16.5rem; gap: 0 4.5rem; }
+  .flow { min-width: 0; }
+  .story .split { grid-template-columns: minmax(0, 1fr); }   /* beside the phone, a part's drawing goes under its words */
+  .story .split > figure { margin-top: 0.5rem; }
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .stage { align-self: stretch; }
+  .stage .phone { position: sticky; top: 4.5rem; max-width: 16.5rem; margin-top: 4rem; }
+  .stage .screen { padding: 0; }
+  .stage .screen img { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+  .stage .screen img.on { display: block; }
+  .stage .cap { margin: 0.9rem 0 0.4rem; font-size: 0.92rem; color: var(--ink); min-height: 1.4em; }
+  .stage figcaption { margin-top: 0.4rem; }
+  @media (max-width: 52rem) {
+    .story { grid-template-columns: minmax(0, 1fr); }
+    /* a small phone in the corner that keeps turning; a press makes it bigger */
+    .stage { position: fixed; right: 0.8rem; bottom: 0.8rem; z-index: 30; width: 5.2rem; cursor: zoom-in; }
+    .stage .phone { position: static; margin: 0; }
+    .stage .phone .body { padding: 0.45rem 0.3rem 0.9rem; border-radius: 0.7rem; box-shadow: 3px 3px 0 var(--hard); }
+    .stage .phone .body::after { display: none; }
+    .stage .cap, .stage figcaption { display: none; }
+    .stage.big { width: 13rem; cursor: zoom-out; }
+  }
+
+  /* Asked for less motion: everything is drawn and in place from the start. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .js section.rv { opacity: 1; transform: none; }
+    .js .fan .lines path { stroke-dashoffset: 0; }
+    .js .fan li, .js ul.checks li::after, .js .fan.reach .lines path.none { opacity: 1; }
+    .folder .meter.on i { width: 100%; }
+  }
+</style>
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="hut" viewBox="18 21.5 45 37.5"><path fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" d="M20.69,44.88C24.81,39.50 30.44,31.69 36.44,25.38C38.25,24.00 42.00,23.88 43.94,25.12C50.12,31.38 55.75,39.19 60.31,44.38M24.44,44.75C34.81,44.12 46.06,44.19 56.81,44.62M28.31,44.88C28.12,48.56 28.19,52.31 28.50,56.00M52.81,44.75C53.06,48.56 52.94,52.31 52.62,56.12M37.06,56.00C36.88,53.56 36.94,51.38 37.25,49.25C39.50,49.00 42.00,49.00 44.19,49.31C44.44,51.50 44.38,53.75 44.12,56.00M22.69,56.50C34.19,55.88 47.31,56.00 58.81,56.62"/></symbol><symbol id="nc" viewBox="3 7 250 114"><path fill="currentColor" d="m128 7c-25.871 0-47.817 17.485-54.713 41.209-5.9795-12.461-18.642-21.209-33.287-21.209-20.304 0-37 16.696-37 37s16.696 37 37 37c14.645 0 27.308-8.7481 33.287-21.209 6.8957 23.724 28.842 41.209 54.713 41.209s47.817-17.485 54.713-41.209c5.9795 12.461 18.642 21.209 33.287 21.209 20.304 0 37-16.696 37-37s-16.696-37-37-37c-14.645 0-27.308 8.7481-33.287 21.209-6.8957-23.724-28.842-41.209-54.713-41.209zm0 22c19.46 0 35 15.54 35 35s-15.54 35-35 35-35-15.54-35-35 15.54-35 35-35zm-88 20c8.4146 0 15 6.5854 15 15s-6.5854 15-15 15-15-6.5854-15-15 6.5854-15 15-15zm176 0c8.4146 0 15 6.5854 15 15s-6.5854 15-15 15-15-6.5854-15-15 6.5854-15 15-15z"/></symbol></svg>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="iori">
+<div class="hero-text">
+<svg class="hut-draw" viewBox="18 21.5 45 37.5" aria-hidden="true"><path pathLength="1" d="M20.69,44.88C24.81,39.50 30.44,31.69 36.44,25.38C38.25,24.00 42.00,23.88 43.94,25.12C50.12,31.38 55.75,39.19 60.31,44.38M24.44,44.75C34.81,44.12 46.06,44.19 56.81,44.62M28.31,44.88C28.12,48.56 28.19,52.31 28.50,56.00M52.81,44.75C53.06,48.56 52.94,52.31 52.62,56.12M37.06,56.00C36.88,53.56 36.94,51.38 37.25,49.25C39.50,49.00 42.00,49.00 44.19,49.31C44.44,51.50 44.38,53.75 44.12,56.00M22.69,56.50C34.19,55.88 47.31,56.00 58.81,56.62"/></svg>
+<h1>Home <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 庵 iori</button></h1>
+
+<p class="lede en">The home screen made for the apps on this site: your apps as a short list of
+words, on the Mudita Kompakt and other phones. This page tells what Home adds to inkOS, what stays on
+the phone, what it sends, and how to go back to the phone's own home screen.</p>
+<p class="lede ja" lang="ja" hidden>このサイトのアプリのために作ったホーム画面。アプリを短い言葉の一覧で並べる。Mudita Kompaktでも、ほかの電話でも。このページでは、inkOSに足したもの、電話に残るもの、送るもの、電話のもとのホーム画面への戻り方を書く。</p>
+
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/iori/releases/latest/download/iori.apk"><span class="en">Download iori.apk</span><span class="ja" lang="ja" hidden>iori.apkをダウンロード</span></a><a class="btn plain" href="https://github.com/wanderwildwood/iori"><span class="en">Source</span><span class="ja" lang="ja" hidden>ソース</span></a></p>
+
+<nav class="toc en" aria-label="On this page"><a href="#what">What Home is</a><a href="#nextcloud">One Nextcloud account</a><a href="#your-apps">Your apps</a><a href="#network">What Home sends</a><a href="#home-app">Going back</a><a href="#credit">Credit</a></nav>
+<nav class="toc ja" lang="ja" aria-label="このページ" hidden><a href="#what">庵とは</a><a href="#nextcloud">ひとつのNextcloudアカウント</a><a href="#your-apps">「Your apps」</a><a href="#network">庵が送るもの</a><a href="#home-app">もとに戻す</a><a href="#credit">クレジット</a></nav>
+</div>
+
+
+</header>
+
+<section id="what" class="rv">
+<h2><span class="en">What Home is</span><span class="ja" lang="ja" hidden>庵とは</span></h2>
+<div class="en">
+<p>A plain home screen of words for E Ink phones: the apps you choose, by name, and a drawer
+with the rest. It is made and tried on the Mudita Kompakt, on Mudita's own system (MuditaOS K)
+and on <a href="https://github.com/gezimos/KompaktOS">KompaktOS</a>, and it installs on other
+phones from Android 10 on.</p>
+<p>It is a fork of <a href="https://github.com/gezimos/inkos">inkOS</a> by gezimos. Everything
+inkOS does still works. Home is its own app, so it installs beside inkOS, not over it. What it
+adds:</p>
+<ul>
+  <li data-shot="iori-firstrun-welcome">A first run of six pages: welcome and privacy, setup, your apps, default apps, Nextcloud,
+  theme and home apps. <b>Settings → Run setup again</b> opens it again; nothing is reset.</li>
+  <li data-shot="iori-nextcloud"><a href="#nextcloud">One Nextcloud account</a> for the apps from this site.</li>
+  <li data-shot="iori-apps"><a href="#your-apps">Your apps</a>, to install and update them.</li>
+  <li data-shot="iori-darkhome">Dark mode. On MuditaOS, <b>Settings → Dark mode</b> turns Home dark, and the apps from this
+  site follow it. On KompaktOS and other phones, Home follows the phone's own dark setting.</li>
+  <li data-shot="iori-defaults">Default apps: one row for each kind of thing the apps open (calls, texts, contacts,
+  calendar, alarms, pictures, maps and more), saying which app Android uses now. Press a row
+  that is not chosen, pick the app, then Always.</li>
+  <li data-shot="iori-lines">Up to three lines under the home apps from <a href="../#hitome">Glance</a>: today's events,
+  the weather, what is unread. A press opens the app the line came from.</li>
+  <li data-shot="iori-drawer">Folders in the app drawer, music controls on the lock screen for any player, and, on
+  MuditaOS 2.0 and later, an E-ink mode for each app (hold the app in the drawer).</li>
+</ul>
+<p data-shot="iori-settings">For Settings, pinch on an empty part of the home screen: quick settings open, and All Settings
+is there.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p>電子ペーパーの電話のための、文字だけの素朴なホーム画面。選んだアプリが名前で並び、ほかはアプリ一覧に。Mudita Kompaktで、Mudita自身のシステム（MuditaOS K）と<a href="https://github.com/gezimos/KompaktOS">KompaktOS</a>の上で作り、試している。Android 10以降のほかの電話にも入る。</p>
+<p>gezimosの<a href="https://github.com/gezimos/inkos">inkOS</a>から分かれたもの。inkOSでできることは、そのまま残る。庵は別のアプリなので、inkOSの上書きではなく、並べて入る。足したもの：</p>
+<ul>
+  <li>六ページの初回設定。ようこそとプライバシー、セットアップ、アプリ、既定のアプリ、Nextcloud、テーマとホームのアプリ。「<b>Settings → Run setup again</b>」（設定 → セットアップをもう一度）でまた開ける。何もリセットされない。</li>
+  <li>このサイトのアプリのための、<a href="#nextcloud">ひとつのNextcloudアカウント</a>。</li>
+  <li>アプリを入れて更新する<a href="#your-apps">「Your apps」</a>。</li>
+  <li>ダークモード。MuditaOSでは「<b>Settings → Dark mode</b>」で庵が暗くなり、このサイトのアプリもそれに従う。KompaktOSやほかの電話では、電話自身のダーク設定に従う。</li>
+  <li>既定のアプリ。アプリが開くものの種類（通話、メッセージ、連絡先、カレンダー、アラーム、写真、地図など）ごとに一行で、いまAndroidがどのアプリを使うかを示す。選ばれていない行を押し、アプリを選んで「Always」（常時）。</li>
+  <li>ホームのアプリの下に、<a href="../#hitome">一目</a>からの行を三つまで。今日の予定、天気、未読。押せば、その行のアプリが開く。</li>
+  <li>アプリ一覧のフォルダー、どのプレーヤーでも使えるロック画面の音楽の操作。MuditaOS 2.0以降では、アプリごとのE-inkモード（アプリ一覧でアプリを長押し）。</li>
+</ul>
+<p>設定は、ホーム画面の何もないところをピンチする。クイック設定が開き、そこに「All Settings」がある。</p>
+</div>
+</section>
+
+<section id="nextcloud" class="rv">
+<h2><span class="en">One Nextcloud account</span><span class="ja" lang="ja" hidden>ひとつのNextcloudアカウント</span></h2>
+<div class="split">
+<div>
+<div class="en">
+<p data-shot="iori-nextcloud">Sign in to your Nextcloud once, on the first run's Nextcloud page or in <b>Settings → Nextcloud
+account</b>. Home opens Nextcloud's own login in the browser. On a phone with no browser, type an
+app password (made in Nextcloud on another device: Settings, Security, Devices &amp; sessions;
+name it Home) or your login password. A login password is used once to get an app password,
+and only that is kept. The server's address has to start with https.</p>
+<p data-shot="iori-nextcloud-account">Home keeps that one app password locked with a key in the phone's keystore, in a file left out
+of backups. In Nextcloud's list of devices it is one entry, so removing it there signs every app
+out at once. Signing out in Home also asks the server to delete it.</p>
+<p data-shot="iori-nextcloud-account">An app that can use it has a row <b>Use the phone's Nextcloud account</b>. Home hands the
+account to these apps only, each checked by its package name and by the key its releases are
+signed with; anything else gets nothing. On this site they carry Nextcloud's mark
+<svg class="nc" aria-hidden="true"><use href="#nc"/></svg> after their name.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p>Nextcloudには一度だけサインインする。初回設定のNextcloudのページか、「<b>Settings → Nextcloud account</b>」で。庵はブラウザーでNextcloud自身のログインを開く。ブラウザーのない電話では、アプリパスワード（別の機器のNextcloudで、Settings、Security、Devices &amp; sessionsから作る。名前はHomeに）か、ログインパスワードを打ち込む。ログインパスワードは、アプリパスワードをもらうために一度だけ使い、残すのはアプリパスワードだけ。サーバーのアドレスはhttpsで始まるもの。</p>
+<p>庵はそのアプリパスワードをひとつだけ、電話のキーストアの鍵で閉じて、バックアップから外したファイルに置く。Nextcloudの機器の一覧では一行なので、そこで消せば、どのアプリも一度にサインアウトする。庵でサインアウトすると、サーバーにも消すよう頼む。</p>
+<p>使えるアプリには「<b>Use the phone's Nextcloud account</b>」（電話のNextcloudアカウントを使う）という行がある。庵はアカウントをこれらのアプリにだけ渡し、パッケージ名とリリースの署名の鍵で一つずつ確かめる。ほかには何も渡さない。このサイトでは、名前のあとにNextcloudの印 <svg class="nc" aria-hidden="true"><use href="#nc"/></svg> がついている。</p>
+</div>
+
+<p class="en">Each of them still works without Home, with its own sign-in. An app that does not
+have the row yet signs in on its own, as before.</p>
+<p class="ja" lang="ja" hidden>どのアプリも、庵がなくても自分のサインインで動く。その行がまだないアプリは、これまでどおり自分でサインインする。</p>
+</div>
+<figure class="fan" aria-label="One account, eleven apps">
+<div class="from" aria-hidden="true"><svg class="big"><use href="#hut"/></svg><svg class="nc"><use href="#nc"/></svg></div>
+<svg class="lines" viewBox="0 0 72 352" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" style="--i:0" d="M0 176 C 32 176, 40 16, 72 16"/><path pathLength="1" style="--i:1" d="M0 176 C 32 176, 40 48, 72 48"/><path pathLength="1" style="--i:2" d="M0 176 C 32 176, 40 80, 72 80"/><path pathLength="1" style="--i:3" d="M0 176 C 32 176, 40 112, 72 112"/><path pathLength="1" style="--i:4" d="M0 176 C 32 176, 40 144, 72 144"/><path pathLength="1" style="--i:5" d="M0 176 C 32 176, 40 176, 72 176"/><path pathLength="1" style="--i:6" d="M0 176 C 32 176, 40 208, 72 208"/><path pathLength="1" style="--i:7" d="M0 176 C 32 176, 40 240, 72 240"/><path pathLength="1" style="--i:8" d="M0 176 C 32 176, 40 272, 72 272"/><path pathLength="1" style="--i:9" d="M0 176 C 32 176, 40 304, 72 304"/><path pathLength="1" style="--i:10" d="M0 176 C 32 176, 40 336, 72 336"/></svg>
+<ul class="apps">
+  <li style="--i:0"><a href="../#enishi">Connections</a></li>
+  <li style="--i:1"><a href="../#koyomi">Datebook</a></li>
+  <li style="--i:2"><a href="../#garo">Pictures</a></li>
+  <li style="--i:3"><a href="../#tana">Cabinet</a></li>
+  <li style="--i:4"><a href="../#yumecho">Dream Log</a></li>
+  <li style="--i:5"><a href="../#mimidoku">Audio Reader</a></li>
+  <li style="--i:6"><a href="../#kirinuki">Feeds</a></li>
+  <li style="--i:7"><a href="../#oboegaki">Memo</a></li>
+  <li style="--i:8"><a href="../#kondate">Recipes</a></li>
+  <li style="--i:9"><a href="../#shoka">Shelf</a></li>
+  <li style="--i:10"><a href="../#utahon">Songbook</a></li>
+</ul>
+</figure>
+</div>
+</section>
+
+<section id="your-apps" class="rv">
+<h2><span class="en">Your apps, and how each download is checked</span><span class="ja" lang="ja" hidden>「Your apps」と、ダウンロードの確かめ方</span></h2>
+<div class="split">
+<div>
+<div class="en">
+<p data-shot="iori-apps"><b>Settings → Your apps</b> lists the apps from this site in a folder for each group, the core
+apps first. Each folder says how many of its apps are on the phone, or how many can be updated.
+In a folder, each app says what it is, the version on the phone or Not installed, and has Install,
+Update or Up to date. The list is read from <a href="../apps.json">wanderthe.dev/apps.json</a>;
+Home keeps the last copy for when there is no connection.</p>
+<p data-shot="iori-firstrun">The first run has the same apps as a page of tick boxes, with the core apps that are missing
+already ticked. On this site each core app carries Home's hut
+<svg class="hut" aria-hidden="true"><use href="#hut"/></svg> after its name.</p>
+<p data-shot="iori-installing">Install or Update downloads the app from its own GitHub release. Home installs it only when:</p>
+<ul class="checks">
+  <li>its size and checksum (SHA-256) are the ones on the list,</li>
+  <li>it is the app and the version the list names,</li>
+  <li>it is signed with the key on the list, and no other,</li>
+  <li>that key is the one Home already holds for that app,</li>
+  <li>and it is not older than the release that was out when this Home was built.</li>
+</ul>
+<p data-shot="iori-installing">So the list on this site cannot change an app's key or bring in an app Home does not know. An
+update must also be signed like the app already on the phone. If anything does not match,
+nothing is installed. The downloaded file is deleted either way.</p>
+<p data-shot="iori-installing">Android asks once to let Home install apps (Install unknown apps), and asks before each first
+install. From Android 12 on, an app Home installed is then updated without asking again.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p>「<b>Settings → Your apps</b>」に、このサイトのアプリがグループごとのフォルダーで並ぶ。基本のアプリが先。フォルダーには、電話に入っている数か、更新できる数が出る。フォルダーの中では、アプリごとに何をするものか、電話の中の版か「Not installed」（未インストール）、そして「Install」「Update」「Up to date」。一覧は<a href="../apps.json">wanderthe.dev/apps.json</a>から読み、つながらないときのために最後の写しを残す。</p>
+<p>初回設定にも同じアプリがチェックボックスのページで並び、まだ入っていない基本のアプリには最初からチェックが入っている。このサイトでは、基本のアプリの名前のあとに庵の小屋の印 <svg class="hut" aria-hidden="true"><use href="#hut"/></svg> がついている。</p>
+<p>「Install」か「Update」を押すと、そのアプリ自身のGitHubのリリースからダウンロードする。入れるのは、次がすべて合うときだけ：</p>
+<ul class="checks">
+  <li>大きさとチェックサム（SHA-256）が一覧のとおり。</li>
+  <li>一覧にあるアプリと版、そのもの。</li>
+  <li>一覧の鍵だけで署名されている。</li>
+  <li>その鍵が、庵がそのアプリについてもともと持っている鍵と同じ。</li>
+  <li>この庵が作られたときに出ていたリリースより古くない。</li>
+</ul>
+<p>だから、このサイトの一覧が、アプリの鍵を替えたり、庵の知らないアプリを持ち込んだりはできない。更新は、電話にあるアプリと同じ署名でなければならない。合わなければ何も入れない。ダウンロードしたファイルは、どちらにしても消す。</p>
+<p>Androidは一度だけ、庵にアプリを入れさせてよいか（「Install unknown apps」）を聞き、初めて入れるアプリごとに確認する。Android 12以降では、庵が入れたアプリは、そのあと聞かれずに更新できる。</p>
+</div>
+</div>
+<figure class="folder-fig" data-shot="iori-folder">
+<div class="folder" aria-label="A folder in Your apps">
+<div class="fh"><span>Outdoors</span><small><b>1 update</b></small></div>
+<div class="app"><div>Mushroom Journal<span class="state">Not installed</span></div><button type="button" class="act">Install</button>
+  <div class="meter"><i></i></div>
+  <div class="step" data-s="1"><span class="en">From its own GitHub release</span><span class="ja" lang="ja" hidden>そのアプリ自身のGitHubのリリースから</span></div>
+  <div class="step" data-s="2"><span class="en">Size and checksum as listed; package and version as listed</span><span class="ja" lang="ja" hidden>大きさとチェックサム、パッケージと版：一覧のとおり</span></div>
+  <div class="step" data-s="3"><span class="en">Signed with the key Home already holds for it</span><span class="ja" lang="ja" hidden>庵がもともと持っている鍵で署名されている</span></div>
+</div>
+<div class="app"><div>Birding<span>1.7.47 on the phone</span></div><span class="act">Update</span></div>
+<div class="app"><div>Star Chart<span>0.5.23 on the phone</span></div><span class="act done">Up to date</span></div>
+</div>
+<figcaption class="folder-note"><span class="en">Press Install to see it work through its steps.</span><span class="ja" lang="ja" hidden>「Install」を押すと、順に進むのが見える。</span></figcaption>
+</figure>
+</div>
+</section>
+
+<section id="network" class="rv">
+<h2><span class="en">What Home sends</span><span class="ja" lang="ja" hidden>庵が送るもの</span></h2>
+<div class="split">
+<div>
+<div class="en">
+<p>Nothing about you. Home has no server of its own. Unlike inkOS it may use the internet, for
+these things only:</p>
+<ul>
+  <li data-shot="iori-apps"><b>Your apps</b>: when you open it in Settings, it reads the list from wanderthe.dev/apps.json.
+  It downloads only the apps you ask for, there, on the first run's page of apps, or when Home
+  offers an app that is missing, and only from this site's own GitHub releases. The first run's
+  page reaches nothing until you press GET.</li>
+  <li data-shot="iori-nextcloud-account"><b>Nextcloud</b>: only the server you sign in to, to sign in and to sign out.</li>
+</ul>
+<p>These requests name the app only as Home, not the phone's model or Android build. Settings,
+usage counts and everything on the home screen stay on the phone, and Android's own backup takes
+nothing of Home's. Glance's lines come
+from Glance on the phone and do not leave it. A crash report is sent only if you choose to, as an
+email from your own mail app.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p>あなたについては何も送らない。庵には自分のサーバーがない。inkOSと違ってインターネットを使うが、次のことだけ：</p>
+<ul>
+  <li><b>Your apps</b>：設定で開いたときに、wanderthe.dev/apps.jsonから一覧を読む。ダウンロードするのは、頼んだアプリだけ。そこか、初回設定のアプリのページか、足りないアプリを庵が勧めたときに。それも、このサイト自身のGitHubのリリースからだけ。初回設定のページは、「GET」を押すまでどこにもつながらない。</li>
+  <li><b>Nextcloud</b>：サインインしたサーバーにだけ、サインインとサインアウトのために。</li>
+</ul>
+<p>これらの通信では、アプリは「Home」と名のるだけで、電話の機種やAndroidのビルドは送らない。設定、使った回数、ホーム画面に出るものは、すべて電話に残り、Android自身のバックアップも庵のものは何も持っていかない。一目の行は電話の中の一目から来て、外へは出ない。クラッシュの報告は、送ると決めたときだけ、自分のメールアプリからのメールとして。</p>
+</div>
+</div>
+<figure class="fan reach" aria-label="Where Home connects: wanderthe.dev for the list, GitHub for the apps you ask for, your own Nextcloud; and no server of its own">
+<div class="from" aria-hidden="true"><svg class="big"><use href="#hut"/></svg></div>
+<svg class="lines" viewBox="0 0 64 128" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" style="--i:0" d="M0 64 C 28 64, 36 16, 64 16"/><path pathLength="1" style="--i:1" d="M0 64 C 28 64, 36 48, 64 48"/><path pathLength="1" style="--i:2" d="M0 64 C 28 64, 36 80, 64 80"/><path class="none" pathLength="1" d="M0 64 C 28 64, 36 112, 64 112"/></svg>
+<ul class="apps">
+  <li style="--i:0"><span class="en">wanderthe.dev <span>· the list of apps</span></span><span class="ja" lang="ja" hidden>wanderthe.dev <span>· アプリの一覧</span></span></li>
+  <li style="--i:1"><span class="en">GitHub <span>· the apps you ask for</span></span><span class="ja" lang="ja" hidden>GitHub <span>· 頼んだアプリ</span></span></li>
+  <li style="--i:2"><span class="en">your Nextcloud <span>· sign in, sign out</span></span><span class="ja" lang="ja" hidden>自分のNextcloud <span>· サインインとアウト</span></span></li>
+  <li class="none" style="--i:3"><span class="en"><s>a server of Home's own</s> <span>· none</span></span><span class="ja" lang="ja" hidden><s>庵自身のサーバー</s> <span>· ない</span></span></li>
+</ul>
+</figure>
+</div>
+</section>
+
+<section id="home-app" class="rv">
+<h2><span class="en">Setting it as the home app, and going back</span><span class="ja" lang="ja" hidden>ホームのアプリにする、もとに戻す</span></h2>
+<div class="en">
+<p>Download <a href="https://github.com/wanderwildwood/iori/releases/latest/download/iori.apk">iori.apk</a>
+and open it. Every release is signed with the same key, so a newer one installs over it and keeps
+your settings. <a href="https://github.com/ImranR98/Obtainium">Obtainium</a> can keep it updated:
+add <a href="https://github.com/wanderwildwood/iori">github.com/wanderwildwood/iori</a>.</p>
+<p data-shot="iori-firstrun-welcome">The first run's Setup page makes Home the screen the phone opens to. Later, it is
+<b>Settings → Advanced → Set as default launcher</b>.</p>
+<p data-shot="iori-settings">To go back to the phone's own home screen, press <b>Settings → Advanced → Exit Home</b> and pick
+it (on a Kompakt with MuditaOS K, Mudita's own home screen). From a computer, it is under Default
+apps on <a href="../mktweaks/#defaults">Kompakt tweaks</a>. Uninstalling Home leaves the phone with
+its own home screen too.</p>
+<p data-shot="iori-settings">To Android, Home and inkOS are two separate apps: accessibility, notification access, widgets
+and shortcuts are given to each on its own. On Android 13 and later, if Home's switches for
+accessibility or notification access are greyed out, open its App info, press ⋮, then Allow
+restricted settings.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p><a href="https://github.com/wanderwildwood/iori/releases/latest/download/iori.apk">iori.apk</a>をダウンロードして開く。どのリリースも同じ鍵で署名しているので、新しいものはそのまま上に入り、設定も残る。<a href="https://github.com/ImranR98/Obtainium">Obtainium</a>で更新を追うなら、<a href="https://github.com/wanderwildwood/iori">github.com/wanderwildwood/iori</a>を加える。</p>
+<p>初回設定の「Setup」のページで、庵を電話が開くホーム画面にできる。あとからなら「<b>Settings → Advanced → Set as default launcher</b>」。</p>
+<p>電話のもとのホーム画面に戻すには、「<b>Settings → Advanced → Exit Home</b>」を押して、もとのものを選ぶ（MuditaOS KのKompaktなら、Mudita自身のホーム画面）。パソコンからなら、<a href="../mktweaks/#defaults">Kompakt tweaks</a>の「Default apps」で。庵をアンインストールしても、電話はもとのホーム画面に戻る。</p>
+<p>Androidにとって、庵とinkOSは別々のアプリ。ユーザー補助、通知へのアクセス、ウィジェット、ショートカットは、それぞれに別に与える。Android 13以降で、庵のユーザー補助や通知へのアクセスのスイッチが灰色なら、アプリ情報を開き、⋮を押して「Allow restricted settings」（制限付き設定を許可）。</p>
+</div>
+</section>
+
+<section id="credit" class="rv" data-shot="iori">
+<h2><span class="en">Credit and licence</span><span class="ja" lang="ja" hidden>クレジットとライセンス</span></h2>
+<div class="en">
+<p>Home is free software under the GNU General Public License, version 3. Nearly all of it is
+<a href="https://github.com/gezimos/inkos">inkOS</a> by <a href="https://github.com/gezimos">gezimos</a>,
+GPL-3.0. inkOS was first forked from <a href="https://github.com/DroidWorksStudio/mLauncher">mLauncher</a>,
+itself a fork of <a href="https://github.com/tanujnotes/Olauncher">Olauncher</a>, both GPL-3.0.
+The lock-screen music strip follows gezimos's <a href="https://github.com/gezimos/Katapult">Katapult</a>.</p>
+<p><b>Settings → About Home → Licenses</b> lists every library and font with its licence. If inkOS
+has made your phone better, the coffee cup in About Home opens gezimos's Buy Me a Coffee. For
+plain inkOS, go to <a href="https://github.com/gezimos/inkos">gezimos's repository</a>.</p>
+<p>Nextcloud and the Nextcloud logo are trademarks of Nextcloud GmbH.</p>
+</div>
+<div class="ja" lang="ja" hidden>
+<p>庵はフリーソフトウェアで、ライセンスはGNU General Public License, version 3。そのほとんどは<a href="https://github.com/gezimos">gezimos</a>の<a href="https://github.com/gezimos/inkos">inkOS</a>（GPL-3.0）。inkOSは<a href="https://github.com/DroidWorksStudio/mLauncher">mLauncher</a>から分かれ、mLauncherは<a href="https://github.com/tanujnotes/Olauncher">Olauncher</a>から分かれたもの。どちらもGPL-3.0。ロック画面の音楽の帯は、gezimosの<a href="https://github.com/gezimos/Katapult">Katapult</a>にならった。</p>
+<p>「<b>Settings → About Home → Licenses</b>」に、すべてのライブラリーとフォントとそのライセンス。inkOSで電話がよくなったと思ったら、About Homeのコーヒーカップから、gezimosのBuy Me a Coffeeへ。素のinkOSは<a href="https://github.com/gezimos/inkos">gezimosのリポジトリー</a>に。</p>
+<p>NextcloudとNextcloudのロゴは、Nextcloud GmbHの商標。</p>
+</div>
+</section>
+
+</div>
+<aside class="stage" aria-label="Home's screens, as the page goes on">
+<figure class="phone">
+<div class="body"><div class="screen">
+<img data-name="iori" data-cap="Home" data-cap-ja="庵" src="../shots/iori.png" data-dark="../shots/dark/iori.png" width="400" height="627" alt="Home" loading="eager" class="on">
+<img data-name="iori-firstrun-welcome" data-cap="The first run: welcome" data-cap-ja="初回設定：ようこそ" src="../shots/iori-firstrun-welcome.png" data-dark="../shots/dark/iori-firstrun-welcome.png" width="400" height="627" alt="The first run: welcome" loading="eager">
+<img data-name="iori-nextcloud" data-cap="The first run: Nextcloud" data-cap-ja="初回設定：Nextcloud" src="../shots/iori-nextcloud.png" data-dark="../shots/dark/iori-nextcloud.png" width="400" height="627" alt="The first run: Nextcloud" loading="eager">
+<img data-name="iori-apps" data-cap="Settings → Your apps" data-cap-ja="設定 → Your apps" src="../shots/iori-apps.png" data-dark="../shots/dark/iori-apps.png" width="400" height="627" alt="Settings → Your apps" loading="eager">
+<img data-name="iori-darkhome" data-cap="Home at night" data-cap-ja="夜の庵" src="../shots/dark/iori.png" data-dark="../shots/iori.png" width="400" height="627" alt="Home at night" loading="eager">
+<img data-name="iori-defaults" data-cap="Settings → Default apps" data-cap-ja="設定 → 既定のアプリ" src="../shots/iori-defaults.png" data-dark="../shots/dark/iori-defaults.png" width="400" height="627" alt="Settings → Default apps" loading="eager">
+<img data-name="iori-lines" data-cap="Home lines" data-cap-ja="ホームの行" src="../shots/iori-lines.png" data-dark="../shots/dark/iori-lines.png" width="400" height="627" alt="Home lines" loading="eager">
+<img data-name="iori-drawer" data-cap="A folder in the app drawer" data-cap-ja="アプリ一覧のフォルダー" src="../shots/iori-drawer.png" data-dark="../shots/dark/iori-drawer.png" width="400" height="627" alt="A folder in the app drawer" loading="eager">
+<img data-name="iori-settings" data-cap="Settings" data-cap-ja="設定" src="../shots/iori-settings.png" data-dark="../shots/dark/iori-settings.png" width="400" height="627" alt="Settings" loading="eager">
+<img data-name="iori-nextcloud-account" data-cap="Settings → Nextcloud account" data-cap-ja="設定 → Nextcloudアカウント" src="../shots/iori-nextcloud-account.png" data-dark="../shots/dark/iori-nextcloud-account.png" width="400" height="627" alt="Settings → Nextcloud account" loading="eager">
+<img data-name="iori-firstrun" data-cap="The first run: your apps" data-cap-ja="初回設定：アプリ" src="../shots/iori-firstrun.png" data-dark="../shots/dark/iori-firstrun.png" width="400" height="627" alt="The first run: your apps" loading="eager">
+<img data-name="iori-folder" data-cap="Your apps: a folder" data-cap-ja="Your apps：フォルダー" src="../shots/iori-folder.png" data-dark="../shots/dark/iori-folder.png" width="400" height="627" alt="Your apps: a folder" loading="eager">
+<img data-name="iori-installing" data-cap="Your apps: getting an app" data-cap-ja="Your apps：入れているところ" src="../shots/iori-installing.png" data-dark="../shots/dark/iori-installing.png" width="400" height="627" alt="Your apps: getting an app" loading="eager">
+</div></div>
+<p class="cap" aria-live="polite"><span class="en">Home</span><span class="ja" lang="ja" hidden>庵</span></p>
+<figcaption>
+<p class="en">Home has a dark mode too. On MuditaOS it is a switch in Home's Settings.</p>
+<p class="ja" lang="ja" hidden>庵にもダークモードがある。MuditaOSでは、庵の設定のスイッチで。</p>
+<button type="button" class="daynight" aria-pressed="false" hidden><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg><span class="en">Day or night</span><span class="ja" lang="ja" hidden>昼か夜か</span></button>
+</figcaption>
+</figure>
+</aside>
+</div>
+</main>
+<script>
+document.querySelectorAll('button.jp').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var ja = b.getAttribute('aria-pressed') !== 'true';
+    document.querySelectorAll('main .en').forEach(function (e) { e.hidden = ja; });
+    document.querySelectorAll('main .ja').forEach(function (e) { e.hidden = !ja; });
+    document.documentElement.lang = ja ? 'ja' : 'en';
+    b.setAttribute('aria-pressed', ja ? 'true' : 'false');
+  });
+});
+</script>
+<script src="../theme.js"></script>
+<script>
+// Sections come up as they are reached; once up, they stay. (Borrowed from the game's page, where things
+// wait along the way until the walk reaches them; here they only come into place, and not at all when
+// less motion is asked for.)
+(function () {
+  var secs = document.querySelectorAll('section.rv');
+  function show(el) { el.classList.add('seen'); }
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    secs.forEach(show); return;
+  }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+  secs.forEach(function (el) {
+    var r = el.getBoundingClientRect();
+    if (r.top < innerHeight && r.bottom > 0) show(el); else io.observe(el);
+  });
+})();
+
+// Your apps: Install goes through its steps as Home's page shows them (Downloading in tenths, Checking,
+// Installing), with what is being checked written under it.
+(function () {
+  var fold = document.querySelector('.folder'); if (!fold) return;
+  var btn = fold.querySelector('button.act'), row = btn.closest('.app'), meter = row.querySelector('.meter');
+  var steps = row.querySelectorAll('.step'), state = row.querySelector('.state');
+  var running = false, still = matchMedia('(prefers-reduced-motion: reduce)').matches, timers = [];
+  function at(ms, f) { timers.push(setTimeout(f, ms)); }   // a change of words, not motion: it runs at its pace even when less motion is asked for
+  function step(n) { steps.forEach(function (x) { x.classList.toggle('on', +x.dataset.s === n); }); }
+  function go() {
+    if (running) return; running = true;
+    btn.classList.remove('done'); btn.disabled = true; state.textContent = 'Not installed';
+    meter.classList.remove('on'); void meter.offsetWidth; meter.classList.add('on'); step(1);
+    for (var k = 1; k <= 10; k++) (function (k) { at(k * 140, function () { btn.textContent = 'Downloading ' + k * 10 + '%'; }); })(k);
+    at(1500, function () { meter.classList.remove('on'); btn.textContent = 'Checking'; step(2); });
+    at(2600, function () { step(3); });
+    at(3500, function () { btn.textContent = 'Installing'; step(0); });
+    at(4300, function () { btn.textContent = 'Up to date'; btn.classList.add('done'); btn.disabled = false;
+      state.textContent = '0.3.43 on the phone'; running = false; });
+  }
+  btn.addEventListener('click', function () { if (btn.classList.contains('done')) { btn.textContent = 'Install'; } go(); });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io.disconnect(); at(1200, go); } }, { threshold: 0.6 });
+    io.observe(fold);
+  }
+})();
+// The phone beside the words: as each part of the page comes to the middle of the screen, the phone shows
+// Home's own screen for it, a page turn on E Ink: a flash, then the new page. The Japanese text says what
+// the English says, so it takes the same pictures. A picture that is missing just leaves the last one up.
+// On a narrow screen the phone is a small picture in the corner; a press makes it bigger, another smaller.
+(function () {
+  var stage = document.querySelector('.stage'); if (!stage) return;
+  var screen = stage.querySelector('.screen'), cap = stage.querySelector('.cap');
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // the Japanese twins of marked English paragraphs and items take the same picture
+  document.querySelectorAll('section').forEach(function (sec) {
+    var en = sec.querySelector(':scope > div.en, :scope .split > div > div.en, :scope div.en');
+    var ja = sec.querySelector('div.ja');
+    if (!en || !ja) return;
+    ['li', 'p'].forEach(function (t) {
+      var a = en.querySelectorAll(t), b = ja.querySelectorAll(t);
+      a.forEach(function (x, i) { if (x.dataset.shot && b[i]) b[i].dataset.shot = x.dataset.shot; });
+    });
+  });
+  screen.querySelectorAll('img').forEach(function (img) {
+    img.addEventListener('error', function () { img.dataset.broken = '1'; });
+  });
+  var now = 'iori';
+  function show(name) {
+    if (name === now) return;
+    var img = screen.querySelector('img[data-name="' + name + '"]');
+    if (!img || img.dataset.broken || (img.complete && !img.naturalWidth)) return;
+    now = name;
+    screen.querySelectorAll('img.on').forEach(function (x) { x.classList.remove('on'); });
+    img.classList.add('on');
+    if (!still) { screen.classList.remove('flash'); void screen.offsetWidth; screen.classList.add('flash'); }
+    cap.querySelector('.en').textContent = img.dataset.cap;
+    cap.querySelector('.ja').textContent = img.dataset.capJa;
+  }
+  var marks = [].slice.call(document.querySelectorAll('[data-shot]'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting && e.target.offsetParent !== null) show(e.target.dataset.shot); });
+    }, { rootMargin: '-42% 0px -52% 0px' });
+    marks.forEach(function (m) { io.observe(m); });
+  }
+  stage.addEventListener('click', function (e) {
+    if (e.target.closest('button')) return;
+    if (matchMedia('(max-width: 52rem)').matches) stage.classList.toggle('big');
+  });
+  // Day or night: the button under the phone does what the one in the corner does, and the phone turns its page
+  var corner = document.querySelector('button.theme'), dn = document.querySelector('button.daynight');
+  var root = document.documentElement;
+  function dark() { var t = root.getAttribute('data-theme'); return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
+  function sync() { if (dn) dn.setAttribute('aria-pressed', dark() ? 'true' : 'false'); }
+  function flash() { if (!still) { screen.classList.remove('flash'); void screen.offsetWidth; screen.classList.add('flash'); } sync(); }
+  if (corner) corner.addEventListener('click', flash);
+  if (dn && corner) { dn.hidden = false; dn.addEventListener('click', function () { corner.click(); }); }
+  sync();
+})();
+</script>
+<script src="../peek.js?v=9" data-base="../" data-mode="side" data-at="#home-app"></script>
+</body>
+</html>
