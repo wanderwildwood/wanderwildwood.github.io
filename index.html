@@ -17,6 +17,8 @@
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="alternate" type="application/atom+xml" title="wander: releases" href="feed.xml">
 <script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
 <style>
@@ -298,6 +300,59 @@
   button.theme:hover { color: var(--ink); }
   button.theme svg { display: block; width: 100%; height: 100%; }
   button.theme[aria-pressed="true"] .moon, button.theme:not([aria-pressed="true"]) .sun { display: none; }
+
+  /* ===== Pixel (2026-11-20, from a mockup he picked): the labels in a pixel face, square corners,
+     shadows drawn in two hard steps, dotted pixel rules, a "/" before each category and hovers that
+     fill in two steps, as Wander's own pages are drawn. The paper and ink stay; running text is
+     Geist Mono. Departure Mono by Helena Zhang, SIL OFL 1.1 (fonts/DepartureMono-OFL.txt). ===== */
+  @font-face { font-family: "Departure Mono"; src: url(fonts/DepartureMono-Regular.woff2) format("woff2"); font-display: swap; }
+  /* the running text in Geist Mono (Vercel, SIL OFL 1.1, fonts/GeistMono-OFL.txt), his pick 11-20 */
+  @font-face { font-family: "Geist Mono"; src: url(fonts/GeistMono-Regular.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Geist Mono"; src: url(fonts/GeistMono-SemiBold.woff2) format("woff2"); font-weight: 600 700; font-display: swap; }
+  body { font: 15px/1.7 "Geist Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace; }
+  :root { --pixel: "Departure Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+    --step: 2px 2px 0 var(--ink), 4px 4px 0 var(--ink);           /* a button's shadow, a pixel staircase at its corners */
+    --step-soft: 3px 3px 0 var(--hard), 6px 6px 0 var(--hard); }  /* a picture's or a card's */
+  h1, h2, .jump, .apps .group, .app h4, .links, .feedlink, .gobtn, footer.kumo .copy { font-family: var(--pixel); font-weight: 400; letter-spacing: 0; }
+  h1 button.jp, .app h4 button.jp { font-family: "Geist Mono", ui-monospace, monospace; }   /* the Japanese names in the reading face: the pixel face has no kana */
+  /* the face is drawn on an 11px grid and is sharpest at 11, 22 and 33px */
+  h1 { font-size: 33px; line-height: 1.1; }
+  h1 button.jp { font-size: 0.7em; }
+  .app h4 button.jp { font-size: 11px; }   /* the mono is wider: a little smaller keeps Connections' name on its line */
+  h2 { font-size: 22px; color: var(--ink); border-bottom: 0; padding-bottom: 0.6rem;
+    background: repeating-linear-gradient(90deg, var(--rule) 0 2px, transparent 2px 4px) left bottom / 100% 2px no-repeat; }
+  .jump { font-size: 1rem; }
+  .jump-label { font-weight: 400; color: var(--quiet); }
+  .jump a { padding: 0.15rem 0.5rem; border: 0; }
+  .jump a::before { content: "/"; color: var(--line); margin-right: 1px; }
+  .jump a:hover, .jump a.on { background: var(--ink); color: var(--paper); }
+  .jump a:hover::before, .jump a.on::before { color: inherit; }
+  .apps .group { font-size: 1.05rem; }
+  .apps .group::after { background: repeating-linear-gradient(90deg, var(--rule) 0 2px, transparent 2px 4px); }
+  .app h4 { font-size: 0.92rem; }
+  .app.home h4 { font-size: 1.25rem; }
+  .shot { border-radius: 0; border-width: 2px; box-shadow: var(--step-soft); }
+  #sanpo, .app.home { border-radius: 0; border-width: 2px; box-shadow: var(--step-soft); }
+  #sanpo .floor { border-radius: 0; }
+  #sanpo .peeknote { border-radius: 0; border-width: 2px; box-shadow: 2px 2px 0 var(--hard), 4px 4px 0 var(--hard); }
+  .feedlink, .gobtn { box-shadow: var(--step); }
+  .feedlink:active, .gobtn:active { transform: translate(4px, 4px); }
+  .app .links:not(.go):not(.top) a[href$=".apk"] { box-shadow: 1px 1px 0 var(--ink), 2px 2px 0 var(--ink); }
+  /* the plain links on a card: a small arrow, no underline, filled with ink under the pointer */
+  .links a:not([href$=".apk"]):not(.gobtn) { text-decoration: none; }
+  .links a:not([href$=".apk"]):not(.gobtn):hover, .app .links:not(.go):not(.top) a[href$=".apk"]:hover { background: var(--ink); color: var(--paper); }
+  .app .links:not(.go):not(.top), .app.home .links.top { font-size: 11px; gap: 0.4rem 0.75rem; }
+  .app .links:not(.go):not(.top) a[href$=".apk"] { padding: 0.1rem 0.45rem; margin-right: 0; }
+  .links a:not([href$=".apk"]):not(.gobtn):hover { box-shadow: 0 0 0 0.15rem var(--ink); }   /* the fill reaches a little past the word, without taking room in the row */
+  @media (max-width: 40rem) { .jump { gap: 0.3rem 1rem; } }   /* on a phone the categories wrap close, from the left */
+  .gobtn:hover, .feedlink:hover { background: var(--ink); color: var(--paper); }
+  /* a hover fills in two hard steps, first a checker of ink, as a sprite's dither would */
+  @keyframes px-fill { 0% { background: repeating-conic-gradient(var(--ink) 0 25%, transparent 0 50%) 0 0 / 4px 4px; color: var(--ink); } }
+  @media (prefers-reduced-motion: no-preference) {
+    .jump a:not(.on):hover, .links a:hover, .gobtn:hover, .feedlink:hover { animation: px-fill .12s step-end both; }
+  }
+  button.theme { border-radius: 0; border-width: 2px; }
+  .nw { white-space: nowrap; }   /* an inline mark stays with its word and the comma after it */
 </style>
 </head>
 <body>
@@ -394,7 +449,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
   <p class="ja" lang="ja" hidden>庵は、電話のロックを外したときに見える画面。アイコンの並びではなく、使うアプリが名前で、短い言葉で並び、その上に時刻と今日の予定と天気。このページのアプリをひとつにまとめるのも庵。KompaktのMuditaOS KでもKompaktOSでも、Android 10以降のほかの電話でも動き、gezimosの<a href="https://github.com/gezimos/inkos">inkOS</a>をもとにしている。ほかにも：</p>
   <div class="cols">
   <ul class="adds en">
-    <li><b>Installs the apps here</b> and keeps them up to date, from Settings → Your apps. The core apps, marked <svg class="hut-inline" aria-hidden="true"><use href="#hut"/></svg>, come first.</li>
+    <li><b>Installs the apps here</b> and keeps them up to date, from Settings → Your apps. The core apps, <span class="nw">marked <svg class="hut-inline" aria-hidden="true"><use href="#hut"/></svg>,</span> come first.</li>
     <li><b>One Nextcloud account for the phone.</b> Sign in once in Home, and the apps marked <svg class="nc-inline" aria-hidden="true"><use href="#nc"/></svg> can use it, with nothing more to type.</li>
     <li><b>Dark mode for the apps here</b>, from one switch on MuditaOS.</li>
     <li><b>Which app opens what</b>: calls, texts, contacts, maps, pictures and more, chosen in one place.</li>
