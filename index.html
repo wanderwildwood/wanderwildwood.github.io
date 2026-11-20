@@ -141,7 +141,11 @@
   #sanpo .descrow { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 0.6rem 2.5rem; }   /* the two columns as one group, centred under the picture */
   /* the words on the left, about as wide as the two buttons; beside them the note, and the buttons under the note */
   #sanpo .descrow .desc { flex: 0 1 26.5rem; min-width: 0; }
-  #sanpo .descrow .desc p:last-child { margin-bottom: 0; }
+  #sanpo .descrow .desc p:last-of-type { margin-bottom: 0; }
+  /* the game's WANDER seal under the words, stamped a little crooked, in the page's ink (so it turns light at night) */
+  #sanpo .seal { display: block; width: 2.6rem; height: 3.7rem; margin: 1.1rem 0 0 0.2rem; transform: rotate(-5deg); background: var(--quiet);
+    -webkit-mask: url(wanderthegame/seal.svg) center / contain no-repeat; mask: url(wanderthegame/seal.svg) center / contain no-repeat; }
+  #sanpo .seal:hover { background: var(--ink); }
   #sanpo .descrow .side { flex: 0 1 30rem; min-width: 0; padding-top: 2.9rem; }   /* room for his hat */
   #sanpo .desc h4 { margin-top: 0; }
   #sanpo .side .links.go { margin: 1.1rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.8rem; }   /* centred under the note */
@@ -150,7 +154,7 @@
     background: var(--raise); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 4px 4px 0 var(--hard);
     font-size: 0.95rem; line-height: 1.55; }
   #sanpo .peeknote[hidden] { display: none; }
-  .peekmark { position: absolute; z-index: -1; left: 1.2rem; top: -45px; width: 42px; height: calc(100% + 45px);   /* 3 to a pixel, as on the cards; below the card's edge, nothing */
+  .peekmark { position: absolute; z-index: 1; display: block; left: 1.2rem; top: -45px; width: 42px; height: 45px;   /* 3 to a pixel, as on the cards; only the part above the card's edge, so he can be pressed */
     background: url(shots/wander-peek.png) -42px 0 / 588px 111px no-repeat; image-rendering: pixelated; }
   .app.wide p { max-width: 34rem; }
   @media (max-width: 36rem) { .app.wide { grid-column: auto; } .app.wide .shot { max-width: none; } }
@@ -300,11 +304,12 @@
   There is nothing to win and no words on the screen.</p>
   <p class="ja" lang="ja" hidden>ラマのクモとレッドウッドの森を歩く。立ち止まり、気づき、つながることの、静かでASMRのようなゲーム。Mudita Kompaktのために作った。</p>
   <p class="ja" lang="ja" hidden>一度の散歩は一日。朝の霧から夕暮れまで、本当の時計でおよそ十二分。勝ち負けはなく、画面に言葉もない。</p>
+  <a class="seal" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>
   </div>
   <div class="side">
-  <p class="en peeknote"><span class="peekmark" aria-hidden="true"></span>Where Wander peeks out over an app further down this page, that app and the game are
+  <p class="en peeknote"><a class="peekmark" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>Where Wander peeks out over an app further down this page, that app and the game are
   connected: the game quietly takes something of it into the wood.</p>
-  <p class="ja peeknote" lang="ja" hidden><span class="peekmark" aria-hidden="true"></span>このページの下のほうで、アプリの上からwanderがのぞいていたら、そのアプリとゲームはつながっている。ゲームはそっと、そのアプリから何かを森へ持ちこむ。</p>
+  <p class="ja peeknote" lang="ja" hidden><a class="peekmark" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>このページの下のほうで、アプリの上からwanderがのぞいていたら、そのアプリとゲームはつながっている。ゲームはそっと、そのアプリから何かを森へ持ちこむ。</p>
   <p class="links go"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></p>
   </div>
   </div>
