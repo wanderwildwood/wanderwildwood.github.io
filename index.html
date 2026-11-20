@@ -138,15 +138,15 @@
   /* The note that says what his peeks mean, as a small card he looks out over, as he does over the app
      pictures below: the top of him above its edge, the rest behind it. */
   /* the words on the left and the note beside them, the two buttons under both; on a phone, one after another */
-  #sanpo .descrow { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 3.4rem 2rem; }
-  /* the words exactly as wide as the two buttons under them: one column on the left */
-  #sanpo .descrow .desc { flex: 0 0 auto; width: fit-content; max-width: 100%; }
-  #sanpo .descrow .desc p:not(.links) { width: 0; min-width: 100%; }
-  #sanpo .descrow .desc .links.go { margin-bottom: 0; }
-  #sanpo > h4, #sanpo > .descrow { margin-left: 1.5rem; }   /* the words, the note and the buttons in a little from the picture's edge, as the note is from its right */
-  #sanpo .desc .links.go .gobtn { margin-right: 1.8rem; }
-  #sanpo .desc .links.go .gobtn:last-child { margin-right: 0; }   /* a little more room between the two buttons */
-  #sanpo .peeknote { position: relative; flex: 1 1 18rem; min-width: 0; max-width: 30rem; margin: 0 1.5rem 0 1.5rem;   /* in a little from the picture's edge */ padding: 0.75rem 1.1rem 0.8rem;
+  #sanpo .descrow { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.6rem 2rem; }
+  /* the words on the left, about as wide as the two buttons; beside them the note, and the buttons under the note */
+  #sanpo .descrow .desc { flex: 0 1 26.5rem; min-width: 0; }
+  #sanpo .descrow .desc p:last-child { margin-bottom: 0; }
+  #sanpo .descrow .side { flex: 1 1 18rem; min-width: 0; max-width: 30rem; margin: 0 1.5rem 0 1.5rem; padding-top: 2.9rem; }   /* room for his hat */
+  #sanpo > h4, #sanpo > .descrow { margin-left: 1.5rem; }   /* the title, words, note and buttons in a little from the picture's edge */
+  #sanpo .side .links.go { margin: 1.1rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.8rem; }   /* centred under the note */
+  #sanpo .side .links.go .gobtn { margin: 0; }
+  #sanpo .peeknote { position: relative; margin: 0;   /* in a little from the picture's edge */ padding: 0.75rem 1.1rem 0.8rem;
     background: var(--raise); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 4px 4px 0 var(--hard);
     font-size: 0.95rem; line-height: 1.55; }
   #sanpo .peeknote[hidden] { display: none; }
@@ -300,11 +300,13 @@
   There is nothing to win and no words on the screen.</p>
   <p class="ja" lang="ja" hidden>ラマのクモとレッドウッドの森を歩く。立ち止まり、気づき、つながることの、静かでASMRのようなゲーム。Mudita Kompaktのために作り、Kompaktで試している。</p>
   <p class="ja" lang="ja" hidden>一度の散歩は一日。朝の霧から夕暮れまで、本当の時計でおよそ十二分。勝ち負けはなく、画面に言葉もない。</p>
-  <p class="links go"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></p>
   </div>
+  <div class="side">
   <p class="en peeknote"><span class="peekmark" aria-hidden="true"></span>Where Wander peeks out over an app further down this page, that app and the game are
   connected: the game quietly takes something of it into the wood.</p>
   <p class="ja peeknote" lang="ja" hidden><span class="peekmark" aria-hidden="true"></span>このページの下のほうで、アプリの上からwanderがのぞいていたら、そのアプリとゲームはつながっている。ゲームはそっと、そのアプリから何かを森へ持ちこむ。</p>
+  <p class="links go"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></p>
+  </div>
   </div>
 
 </div>
