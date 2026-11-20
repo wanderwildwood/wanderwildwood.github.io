@@ -39,11 +39,12 @@
     --floor: #7a7a7a;    /* the game's forest floor, under Wander's card and under Kumo at the foot */
     color-scheme: light;
   }
-  /* Dark follows the computer or phone, unless the button in the corner has been pressed (theme.js). */
+  /* Dark follows the computer or phone, unless the button in the corner has been pressed (theme.js). (11-20, his pick: an
+     E Ink dark, neutral charcoal with light-grey text, in place of the warm brown-black.) */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --edge: #3a342b; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); --hard: rgba(0, 0, 0, .55); --floor: #3a3a3a; color-scheme: dark; }
+    :root:not([data-theme="light"]) { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --edge: #4a4a46; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); --hard: rgba(0, 0, 0, .5); --floor: #3a3a3a; color-scheme: dark; }
   }
-  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --edge: #3a342b; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); --hard: rgba(0, 0, 0, .55); --floor: #3a3a3a; color-scheme: dark; }
+  :root[data-theme="dark"] { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --edge: #4a4a46; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); --hard: rgba(0, 0, 0, .5); --floor: #3a3a3a; color-scheme: dark; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -363,10 +364,10 @@
   button.theme { border-radius: 0; border-width: 2px; }
   .nw { white-space: nowrap; }
   /* E Ink is not white: the Kompakt's screen is a soft grey with ink a little short of black. Each
-     screenshot is toned to it in light mode (dark mode has its own dark shots); the stop-motion photo is left alone. */
+     screenshot is toned to it; at night the dark shots are lifted from black to its charcoal. The stop-motion photo is left alone. */
   :root { --eink: contrast(0.88) brightness(0.96); }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --eink: none; } }
-  :root[data-theme="dark"] { --eink: none; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --eink: contrast(0.82); } }   /* at night the dark shots' black lifted to the screen's charcoal */
+  :root[data-theme="dark"] { --eink: contrast(0.82); }
   .shot { filter: var(--eink); }
   #komadori .shot { filter: none; }   /* an inline mark stays with its word and the comma after it */
 </style>
