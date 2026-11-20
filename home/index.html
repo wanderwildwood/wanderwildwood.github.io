@@ -12,28 +12,31 @@
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
 <style>
-  /* The same paper as the home page: day a calm unbleached paper, night the same with the lamp out.
+  /* The same paper as the home page: day an E Ink grey, night a charcoal, as the Kompakt's screen is.
      Text is WCAG AA or better on both. */
   :root {
-    --ink: #29241e;
-    --quiet: #5a5247;
-    --rule: #cbc1b1;
-    --paper: #e2dccf;
-    --raise: #e9e4d9;
-    --line: #8c7f6c;     /* a link's underline */
+    --ink: #252422;      /* (11-20) the E Ink grey of the home page, in place of the warm paper */
+    --quiet: #52504c;
+    --rule: #c1bfb8;
+    --paper: #d9d8d3;
+    --raise: #e2e1dc;
+    --line: #83817b;     /* a link's underline */
     --body: #3a362f;     /* the phone */
     --body-edge: #3a362f;
-    --hard: rgba(40, 30, 15, .2);   /* a hard shadow, as the pages of the game's page have */
-    --screen: #f1f0ec; --screen-ink: #161616;
+    --hard: rgba(30, 30, 28, .2);   /* a hard shadow, as the pages of the game's page have */
+    --screen: #e4e3df; --screen-ink: #232323;   /* an E Ink screen: a soft grey, ink a little short of black */
+    --eink: contrast(0.88) brightness(0.96);    /* the screenshots toned to it, as on the home page */
     color-scheme: light;
   }
   /* Dark follows the phone or computer, unless the button at the top has been pressed. */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --body: #2c2924; --body-edge: #4a443a; --hard: rgba(0, 0, 0, .55); --screen: #0c0c0c; --screen-ink: #e9e9e9; color-scheme: dark; }
+    :root:not([data-theme="light"]) { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --body: #2b2b29; --body-edge: #4a4a46; --hard: rgba(0, 0, 0, .5); --screen: #171717; --screen-ink: #dcdcdc; --eink: contrast(0.82); color-scheme: dark; }
   }
-  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --body: #2c2924; --body-edge: #4a443a; --hard: rgba(0, 0, 0, .55); --screen: #0c0c0c; --screen-ink: #e9e9e9; color-scheme: dark; }
+  :root[data-theme="dark"] { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --body: #2b2b29; --body-edge: #4a4a46; --hard: rgba(0, 0, 0, .5); --screen: #171717; --screen-ink: #dcdcdc; --eink: contrast(0.82); color-scheme: dark; }
   * { box-sizing: border-box; }
   html { overflow-x: hidden; }
   body {
@@ -295,6 +298,33 @@
     .js .fan li, .js ul.checks li::after, .js .fan.reach .lines path.none { opacity: 1; }
     .folder .meter.on i { width: 100%; }
   }
+
+  /* ===== Pixel (2026-11-20, as the home page): labels in Departure Mono (Helena Zhang, SIL OFL 1.1), running text in
+     Geist Mono (Vercel, SIL OFL 1.1), both from ../fonts/; square corners, shadows in two hard steps, dotted pixel rules,
+     hovers that fill in two steps. The phone and what is drawn on its screen keep their own look. ===== */
+  @font-face { font-family: "Departure Mono"; src: url(../fonts/DepartureMono-Regular.woff2) format("woff2"); font-display: swap; }
+  @font-face { font-family: "Geist Mono"; src: url(../fonts/GeistMono-Regular.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Geist Mono"; src: url(../fonts/GeistMono-SemiBold.woff2) format("woff2"); font-weight: 600 700; font-display: swap; }
+  :root { --pixel: "Departure Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+    --step: 2px 2px 0 var(--ink), 4px 4px 0 var(--ink);
+    --step-soft: 3px 3px 0 var(--hard), 6px 6px 0 var(--hard); }
+  body { font: 15px/1.7 "Geist Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace; }
+  h1, h2, .back, a.btn, button.daynight, .toc, .stage .cap { font-family: var(--pixel); font-weight: 400; letter-spacing: 0; }
+  h1 button.jp { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.6em; }   /* the pixel face has no kana */
+  h1 { font-size: 33px; line-height: 1.15; }   /* the face is sharpest at 11, 22 and 33px */
+  h2 { font-size: 22px; color: var(--ink); border-bottom: 0; padding-bottom: 0.6rem;
+    background: repeating-linear-gradient(90deg, var(--rule) 0 2px, transparent 2px 4px) left bottom / 100% 2px no-repeat; }
+  .back a { border-width: 2px; }
+  .back a:hover, a.btn:hover, button.daynight:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  a.btn, button.daynight { box-shadow: var(--step); }
+  a.btn:active, button.daynight:active { transform: translate(4px, 4px); }
+  a.btn.plain { box-shadow: none; }
+  .folder { border-radius: 0; border-width: 2px; box-shadow: var(--step-soft); }
+  .phone .body { box-shadow: var(--step-soft); }
+  .stage .screen img { filter: var(--eink); }
+  button.theme { border-radius: 0; border-width: 2px; }
+  @keyframes px-fill { 0% { background: repeating-conic-gradient(var(--ink) 0 25%, transparent 0 50%) 0 0 / 4px 4px; color: var(--ink); } }
+  @media (prefers-reduced-motion: no-preference) { .back a:hover, a.btn:hover, button.daynight:hover { animation: px-fill .12s step-end both; } }
 </style>
 </head>
 <body>
