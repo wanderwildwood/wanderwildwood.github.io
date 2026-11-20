@@ -35,7 +35,7 @@
    "versionName": "0.2.41",
    "versionCode": 69,
    "apk": "https://github.com/wanderwildwood/enishi/releases/download/v0.2.41/enishi.apk",
-   "sha256": "c32eee33ce0ed3783468549f8100e172422ea7d1c652299c8440f76ce18e1d38",
+   "sha256": "05ec4bb906d05db0975914a8c4cfb70f7ddba4e6ef7a95678165bb42ed9ec11a",
    "certSha256": "def146af0a169328cee14b3cb40db62f8d352fadf1e20371dbcf68018c8a5c5b",
    "minSdk": 25,
    "size": 3937797
@@ -175,13 +175,13 @@
    "name": "Music Box",
    "summary": "A music player for a folder of your own music, a music server you run, internet radio and YouTube Music.",
    "core": true,
-   "versionName": "2.18.45",
-   "versionCode": 119,
-   "apk": "https://github.com/wanderwildwood/jimeikin/releases/download/v2.18.45/jimeikin.apk",
-   "sha256": "07e57f44233e2bc223f62d36da2a76e9f99d11d91b16e31ce7dc9ef7d237a151",
+   "versionName": "2.18.46",
+   "versionCode": 120,
+   "apk": "https://github.com/wanderwildwood/jimeikin/releases/download/v2.18.46/jimeikin.apk",
+   "sha256": "75c8bc083bba8b7d6a6d34fdc1166785c7a2985608523c4eea9cb05d27a25bf8",
    "certSha256": "1c65d9181220aa301ee081d172afad194763712ae9e0da634f6596ae1e20764f",
    "minSdk": 28,
-   "size": 10159717
+   "size": 10159785
   },
   {
    "package": "com.wanderwildwood.kirinuki",
@@ -191,10 +191,10 @@
    "versionName": "0.6.20",
    "versionCode": 71,
    "apk": "https://github.com/wanderwildwood/kirinuki/releases/download/v0.6.20/kirinuki.apk",
-   "sha256": "c2c02b0aa9f128795333ad1ca5fdaa61f3c8465eea7f402e6020aaf701814673",
+   "sha256": "9543a68b933422d6c4767410f606d8f41facfa68245f7dc8e5ac057b0f57127f",
    "certSha256": "bbbc92440c2333077deca468c24b98cec426626be04f49daef1a4f284fd464af",
    "minSdk": 29,
-   "size": 32691247
+   "size": 32707631
   },
   {
    "package": "com.wanderwildwood.jibiki",
@@ -318,13 +318,13 @@
    "name": "Whereabouts",
    "summary": "Finds your phone when it is lost: where it is, a ring, a lock.",
    "core": false,
-   "versionName": "0.1.53",
-   "versionCode": 54,
-   "apk": "https://github.com/wanderwildwood/ibasho/releases/download/v0.1.53/ibasho.apk",
-   "sha256": "c8dbe47b012a648040c9dec337cd2b7060e950dd2d3f7f487152a755599e0611",
+   "versionName": "0.1.54",
+   "versionCode": 55,
+   "apk": "https://github.com/wanderwildwood/ibasho/releases/download/v0.1.54/ibasho.apk",
+   "sha256": "7e2c5bc9036ee3235de1cca6d6b333ebc9517df6595b2bbcf365cd03e0fb96ff",
    "certSha256": "68cb6d51f84389d495f5ae998acc921bb3525f0650bfc8620bc2a96408242648",
    "minSdk": 24,
-   "size": 4679621
+   "size": 4690353
   },
   {
    "package": "com.wanderwildwood.chikei",
@@ -370,23 +370,23 @@
    "name": "Wallet",
    "summary": "Loyalty and library cards, tickets and boarding passes, drawn as barcodes a scanner reads off this screen.",
    "core": false,
-   "versionName": "0.1.29",
-   "versionCode": 30,
-   "apk": "https://github.com/wanderwildwood/satsuire/releases/download/v0.1.29/satsuire.apk",
-   "sha256": "a130255a2911fb3c9e23566d991103ab588b939214c3ec3a0a3a0d95b783c895",
+   "versionName": "0.1.30",
+   "versionCode": 31,
+   "apk": "https://github.com/wanderwildwood/satsuire/releases/download/v0.1.30/satsuire.apk",
+   "sha256": "6c63685526e3454ad140ccac71006172367032dcec727245e493e4cce145df9f",
    "certSha256": "e8dd0e8acf311e519c336dc5898acb0eba0eb627b51306cf3cdb594c3ffdd637",
    "minSdk": 31,
-   "size": 3737293
+   "size": 3753677
   },
   {
    "package": "com.wanderwildwood.enkaku",
    "name": "Remote",
    "summary": "A Bluetooth remote, keyboard and mouse for a television, a media box or a computer.",
    "core": false,
-   "versionName": "0.2.29",
-   "versionCode": 2029,
-   "apk": "https://github.com/wanderwildwood/enkaku/releases/download/v0.2.29/enkaku.apk",
-   "sha256": "66f258080db85c556dbebeeabd2aec5a4516c6c0642d536b5c14ddfaac51d64c",
+   "versionName": "0.2.30",
+   "versionCode": 2030,
+   "apk": "https://github.com/wanderwildwood/enkaku/releases/download/v0.2.30/enkaku.apk",
+   "sha256": "3f944623d53fd50665b2488d7429f6428bca5e88037720c0e8e79c693e08d0ea",
    "certSha256": "d305ca7ce878cee4eca26ed7bf8604c9dd05baecd7719738767051daf90e6166",
    "minSdk": 28,
    "size": 5012293
