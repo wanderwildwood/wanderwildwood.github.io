@@ -138,12 +138,12 @@
   /* The note that says what his peeks mean, as a small card he looks out over, as he does over the app
      pictures below: the top of him above its edge, the rest behind it. */
   /* the words on the left and the note beside them, the two buttons under both; on a phone, one after another */
-  #sanpo .descrow { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.6rem 2rem; }
+  #sanpo .descrow { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 0.6rem 2.5rem; }   /* the two columns as one group, centred under the picture */
   /* the words on the left, about as wide as the two buttons; beside them the note, and the buttons under the note */
   #sanpo .descrow .desc { flex: 0 1 26.5rem; min-width: 0; }
   #sanpo .descrow .desc p:last-child { margin-bottom: 0; }
-  #sanpo .descrow .side { flex: 1 1 18rem; min-width: 0; max-width: 30rem; margin: 0 1.5rem 0 1.5rem; padding-top: 2.9rem; }   /* room for his hat */
-  #sanpo > h4, #sanpo > .descrow { margin-left: 1.5rem; }   /* the title, words, note and buttons in a little from the picture's edge */
+  #sanpo .descrow .side { flex: 0 1 30rem; min-width: 0; padding-top: 2.9rem; }   /* room for his hat */
+  #sanpo .desc h4 { margin-top: 0; }
   #sanpo .side .links.go { margin: 1.1rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.8rem; }   /* centred under the note */
   #sanpo .side .links.go .gobtn { margin: 0; }
   #sanpo .peeknote { position: relative; margin: 0;   /* in a little from the picture's edge */ padding: 0.75rem 1.1rem 0.8rem;
@@ -291,9 +291,9 @@
   <a class="shotlink" href="wanderthegame/"><picture><source srcset="shots/sanpo.gif" media="(prefers-color-scheme: dark)" data-dark-source><img class="shot" src="shots/sanpo-day.gif" width="960" height="480" loading="eager"
        alt="By day at a ring of stones, wander lights a fire, Kumo the llama lying by: the kettle on, a cup of tea, then the pipe. Opens the game's own page."
        data-dark-alt="Supper by the fire at nightfall, the dark wood all round: wander with the pan on, a cup of tea, the pipe, Kumo the llama lying by. Opens the game's own page."></picture></a>
-  <h4><a href="wanderthegame/">Wander</a> <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 散歩 sanpo</button> <span class="coming en">&mdash; Coming soon</span><span class="coming ja" lang="ja" hidden>&mdash; もうすぐ</span></h4>
   <div class="descrow">
   <div class="desc">
+  <h4><a href="wanderthegame/">Wander</a> <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 散歩 sanpo</button> <span class="coming en">&mdash; Coming soon</span><span class="coming ja" lang="ja" hidden>&mdash; もうすぐ</span></h4>
   <p class="en">A walk in the redwoods with Kumo the llama: a quiet, ASMR-like game about stopping,
   noticing and connecting. Made for the Mudita Kompakt and tested on it.</p>
   <p class="en">One walk is one day, about twelve minutes by the real clock, from the morning mist to dusk.
