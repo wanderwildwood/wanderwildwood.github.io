@@ -1,6 +1,6 @@
 // MMD's scrollbar, as the apps draw it (/opt/projects/STYLE.md, Lists), down the right edge of the page: a chevron at
 // each end moves a screen, a tap on the track jumps there, the thumb shows how far along you are and can be dragged.
-// The page itself scrolls as any page does (2026-11-20: paging tried and undone, at his word; the bar kept).
+// The page itself scrolls as any page does, the wheel a little faster (2026-11-20: paging tried and undone, at his word; the bar kept).
 // Not on the game's page, where the scroll is the walk.
 (function () {
   var root = document.documentElement;
@@ -71,6 +71,23 @@
   thumb.addEventListener('pointerup', function () { dragging = false; });
   thumb.addEventListener('pointercancel', function () { dragging = false; });
   addEventListener('scroll', paint, { passive: true });
+
+  // The wheel a little faster than the browser's own step (his word, 11-20): half as far again, at once, no glide.
+  // Pinch-zoom (ctrl), sideways wheels, and anything inside the page that scrolls on its own are left to the browser.
+  var WHEEL = 1.5;
+  function scrollsItself(t) {
+    for (var e = t; e && e !== document.body && e !== root; e = e.parentElement) {
+      var o = getComputedStyle(e).overflowY;
+      if ((o === 'auto' || o === 'scroll') && e.scrollHeight > e.clientHeight) return true;
+    }
+    return false;
+  }
+  addEventListener('wheel', function (e) {
+    if (!on || e.ctrlKey || e.defaultPrevented || Math.abs(e.deltaX) > Math.abs(e.deltaY) || scrollsItself(e.target)) return;
+    var d = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? vh() : 1);
+    e.preventDefault();
+    go(y() + d * WHEEL);
+  }, { passive: false });
 
   function setup() {
     var need = root.scrollHeight > vh() + 4;
