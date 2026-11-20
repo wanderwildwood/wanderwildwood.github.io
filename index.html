@@ -142,8 +142,8 @@
   /* the words on the left, about as wide as the two buttons; beside them the note, and the buttons under the note */
   #sanpo .descrow .desc { flex: 0 1 26.5rem; min-width: 0; }
   #sanpo .descrow .desc p:last-of-type { margin-bottom: 0; }
-  /* the game's WANDER seal under the words, stamped a little crooked, in the page's ink (so it turns light at night) */
-  #sanpo .seal { display: block; width: 2.6rem; height: 3.7rem; margin: 1.1rem 0 0 0.2rem; transform: rotate(-5deg); background: var(--quiet);
+  /* the game's WANDER seal set into the words, flush with their right edge, in the page's ink (so it turns light at night) */
+  #sanpo .seal { float: right; width: 2.6rem; height: 3.7rem; margin: 0.35rem 0 0.3rem 1rem; background: var(--quiet);
     -webkit-mask: url(wanderthegame/seal.svg) center / contain no-repeat; mask: url(wanderthegame/seal.svg) center / contain no-repeat; }
   #sanpo .seal:hover { background: var(--ink); }
   #sanpo .descrow .side { flex: 0 1 30rem; min-width: 0; padding-top: 2.9rem; }   /* room for his hat */
@@ -298,13 +298,13 @@
   <div class="descrow">
   <div class="desc">
   <h4><a href="wanderthegame/">Wander</a> <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 散歩 sanpo</button> <span class="coming en">&mdash; Coming soon</span><span class="coming ja" lang="ja" hidden>&mdash; もうすぐ</span></h4>
+  <a class="seal" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>
   <p class="en">A walk in the redwoods with Kumo the llama: a quiet, ASMR-like game about stopping,
   noticing and connecting. Made for the Mudita Kompakt.</p>
   <p class="en">One walk is one day, about twelve minutes by the real clock, from the morning mist to dusk.
   There is nothing to win and no words on the screen.</p>
   <p class="ja" lang="ja" hidden>ラマのクモとレッドウッドの森を歩く。立ち止まり、気づき、つながることの、静かでASMRのようなゲーム。Mudita Kompaktのために作った。</p>
   <p class="ja" lang="ja" hidden>一度の散歩は一日。朝の霧から夕暮れまで、本当の時計でおよそ十二分。勝ち負けはなく、画面に言葉もない。</p>
-  <a class="seal" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>
   </div>
   <div class="side">
   <p class="en peeknote"><a class="peekmark" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>Where Wander peeks out over an app further down this page, that app and the game are
