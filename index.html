@@ -174,8 +174,16 @@
   #sanpo .desc h4 { margin-top: 0; }
   #sanpo .side .links.go { margin: 1.1rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.8rem; }   /* centred under the note */
   #sanpo .side .links.go .gobtn { margin: 0; }
-  #sanpo .links.go.foot { margin: 1.6rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem 1.8rem; }   /* the two buttons side by side at the card's foot, under both columns */
+  /* the two buttons on one row at the card's foot, each centred under its own column above (the same widths and gap as .descrow) */
+  #sanpo .links.go.foot { margin: 1.6rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2.5rem; }
+  #sanpo .links.go.foot .under-desc { flex: 0 1 26.5rem; min-width: 0; text-align: center; }
+  #sanpo .links.go.foot .under-side { flex: 0 1 30rem; min-width: 0; text-align: center; }
   #sanpo .links.go.foot .gobtn { margin: 0; }
+  @media (max-width: 40rem) { #sanpo .links.go.foot .under-desc, #sanpo .links.go.foot .under-side { flex-basis: 100%; } }
+  /* under the note, his tenkara rod bent with a fish on: drawn from the game's own rod (Tenkara.kt), 3 to a pixel */
+  #sanpo .rod { display: block; margin: 1.4rem auto 0; image-rendering: pixelated; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #sanpo .rod { filter: invert(0.8); } }
+  :root[data-theme="dark"] #sanpo .rod { filter: invert(0.8); }
   #sanpo .peeknote { position: relative; margin: 0;   /* in a little from the picture's edge */ padding: 0.75rem 1.1rem 0.8rem;
     background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 4px 4px 0 var(--hard);
     font-size: 0.95rem; line-height: 1.55; }
@@ -410,9 +418,10 @@
   <p class="en peeknote"><a class="peekmark" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>Where Wander peeks out over an app further down this page, that app and the game are
   connected: the game quietly takes something of it into the wood.</p>
   <p class="ja peeknote" lang="ja" hidden><a class="peekmark" href="wanderthegame/" title="Wander" aria-label="Wander, the game's page"></a>このページの下のほうで、アプリの上からwanderがのぞいていたら、そのアプリとゲームはつながっている。ゲームはそっと、そのアプリから何かを森へ持ちこむ。</p>
+  <img class="rod" src="shots/wood-rod.png" width="177" height="33" alt="">
   </div>
   </div>
-  <p class="links go foot"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></p>
+  <p class="links go foot"><span class="under-desc"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a></span><span class="under-side"><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></span></p>
 
   <div class="floor" aria-hidden="true">
     <img src="shots/wood-tuft.png" width="21" height="15" alt="" style="left: 4%">
