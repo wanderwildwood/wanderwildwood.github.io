@@ -310,18 +310,20 @@
     --step-soft: 3px 3px 0 var(--hard), 6px 6px 0 var(--hard); }  /* a picture's or a card's */
   h1, h2, .jump, .apps .group, .app h4, .links, .feedlink, .gobtn, footer.kumo .copy { font-family: var(--pixel); font-weight: 400; letter-spacing: 0; }
   h1 button.jp, .app h4 button.jp { font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif; }   /* the Japanese names stay in the reading face: the pixel face has no kana */
-  h1 { font-size: 2rem; line-height: 1.1; }
+  /* the face is drawn on an 11px grid and is sharpest at 11, 22 and 33px */
+  h1 { font-size: 33px; line-height: 1.1; }
   h1 button.jp { font-size: 0.7em; }
-  h2 { font-size: 1.25rem; color: var(--ink); border-bottom: 0; padding-bottom: 0.6rem;
+  h2 { font-size: 22px; color: var(--ink); border-bottom: 0; padding-bottom: 0.6rem;
     background: repeating-linear-gradient(90deg, var(--rule) 0 2px, transparent 2px 4px) left bottom / 100% 2px no-repeat; }
-  .jump-label { font-weight: 400; }
+  .jump { font-size: 1rem; }
+  .jump-label { font-weight: 400; color: var(--quiet); }
   .jump a { padding: 0.15rem 0.5rem; border: 0; }
   .jump a::before { content: "/"; color: var(--line); margin-right: 1px; }
   .jump a:hover, .jump a.on { background: var(--ink); color: var(--paper); }
   .jump a:hover::before, .jump a.on::before { color: inherit; }
   .apps .group { font-size: 1.05rem; }
   .apps .group::after { background: repeating-linear-gradient(90deg, var(--rule) 0 2px, transparent 2px 4px); }
-  .app h4 { font-size: 1.05rem; }
+  .app h4 { font-size: 0.98rem; }
   .app.home h4 { font-size: 1.25rem; }
   .shot { border-radius: 0; border-width: 2px; box-shadow: var(--step-soft); }
   #sanpo, .app.home { border-radius: 0; border-width: 2px; box-shadow: var(--step-soft); }
@@ -332,9 +334,11 @@
   .app .links:not(.go):not(.top) a[href$=".apk"] { box-shadow: 1px 1px 0 var(--ink), 2px 2px 0 var(--ink); }
   /* the plain links on a card: a small arrow, no underline, filled with ink under the pointer */
   .links a:not([href$=".apk"]):not(.gobtn) { text-decoration: none; }
-  .links a:not([href$=".apk"]):not(.gobtn)::before { content: "> "; color: var(--line); }
   .links a:not([href$=".apk"]):not(.gobtn):hover, .app .links:not(.go):not(.top) a[href$=".apk"]:hover { background: var(--ink); color: var(--paper); }
-  .links a:hover::before { color: inherit; }
+  .app .links:not(.go):not(.top), .app.home .links.top { font-size: 11px; gap: 0.4rem 0.75rem; }
+  .app .links:not(.go):not(.top) a[href$=".apk"] { padding: 0.1rem 0.45rem; margin-right: 0; }
+  .links a:not([href$=".apk"]):not(.gobtn):hover { box-shadow: 0 0 0 0.15rem var(--ink); }   /* the fill reaches a little past the word, without taking room in the row */
+  @media (max-width: 40rem) { .jump { gap: 0.3rem 1rem; } }   /* on a phone the categories wrap close, from the left */
   .gobtn:hover, .feedlink:hover { background: var(--ink); color: var(--paper); }
   /* a hover fills in two hard steps, first a checker of ink, as a sprite's dither would */
   @keyframes px-fill { 0% { background: repeating-conic-gradient(var(--ink) 0 25%, transparent 0 50%) 0 0 / 4px 4px; color: var(--ink); } }
