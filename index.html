@@ -17,6 +17,7 @@
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="alternate" type="application/atom+xml" title="wander: releases" href="feed.xml">
 <script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
 <style>
@@ -298,6 +299,49 @@
   button.theme:hover { color: var(--ink); }
   button.theme svg { display: block; width: 100%; height: 100%; }
   button.theme[aria-pressed="true"] .moon, button.theme:not([aria-pressed="true"]) .sun { display: none; }
+
+  /* ===== Pixel (2026-11-20, from a mockup he picked): the labels in a pixel face, square corners,
+     shadows drawn in two hard steps, dotted pixel rules, a "/" before each category and hovers that
+     fill in two steps, as Wander's own pages are drawn. The paper and ink stay; running text stays
+     Charter. Departure Mono by Helena Zhang, SIL OFL 1.1 (fonts/DepartureMono-OFL.txt). ===== */
+  @font-face { font-family: "Departure Mono"; src: url(fonts/DepartureMono-Regular.woff2) format("woff2"); font-display: swap; }
+  :root { --pixel: "Departure Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+    --step: 2px 2px 0 var(--ink), 4px 4px 0 var(--ink);           /* a button's shadow, a pixel staircase at its corners */
+    --step-soft: 3px 3px 0 var(--hard), 6px 6px 0 var(--hard); }  /* a picture's or a card's */
+  h1, h2, .jump, .apps .group, .app h4, .links, .feedlink, .gobtn, footer.kumo .copy { font-family: var(--pixel); font-weight: 400; letter-spacing: 0; }
+  h1 button.jp, .app h4 button.jp { font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif; }   /* the Japanese names stay in the reading face: the pixel face has no kana */
+  h1 { font-size: 2rem; line-height: 1.1; }
+  h1 button.jp { font-size: 0.7em; }
+  h2 { font-size: 1.25rem; color: var(--ink); border-bottom: 0; padding-bottom: 0.6rem;
+    background: repeating-linear-gradient(90deg, var(--rule) 0 2px, transparent 2px 4px) left bottom / 100% 2px no-repeat; }
+  .jump-label { font-weight: 400; }
+  .jump a { padding: 0.15rem 0.5rem; border: 0; }
+  .jump a::before { content: "/"; color: var(--line); margin-right: 1px; }
+  .jump a:hover, .jump a.on { background: var(--ink); color: var(--paper); }
+  .jump a:hover::before, .jump a.on::before { color: inherit; }
+  .apps .group { font-size: 1.05rem; }
+  .apps .group::after { background: repeating-linear-gradient(90deg, var(--rule) 0 2px, transparent 2px 4px); }
+  .app h4 { font-size: 1.05rem; }
+  .app.home h4 { font-size: 1.25rem; }
+  .shot { border-radius: 0; border-width: 2px; box-shadow: var(--step-soft); }
+  #sanpo, .app.home { border-radius: 0; border-width: 2px; box-shadow: var(--step-soft); }
+  #sanpo .floor { border-radius: 0; }
+  #sanpo .peeknote { border-radius: 0; border-width: 2px; box-shadow: 2px 2px 0 var(--hard), 4px 4px 0 var(--hard); }
+  .feedlink, .gobtn { box-shadow: var(--step); }
+  .feedlink:active, .gobtn:active { transform: translate(4px, 4px); }
+  .app .links:not(.go):not(.top) a[href$=".apk"] { box-shadow: 1px 1px 0 var(--ink), 2px 2px 0 var(--ink); }
+  /* the plain links on a card: a small arrow, no underline, filled with ink under the pointer */
+  .links a:not([href$=".apk"]):not(.gobtn) { text-decoration: none; }
+  .links a:not([href$=".apk"]):not(.gobtn)::before { content: "> "; color: var(--line); }
+  .links a:not([href$=".apk"]):not(.gobtn):hover, .app .links:not(.go):not(.top) a[href$=".apk"]:hover { background: var(--ink); color: var(--paper); }
+  .links a:hover::before { color: inherit; }
+  .gobtn:hover, .feedlink:hover { background: var(--ink); color: var(--paper); }
+  /* a hover fills in two hard steps, first a checker of ink, as a sprite's dither would */
+  @keyframes px-fill { 0% { background: repeating-conic-gradient(var(--ink) 0 25%, transparent 0 50%) 0 0 / 4px 4px; color: var(--ink); } }
+  @media (prefers-reduced-motion: no-preference) {
+    .jump a:not(.on):hover, .links a:hover, .gobtn:hover, .feedlink:hover { animation: px-fill .12s step-end both; }
+  }
+  button.theme { border-radius: 0; border-width: 2px; }
 </style>
 </head>
 <body>
