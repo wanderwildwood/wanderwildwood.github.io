@@ -182,11 +182,13 @@
   }
   .app.home .shot { margin: 0; max-width: none; }
   /* On a wide screen, a second picture on the right: Settings, Your apps. */
-  .app.home .shot.second { display: none; }
-  @media (min-width: 64rem) {
-    .app.home { grid-template-columns: 15rem minmax(0, 1fr) 15rem; }
-    .app.home .shot.second { display: block; }
-  }
+  /* Home's two pictures as a pair: the home screen in front, Settings > Your apps behind it and to the
+     right, as two pages laid on a table. On a phone, only the home screen. */
+  .app.home .pair { position: relative; padding: 0 0 2.2rem 0; }
+  .app.home .pair .shot { position: relative; z-index: 1; width: 86%; }
+  .app.home .pair .shot.second { position: absolute; z-index: 0; right: 0; top: 2.2rem; width: 86%; }
+  @media (min-width: 64rem) { .app.home { grid-template-columns: 18rem minmax(0, 1fr); } }
+  @media (max-width: 40rem) { .app.home .pair { padding: 0; } .app.home .pair .shot { width: 100%; } .app.home .pair .shot.second { display: none; } }
   .app.home .home-text { min-width: 0; display: flex; flex-direction: column; }
   .app.home h4 { font-size: 1.3rem; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 0.4rem; margin-bottom: 0.5rem; }
   .app.home h4 .mark { width: 1.7em; height: 1.4em; align-self: center; color: var(--ink); margin-right: 0.15rem; }
@@ -285,8 +287,12 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 <!-- Home, the launcher that ties the apps together: a card of its own under the Kompakt's intro, wider
      than the others, its screen beside what it adds. -->
 <div class="app home" id="iori">
+  <div class="pair">
   <img class="shot" src="shots/iori.png" data-dark="shots/dark/iori.png" width="400" height="627" loading="eager"
        alt="Home's home screen: 09:41, the date, battery and notifications, six home apps by name (Messaging, Handset, Connections, Datebook, Mailbox, Pictures), and under them today's three events from Glance (Library, Pottery class, Book club) and the line Stay inspired">
+  <img class="shot second" src="shots/iori-apps.png" data-dark="shots/dark/iori-apps.png" width="400" height="627" loading="lazy"
+       alt="Home's Settings, Your apps: a folder for each group of apps (Core, Outdoors, On the road, Daily life, Music, Reading and writing, Games and oracles, Tools), each saying how many of its apps are on the phone">
+  </div>
   <div class="home-text">
   <h4><svg class="mark" aria-hidden="true"><use href="#hut"/></svg>Home <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 庵 iori</button></h4>
   <p class="en">Home is the home screen made for the apps on this page. It shows your apps as a short
@@ -315,8 +321,6 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
     <a class="obtainium" href="obtainium://add/https://github.com/wanderwildwood/iori" hidden>Obtainium</a>
   </p>
   </div>
-  <img class="shot second" src="shots/iori-apps.png" data-dark="shots/dark/iori-apps.png" width="400" height="627" loading="lazy"
-       alt="Home's Settings, Your apps: a folder for each group of apps (Core, Outdoors, On the road, Daily life, Music, Reading and writing, Games and oracles, Tools), each saying how many of its apps are on the phone">
 </div>
 
 <nav class="jump" aria-label="Sections">
