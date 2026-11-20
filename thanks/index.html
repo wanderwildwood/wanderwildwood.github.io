@@ -8,11 +8,14 @@
 <link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
 <style>
-  :root { --ink: #2b2620; --quiet: #6d6458; --rule: #ded5c6; --paper: #f4efe4; }
+  :root { --ink: #29241e; --quiet: #5a5247; --rule: #cbc1b1; --paper: #e2dccf; --line: #8c7f6c; }
+  /* Dark follows the computer or phone, unless the button in the corner has been pressed (theme.js). */
   @media (prefers-color-scheme: dark) {
-    :root { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; }
+    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --line: #776b5b; color-scheme: dark; }
   }
+  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --line: #776b5b; color-scheme: dark; }
   * { box-sizing: border-box; }
   body {
     margin: 0; padding: 3rem 1.25rem 5rem;
@@ -24,15 +27,27 @@
   h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 1rem; }
   p { margin: 0 0 1.1rem; }
   .quiet { color: var(--quiet); }
-  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; }
-  a:hover { text-decoration-style: dotted; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--line); }
+  a:hover { text-decoration-style: dotted; text-decoration-color: currentColor; }
+  /* Light or dark, in the corner. */
+  button.theme { position: fixed; top: calc(0.9rem + env(safe-area-inset-top, 0px)); right: calc(1rem + env(safe-area-inset-right, 0px));
+    width: 2.25rem; height: 2.25rem; z-index: 50; padding: 0.45rem; cursor: pointer; color: var(--quiet);
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 50%; }   /* stays in the corner as the page scrolls, on a small disc of paper so it reads over pictures */
+  @media (min-width: calc(544px + 8rem)) {   /* with a margin to sit in: a little way out from the column (halfway between beside it and mid-margin), an inch down */
+    button.theme { top: 6rem; right: calc((100vw - 544px) * 7 / 16 - 2.6875rem); }   /* between beside the column and where it was a smidge out */
+  }
+  button.theme:hover { color: var(--ink); }
+  button.theme svg { display: block; width: 100%; height: 100%; }
+  button.theme[aria-pressed="true"] .moon, button.theme:not([aria-pressed="true"]) .sun { display: none; }
 </style>
 </head>
 <body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
 <main>
   <h1>Thank you</h1>
   <p>Your gift goes straight to the llamas. They are grateful, and so am I.</p>
   <p><a href="https://wanderthe.dev/">wander</a></p>
 </main>
+<script src="../theme.js"></script>
 </body>
 </html>
