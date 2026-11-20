@@ -181,7 +181,16 @@
     background: var(--raise); border: 1px solid var(--rule); border-radius: 8px; box-shadow: 6px 6px 0 var(--hard);
   }
   .app.home .shot { margin: 0; max-width: none; }
-  .app.home .home-text { min-width: 0; display: flex; flex-direction: column; }
+  /* The words in two columns, the list's items flowing into them, and the buttons and links in the
+     place the list leaves free beside its last item; one column on a narrow card. */
+  .app.home .home-text { min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    column-gap: 2rem; max-width: 44rem; align-content: start; }
+  .app.home .home-text > h4, .app.home .home-text > p { grid-column: 1 / -1; }
+  .app.home ul.adds { display: contents; }
+  .app.home ul.adds[hidden] { display: none; }   /* the other language's list stays out of the grid */
+  .app.home ul.adds li { margin-bottom: 0.55rem; }
+  .app.home .actions { align-self: end; }
+  .app.home .actions .links.go { padding-top: 0.3rem; }
   .app.home h4 { font-size: 1.3rem; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 0.4rem; margin-bottom: 0.5rem; }
   .app.home h4 .mark { width: 1.7em; height: 1.4em; align-self: center; color: var(--ink); margin-right: 0.15rem; }
   .app.home p { max-width: 40rem; margin-bottom: 0.7rem; }
@@ -301,12 +310,14 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
     <li><b>何をどのアプリで開くか</b>。電話、メッセージ、連絡先、地図、写真などを一か所で選ぶ。</li>
     <li><b>今日のことをホーム画面に</b>。アプリの下に<a href="#hitome">一目</a>から三行まで：予定、天気、未読など。</li>
   </ul>
+  <div class="actions">
   <p class="links go"><a class="gobtn" href="home/"><span class="en">How Home works</span><span class="ja" lang="ja" hidden>庵のしくみ</span></a><a class="gobtn" href="https://github.com/wanderwildwood/iori/releases/latest/download/iori.apk"><span class="en">Download</span><span class="ja" lang="ja" hidden>ダウンロード</span></a></p>
   <p class="links">
     <a href="https://github.com/wanderwildwood/iori">Source</a>
     <a href="https://github.com/wanderwildwood/iori/releases/latest">Release notes</a>
     <a class="obtainium" href="obtainium://add/https://github.com/wanderwildwood/iori" hidden>Obtainium</a>
   </p>
+  </div>
   </div>
 </div>
 
