@@ -61,10 +61,10 @@
    "versionName": "0.3.35",
    "versionCode": 60,
    "apk": "https://github.com/wanderwildwood/oboegaki/releases/download/v0.3.35/oboegaki.apk",
-   "sha256": "5c1ca0bd2713de3b7a8c695a8408c7e1ebf600c3a409e9d354ec9e409b1c7ef6",
+   "sha256": "426f7cd0fb93bd27308d21919f2b6e00209728f74702c682c4f7e56414437f9c",
    "certSha256": "20e289f7dcdd22e11dc4dfdb46ecd1b883615f3350904c7575afc1849632514e",
    "minSdk": 30,
-   "size": 66734797
+   "size": 66800333
   },
   {
    "package": "com.wanderwildwood.tayori",
