@@ -37,6 +37,10 @@
   /* sized by the script in whole pixels and stood on the foot of the window, so the ground is exact */
   canvas.wood { position: fixed; left: 0; bottom: 0; z-index: 0; image-rendering: pixelated; pointer-events: none; }
   canvas.wood.front { z-index: 2; }
+  /* the seal in the window's bottom left corner, on a slip of the notebook's paper so it reads by day and by night */
+  .corner-seal { position: fixed; left: 1rem; bottom: 1rem; z-index: 3; width: 2.9rem; height: auto; padding: 0.3rem;
+    background: var(--paper); border: 2px solid var(--rule); box-shadow: 3px 3px 0 rgba(0,0,0,.25); pointer-events: none; }
+  @media (max-width: 36rem) { .corner-seal { width: 2.1rem; left: 0.6rem; bottom: 0.6rem; padding: 0.2rem; } }
   main { position: relative; z-index: 1; max-width: 60rem; margin: 0 auto; padding: 2.5rem 1rem calc(var(--strip, 30vh) + 2rem); }   /* (the foot clears the strip of ground drawn over the pages) */
   [hidden] { display: none !important; }
   .page {
@@ -146,6 +150,7 @@
 <canvas class="wood front" aria-hidden="true"></canvas>
 <div class="cue" aria-hidden="true"></div>
 <button type="button" class="snd" hidden aria-pressed="false" title="Sound: off" aria-label="Sound: off"></button>
+<img class="corner-seal" src="seal.svg" width="64" height="91" alt="" aria-hidden="true">
 <main>
   <p class="home"><a href="../">wander 彷徨う</a></p>
 
