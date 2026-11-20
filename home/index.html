@@ -185,12 +185,73 @@
   .js .seen ul.checks li:nth-child(3)::after { transition-delay: 2.1s; }
   .js .seen ul.checks li:nth-child(4)::after { transition-delay: 2.7s; }
 
+  .js .seen ul.checks li:nth-child(5)::after { transition-delay: 3.3s; }
+
+  /* The phone turns through three of Home's screens, with the flash an E Ink screen makes between
+     pages. The dots under it pick one. */
+  .screens { position: relative; }
+  .screens .screen:not(.on) { display: none; }
+  .screen .bar { display: flex; align-items: center; gap: 3cqw; font-size: 8cqw; margin: -4cqw 0 4cqw -2cqw;
+    padding-bottom: 3cqw; border-bottom: 1px solid currentColor; }
+  .screen .bar::before { content: "\2190"; font-size: 7cqw; }
+  .screen .row { display: flex; justify-content: space-between; align-items: baseline; gap: 2cqw; padding: 3cqw 0;
+    animation: ghost .5s steps(2, end) both; animation-delay: calc(.6s + var(--r) * .22s); }
+  .screen .row > b { font-weight: 400; font-size: 6.6cqw; }
+  .screen .row i { font-style: normal; font-size: 5.4cqw; }
+  .screen .row i b { font-weight: 700; }
+  .screen .say { display: block; white-space: normal; font-size: 5.8cqw; line-height: 1.4; margin-bottom: 4cqw;
+    animation: ghost .5s steps(2, end) both; animation-delay: calc(.6s + var(--r) * .32s); }
+  .screen .pill { display: inline-block; font-size: 5.2cqw; letter-spacing: .04em; border: 1px solid currentColor;
+    border-radius: 99px; padding: 1.6cqw 4.5cqw; margin-top: 2cqw;
+    animation: ghost .5s steps(2, end) both; animation-delay: calc(.6s + var(--r) * .32s); }
+  .dots { display: flex; gap: 0.55rem; justify-content: center; margin-top: 1rem; }
+  .dots button { width: 0.7rem; height: 0.7rem; padding: 0; border-radius: 50%; cursor: pointer;
+    border: 1.5px solid var(--ink); background: none; }
+  .dots button[aria-pressed="true"] { background: var(--ink); }
+
+  /* Your apps: a folder as the page shows it, and Install worked through its steps. */
+  .folder { margin: 0.4rem 0 1.5rem; max-width: 21rem; background: var(--raise); border: 1px solid var(--rule);
+    border-radius: 8px; padding: 0.9rem 1.1rem 0.6rem; box-shadow: 5px 5px 0 var(--hard);
+    font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif; font-size: 0.92rem; line-height: 1.35; }
+  .folder .fh { display: flex; justify-content: space-between; align-items: baseline; font-size: 1.05rem;
+    padding-bottom: 0.55rem; border-bottom: 1px solid var(--ink); margin-bottom: 0.2rem; }
+  .folder .fh small { font-size: 0.8rem; color: var(--quiet); }
+  .folder .app { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.2rem 0.8rem; align-items: center;
+    padding: 0.6rem 0; border-bottom: 1px dotted var(--rule); }
+  .folder .app:last-child { border-bottom: 0; }
+  .folder .app span { display: block; font-size: 0.8rem; color: var(--quiet); }
+  .folder .act { font: inherit; font-size: 0.72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--ink);
+    background: none; border: 1px solid var(--ink); border-radius: 99px; padding: 0.3rem 0.75rem; white-space: nowrap; }
+  .folder button.act { cursor: pointer; }
+  .folder button.act:disabled { cursor: default; border-style: dotted; color: var(--quiet); }
+  .folder .act.done { border-color: transparent; color: var(--quiet); }
+  .folder .step { display: none; font-size: 0.8rem; color: var(--quiet); grid-column: 1 / -1; }
+  .folder .step.on { display: block; animation: ghost .4s steps(2, end) both; }
+  .folder .meter { height: 3px; background: var(--rule); grid-column: 1 / -1; display: none; }
+  .folder .meter.on { display: block; }
+  .folder .meter i { display: block; height: 100%; width: 0; background: var(--ink); }
+  .folder .meter.on i { animation: fill 1.4s steps(10, end) forwards; }
+  .folder .fh small b { color: var(--ink); }   /* in tenths, as E Ink would draw it */
+  @keyframes fill { to { width: 100%; } }
+  .folder-note { font-size: 0.85rem; color: var(--quiet); max-width: 21rem; }
+
+  /* What Home sends: where it goes, drawn as the account's lines are, and the one place it never goes. */
+  .fan.reach { grid-template-columns: 3.4rem 4rem minmax(0, 1fr); max-width: 27rem; }
+  .fan.reach svg.lines { height: 8rem; }
+  .fan.reach ul.apps li { font-size: 0.92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .fan.reach ul.apps li span { color: var(--quiet); }
+  .fan.reach ul.apps li.none s { text-decoration-thickness: 1.5px; }
+  .fan.reach .lines path.none { stroke-dasharray: .04 .04; }
+  .js .fan.reach .lines path.none { stroke-dashoffset: 0; opacity: 0; }
+  .js .seen .fan.reach .lines path.none { opacity: 1; transition: opacity .3s steps(2, end); transition-delay: .9s; }
+
   /* Asked for less motion: everything is drawn and in place from the start. */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .js section.rv { opacity: 1; transform: none; }
     .js .fan .lines path { stroke-dashoffset: 0; }
-    .js .fan li, .js ul.checks li::after { opacity: 1; }
+    .js .fan li, .js ul.checks li::after, .js .fan.reach .lines path.none { opacity: 1; }
+    .folder .meter.on i { width: 100%; }
   }
 </style>
 </head>
@@ -218,7 +279,8 @@ the phone, what it sends, and how to go back to the phone's own home screen.</p>
 
 <figure class="phone">
 <div class="body">
-<div class="screen" role="img" aria-label="Home's home screen: the time, the home apps by name, and three lines from Glance under them">
+<div class="screens">
+<div class="screen s-home on" role="img" aria-label="Home's home screen: the time, the home apps by name, and three lines from Glance under them">
 <span class="t">9:41</span><span class="d">Thu 19 Nov</span>
 <span class="n" style="--n:9;--at:1.25s">Messaging</span>
 <span class="n" style="--n:7;--at:2.06s">Handset</span>
@@ -230,7 +292,27 @@ the phone, what it sends, and how to go back to the phone's own home screen.</p>
 <span class="g" style="--at:6.48s">Cloudy, 9°</span>
 <span class="g" style="--at:6.93s">2 unread</span>
 </div>
+<div class="screen s-apps" role="img" aria-label="Settings, Your apps: a folder for each group, saying how many of its apps are on the phone, or how many can be updated">
+<span class="bar">Your apps</span>
+<span class="row" style="--r:0"><b>Core</b><i>15 of 17</i></span>
+<span class="row" style="--r:1"><b>Outdoors</b><i><b>1 update</b></i></span>
+<span class="row" style="--r:2"><b>On the road</b><i>0 of 3</i></span>
+<span class="row" style="--r:3"><b>Daily life</b><i>2 of 5</i></span>
+<span class="row" style="--r:4"><b>Music</b><i>1 of 4</i></span>
+<span class="row" style="--r:5"><b>Reading and writing</b><i>2 of 4</i></span>
+<span class="row" style="--r:6"><b>Games and oracles</b><i>0 of 6</i></span>
+<span class="row" style="--r:7"><b>Tools</b><i>1 of 5</i></span>
 </div>
+<div class="screen s-nc" role="img" aria-label="Settings, Nextcloud account: signed in, with the apps that may use the account">
+<span class="bar">Nextcloud account</span>
+<span class="say" style="--r:0">Signed in as ada on cloud.example.org.</span>
+<span class="say" style="--r:1">Your apps that use Nextcloud can use this account. The password is locked on this phone and handed to them alone.</span>
+<span class="pill" style="--r:2">SIGN OUT</span>
+</div>
+</div>
+
+</div>
+<div class="dots" role="group" aria-label="Screens" hidden><button type="button" aria-pressed="true" aria-label="Home screen"></button><button type="button" aria-pressed="false" aria-label="Your apps"></button><button type="button" aria-pressed="false" aria-label="Nextcloud account"></button></div>
 <figcaption>
 <p class="en">Home has a dark mode too. On MuditaOS it is a switch in Home's Settings.</p>
 <p class="ja" lang="ja" hidden>庵にもダークモードがある。MuditaOSでは、庵の設定のスイッチで。</p>
@@ -333,6 +415,8 @@ have the row yet signs in on its own, as before.</p>
 
 <section id="your-apps" class="rv">
 <h2><span class="en">Your apps, and how each download is checked</span><span class="ja" lang="ja" hidden>「Your apps」と、ダウンロードの確かめ方</span></h2>
+<div class="split">
+<div>
 <div class="en">
 <p><b>Settings → Your apps</b> lists the apps from this site in a folder for each group, the core
 apps first. Each folder says how many of its apps are on the phone, or how many can be updated.
@@ -370,10 +454,28 @@ install. From Android 12 on, an app Home installed is then updated without askin
 <p>だから、このサイトの一覧が、アプリの鍵を替えたり、庵の知らないアプリを持ち込んだりはできない。更新は、電話にあるアプリと同じ署名でなければならない。合わなければ何も入れない。ダウンロードしたファイルは、どちらにしても消す。</p>
 <p>Androidは一度だけ、庵にアプリを入れさせてよいか（「Install unknown apps」）を聞き、初めて入れるアプリごとに確認する。Android 12以降では、庵が入れたアプリは、そのあと聞かれずに更新できる。</p>
 </div>
+</div>
+<figure class="folder-fig">
+<div class="folder" aria-label="A folder in Your apps">
+<div class="fh"><span>Outdoors</span><small><b>1 update</b></small></div>
+<div class="app"><div>Mushroom Journal<span class="state">Not installed</span></div><button type="button" class="act">Install</button>
+  <div class="meter"><i></i></div>
+  <div class="step" data-s="1"><span class="en">From its own GitHub release</span><span class="ja" lang="ja" hidden>そのアプリ自身のGitHubのリリースから</span></div>
+  <div class="step" data-s="2"><span class="en">Size and checksum as listed; package and version as listed</span><span class="ja" lang="ja" hidden>大きさとチェックサム、パッケージと版：一覧のとおり</span></div>
+  <div class="step" data-s="3"><span class="en">Signed with the key Home already holds for it</span><span class="ja" lang="ja" hidden>庵がもともと持っている鍵で署名されている</span></div>
+</div>
+<div class="app"><div>Birding<span>1.7.47 on the phone</span></div><span class="act">Update</span></div>
+<div class="app"><div>Star Chart<span>0.5.23 on the phone</span></div><span class="act done">Up to date</span></div>
+</div>
+<figcaption class="folder-note"><span class="en">Press Install to see it work through its steps.</span><span class="ja" lang="ja" hidden>「Install」を押すと、順に進むのが見える。</span></figcaption>
+</figure>
+</div>
 </section>
 
 <section id="network" class="rv">
 <h2><span class="en">What Home sends</span><span class="ja" lang="ja" hidden>庵が送るもの</span></h2>
+<div class="split">
+<div>
 <div class="en">
 <p>Nothing about you. Home has no server of its own. Unlike inkOS it may use the internet, for
 these things only:</p>
@@ -397,6 +499,18 @@ email from your own mail app.</p>
   <li><b>Nextcloud</b>：サインインしたサーバーにだけ、サインインとサインアウトのために。</li>
 </ul>
 <p>これらの通信では、アプリは「Home」と名のるだけで、電話の機種やAndroidのビルドは送らない。設定、使った回数、ホーム画面に出るものは、すべて電話に残り、Android自身のバックアップも庵のものは何も持っていかない。一目の行は電話の中の一目から来て、外へは出ない。クラッシュの報告は、送ると決めたときだけ、自分のメールアプリからのメールとして。</p>
+</div>
+</div>
+<figure class="fan reach" aria-label="Where Home connects: wanderthe.dev for the list, GitHub for the apps you ask for, your own Nextcloud; and no server of its own">
+<div class="from" aria-hidden="true"><svg class="big"><use href="#hut"/></svg></div>
+<svg class="lines" viewBox="0 0 64 128" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" style="--i:0" d="M0 64 C 28 64, 36 16, 64 16"/><path pathLength="1" style="--i:1" d="M0 64 C 28 64, 36 48, 64 48"/><path pathLength="1" style="--i:2" d="M0 64 C 28 64, 36 80, 64 80"/><path class="none" pathLength="1" d="M0 64 C 28 64, 36 112, 64 112"/></svg>
+<ul class="apps">
+  <li style="--i:0"><span class="en">wanderthe.dev <span>· the list of apps</span></span><span class="ja" lang="ja" hidden>wanderthe.dev <span>· アプリの一覧</span></span></li>
+  <li style="--i:1"><span class="en">GitHub <span>· the apps you ask for</span></span><span class="ja" lang="ja" hidden>GitHub <span>· 頼んだアプリ</span></span></li>
+  <li style="--i:2"><span class="en">your Nextcloud <span>· sign in, sign out</span></span><span class="ja" lang="ja" hidden>自分のNextcloud <span>· サインインとアウト</span></span></li>
+  <li class="none" style="--i:3"><span class="en"><s>a server of Home's own</s> <span>· none</span></span><span class="ja" lang="ja" hidden><s>庵自身のサーバー</s> <span>· ない</span></span></li>
+</ul>
+</figure>
 </div>
 </section>
 
@@ -478,6 +592,55 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   });
 })();
 
+// The phone turns through three of Home's screens: each change is a new page on E Ink, so it flashes and
+// writes itself out again. It turns only while the phone is in view and the page is in front, and not
+// at all when less motion is asked for; the dots under it always work.
+(function () {
+  var box = document.querySelector('.screens'), dots = document.querySelector('.dots');
+  if (!box || !dots) return;
+  var names = ['s-home', 's-apps', 's-nc'], at = 0, timer = null, seen = true;
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  dots.hidden = false;
+  function show(i) {
+    at = i;
+    box.querySelectorAll('.screen').forEach(function (sc) { sc.classList.toggle('on', sc.classList.contains(names[i])); });
+    var on = box.querySelector('.screen.on'); on.replaceWith(on.cloneNode(true));   // start its drawing again
+    dots.querySelectorAll('button').forEach(function (d, j) { d.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
+  }
+  function next() { if (seen && !document.hidden) show((at + 1) % names.length); }
+  function run(first) { clearInterval(timer); if (still) return; timer = setTimeout(function () { next(); timer = setInterval(next, 7000); }, first); }
+  dots.querySelectorAll('button').forEach(function (d, j) { d.addEventListener('click', function () { show(j); run(9000); }); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }).observe(box);
+  }
+  run(9000);   // the home screen first writes itself out in full
+})();
+// Your apps: Install goes through its steps as Home's page shows them (Downloading in tenths, Checking,
+// Installing), with what is being checked written under it.
+(function () {
+  var fold = document.querySelector('.folder'); if (!fold) return;
+  var btn = fold.querySelector('button.act'), row = btn.closest('.app'), meter = row.querySelector('.meter');
+  var steps = row.querySelectorAll('.step'), state = row.querySelector('.state');
+  var running = false, still = matchMedia('(prefers-reduced-motion: reduce)').matches, timers = [];
+  function at(ms, f) { timers.push(setTimeout(f, still ? 0 : ms)); }
+  function step(n) { steps.forEach(function (x) { x.classList.toggle('on', +x.dataset.s === n); }); }
+  function go() {
+    if (running) return; running = true;
+    btn.classList.remove('done'); btn.disabled = true; state.textContent = 'Not installed';
+    meter.classList.remove('on'); void meter.offsetWidth; meter.classList.add('on'); step(1);
+    for (var k = 1; k <= 10; k++) (function (k) { at(k * 140, function () { btn.textContent = 'Downloading ' + k * 10 + '%'; }); })(k);
+    at(1500, function () { meter.classList.remove('on'); btn.textContent = 'Checking'; step(2); });
+    at(2600, function () { step(3); });
+    at(3500, function () { btn.textContent = 'Installing'; step(0); });
+    at(4300, function () { btn.textContent = 'Up to date'; btn.classList.add('done'); btn.disabled = false;
+      state.textContent = '0.3.43 on the phone'; running = false; });
+  }
+  btn.addEventListener('click', function () { if (btn.classList.contains('done')) { btn.textContent = 'Install'; } go(); });
+  if (!still && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io.disconnect(); at(1200, go); } }, { threshold: 0.6 });
+    io.observe(fold);
+  }
+})();
 // Day or night: the button under the phone does what the one in the corner does. When the page turns,
 // the phone's screen clears with an E Ink flash and writes itself out again, in the new colours.
 (function () {
@@ -486,7 +649,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   function dark() { var t = root.getAttribute('data-theme'); return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
   function sync() { if (dn) dn.setAttribute('aria-pressed', dark() ? 'true' : 'false'); }
   function redraw() {
-    var sc = document.querySelector('.screen');
+    var sc = document.querySelector('.screen.on');
     if (sc && !matchMedia('(prefers-reduced-motion: reduce)').matches) sc.replaceWith(sc.cloneNode(true));
     sync();
   }
@@ -495,5 +658,6 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   sync();
 })();
 </script>
+<script src="../peek.js" data-base="../" data-mode="side" data-at="#home-app"></script>
 </body>
 </html>
