@@ -190,10 +190,16 @@
   .app.home ul.adds[hidden] { display: none; }   /* the other language's list stays out of the grid */
   .app.home ul.adds li { margin-bottom: 0.55rem; }
   .app.home .actions { align-self: end; }
-  /* With two columns: the buttons in the left one, the list's last item moved over to the right. */
+  /* With two columns: the buttons at the head of the left one, the list's items after them, filling
+     the left column's other two places and the right column's three. */
   @media (min-width: 64rem) {
+    .app.home .actions { grid-column: 1; grid-row: 3; align-self: start; }
+    .app.home ul.adds li:nth-child(1) { grid-column: 1; grid-row: 4; }
+    .app.home ul.adds li:nth-child(2) { grid-column: 2; grid-row: 3; }
+    .app.home ul.adds li:nth-child(3) { grid-column: 1; grid-row: 5; }
+    .app.home ul.adds li:nth-child(4) { grid-column: 2; grid-row: 4; }
     .app.home ul.adds li:nth-child(5) { grid-column: 2; grid-row: 5; }
-    .app.home .actions { grid-column: 1; grid-row: 5; }
+    .app.home .actions .links.go { padding-top: 0; }
   }
   .app.home .actions .links.go { padding-top: 0.3rem; }
   .app.home h4 { font-size: 1.3rem; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 0.4rem; margin-bottom: 0.5rem; }
