@@ -135,11 +135,13 @@
   .app.full .shot { aspect-ratio: 2 / 1; max-width: none; image-rendering: pixelated; }
   .app.full p { max-width: 34rem; }
   #sanpo p { max-width: none; }   /* the game's text runs the width of its picture */
-  /* Wander as he peeks over the apps the game knows, drawn small beside the note that says so: the top of the
-     figure over a line, as he looks out over a picture. */
-  .peeknote { display: flex; align-items: flex-end; gap: 0.7rem; }
-  .peeknote[hidden] { display: none; }
-  .peekmark { flex: none; width: 42px; height: 47px; border-bottom: 2px solid var(--edge);   /* as big as on the cards: 3 to a pixel */
+  /* The note that says what his peeks mean, as a small card he looks out over, as he does over the app
+     pictures below: the top of him above its edge, the rest behind it. */
+  #sanpo .peeknote { position: relative; max-width: 44rem; margin: 3.4rem 0 1.1rem; padding: 0.75rem 1.1rem 0.8rem;
+    background: var(--raise); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 4px 4px 0 var(--hard);
+    font-size: 0.95rem; line-height: 1.55; }
+  #sanpo .peeknote[hidden] { display: none; }
+  .peekmark { position: absolute; z-index: -1; left: 1.2rem; top: -45px; width: 42px; height: calc(100% + 45px);   /* 3 to a pixel, as on the cards; below the card's edge, nothing */
     background: url(shots/wander-peek.png) -42px 0 / 588px 111px no-repeat; image-rendering: pixelated; }
   .app.wide p { max-width: 34rem; }
   @media (max-width: 36rem) { .app.wide { grid-column: auto; } .app.wide .shot { max-width: none; } }
