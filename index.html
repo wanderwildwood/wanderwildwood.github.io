@@ -135,6 +135,12 @@
   .app.full .shot { aspect-ratio: 2 / 1; max-width: none; image-rendering: pixelated; }
   .app.full p { max-width: 34rem; }
   #sanpo p { max-width: none; }   /* the game's text runs the width of its picture */
+  /* Wander as he peeks over the apps the game knows, drawn small beside the note that says so: the top of the
+     figure over a line, as he looks out over a picture. */
+  .peeknote { display: flex; align-items: flex-end; gap: 0.7rem; }
+  .peeknote[hidden] { display: none; }
+  .peekmark { flex: none; width: 42px; height: 47px; border-bottom: 2px solid var(--edge);   /* as big as on the cards: 3 to a pixel */
+    background: url(shots/wander-peek.png) -42px 0 / 588px 111px no-repeat; image-rendering: pixelated; }
   .app.wide p { max-width: 34rem; }
   @media (max-width: 36rem) { .app.wide { grid-column: auto; } .app.wide .shot { max-width: none; } }
 
@@ -281,6 +287,9 @@
   There is nothing to win and no words on the screen.</p>
   <p class="ja" lang="ja" hidden>ラマのクモとレッドウッドの森を歩く。立ち止まり、気づき、つながることの、静かでASMRのようなゲーム。Mudita Kompaktのために作り、Kompaktで試している。</p>
   <p class="ja" lang="ja" hidden>一度の散歩は一日。朝の霧から夕暮れまで、本当の時計でおよそ十二分。勝ち負けはなく、画面に言葉もない。</p>
+  <p class="en peeknote"><span class="peekmark" aria-hidden="true"></span>Where Wander peeks out over an app further down this page, that app and the game are
+  connected: the game quietly takes something of it into the wood.</p>
+  <p class="ja peeknote" lang="ja" hidden><span class="peekmark" aria-hidden="true"></span>このページの下のほうで、アプリの上からwanderがのぞいていたら、そのアプリとゲームはつながっている。ゲームはそっと、そのアプリから何かを森へ持ちこむ。</p>
   <p class="links go"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></p>
 </div>
 </div>
