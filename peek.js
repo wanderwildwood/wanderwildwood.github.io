@@ -1,8 +1,8 @@
 // Wander, from the game, along the way down a page, moving as the game's own page moves him: by the scroll.
 // Scrolled down, he goes on; scrolled back, he goes back. On the main page he rises from behind the picture
-// of each app the game quietly knows about (the cards named in data-cards: nothing says why), walks along its
-// top, looks up at the visitor, walks on and sinks out of sight. On Home's page he walks in from the right margin, looks up, and sits down; scrolled back, he gets up
-// and walks off. A press on him opens the game's page.
+// of each app the game quietly knows about (the cards named in data-cards: nothing says why), looks out over
+// its top at the visitor, and sinks out of sight again as it goes. On Home's page he walks in from the
+// right margin, looks up, and sits down; scrolled back, he gets up and walks off. A press on him opens the game's page.
 // Drawn from shots/wander-peek.png: fourteen frames of 14x37 from the game's own sheet (stand, look up, the
 // eight of the walk, the three of sitting down, and sitting).
 (function () {
@@ -48,10 +48,6 @@
         if (getComputedStyle(card).position === 'static') card.style.position = 'relative';
         holder.style.position = 'relative';
         holder.style.zIndex = '1';
-        // A card at the head of its group has the group's heading just above its picture: there he keeps to
-        // the picture's right side, clear of the heading's words.
-        var under = false, q = card.previousElementSibling;
-        for (var i = 0; q && i < 4; i++, q = q.previousElementSibling) if (q.classList.contains('group')) { under = true; break; }
         var w = figure();
         card.insertBefore(w, card.firstChild);
         players.push(function () {
@@ -60,17 +56,12 @@
           var p = clamp((vh * 0.9 - r.top) / (vh * 0.7));
           var top = holder.offsetTop, lift = H * S * 0.34;
           var wide = holder.getBoundingClientRect().width;
-          var right = holder.offsetLeft + wide - W * S - 6, left = holder.offsetLeft + (under ? wide * 0.55 : 6);
-          var mid = (right + left) / 2;
-          var up = part(p, 0, 0.12) - part(p, 0.88, 1);     // out from behind, and back
-          var x, n;
-          if (p < 0.42) { var a = part(p, 0.12, 0.42); x = right + (mid - right) * a; n = a > 0 && a < 1 ? walkFrame(x - right) : STAND; }
-          else if (p < 0.58) { x = mid; n = LOOK; }
-          else { var b = part(p, 0.58, 0.88); x = mid + (left - mid) * b; n = b > 0 && b < 1 ? walkFrame(x - right) : STAND; }
-          w.style.left = snap(x) + 'px';
+          var right = holder.offsetLeft + wide - W * S - 6;   // at the picture's right, clear of a heading or links above
+          var up = part(p, 0, 0.2) - part(p, 0.8, 1);      // up from behind as it comes, down again as it goes
+          var n = up >= 1 ? LOOK : STAND;                  // once up, he looks out at the visitor
+          w.style.left = snap(right) + 'px';
           w.style.top = snap(top - lift * up) + 'px';
           w.style.visibility = up > 0 ? 'visible' : 'hidden';
-          face(w, n !== LOOK);                               // walking along to the left; facing out to look
           pose(w, n);
         });
       });
