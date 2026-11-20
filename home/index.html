@@ -593,8 +593,8 @@ document.querySelectorAll('button.jp').forEach(function (b) {
 })();
 
 // The phone turns through three of Home's screens: each change is a new page on E Ink, so it flashes and
-// writes itself out again. It turns only while the phone is in view and the page is in front, and not
-// at all when less motion is asked for; the dots under it always work.
+// writes itself out again. It turns only while the phone is in view and the page is in front; when less
+// motion is asked for, the pages still change, without the flash or the writing out. The dots always work.
 (function () {
   var box = document.querySelector('.screens'), dots = document.querySelector('.dots');
   if (!box || !dots) return;
@@ -608,7 +608,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     dots.querySelectorAll('button').forEach(function (d, j) { d.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
   }
   function next() { if (seen && !document.hidden) show((at + 1) % names.length); }
-  function run(first) { clearInterval(timer); if (still) return; timer = setTimeout(function () { next(); timer = setInterval(next, 7000); }, first); }
+  function run(first) { clearInterval(timer); timer = setTimeout(function () { next(); timer = setInterval(next, 7000); }, first); }
   dots.querySelectorAll('button').forEach(function (d, j) { d.addEventListener('click', function () { show(j); run(9000); }); });
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }).observe(box);
@@ -622,7 +622,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   var btn = fold.querySelector('button.act'), row = btn.closest('.app'), meter = row.querySelector('.meter');
   var steps = row.querySelectorAll('.step'), state = row.querySelector('.state');
   var running = false, still = matchMedia('(prefers-reduced-motion: reduce)').matches, timers = [];
-  function at(ms, f) { timers.push(setTimeout(f, still ? 0 : ms)); }
+  function at(ms, f) { timers.push(setTimeout(f, ms)); }   // a change of words, not motion: it runs at its pace even when less motion is asked for
   function step(n) { steps.forEach(function (x) { x.classList.toggle('on', +x.dataset.s === n); }); }
   function go() {
     if (running) return; running = true;
@@ -636,7 +636,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
       state.textContent = '0.3.43 on the phone'; running = false; });
   }
   btn.addEventListener('click', function () { if (btn.classList.contains('done')) { btn.textContent = 'Install'; } go(); });
-  if (!still && 'IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io.disconnect(); at(1200, go); } }, { threshold: 0.6 });
     io.observe(fold);
   }
@@ -658,6 +658,6 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   sync();
 })();
 </script>
-<script src="../peek.js" data-base="../" data-mode="side" data-at="#home-app"></script>
+<script src="../peek.js?v=3" data-base="../" data-mode="side" data-at="#home-app"></script>
 </body>
 </html>
