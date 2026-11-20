@@ -200,15 +200,18 @@
       padding: 1.3rem 1.5rem 1.1rem; gap: 1rem 2rem; }
     .app.home ul.adds li { margin-bottom: 0.4rem; line-height: 1.45; }
     .app.home .home-text > p.en, .app.home .home-text > p.ja { margin-bottom: 0.8rem; }
-    .app.home .actions { grid-column: 1; grid-row: 4; align-self: start; }   /* rows 1-3: the name, the links, the words */
-    .app.home ul.adds li:nth-child(1) { grid-column: 1; grid-row: 5; }
-    .app.home ul.adds li:nth-child(2) { grid-column: 2; grid-row: 4; }
-    .app.home ul.adds li:nth-child(3) { grid-column: 1; grid-row: 6; }
-    .app.home ul.adds li:nth-child(4) { grid-column: 2; grid-row: 5; }
-    .app.home ul.adds li:nth-child(5) { grid-column: 2; grid-row: 6; }
+    .app.home .actions { grid-column: 1; grid-row: 3; align-self: start; }   /* rows 1-2: the name with its links, the words */
+    .app.home ul.adds li:nth-child(1) { grid-column: 1; grid-row: 4; }
+    .app.home ul.adds li:nth-child(2) { grid-column: 2; grid-row: 3; }
+    .app.home ul.adds li:nth-child(3) { grid-column: 1; grid-row: 5; }
+    .app.home ul.adds li:nth-child(4) { grid-column: 2; grid-row: 4; }
+    .app.home ul.adds li:nth-child(5) { grid-column: 2; grid-row: 5; }
     .app.home .actions .links.go { padding-top: 0; }
   }
-  .app.home .links.top { margin: -0.35rem 0 0.6rem; font-size: 0.92rem; }   /* Source and Release notes, just under the name */
+  /* the name, and Source and Release notes far right on the same line */
+  .app.home .titlebar { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 1.5rem; }
+  .app.home .links.top { margin: 0 0 0.5rem; font-size: 0.92rem; }
+  .app.home .links.top a:last-of-type:not([hidden]) { margin-right: 0; }
   .app.home .actions .links.go { padding-top: 0.3rem; }
   .app.home h4 { font-size: 1.3rem; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 0.4rem; margin-bottom: 0.5rem; }
   .app.home h4 .mark { width: 1.7em; height: 1.4em; align-self: center; color: var(--ink); margin-right: 0.15rem; }
@@ -309,12 +312,14 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
   <img class="shot" src="shots/iori.png" data-dark="shots/dark/iori.png" width="400" height="627" loading="eager"
        alt="Home's home screen, top to bottom: 09:41; the date, battery and notifications; three lines from Glance (10:00 Library, the weather, the pinned note Return the library books); six home apps by name (Messaging, Handset, Connections, Datebook, Mailbox, Pictures), Messaging and Mailbox each marked with an asterisk and their newest message under them (Ada Whitlock: Found you. Two minutes. and Hazel Finch: Book club: Thursday at seven); the music strip with its controls while Music Box plays the made-up song Morning Mist; and at the foot the line Carry only what you need.">
   <div class="home-text">
+  <div class="titlebar">
   <h4><svg class="mark" aria-hidden="true"><use href="#hut"/></svg>Home <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 庵 iori</button></h4>
   <p class="links top">
     <a href="https://github.com/wanderwildwood/iori">Source</a>
     <a href="https://github.com/wanderwildwood/iori/releases/latest">Release notes</a>
     <a class="obtainium" href="obtainium://add/https://github.com/wanderwildwood/iori" hidden>Obtainium</a>
   </p>
+  </div>
   <p class="en">Home is the home screen made for the apps on this page. It shows your apps as a short
   list of words, on the Kompakt (MuditaOS K or KompaktOS) and on other phones from Android 10 on.
   It is built on gezimos's <a href="https://github.com/gezimos/inkos">inkOS</a>, and everything inkOS
