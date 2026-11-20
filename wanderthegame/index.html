@@ -22,6 +22,8 @@
 <link rel="icon" type="image/svg+xml" href="seal-tab.svg">
 <link rel="icon" type="image/png" href="seal-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="seal-180.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <style>
   /* The page is one day's walk. The wood behind is drawn the way the game draws it: a small picture in
      16 greys, dithered, scaled up in whole pixels. The words sit on notebook pages (the game's paper, 232,
@@ -138,6 +140,31 @@
     .note img { width: 116px; }
   }
   @media (max-width: 22rem) { h1 { font-size: 1.4rem; } }
+
+  /* ===== Pixel (2026-11-20, as the home page): labels in Departure Mono (Helena Zhang, SIL OFL 1.1), running text in
+     Geist Mono (Vercel, SIL OFL 1.1), from ../fonts/; shadows in two hard steps, dotted pixel rules, hovers that fill in
+     two steps. The game's own greys stay, and the page stays light only (his word, 11-10). ===== */
+  @font-face { font-family: "Departure Mono"; src: url(../fonts/DepartureMono-Regular.woff2) format("woff2"); font-display: swap; }
+  @font-face { font-family: "Geist Mono"; src: url(../fonts/GeistMono-Regular.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Geist Mono"; src: url(../fonts/GeistMono-SemiBold.woff2) format("woff2"); font-weight: 600 700; font-display: swap; }
+  :root { --pixel: "Departure Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+    --step: 2px 2px 0 var(--ink), 4px 4px 0 var(--ink);
+    --step-soft: 3px 3px 0 rgba(0,0,0,.18), 6px 6px 0 rgba(0,0,0,.18); }
+  body { font: 15px/1.7 "Geist Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace; }
+  h1, h2, .home, a.btn, button.jp::after { font-family: var(--pixel); font-weight: 400; letter-spacing: 0; }
+  h1 { font-size: 33px; line-height: 1.1; }   /* the face is sharpest at 11, 22 and 33px */
+  h1 button.jp { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.6em; }   /* the pixel face has no kana */
+  h2 { font-size: 22px; color: var(--ink); border-bottom: 0; padding-bottom: 0.6rem;
+    background: repeating-linear-gradient(90deg, var(--rule) 0 2px, transparent 2px 4px) left bottom / 100% 2px no-repeat; }
+  .note li { border-bottom: 0; background: repeating-linear-gradient(90deg, var(--rule) 0 2px, transparent 2px 4px) left bottom / 100% 2px no-repeat; }
+  .note li:last-child { background: none; }
+  .page, .cue, .snd, .corner-seal { box-shadow: var(--step-soft); }
+  a.btn { background: var(--paper); box-shadow: var(--step); }
+  a.btn:active { transform: translate(4px, 4px); }
+  a.btn:hover, .home a:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  @keyframes px-fill { 0% { background: repeating-conic-gradient(var(--ink) 0 25%, transparent 0 50%) 0 0 / 4px 4px; color: var(--ink); } }
+  @media (prefers-reduced-motion: no-preference) { a.btn:hover, .home a:hover { animation: px-fill .12s step-end both; } }
+  @media (max-width: 22rem) { h1 { font-size: 22px; } }
 </style>
 <noscript><style>
   .look, .foot { height: 3rem; margin-bottom: 0; } .page { margin-bottom: 2rem; } .cue { display: none; }

@@ -9,13 +9,15 @@
 <link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-  :root { --ink: #29241e; --quiet: #5a5247; --rule: #cbc1b1; --paper: #e2dccf; --raise: #e9e4d9; --line: #8c7f6c; --hard: rgba(40, 30, 15, .2); color-scheme: light; }
+  :root { --ink: #252422; --quiet: #52504c; --rule: #c1bfb8; --paper: #d9d8d3; --raise: #e2e1dc; --line: #83817b; --hard: rgba(30, 30, 28, .2); color-scheme: light; }
   /* Dark follows the computer or phone, unless the button in the corner has been pressed (theme.js). */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --hard: rgba(0, 0, 0, .55); color-scheme: dark; }
+    :root:not([data-theme="light"]) { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --hard: rgba(0, 0, 0, .5); color-scheme: dark; }
   }
-  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --hard: rgba(0, 0, 0, .55); color-scheme: dark; }
+  :root[data-theme="dark"] { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --hard: rgba(0, 0, 0, .5); color-scheme: dark; }
   * { box-sizing: border-box; }
   body {
     margin: 0; padding: 3rem 1.25rem 5rem;
@@ -50,6 +52,25 @@
   button.theme:hover { color: var(--ink); }
   button.theme svg { display: block; width: 100%; height: 100%; }
   button.theme[aria-pressed="true"] .moon, button.theme:not([aria-pressed="true"]) .sun { display: none; }
+
+  /* ===== Pixel and E Ink (2026-11-20, as the home page): E Ink grey by day and charcoal by night; labels in Departure Mono
+     (Helena Zhang, SIL OFL 1.1), running text in Geist Mono (Vercel, SIL OFL 1.1), from ../fonts/; square corners, shadows
+     in two hard steps, dotted pixel rules, hovers that fill in two steps. ===== */
+  @font-face { font-family: "Departure Mono"; src: url(../fonts/DepartureMono-Regular.woff2) format("woff2"); font-display: swap; }
+  @font-face { font-family: "Geist Mono"; src: url(../fonts/GeistMono-Regular.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Geist Mono"; src: url(../fonts/GeistMono-SemiBold.woff2) format("woff2"); font-weight: 600 700; font-display: swap; }
+  :root { --pixel: "Departure Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+    --step: 2px 2px 0 var(--ink), 4px 4px 0 var(--ink);
+    --step-soft: 3px 3px 0 var(--hard), 6px 6px 0 var(--hard); }
+  body { font: 15px/1.7 "Geist Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace; }
+  h1 { font-family: var(--pixel); font-weight: 400; letter-spacing: 0; font-size: 33px; line-height: 1.15; }   /* sharpest at 11, 22 and 33px */
+  button.theme { border-radius: 0; border-width: 2px; }
+  @keyframes px-fill { 0% { background: repeating-conic-gradient(var(--ink) 0 25%, transparent 0 50%) 0 0 / 4px 4px; color: var(--ink); } }
+  main { border-radius: 0; border-width: 2px; box-shadow: var(--step-soft); }
+  main p:last-child a { font-family: var(--pixel); box-shadow: var(--step); }
+  main p:last-child a:active { transform: translate(4px, 4px); }
+  main p:last-child a:hover { background: var(--ink); color: var(--paper); }
+  @media (prefers-reduced-motion: no-preference) { main p:last-child a:hover { animation: px-fill .12s step-end both; } }
 </style>
 </head>
 <body>
