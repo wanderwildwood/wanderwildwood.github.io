@@ -4,8 +4,35 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-20T04:42:36Z</updated>
+  <updated>2026-11-20T06:26:56Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Home 1.0.2</title>
+    <link href="https://github.com/wanderwildwood/iori/releases/tag/v1.0.2"/>
+    <id>https://github.com/wanderwildwood/iori/releases/tag/v1.0.2</id>
+    <updated>2026-11-20T06:26:56Z</updated>
+    <content type="text"># Home 1.0.2
+
+- **Your apps:** each app in a folder is now just its name and its version, so a page holds about seven apps on the Kompakt. The one-line description, cut short, said too little to keep.</content>
+  </entry>
+  <entry>
+    <title>Home 1.0.1</title>
+    <link href="https://github.com/wanderwildwood/iori/releases/tag/v1.0.1"/>
+    <id>https://github.com/wanderwildwood/iori/releases/tag/v1.0.1</id>
+    <updated>2026-11-20T06:20:27Z</updated>
+    <content type="text"># Home 1.0.1
+
+- **Your apps:** a folder now shows several apps to a page (five on the Kompakt) instead of one. Each app takes three short lines: its name, what it is, and its version, or for an update &quot;0.1.36 to 0.1.39&quot;. A long name or description is cut off rather than wrapped.</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.74</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.74"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.74</id>
+    <updated>2026-11-20T05:01:46Z</updated>
+    <content type="text"># Datebook 0.1.74
+
+- The frame around today in the month is a little lighter: still easy to find, less heavy on the page</content>
+  </entry>
   <entry>
     <title>Home 1.0.0</title>
     <link href="https://github.com/wanderwildwood/iori/releases/tag/v1.0.0"/>
@@ -1086,79 +1113,6 @@ Thank you. For plain inkOS, go to [gezimos&#x27;s repository](https://github.com
 - A ticket time in the hour the clock repeats in autumn is taken the second time round, not tomorrow
 - A warning&#x27;s quieting that arrives as the end starts no longer silences the end
 - An answer to the location question after the window was rebuilt is not taken for a refusal
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Memo 0.3.34</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.34"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.34</id>
-    <updated>2026-11-19T03:51:22Z</updated>
-    <content type="text"># Memo 0.3.34
-
-- The line above the notes opens two short menus: tap what is shown to choose the kind of note, a folder or the Trash, and tap the order to choose newest first, oldest first or by title; the current choice is ticked
-- A new icon: a pinned note
-- Lock screen: a pinned note lists its first open items under its title, then how many more; an item already under Today is not shown twice
-- Sign out, a new server folder or a new WebDAV server send the phone&#x27;s copy up first, and keep it if that sync fails, saying so at once
-- An emptied server folder offers to send the notes on this phone up to it, or to keep them on this phone
-- Voice notes: only the Record shortcut starts the microphone at once; a Record request from another app opens a screen with a Start button
-- Voice notes: a recording cut short by a closed app or a full phone is found at the next opening, its length put right, and kept as a note
-- A voice note&#x27;s words find the note after its recording was renamed or moved
-- A note that cannot be saved just now says so and keeps its text
-- Tasks: the app password goes only to the server&#x27;s own domain, also under shared names such as ts.net or duckdns.org, and a link elsewhere is not followed
-- Desktop Sync and plain http treat a Tailscale address as safe only while the phone is on Tailscale, and a connection that says nothing for 10 seconds is closed
-- Pictures shared in from another app are taken only from that app, never from a file path or Memo&#x27;s own files
-- Scanned pages keep their colors in dark mode
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A notes folder gone or emptied on the server no longer deletes every note on the phone
-- A file the server lists outside the notes folder is left alone
-- Switching to a new server folder can no longer pull the old folder&#x27;s notes into the phone&#x27;s copy
-- A note that cannot be read is not opened or written over, and keeps its reminders
-- Back, archive, move, pin and delete keep a note open when the folder will not take it, and say when they could not be done
-- A recording begun while the app looks for cut-short ones is left to finish
-- The Start screen no longer shows a write-down switch that did nothing; the recording screen asks instead
-- Sign out and a move off Nextcloud keep a task the last sync could not send
-- A note&#x27;s embed that points outside its folder opens nothing, and one that cannot be found no longer stops the note
-- A repeating task due at a UTC time keeps its hour across the clock change
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Practice 0.2.10</title>
-    <link href="https://github.com/wanderwildwood/nikka/releases/tag/v0.2.10"/>
-    <id>https://github.com/wanderwildwood/nikka/releases/tag/v0.2.10</id>
-    <updated>2026-11-19T03:51:08Z</updated>
-    <content type="text"># Practice 0.2.10
-
-- A restart during a sitting ends it, logged for the time sat until the shutdown, and puts Do Not Disturb back without waiting for the app to be opened
-- A sitting still under way when the app was stopped is set going again when the app is opened
-- A bell that cannot start the service rings from the alarm itself
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Breathing cues stop as soon as the session ends, also when the app is put away
-- Today turns at midnight with the app left open, so a tick after it marks the new day
-- A restore refuses a file over 5 MB, and a failed save removes only the empty file it made
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Level 0.1.40</title>
-    <link href="https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.40"/>
-    <id>https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.40</id>
-    <updated>2026-11-19T03:50:59Z</updated>
-    <content type="text"># Level 0.1.40
-
-- Calibrate zeroes against the steadied reading, and its tap-again words ask about the same way of holding the phone the zero is saved under
-- The Settings scrollbar sits at the screen&#x27;s edge
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Turned sideways, the bubble goes to the high side again, not the low one
-- Percent near upright reads &gt;9999.9% instead of a stray number
-- Lying flat, the smoothing no longer starts over near level
 - A tap on the scrollbar lands on the right row after the screen changes</content>
   </entry>
 </feed>
