@@ -73,6 +73,10 @@
   .jump-label { font-weight: 700; color: var(--ink); }   /* the row's name: bold so it isn't lost, and plain words, not a link */
   .jump { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0.4rem 2rem; margin: 0 0 1.5rem; font-size: 1.2rem; }   /* on a phone the section links wrap from the left */
   @media (min-width: 48rem) { .jump { justify-content: space-between; } }   /* wider, the row spreads across the whole column */
+  /* each category a tab, as the apps' own tabs are: the one you are in filled in black, the rest plain */
+  .jump a { padding: 0.15rem 0.7rem; border: 2px solid transparent; text-decoration: none; color: var(--ink); }
+  .jump a:hover { border-color: var(--ink); }
+  .jump a.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
   .ethos { margin-bottom: 0; }
   .aside { font-size: 0.9rem; color: var(--quiet); margin: 0.9rem 0 0; }
   /* The one thing on the page that asks for something: the llama from the tattoo, large, and a button. */
@@ -135,6 +139,18 @@
   .app.full .shot { aspect-ratio: 2 / 1; max-width: none; image-rendering: pixelated; }
   .app.full p { max-width: 34rem; }
   #sanpo p { max-width: none; }   /* the game's text runs the width of its picture */
+  /* the game's card on a raised ground of its own, as Home's card is */
+  #sanpo { background: var(--raise); border: 1px solid var(--rule); border-radius: 8px; box-shadow: 6px 6px 0 var(--hard);
+    padding: 1.3rem 1.4rem 1.5rem; }
+  @media (max-width: 40rem) { #sanpo { padding: 1rem 0.9rem 1.2rem; margin-left: -0.25rem; margin-right: -0.25rem; } }
+  /* a strip of the game's forest floor along the card's foot, with a few of its mushrooms and creatures on it,
+     drawn from the game's own pixel tables, 3 to a pixel */
+  #sanpo { position: relative; padding-bottom: 3.6rem; }
+  #sanpo .floor { position: absolute; left: 0; right: 0; bottom: 0; height: 1.1rem; background: #7a7a7a; border-radius: 0 0 7px 7px; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #sanpo .floor { background: #3a3a3a; } }
+  :root[data-theme="dark"] #sanpo .floor { background: #3a3a3a; }
+  #sanpo .floor img { position: absolute; bottom: calc(1.1rem - 3px); image-rendering: pixelated; }
+  @media (max-width: 40rem) { #sanpo .floor img:nth-child(3), #sanpo .floor img:nth-child(5) { display: none; } }   /* fewer on a phone */
   /* The note that says what his peeks mean, as a small card he looks out over, as he does over the app
      pictures below: the top of him above its edge, the rest behind it. */
   /* the words on the left and the note beside them, the two buttons under both; on a phone, one after another */
@@ -155,7 +171,7 @@
   #sanpo .side .links.go { margin: 1.1rem 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.8rem; }   /* centred under the note */
   #sanpo .side .links.go .gobtn { margin: 0; }
   #sanpo .peeknote { position: relative; margin: 0;   /* in a little from the picture's edge */ padding: 0.75rem 1.1rem 0.8rem;
-    background: var(--raise); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 4px 4px 0 var(--hard);
+    background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 4px 4px 0 var(--hard);
     font-size: 0.95rem; line-height: 1.55; }
   #sanpo .peeknote[hidden] { display: none; }
   .peekmark { position: absolute; z-index: 1; display: block; left: 1.2rem; top: -45px; width: 42px; height: 45px;   /* 3 to a pixel, as on the cards; only the part above the card's edge, so he can be pressed */
@@ -320,6 +336,14 @@
   </div>
   </div>
 
+  <div class="floor" aria-hidden="true">
+    <img src="shots/wood-tuft.png" width="21" height="15" alt="" style="left: 4%">
+    <img src="shots/wood-agaric.png" width="21" height="24" alt="" style="left: 9%">
+    <img src="shots/wood-bolete.png" width="15" height="12" alt="" style="left: 11.5%">
+    <img src="shots/wood-slug.png" width="33" height="12" alt="" style="left: 47%">
+    <img src="shots/wood-chanterelle.png" width="18" height="18" alt="" style="left: 78%">
+    <img src="shots/wood-deer.png" width="48" height="42" alt="" style="left: 86%">
+  </div>
 </div>
 </div>
 
@@ -1305,6 +1329,23 @@ if (/Android/.test(navigator.userAgent)) {
 }
 </script>
 <script src="theme.js"></script>
+<script>
+// The categories row as tabs: the one whose apps are on the screen is filled in, as the apps' own
+// selected tab is; pressing one fills it at once.
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.jump a')); if (!tabs.length) return;
+  var heads = tabs.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function mark(i) { tabs.forEach(function (a, j) { a.classList.toggle('on', j === i); }); }
+  function pick() {
+    var y = innerHeight * 0.3, at = 0;   // the first until a later one is reached
+    heads.forEach(function (h, i) { if (h && h.getBoundingClientRect().top <= y) at = i; });
+    mark(at);
+  }
+  tabs.forEach(function (a, i) { a.addEventListener('click', function () { mark(i); }); });
+  addEventListener('scroll', function () { requestAnimationFrame(pick); }, { passive: true });
+  pick();
+})();
+</script>
 <script src="peek.js?v=10" data-mode="rise" data-cards="hitome,kinokocho,soramoyo,tancho,seizu" data-feather="tancho"></script>
 </body>
 </html>
