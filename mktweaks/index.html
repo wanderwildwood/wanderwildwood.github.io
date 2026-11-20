@@ -15,12 +15,14 @@
     --quiet: #5a5247;
     --rule: #cbc1b1;
     --paper: #e2dccf; --line: #8c7f6c;
+    --raise: #e9e4d9;
+    --hard: rgba(40, 30, 15, .2);   /* a hard shadow, as the game's page has: no blur */
   }
   /* Dark follows the computer or phone, unless the button in the corner has been pressed (theme.js). */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --line: #776b5b; color-scheme: dark; }
+    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --line: #776b5b; --raise: #1d1a14; --hard: rgba(0, 0, 0, .55); color-scheme: dark; }
   }
-  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --line: #776b5b; color-scheme: dark; }
+  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --line: #776b5b; --raise: #1d1a14; --hard: rgba(0, 0, 0, .55); color-scheme: dark; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -36,14 +38,19 @@
   h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 1.4rem; letter-spacing: -0.01em; }
   h2 {
     font-size: 1.2rem; font-weight: 600; color: var(--quiet);
-    margin: 3rem 0 1.25rem; padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--rule);
+    margin: 3.2rem 0 1.25rem; padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--rule);   /* ruled off in 2px, as the game's page and the home page have them */
   }
   p { margin: 0 0 1.1rem; }
   a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--line); }
   a:hover { text-decoration-style: dotted; text-decoration-color: currentColor; }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
   .lede { color: var(--quiet); }
   .back { font-size: 0.9rem; color: var(--quiet); margin-bottom: 1.6rem; }
+  /* the way back as a small tab on the paper, as the game's page has it */
+  .back a { display: inline-block; color: var(--ink); text-decoration: none; background: var(--raise);
+    border: 2px solid var(--rule); padding: 0.1rem 0.6rem; }
+  .back a:hover { border-color: var(--ink); }
   ol { padding-left: 1.3rem; margin: 0 0 1.1rem; }
   ol li { margin-bottom: 0.5rem; }
 
@@ -58,19 +65,26 @@
   .out { font-size: 0.85rem; white-space: pre-wrap; overflow-wrap: anywhere; }
   .out.bad { color: var(--ink); border-left: 2px solid var(--ink); padding-left: 0.6rem; }
 
-  button.act {
-    font: inherit; font-size: 0.9rem; color: var(--ink); background: none;
-    border: 1px solid var(--ink); border-radius: 4px; padding: 0.2rem 0.8rem;
-    cursor: pointer; white-space: nowrap;
+  /* buttons as on the home page and the game's page: a hard shadow, and pressed, they go down into it.
+     One that can't be pressed yet lies flat, in the quiet colour. */
+  button.act, input[type=file]::file-selector-button {
+    font: inherit; font-size: 0.9rem; color: var(--ink); background: var(--raise);
+    border: 2px solid var(--ink); border-radius: 0; padding: 0.2rem 0.8rem;
+    box-shadow: 3px 3px 0 var(--ink); cursor: pointer; white-space: nowrap;
   }
-  button.act:hover:not(:disabled) { background: var(--rule); }
-  button.act:disabled { color: var(--quiet); border-color: var(--rule); cursor: default; }
-  .controls { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1rem; max-width: 46rem; }
+  input[type=file] { font: inherit; font-size: 0.85rem; color: var(--quiet); max-width: 100%; }
+  input[type=file]::file-selector-button { margin-right: 0.8rem; }
+  button.act:hover:not(:disabled), input[type=file]:not(:disabled)::file-selector-button:hover { background: var(--paper); }
+  button.act:active:not(:disabled), input[type=file]:not(:disabled)::file-selector-button:active { transform: translate(3px, 3px); box-shadow: none; }
+  button.act:disabled, input[type=file]:disabled::file-selector-button { color: var(--quiet); border-color: var(--rule); box-shadow: none; cursor: default; }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; max-width: 46rem; margin-bottom: 0.9rem; }
   input[type=text], select {
-    font: inherit; font-size: 0.9rem; color: var(--ink); background: var(--paper);
-    border: 1px solid var(--rule); border-radius: 4px; padding: 0.2rem 0.4rem;
+    font: inherit; font-size: 0.9rem; color: var(--ink); background: var(--raise);
+    border: 2px solid var(--quiet); border-radius: 0; padding: 0.2rem 0.4rem;   /* the quiet colour, so the field's edge can be seen (3:1 and more) */
     max-width: 100%; min-width: 0;
   }
+  input[type=text]:disabled, select:disabled { color: var(--quiet); }
+  .controls:has(+ .controls) { margin-bottom: 0; }   /* rows of controls under one another keep their own spacing */
 
   /* A list of apps: name and line, what the phone says, and the button. On a phone the
      state and button drop under the name. */
@@ -93,10 +107,10 @@
     .list .state { text-align: left; }
   }
   .drop {
-    max-width: 46rem; border: 1px dashed var(--quiet); border-radius: 4px;
+    max-width: 46rem; border: 2px dashed var(--quiet); border-radius: 8px; background: var(--raise);
     padding: 0.9rem 1rem; margin: 0 0 1.1rem;
   }
-  .drop.over { background: var(--rule); }
+  .drop.over { border-style: solid; border-color: var(--ink); box-shadow: 4px 4px 0 var(--hard); }
   .drop p { margin: 0 0 0.6rem; }
   .drop p:last-child { margin: 0; }
   .empty { color: var(--quiet); font-size: 0.9rem; }
