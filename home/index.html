@@ -109,8 +109,6 @@
     padding: 1.6rem 0.85rem 2.6rem; box-shadow: 6px 6px 0 var(--hard); position: relative; transition: background-color .5s; }
   .phone .body::after { content: ""; position: absolute; left: 50%; bottom: 0.95rem; width: 2.4rem; height: 0.32rem;
     margin-left: -1.2rem; border-radius: 0.2rem; background: rgba(255, 255, 255, .14); }   /* the home key */
-  /* TODO screenshot: Home's own screenshot (screenshots/1-home.png) can take the place of .screen here,
-     as <img class="screen" src="../shots/iori.png" width="400" height="627" alt="…">, when it exists. */
   .screen { container-type: inline-size; position: relative; overflow: hidden; aspect-ratio: 400 / 627;
     background: var(--screen); color: var(--screen-ink); border-radius: 3px; padding: 13% 10% 0;
     font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif; line-height: 1.25; }
@@ -123,8 +121,8 @@
   .screen .g::before { content: ""; position: absolute; left: -3.6cqw; top: 0.55em; width: 1.6cqw; height: 1.6cqw; border-radius: 50%; background: currentColor; }
   /* E Ink draws in steps, not in smooth fades: the screen flashes once to clear, then each name is
      written out a letter at a time and the Glance lines come in with a ghost before them. */
-  .screen::after { content: ""; position: absolute; inset: 0; background: var(--screen-ink); opacity: 0; pointer-events: none;
-    animation: refresh .5s steps(1, end) both; }
+  .screen::after { content: ""; position: absolute; inset: 0; background: var(--screen-ink); opacity: 0; pointer-events: none; }
+  .screen.flash::after { animation: refresh .5s steps(1, end) both; }
   @keyframes refresh { 0% { opacity: 1; background: var(--screen-ink); } 45% { opacity: 1; background: var(--screen); } 100% { opacity: 0; } }
   .screen .t, .screen .d { animation: ghost .5s steps(2, end) both; animation-delay: .55s; }
   .screen .d { animation-delay: .85s; }
@@ -245,6 +243,31 @@
   .js .fan.reach .lines path.none { stroke-dashoffset: 0; opacity: 0; }
   .js .seen .fan.reach .lines path.none { opacity: 1; transition: opacity .3s steps(2, end); transition-delay: .9s; }
 
+  /* ---- The page as a walk beside Home: the words on the left, and on the right a phone that stays in view
+     and turns to the screen of whatever the words have come to. ---- */
+  .story { display: grid; grid-template-columns: minmax(0, 1fr) 16.5rem; gap: 0 4.5rem; }
+  .flow { min-width: 0; }
+  .story .split { grid-template-columns: minmax(0, 1fr); }   /* beside the phone, a part's drawing goes under its words */
+  .story .split > figure { margin-top: 0.5rem; }
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .stage { align-self: stretch; }
+  .stage .phone { position: sticky; top: 4.5rem; max-width: 16.5rem; margin-top: 4rem; }
+  .stage .screen { padding: 0; }
+  .stage .screen img { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+  .stage .screen img.on { display: block; }
+  .stage .cap { margin: 0.9rem 0 0.4rem; font-size: 0.92rem; color: var(--ink); min-height: 1.4em; }
+  .stage figcaption { margin-top: 0.4rem; }
+  @media (max-width: 52rem) {
+    .story { grid-template-columns: minmax(0, 1fr); }
+    /* a small phone in the corner that keeps turning; a press makes it bigger */
+    .stage { position: fixed; right: 0.8rem; bottom: 0.8rem; z-index: 30; width: 5.2rem; cursor: zoom-in; }
+    .stage .phone { position: static; margin: 0; }
+    .stage .phone .body { padding: 0.45rem 0.3rem 0.9rem; border-radius: 0.7rem; box-shadow: 3px 3px 0 var(--hard); }
+    .stage .phone .body::after { display: none; }
+    .stage .cap, .stage figcaption { display: none; }
+    .stage.big { width: 13rem; cursor: zoom-out; }
+  }
+
   /* Asked for less motion: everything is drawn and in place from the start. */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -261,7 +284,9 @@
 <main>
 
 <p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
-<header class="hero">
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="iori">
 <div class="hero-text">
 <svg class="hut-draw" viewBox="18 21.5 45 37.5" aria-hidden="true"><path pathLength="1" d="M20.69,44.88C24.81,39.50 30.44,31.69 36.44,25.38C38.25,24.00 42.00,23.88 43.94,25.12C50.12,31.38 55.75,39.19 60.31,44.38M24.44,44.75C34.81,44.12 46.06,44.19 56.81,44.62M28.31,44.88C28.12,48.56 28.19,52.31 28.50,56.00M52.81,44.75C53.06,48.56 52.94,52.31 52.62,56.12M37.06,56.00C36.88,53.56 36.94,51.38 37.25,49.25C39.50,49.00 42.00,49.00 44.19,49.31C44.44,51.50 44.38,53.75 44.12,56.00M22.69,56.50C34.19,55.88 47.31,56.00 58.81,56.62"/></svg>
 <h1>Home <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 庵 iori</button></h1>
@@ -277,48 +302,7 @@ the phone, what it sends, and how to go back to the phone's own home screen.</p>
 <nav class="toc ja" lang="ja" aria-label="このページ" hidden><a href="#what">庵とは</a><a href="#nextcloud">ひとつのNextcloudアカウント</a><a href="#your-apps">「Your apps」</a><a href="#network">庵が送るもの</a><a href="#home-app">もとに戻す</a><a href="#credit">クレジット</a></nav>
 </div>
 
-<figure class="phone">
-<div class="body">
-<div class="screens">
-<div class="screen s-home on" role="img" aria-label="Home's home screen: the time, the home apps by name, and three lines from Glance under them">
-<span class="t">9:41</span><span class="d">Thu 19 Nov</span>
-<span class="n" style="--n:9;--at:1.25s">Messaging</span>
-<span class="n" style="--n:7;--at:2.06s">Handset</span>
-<span class="n" style="--n:11;--at:2.73s">Connections</span>
-<span class="n" style="--n:8;--at:3.68s">Datebook</span>
-<span class="n" style="--n:7;--at:4.42s">Mailbox</span>
-<span class="n" style="--n:8;--at:5.09s">Pictures</span>
-<span class="g" style="--at:6.03s">10:00 Library</span>
-<span class="g" style="--at:6.48s">Cloudy, 9°</span>
-<span class="g" style="--at:6.93s">2 unread</span>
-</div>
-<div class="screen s-apps" role="img" aria-label="Settings, Your apps: a folder for each group, saying how many of its apps are on the phone, or how many can be updated">
-<span class="bar">Your apps</span>
-<span class="row" style="--r:0"><b>Core</b><i>15 of 17</i></span>
-<span class="row" style="--r:1"><b>Outdoors</b><i><b>1 update</b></i></span>
-<span class="row" style="--r:2"><b>On the road</b><i>0 of 3</i></span>
-<span class="row" style="--r:3"><b>Daily life</b><i>2 of 5</i></span>
-<span class="row" style="--r:4"><b>Music</b><i>1 of 4</i></span>
-<span class="row" style="--r:5"><b>Reading and writing</b><i>2 of 4</i></span>
-<span class="row" style="--r:6"><b>Games and oracles</b><i>0 of 6</i></span>
-<span class="row" style="--r:7"><b>Tools</b><i>1 of 5</i></span>
-</div>
-<div class="screen s-nc" role="img" aria-label="Settings, Nextcloud account: signed in, with the apps that may use the account">
-<span class="bar">Nextcloud account</span>
-<span class="say" style="--r:0">Signed in as ada on cloud.example.org.</span>
-<span class="say" style="--r:1">Your apps that use Nextcloud can use this account. The password is locked on this phone and handed to them alone.</span>
-<span class="pill" style="--r:2">SIGN OUT</span>
-</div>
-</div>
 
-</div>
-<div class="dots" role="group" aria-label="Screens" hidden><button type="button" aria-pressed="true" aria-label="Home screen"></button><button type="button" aria-pressed="false" aria-label="Your apps"></button><button type="button" aria-pressed="false" aria-label="Nextcloud account"></button></div>
-<figcaption>
-<p class="en">Home has a dark mode too. On MuditaOS it is a switch in Home's Settings.</p>
-<p class="ja" lang="ja" hidden>庵にもダークモードがある。MuditaOSでは、庵の設定のスイッチで。</p>
-<button type="button" class="daynight" aria-pressed="false" hidden><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg><span class="en">Day or night</span><span class="ja" lang="ja" hidden>昼か夜か</span></button>
-</figcaption>
-</figure>
 </header>
 
 <section id="what" class="rv">
@@ -332,21 +316,21 @@ phones from Android 10 on.</p>
 inkOS does still works. Home is its own app, so it installs beside inkOS, not over it. What it
 adds:</p>
 <ul>
-  <li>A first run of six pages: welcome and privacy, setup, your apps, default apps, Nextcloud,
+  <li data-shot="iori-firstrun-welcome">A first run of six pages: welcome and privacy, setup, your apps, default apps, Nextcloud,
   theme and home apps. <b>Settings → Run setup again</b> opens it again; nothing is reset.</li>
-  <li><a href="#nextcloud">One Nextcloud account</a> for the apps from this site.</li>
-  <li><a href="#your-apps">Your apps</a>, to install and update them.</li>
-  <li>Dark mode. On MuditaOS, <b>Settings → Dark mode</b> turns Home dark, and the apps from this
+  <li data-shot="iori-nextcloud"><a href="#nextcloud">One Nextcloud account</a> for the apps from this site.</li>
+  <li data-shot="iori-apps"><a href="#your-apps">Your apps</a>, to install and update them.</li>
+  <li data-shot="iori-darkhome">Dark mode. On MuditaOS, <b>Settings → Dark mode</b> turns Home dark, and the apps from this
   site follow it. On KompaktOS and other phones, Home follows the phone's own dark setting.</li>
-  <li>Default apps: one row for each kind of thing the apps open (calls, texts, contacts,
+  <li data-shot="iori-defaults">Default apps: one row for each kind of thing the apps open (calls, texts, contacts,
   calendar, alarms, pictures, maps and more), saying which app Android uses now. Press a row
   that is not chosen, pick the app, then Always.</li>
-  <li>Up to three lines under the home apps from <a href="../#hitome">Glance</a>: today's events,
+  <li data-shot="iori-lines">Up to three lines under the home apps from <a href="../#hitome">Glance</a>: today's events,
   the weather, what is unread. A press opens the app the line came from.</li>
-  <li>Folders in the app drawer, music controls on the lock screen for any player, and, on
+  <li data-shot="iori-drawer">Folders in the app drawer, music controls on the lock screen for any player, and, on
   MuditaOS 2.0 and later, an E-ink mode for each app (hold the app in the drawer).</li>
 </ul>
-<p>For Settings, pinch on an empty part of the home screen: quick settings open, and All Settings
+<p data-shot="iori-settings">For Settings, pinch on an empty part of the home screen: quick settings open, and All Settings
 is there.</p>
 </div>
 <div class="ja" lang="ja" hidden>
@@ -370,15 +354,15 @@ is there.</p>
 <div class="split">
 <div>
 <div class="en">
-<p>Sign in to your Nextcloud once, on the first run's Nextcloud page or in <b>Settings → Nextcloud
+<p data-shot="iori-nextcloud">Sign in to your Nextcloud once, on the first run's Nextcloud page or in <b>Settings → Nextcloud
 account</b>. Home opens Nextcloud's own login in the browser. On a phone with no browser, type an
 app password (made in Nextcloud on another device: Settings, Security, Devices &amp; sessions;
 name it Home) or your login password. A login password is used once to get an app password,
 and only that is kept. The server's address has to start with https.</p>
-<p>Home keeps that one app password locked with a key in the phone's keystore, in a file left out
+<p data-shot="iori-nextcloud-account">Home keeps that one app password locked with a key in the phone's keystore, in a file left out
 of backups. In Nextcloud's list of devices it is one entry, so removing it there signs every app
 out at once. Signing out in Home also asks the server to delete it.</p>
-<p>An app that can use it has a row <b>Use the phone's Nextcloud account</b>. Home hands the
+<p data-shot="iori-nextcloud-account">An app that can use it has a row <b>Use the phone's Nextcloud account</b>. Home hands the
 account to these apps only, each checked by its package name and by the key its releases are
 signed with; anything else gets nothing. On this site they carry Nextcloud's mark
 <svg class="nc" aria-hidden="true"><use href="#nc"/></svg> after their name.</p>
@@ -418,15 +402,15 @@ have the row yet signs in on its own, as before.</p>
 <div class="split">
 <div>
 <div class="en">
-<p><b>Settings → Your apps</b> lists the apps from this site in a folder for each group, the core
+<p data-shot="iori-apps"><b>Settings → Your apps</b> lists the apps from this site in a folder for each group, the core
 apps first. Each folder says how many of its apps are on the phone, or how many can be updated.
 In a folder, each app says what it is, the version on the phone or Not installed, and has Install,
 Update or Up to date. The list is read from <a href="../apps.json">wanderthe.dev/apps.json</a>;
 Home keeps the last copy for when there is no connection.</p>
-<p>The first run has the same apps as a page of tick boxes, with the core apps that are missing
+<p data-shot="iori-firstrun">The first run has the same apps as a page of tick boxes, with the core apps that are missing
 already ticked. On this site each core app carries Home's hut
 <svg class="hut" aria-hidden="true"><use href="#hut"/></svg> after its name.</p>
-<p>Install or Update downloads the app from its own GitHub release. Home installs it only when:</p>
+<p data-shot="iori-installing">Install or Update downloads the app from its own GitHub release. Home installs it only when:</p>
 <ul class="checks">
   <li>its size and checksum (SHA-256) are the ones on the list,</li>
   <li>it is the app and the version the list names,</li>
@@ -434,10 +418,10 @@ already ticked. On this site each core app carries Home's hut
   <li>that key is the one Home already holds for that app,</li>
   <li>and it is not older than the release that was out when this Home was built.</li>
 </ul>
-<p>So the list on this site cannot change an app's key or bring in an app Home does not know. An
+<p data-shot="iori-installing">So the list on this site cannot change an app's key or bring in an app Home does not know. An
 update must also be signed like the app already on the phone. If anything does not match,
 nothing is installed. The downloaded file is deleted either way.</p>
-<p>Android asks once to let Home install apps (Install unknown apps), and asks before each first
+<p data-shot="iori-installing">Android asks once to let Home install apps (Install unknown apps), and asks before each first
 install. From Android 12 on, an app Home installed is then updated without asking again.</p>
 </div>
 <div class="ja" lang="ja" hidden>
@@ -455,7 +439,7 @@ install. From Android 12 on, an app Home installed is then updated without askin
 <p>Androidは一度だけ、庵にアプリを入れさせてよいか（「Install unknown apps」）を聞き、初めて入れるアプリごとに確認する。Android 12以降では、庵が入れたアプリは、そのあと聞かれずに更新できる。</p>
 </div>
 </div>
-<figure class="folder-fig">
+<figure class="folder-fig" data-shot="iori-folder">
 <div class="folder" aria-label="A folder in Your apps">
 <div class="fh"><span>Outdoors</span><small><b>1 update</b></small></div>
 <div class="app"><div>Mushroom Journal<span class="state">Not installed</span></div><button type="button" class="act">Install</button>
@@ -480,11 +464,11 @@ install. From Android 12 on, an app Home installed is then updated without askin
 <p>Nothing about you. Home has no server of its own. Unlike inkOS it may use the internet, for
 these things only:</p>
 <ul>
-  <li><b>Your apps</b>: when you open it in Settings, it reads the list from wanderthe.dev/apps.json.
+  <li data-shot="iori-apps"><b>Your apps</b>: when you open it in Settings, it reads the list from wanderthe.dev/apps.json.
   It downloads only the apps you ask for, there, on the first run's page of apps, or when Home
   offers an app that is missing, and only from this site's own GitHub releases. The first run's
   page reaches nothing until you press GET.</li>
-  <li><b>Nextcloud</b>: only the server you sign in to, to sign in and to sign out.</li>
+  <li data-shot="iori-nextcloud-account"><b>Nextcloud</b>: only the server you sign in to, to sign in and to sign out.</li>
 </ul>
 <p>These requests name the app only as Home, not the phone's model or Android build. Settings,
 usage counts and everything on the home screen stay on the phone, and Android's own backup takes
@@ -521,13 +505,13 @@ email from your own mail app.</p>
 and open it. Every release is signed with the same key, so a newer one installs over it and keeps
 your settings. <a href="https://github.com/ImranR98/Obtainium">Obtainium</a> can keep it updated:
 add <a href="https://github.com/wanderwildwood/iori">github.com/wanderwildwood/iori</a>.</p>
-<p>The first run's Setup page makes Home the screen the phone opens to. Later, it is
+<p data-shot="iori-firstrun-welcome">The first run's Setup page makes Home the screen the phone opens to. Later, it is
 <b>Settings → Advanced → Set as default launcher</b>.</p>
-<p>To go back to the phone's own home screen, press <b>Settings → Advanced → Exit Home</b> and pick
+<p data-shot="iori-settings">To go back to the phone's own home screen, press <b>Settings → Advanced → Exit Home</b> and pick
 it (on a Kompakt with MuditaOS K, Mudita's own home screen). From a computer, it is under Default
 apps on <a href="../mktweaks/#defaults">Kompakt tweaks</a>. Uninstalling Home leaves the phone with
 its own home screen too.</p>
-<p>To Android, Home and inkOS are two separate apps: accessibility, notification access, widgets
+<p data-shot="iori-settings">To Android, Home and inkOS are two separate apps: accessibility, notification access, widgets
 and shortcuts are given to each on its own. On Android 13 and later, if Home's switches for
 accessibility or notification access are greyed out, open its App info, press ⋮, then Allow
 restricted settings.</p>
@@ -540,7 +524,7 @@ restricted settings.</p>
 </div>
 </section>
 
-<section id="credit" class="rv">
+<section id="credit" class="rv" data-shot="iori">
 <h2><span class="en">Credit and licence</span><span class="ja" lang="ja" hidden>クレジットとライセンス</span></h2>
 <div class="en">
 <p>Home is free software under the GNU General Public License, version 3. Nearly all of it is
@@ -560,6 +544,33 @@ plain inkOS, go to <a href="https://github.com/gezimos/inkos">gezimos's reposito
 </div>
 </section>
 
+</div>
+<aside class="stage" aria-label="Home's screens, as the page goes on">
+<figure class="phone">
+<div class="body"><div class="screen">
+<img data-name="iori" data-cap="Home" data-cap-ja="庵" src="../shots/iori.png" data-dark="../shots/dark/iori.png" width="400" height="627" alt="Home" loading="eager" class="on">
+<img data-name="iori-firstrun-welcome" data-cap="The first run: welcome" data-cap-ja="初回設定：ようこそ" src="../shots/iori-firstrun-welcome.png" data-dark="../shots/dark/iori-firstrun-welcome.png" width="400" height="627" alt="The first run: welcome" loading="eager">
+<img data-name="iori-nextcloud" data-cap="The first run: Nextcloud" data-cap-ja="初回設定：Nextcloud" src="../shots/iori-nextcloud.png" data-dark="../shots/dark/iori-nextcloud.png" width="400" height="627" alt="The first run: Nextcloud" loading="eager">
+<img data-name="iori-apps" data-cap="Settings → Your apps" data-cap-ja="設定 → Your apps" src="../shots/iori-apps.png" data-dark="../shots/dark/iori-apps.png" width="400" height="627" alt="Settings → Your apps" loading="eager">
+<img data-name="iori-darkhome" data-cap="Home at night" data-cap-ja="夜の庵" src="../shots/dark/iori.png" data-dark="../shots/iori.png" width="400" height="627" alt="Home at night" loading="eager">
+<img data-name="iori-defaults" data-cap="Settings → Default apps" data-cap-ja="設定 → 既定のアプリ" src="../shots/iori-defaults.png" data-dark="../shots/dark/iori-defaults.png" width="400" height="627" alt="Settings → Default apps" loading="eager">
+<img data-name="iori-lines" data-cap="Home lines" data-cap-ja="ホームの行" src="../shots/iori-lines.png" data-dark="../shots/dark/iori-lines.png" width="400" height="627" alt="Home lines" loading="eager">
+<img data-name="iori-drawer" data-cap="A folder in the app drawer" data-cap-ja="アプリ一覧のフォルダー" src="../shots/iori-drawer.png" data-dark="../shots/dark/iori-drawer.png" width="400" height="627" alt="A folder in the app drawer" loading="eager">
+<img data-name="iori-settings" data-cap="Settings" data-cap-ja="設定" src="../shots/iori-settings.png" data-dark="../shots/dark/iori-settings.png" width="400" height="627" alt="Settings" loading="eager">
+<img data-name="iori-nextcloud-account" data-cap="Settings → Nextcloud account" data-cap-ja="設定 → Nextcloudアカウント" src="../shots/iori-nextcloud-account.png" data-dark="../shots/dark/iori-nextcloud-account.png" width="400" height="627" alt="Settings → Nextcloud account" loading="eager">
+<img data-name="iori-firstrun" data-cap="The first run: your apps" data-cap-ja="初回設定：アプリ" src="../shots/iori-firstrun.png" data-dark="../shots/dark/iori-firstrun.png" width="400" height="627" alt="The first run: your apps" loading="eager">
+<img data-name="iori-folder" data-cap="Your apps: a folder" data-cap-ja="Your apps：フォルダー" src="../shots/iori-folder.png" data-dark="../shots/dark/iori-folder.png" width="400" height="627" alt="Your apps: a folder" loading="eager">
+<img data-name="iori-installing" data-cap="Your apps: getting an app" data-cap-ja="Your apps：入れているところ" src="../shots/iori-installing.png" data-dark="../shots/dark/iori-installing.png" width="400" height="627" alt="Your apps: getting an app" loading="eager">
+</div></div>
+<p class="cap" aria-live="polite"><span class="en">Home</span><span class="ja" lang="ja" hidden>庵</span></p>
+<figcaption>
+<p class="en">Home has a dark mode too. On MuditaOS it is a switch in Home's Settings.</p>
+<p class="ja" lang="ja" hidden>庵にもダークモードがある。MuditaOSでは、庵の設定のスイッチで。</p>
+<button type="button" class="daynight" aria-pressed="false" hidden><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg><span class="en">Day or night</span><span class="ja" lang="ja" hidden>昼か夜か</span></button>
+</figcaption>
+</figure>
+</aside>
+</div>
 </main>
 <script>
 document.querySelectorAll('button.jp').forEach(function (b) {
@@ -592,29 +603,6 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   });
 })();
 
-// The phone turns through three of Home's screens: each change is a new page on E Ink, so it flashes and
-// writes itself out again. It turns only while the phone is in view and the page is in front; when less
-// motion is asked for, the pages still change, without the flash or the writing out. The dots always work.
-(function () {
-  var box = document.querySelector('.screens'), dots = document.querySelector('.dots');
-  if (!box || !dots) return;
-  var names = ['s-home', 's-apps', 's-nc'], at = 0, timer = null, seen = true;
-  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  dots.hidden = false;
-  function show(i) {
-    at = i;
-    box.querySelectorAll('.screen').forEach(function (sc) { sc.classList.toggle('on', sc.classList.contains(names[i])); });
-    var on = box.querySelector('.screen.on'); on.replaceWith(on.cloneNode(true));   // start its drawing again
-    dots.querySelectorAll('button').forEach(function (d, j) { d.setAttribute('aria-pressed', j === i ? 'true' : 'false'); });
-  }
-  function next() { if (seen && !document.hidden) show((at + 1) % names.length); }
-  function run(first) { clearInterval(timer); timer = setTimeout(function () { next(); timer = setInterval(next, 7000); }, first); }
-  dots.querySelectorAll('button').forEach(function (d, j) { d.addEventListener('click', function () { show(j); run(9000); }); });
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (es) { seen = es[0].isIntersecting; }).observe(box);
-  }
-  run(9000);   // the home screen first writes itself out in full
-})();
 // Your apps: Install goes through its steps as Home's page shows them (Downloading in tenths, Checking,
 // Installing), with what is being checked written under it.
 (function () {
@@ -641,19 +629,57 @@ document.querySelectorAll('button.jp').forEach(function (b) {
     io.observe(fold);
   }
 })();
-// Day or night: the button under the phone does what the one in the corner does. When the page turns,
-// the phone's screen clears with an E Ink flash and writes itself out again, in the new colours.
+// The phone beside the words: as each part of the page comes to the middle of the screen, the phone shows
+// Home's own screen for it, a page turn on E Ink: a flash, then the new page. The Japanese text says what
+// the English says, so it takes the same pictures. A picture that is missing just leaves the last one up.
+// On a narrow screen the phone is a small picture in the corner; a press makes it bigger, another smaller.
 (function () {
+  var stage = document.querySelector('.stage'); if (!stage) return;
+  var screen = stage.querySelector('.screen'), cap = stage.querySelector('.cap');
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // the Japanese twins of marked English paragraphs and items take the same picture
+  document.querySelectorAll('section').forEach(function (sec) {
+    var en = sec.querySelector(':scope > div.en, :scope .split > div > div.en, :scope div.en');
+    var ja = sec.querySelector('div.ja');
+    if (!en || !ja) return;
+    ['li', 'p'].forEach(function (t) {
+      var a = en.querySelectorAll(t), b = ja.querySelectorAll(t);
+      a.forEach(function (x, i) { if (x.dataset.shot && b[i]) b[i].dataset.shot = x.dataset.shot; });
+    });
+  });
+  screen.querySelectorAll('img').forEach(function (img) {
+    img.addEventListener('error', function () { img.dataset.broken = '1'; });
+  });
+  var now = 'iori';
+  function show(name) {
+    if (name === now) return;
+    var img = screen.querySelector('img[data-name="' + name + '"]');
+    if (!img || img.dataset.broken || (img.complete && !img.naturalWidth)) return;
+    now = name;
+    screen.querySelectorAll('img.on').forEach(function (x) { x.classList.remove('on'); });
+    img.classList.add('on');
+    if (!still) { screen.classList.remove('flash'); void screen.offsetWidth; screen.classList.add('flash'); }
+    cap.querySelector('.en').textContent = img.dataset.cap;
+    cap.querySelector('.ja').textContent = img.dataset.capJa;
+  }
+  var marks = [].slice.call(document.querySelectorAll('[data-shot]'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting && e.target.offsetParent !== null) show(e.target.dataset.shot); });
+    }, { rootMargin: '-42% 0px -52% 0px' });
+    marks.forEach(function (m) { io.observe(m); });
+  }
+  stage.addEventListener('click', function (e) {
+    if (e.target.closest('button')) return;
+    if (matchMedia('(max-width: 52rem)').matches) stage.classList.toggle('big');
+  });
+  // Day or night: the button under the phone does what the one in the corner does, and the phone turns its page
   var corner = document.querySelector('button.theme'), dn = document.querySelector('button.daynight');
   var root = document.documentElement;
   function dark() { var t = root.getAttribute('data-theme'); return t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
   function sync() { if (dn) dn.setAttribute('aria-pressed', dark() ? 'true' : 'false'); }
-  function redraw() {
-    var sc = document.querySelector('.screen.on');
-    if (sc && !matchMedia('(prefers-reduced-motion: reduce)').matches) sc.replaceWith(sc.cloneNode(true));
-    sync();
-  }
-  if (corner) corner.addEventListener('click', redraw);
+  function flash() { if (!still) { screen.classList.remove('flash'); void screen.offsetWidth; screen.classList.add('flash'); } sync(); }
+  if (corner) corner.addEventListener('click', flash);
   if (dn && corner) { dn.hidden = false; dn.addEventListener('click', function () { corner.click(); }); }
   sync();
 })();
