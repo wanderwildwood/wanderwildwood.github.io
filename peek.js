@@ -1,17 +1,18 @@
-// Wander, from the game, now and then looks out at the visitor: on the main page he rises from behind
-// an app's picture, two or three times down the page; on Home's page he steps in once from the right
-// margin and back. A press on him opens the game's page. Drawn from shots/wander-peek.png: ten frames
-// of 12x37 from the game's own sheet (stand, look up, then the eight of the walk). When less
-// motion is asked for he does not move: he is already out, standing still. Each peek happens once per visit.
+// Wander, from the game, along the way down a page, moving as the game's own page moves him: by the scroll.
+// Scrolled down, he goes on; scrolled back, he goes back. On the main page he rises from behind the picture
+// of each app the game quietly knows about (the cards named in data-cards: nothing says why), walks along its
+// top, looks up at the visitor, walks on and sinks out of sight. On Home's page he walks in from the right margin, looks up, and sits down; scrolled back, he gets up
+// and walks off. A press on him opens the game's page.
+// Drawn from shots/wander-peek.png: fourteen frames of 14x37 from the game's own sheet (stand, look up, the
+// eight of the walk, the three of sitting down, and sitting).
 (function () {
-  if (!('IntersectionObserver' in window)) return;
-  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;   // then he is simply there, standing, with no motion
   var script = document.currentScript, base = (script && script.dataset.base) || '';
   var mode = (script && script.dataset.mode) || 'rise';
-  var W = 12, H = 37, S = 3;                       // a frame, and how many screen pixels to a game pixel
-  var STAND = 0, LOOK = 1, WALK = 2;               // where each pose starts in the strip
+  var W = 14, H = 37, S = 3, N = 14;               // a frame; screen pixels to a game pixel; frames in the strip
+  var STAND = 0, LOOK = 1, WALK = 2, SITDOWN = 10, SIT = 13;
+  var STRIDE = 2 * S;                              // a walk frame for every two of his pixels gone, as the game steps him
 
-  function figure(flip) {
+  function figure() {
     var a = document.createElement('a');
     a.className = 'wander-peek';
     a.href = base + 'wanderthegame/';
@@ -19,89 +20,85 @@
     a.setAttribute('aria-hidden', 'true');
     a.tabIndex = -1;
     a.style.cssText = 'position:absolute;display:block;width:' + W * S + 'px;height:' + H * S + 'px;' +
-      'background:url(' + base + 'shots/wander-peek.png) 0 0/' + W * S * 10 + 'px ' + H * S + 'px no-repeat;' +
-      'image-rendering:pixelated;cursor:pointer;z-index:0;' + (flip ? 'transform:scaleX(-1);' : '');
+      'background:url(' + base + 'shots/wander-peek.png) 0 0/' + W * S * N + 'px ' + H * S + 'px no-repeat;' +
+      'image-rendering:pixelated;cursor:pointer;z-index:0;visibility:hidden;';
     return a;
   }
   function pose(el, n) { el.style.backgroundPosition = (-n * W * S) + 'px 0'; }
-  function later(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
-  // Moves in steps, as the game moves him: whole game pixels, a few at a time.
-  function slide(el, prop, from, to, ms, walk) {
-    return new Promise(function (done) {
-      var steps = Math.max(1, Math.round(Math.abs(to - from) / S)), i = 0, f = 0;
-      var each = ms / steps;
-      (function tick() {
-        i++; var v = from + (to - from) * (i / steps);
-        el.style[prop] = Math.round(v / S) * S + 'px';
-        if (walk) { f = (f + 1) % 8; pose(el, WALK + f); }
-        if (i < steps) setTimeout(tick, each); else done();
-      })();
-    });
-  }
-  function once(target, fn, opts) {
-    var io = new IntersectionObserver(function (es) {
-      if (es[0].isIntersecting) { io.disconnect(); fn(); }
-    }, opts);
-    io.observe(target);
-  }
+  function face(el, left) { el.style.transform = left ? 'scaleX(-1)' : 'none'; }
+  function snap(v) { return Math.round(v / S) * S; }   // whole game pixels
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function part(p, a, b) { return clamp((p - a) / (b - a)); }   // how far p is through [a, b]
+  function walkFrame(dist) { return WALK + (Math.floor(Math.abs(dist) / STRIDE) % 8); }
+
+  var players = [], queued = false;
+  function frame() { queued = false; players.forEach(function (f) { f(); }); }
+  function ask() { if (!queued) { queued = true; requestAnimationFrame(frame); } }
+  addEventListener('scroll', ask, { passive: true });
+  addEventListener('resize', ask);
+  addEventListener('load', ask);
 
   if (mode === 'rise') {
-    // Two or three cards spread down the list, each in a row with a card above it (not just under a
-    // heading), so he rises into the gap between the rows and never over words.
-    var cards = [].slice.call(document.querySelectorAll('.apps > .app')).filter(function (c) {
-      var p = c.previousElementSibling, n = 0;
-      while (p && n < 4) { if (p.classList.contains('group')) return false; p = p.previousElementSibling; n++; }
-      return c.querySelector('img.shot');
-    });
-    if (!cards.length) return;
-    var picks = [0.18, 0.5, 0.82].map(function (q) { return cards[Math.floor(q * (cards.length - 1))]; })
-      .filter(function (c, i, all) { return all.indexOf(c) === i; });
-    picks.forEach(function (card, k) {
-      var shot = card.querySelector('img.shot');
-      var holder = shot.parentNode.tagName === 'PICTURE' || shot.parentNode.tagName === 'A' ? shot.parentNode : shot;
-      if (getComputedStyle(card).position === 'static') card.style.position = 'relative';
-      holder.style.position = holder.style.position || 'relative';
-      holder.style.zIndex = '1';
-      var w = figure(k % 2 === 1);
-      w.style.top = (holder.offsetTop) + 'px';
-      w.style.left = Math.round(holder.offsetWidth - W * S - 10) + 'px';   // at the picture's right, clear of the links above
-      pose(w, STAND);
-      card.insertBefore(w, card.firstChild);
-      once(card, function () {
-        var top = holder.offsetTop, up = top - Math.round(H * S * 0.4);
-        w.style.top = top + 'px';
-        w.style.left = (holder.offsetLeft + holder.getBoundingClientRect().width - W * S - 10) + 'px';   // measured now the picture is laid out
-        if (still) { w.style.top = up + 'px'; pose(w, LOOK); return; }
-        later(400 + k * 150)
-          .then(function () { return slide(w, 'top', top, up, 700); })
-          .then(function () { return later(700); })
-          .then(function () { pose(w, LOOK); return later(1500); })
-          .then(function () { pose(w, STAND); return later(500); })
-          .then(function () { return slide(w, 'top', up, top, 500); });
-      }, { rootMargin: '0px 0px -30% 0px', threshold: 0.25 });
-    });
+    var ids = ((script && script.dataset.cards) || '').split(',').filter(Boolean);
+    ids.map(function (id) { return document.getElementById(id.trim()); })
+      .filter(function (c) { return c && c.querySelector('img.shot'); })
+      .forEach(function (card) {
+        var shot = card.querySelector('img.shot');
+        var holder = (shot.parentNode.tagName === 'PICTURE' || shot.parentNode.tagName === 'A') ? shot.parentNode : shot;
+        if (getComputedStyle(card).position === 'static') card.style.position = 'relative';
+        holder.style.position = 'relative';
+        holder.style.zIndex = '1';
+        // A card at the head of its group has the group's heading just above its picture: there he keeps to
+        // the picture's right side, clear of the heading's words.
+        var under = false, q = card.previousElementSibling;
+        for (var i = 0; q && i < 4; i++, q = q.previousElementSibling) if (q.classList.contains('group')) { under = true; break; }
+        var w = figure();
+        card.insertBefore(w, card.firstChild);
+        players.push(function () {
+          var r = card.getBoundingClientRect(), vh = innerHeight;
+          // 0 as the card's top comes up past 90% of the screen, 1 as it goes over 20%
+          var p = clamp((vh * 0.9 - r.top) / (vh * 0.7));
+          var top = holder.offsetTop, lift = H * S * 0.34;
+          var wide = holder.getBoundingClientRect().width;
+          var right = holder.offsetLeft + wide - W * S - 6, left = holder.offsetLeft + (under ? wide * 0.55 : 6);
+          var mid = (right + left) / 2;
+          var up = part(p, 0, 0.12) - part(p, 0.88, 1);     // out from behind, and back
+          var x, n;
+          if (p < 0.42) { var a = part(p, 0.12, 0.42); x = right + (mid - right) * a; n = a > 0 && a < 1 ? walkFrame(x - right) : STAND; }
+          else if (p < 0.58) { x = mid; n = LOOK; }
+          else { var b = part(p, 0.58, 0.88); x = mid + (left - mid) * b; n = b > 0 && b < 1 ? walkFrame(x - right) : STAND; }
+          w.style.left = snap(x) + 'px';
+          w.style.top = snap(top - lift * up) + 'px';
+          w.style.visibility = up > 0 ? 'visible' : 'hidden';
+          face(w, n !== LOOK);                               // walking along to the left; facing out to look
+          pose(w, n);
+        });
+      });
   } else {
-    // In from the right margin, once, as the last part of the page comes up: he walks in a little way,
-    // looks up, and walks back out.
-    var at = document.querySelector(script.dataset.at || 'main');
+    // In from the right margin beside one part of the page, in the page, scrolling with it.
+    var at = document.querySelector((script && script.dataset.at) || 'main');
+    var main = document.querySelector('main') || document.body;
     if (!at) return;
-    var w = figure(true);
-    w.style.position = 'fixed';
+    var w = figure();
     w.style.zIndex = '40';
-    w.style.bottom = '14vh';
-    w.style.right = -W * S + 'px';
-    pose(w, STAND);
     document.body.appendChild(w);
-    once(at, function () {
-      var room = Math.max(0, (innerWidth - (document.querySelector('main') || document.body).getBoundingClientRect().right));
-      var into = Math.min(Math.max(room * 0.45, 18), 120);
-      if (still) { w.style.right = into + 'px'; pose(w, LOOK); return; }
-      slide(w, 'right', -W * S, into, 1600, true)
-        .then(function () { pose(w, STAND); return later(600); })
-        .then(function () { pose(w, LOOK); return later(1600); })
-        .then(function () { pose(w, STAND); return later(400); })
-        .then(function () { w.style.transform = 'none'; return slide(w, 'right', into, -W * S - 4, 1500, true); })
-        .then(function () { w.remove(); });
-    }, { threshold: 0.3 });
+    players.push(function () {
+      var room = innerWidth - main.getBoundingClientRect().right;
+      if (room < W * S + 24) { w.style.visibility = 'hidden'; return; }   // no margin to stand in: he stays in the game
+      var r = at.getBoundingClientRect(), vh = innerHeight;
+      var p = clamp((vh * 0.95 - r.top) / (vh * 0.75));
+      var into = Math.min(Math.max(room * 0.45 - W * S / 2, 12), 140);
+      var off = -W * S - 4;
+      var x, n;
+      if (p < 0.5) { var a = part(p, 0.05, 0.5); x = off + (into - off) * a; n = a > 0 && a < 1 ? walkFrame(x - off) : STAND; }
+      else if (p < 0.68) { x = into; n = LOOK; }
+      else { x = into; var s = part(p, 0.68, 0.9); n = s >= 1 ? SIT : s <= 0 ? LOOK : SITDOWN + Math.min(2, Math.floor(s * 3)); }
+      face(w, true);                                     // he has come in from the right: facing the page
+      w.style.right = snap(x) + 'px';
+      w.style.top = Math.round(r.top + scrollY + 24) + 'px';
+      w.style.visibility = p > 0.05 ? 'visible' : 'hidden';
+      pose(w, n);
+    });
   }
+  ask();
 })();
