@@ -1,11 +1,11 @@
 // Wander, from the game, now and then looks out at the visitor: on the main page he rises from behind
 // an app's picture, two or three times down the page; on Home's page he steps in once from the right
 // margin and back. A press on him opens the game's page. Drawn from shots/wander-peek.png: ten frames
-// of 12x37 from the game's own sheet (stand, look up, then the eight of the walk). Not at all when less
-// motion is asked for; each peek happens once per visit.
+// of 12x37 from the game's own sheet (stand, look up, then the eight of the walk). When less
+// motion is asked for he does not move: he is already out, standing still. Each peek happens once per visit.
 (function () {
   if (!('IntersectionObserver' in window)) return;
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;   // then he is simply there, standing, with no motion
   var script = document.currentScript, base = (script && script.dataset.base) || '';
   var mode = (script && script.dataset.mode) || 'rise';
   var W = 12, H = 37, S = 3;                       // a frame, and how many screen pixels to a game pixel
@@ -71,6 +71,7 @@
         var top = holder.offsetTop, up = top - Math.round(H * S * 0.4);
         w.style.top = top + 'px';
         w.style.left = (holder.offsetLeft + holder.getBoundingClientRect().width - W * S - 10) + 'px';   // measured now the picture is laid out
+        if (still) { w.style.top = up + 'px'; pose(w, LOOK); return; }
         later(400 + k * 150)
           .then(function () { return slide(w, 'top', top, up, 700); })
           .then(function () { return later(700); })
@@ -94,6 +95,7 @@
     once(at, function () {
       var room = Math.max(0, (innerWidth - (document.querySelector('main') || document.body).getBoundingClientRect().right));
       var into = Math.min(Math.max(room * 0.45, 18), 120);
+      if (still) { w.style.right = into + 'px'; pose(w, LOOK); return; }
       slide(w, 'right', -W * S, into, 1600, true)
         .then(function () { pose(w, STAND); return later(600); })
         .then(function () { pose(w, LOOK); return later(1600); })
