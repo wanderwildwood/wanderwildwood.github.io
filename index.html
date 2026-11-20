@@ -34,13 +34,14 @@
     --edge: #bfb4a2;
     --lift: 0 1px 1px rgba(60, 45, 25, .10), 0 10px 22px -14px rgba(60, 45, 25, .45);
     --hard: rgba(40, 30, 15, .2);   /* a hard shadow, as the game's page has: the light from one side, no blur */
+    --floor: #7a7a7a;    /* the game's forest floor, under Wander's card and under Kumo at the foot */
     color-scheme: light;
   }
   /* Dark follows the computer or phone, unless the button in the corner has been pressed (theme.js). */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --edge: #3a342b; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); --hard: rgba(0, 0, 0, .55); color-scheme: dark; }
+    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --edge: #3a342b; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); --hard: rgba(0, 0, 0, .55); --floor: #3a3a3a; color-scheme: dark; }
   }
-  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --edge: #3a342b; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); --hard: rgba(0, 0, 0, .55); color-scheme: dark; }
+  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --edge: #3a342b; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); --hard: rgba(0, 0, 0, .55); --floor: #3a3a3a; color-scheme: dark; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -61,17 +62,18 @@
   h2 {
     font-size: 1.2rem; font-weight: 600; text-transform: none;
     letter-spacing: 0; color: var(--quiet);
-    margin: 3rem 0 1.25rem; padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--rule);
+    margin: 3.2rem 0 1.25rem; padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--rule);   /* the game's page rules its headings off in 2px */
   }
   p { margin: 0 0 1.1rem; }
   a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--line); }
   a:hover { text-decoration-style: dotted; text-decoration-color: currentColor; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
   .lede { color: var(--quiet); max-width: none; }   /* a section's opening line runs the full width (his choice, kept 2026-11-06) */
   .coming { font-weight: normal; color: var(--quiet); }   /* beside the game's title, in the page's quiet color */
   .coming[hidden] { display: none; }
   .jump-label { font-weight: 700; color: var(--ink); }   /* the row's name: bold so it isn't lost, and plain words, not a link */
-  .jump { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 0.4rem 2rem; margin: 0 0 1.5rem; font-size: 1.2rem; }   /* on a phone the section links wrap from the left */
+  .jump { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-start; gap: 0.4rem 2rem; margin: 0 0 1.5rem; font-size: 1.2rem; }   /* on a phone the section links wrap from the left */
   @media (min-width: 48rem) { .jump { justify-content: space-between; } }   /* wider, the row spreads across the whole column */
   /* each category a tab, as the apps' own tabs are: the one you are in filled in black, the rest plain */
   .jump a { padding: 0.15rem 0.7rem; border: 2px solid transparent; text-decoration: none; color: var(--ink); }
@@ -94,10 +96,10 @@
     padding: 0.54rem 1.35rem 0.54rem 0.99rem;
     border: 2px solid var(--ink); text-decoration: none;
     font-weight: 600; font-size: 1.08rem; line-height: 1.2;
-    background: var(--raise); box-shadow: 4px 4px 0 var(--ink);   /* pressed, it goes down into its shadow, as on the game's page */
+    background: var(--raise); box-shadow: 3px 3px 0 var(--ink);   /* pressed, it goes down into its shadow, as on the game's page */
   }
   .feedlink:hover { background: var(--paper); text-decoration: none; }
-  .feedlink:active { transform: translate(4px, 4px); box-shadow: none; }
+  .feedlink:active { transform: translate(3px, 3px); box-shadow: none; }
   .feedlink .llama { width: 3.825rem; height: 3.825rem; flex: none; }
   .feedlink .heart { width: 3.825rem; height: 3.825rem; flex: none; fill: currentColor; }   /* GitHub's own heart (Octicons, MIT) in the llama's box, so the two buttons are the same size */
   /* The drawing beside the name and what this is; on a phone, above it. */
@@ -131,7 +133,9 @@
   .apps .group {
     grid-column: 1 / -1; margin: 1.2rem 0 -1.2rem;
     font-size: 1.05rem; font-weight: 600; color: var(--quiet);
+    display: flex; align-items: center; gap: 0.9rem;
   }
+  .apps .group::after { content: ""; flex: 1; height: 2px; background: var(--rule); }   /* the group's name, then a rule out to the edge, as a shelf for its four */
   .apps .group:first-child { margin-top: 0; }
   /* A landscape picture in a portrait slot left two empty columns beside it. */
   .app.wide { grid-column: span 2; }
@@ -146,9 +150,7 @@
   /* a strip of the game's forest floor along the card's foot, with a few of its mushrooms and creatures on it,
      drawn from the game's own pixel tables, 3 to a pixel */
   #sanpo { position: relative; padding-bottom: 3.6rem; }
-  #sanpo .floor { position: absolute; left: 0; right: 0; bottom: 0; height: 1.1rem; background: #7a7a7a; border-radius: 0 0 7px 7px; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #sanpo .floor { background: #3a3a3a; } }
-  :root[data-theme="dark"] #sanpo .floor { background: #3a3a3a; }
+  #sanpo .floor { position: absolute; left: 0; right: 0; bottom: 0; height: 1.1rem; background: var(--floor); border-radius: 0 0 7px 7px; }
   #sanpo .floor img { position: absolute; bottom: calc(1.1rem - 3px); image-rendering: pixelated; }
   @media (max-width: 40rem) { #sanpo .floor img:nth-child(3), #sanpo .floor img:nth-child(5) { display: none; } }   /* fewer on a phone */
   /* The note that says what his peeks mean, as a small card he looks out over, as he does over the app
@@ -203,6 +205,14 @@
   .app p { margin: 0 0 0.35rem; }
   .links { font-size: 0.85rem; color: var(--quiet); }
   .links a { margin-right: 1rem; white-space: nowrap; }
+  /* an app's Download as a small button, as Home's and the game's are, on a smaller shadow; Source and
+     Release notes stay plain links beside it */
+  .app .links:not(.go):not(.top) { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; }
+  .app .links:not(.go):not(.top) a { margin-right: 0; }
+  .app .links:not(.go):not(.top) a[href$=".apk"] { color: var(--ink); text-decoration: none; background: var(--raise);
+    border: 2px solid var(--ink); padding: 0.12rem 0.6rem; box-shadow: 2px 2px 0 var(--ink); margin-right: 0.15rem; }
+  .app .links:not(.go):not(.top) a[href$=".apk"]:hover { background: var(--paper); }
+  .app .links:not(.go):not(.top) a[href$=".apk"]:active { transform: translate(2px, 2px); box-shadow: none; }
   /* the game's card: the picture and the title go to its own page, and two plain buttons under the words */
   .shotlink { display: block; }
   .app h4 a { color: inherit; text-decoration: none; } .app h4 a:hover { text-decoration: underline; }
@@ -272,8 +282,11 @@
   p .hut-inline, li .hut-inline { width: 0.96em; height: 0.8em; vertical-align: -0.06em; color: var(--quiet); }
   li .nc-inline { width: 1.97em; height: 0.8em; vertical-align: -0.06em; color: var(--quiet); }
 
-  footer.kumo { text-align: center; padding: 2.5rem 0 3rem; }
-  footer.kumo img { image-rendering: pixelated; max-width: 100%; height: auto; }
+  footer.kumo { text-align: center; padding: 3rem 0 3rem; }
+  footer.kumo a { display: inline-block; padding: 0 3.5rem; border-bottom: 6px solid var(--floor); }   /* Kumo grazing on a strip of the game's forest floor */
+  footer.kumo img { display: block; image-rendering: pixelated; max-width: 100%; height: auto; }
+  footer.kumo a { position: relative; }
+  footer.kumo img.shroom { position: absolute; bottom: 0; max-width: none; }   /* mushrooms on the same floor as Kumo, from the game's own pixel tables */
   /* Light or dark, in the corner. */
   button.theme { position: fixed; top: calc(0.9rem + env(safe-area-inset-top, 0px)); right: calc(1rem + env(safe-area-inset-right, 0px));
     width: 2.25rem; height: 2.25rem; z-index: 50; padding: 0.45rem; cursor: pointer; color: var(--quiet);
@@ -1309,7 +1322,7 @@ film is put together <a href="https://lyminalkin.com">elsewhere</a>.</p>
 </div>
 
 </main>
-<footer class="kumo"><a href="wanderthegame/"><picture><source srcset="kumo-dark.gif" media="(prefers-color-scheme: dark)" data-dark-source><img src="kumo.gif" width="172" height="140" alt="Kumo the llama grazing. Opens the page of Wander, the game." loading="lazy"></picture></a></footer>
+<footer class="kumo"><a href="wanderthegame/"><picture><source srcset="kumo-dark.gif" media="(prefers-color-scheme: dark)" data-dark-source><img src="kumo.gif" width="172" height="140" alt="Kumo the llama grazing. Opens the page of Wander, the game." loading="lazy"></picture><img class="shroom" src="shots/wood-agaric.png" width="21" height="24" alt="" style="left: 0.7rem"><img class="shroom" src="shots/wood-bolete.png" width="15" height="12" alt="" style="left: 2.2rem"><img class="shroom" src="shots/wood-tuft.png" width="21" height="15" alt="" style="right: 2rem"><img class="shroom" src="shots/wood-chanterelle.png" width="18" height="18" alt="" style="right: 0.6rem"></a></footer>
 <script>
 document.querySelectorAll('button.jp').forEach(function (b) {
   b.addEventListener('click', function () {
