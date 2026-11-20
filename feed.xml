@@ -4,8 +4,91 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-20T06:26:56Z</updated>
+  <updated>2026-11-20T19:52:06Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Messaging 1.35.47</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.47"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.47</id>
+    <updated>2026-11-20T19:52:06Z</updated>
+    <content type="text"># Messaging 1.35.47
+
+- A Signal message the other person has already received stays on screen as sent, even when the copy for your other phone does not go through. It used to vanish and come back into the writing box, so sending it again gave them two copies
+- Desktop Sync shows an edited Signal message&#x27;s new words straight away, marked &quot;edited&quot;</content>
+  </entry>
+  <entry>
+    <title>Mailbox 0.1.66</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.66"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.66</id>
+    <updated>2026-11-20T18:39:47Z</updated>
+    <content type="text"># Mailbox 0.1.66
+
+## Fixed
+
+- Outbox: a message could sit in the Outbox unsent, with later messages waiting behind it and Send messages doing nothing, until the app was restarted. Mailbox now keeps going after any error, so one failed job no longer holds up every send after it
+- Outbox: a message that hasn&#x27;t been tried yet says &quot;Waiting to send&quot; where its preview would be</content>
+  </entry>
+  <entry>
+    <title>Herbal 0.1.1</title>
+    <link href="https://github.com/wanderwildwood/yakuso/releases/tag/v0.1.1"/>
+    <id>https://github.com/wanderwildwood/yakuso/releases/tag/v0.1.1</id>
+    <updated>2026-11-20T17:44:12Z</updated>
+    <content type="text">Herbal 0.1.1
+
+- The home bar has only the settings cog; About&#x27;s i is on the Settings page, as in the other apps.
+- Every list sits at the same margin as the herb pages.
+- The journal and the cupboard add from a button at the top: &quot;Add an entry&quot;, &quot;Add to the cupboard&quot;.
+- About &gt; Licenses shows the full texts of CC BY 4.0, CC BY 3.0 and CC BY-SA 4.0, the licenses of the articles some herb text is adapted from.
+- When the timer&#x27;s &quot;Turn on&quot; or &quot;Allow&quot; can&#x27;t open the phone&#x27;s settings, it says so.
+- Settings rows are a little taller, as in the other apps.</content>
+  </entry>
+  <entry>
+    <title>Engraver 0.0.18</title>
+    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.18"/>
+    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.18</id>
+    <updated>2026-11-20T16:47:37Z</updated>
+    <content type="text"># Engraver 0.0.18
+
+- Share to Engraver: text or a .ly file shared from another app becomes a new score in your folder and opens in the editor. From an AI app&#x27;s answer, the LilyPond code block is taken and the sentences around it are left out; a name already in the folder gets a number (&quot;shared 2.ly&quot;)
+- Pictures and other files that are not text are turned away with a message, as is anything over 2 MB</content>
+  </entry>
+  <entry>
+    <title>Herbal 0.1.0</title>
+    <link href="https://github.com/wanderwildwood/yakuso/releases/tag/v0.1.0"/>
+    <id>https://github.com/wanderwildwood/yakuso/releases/tag/v0.1.0</id>
+    <updated>2026-11-20T16:45:32Z</updated>
+    <content type="text">Herbal 0.1.0: the first release.
+
+A small offline book of herbs for tea, for the Mudita Kompakt.
+
+- 44 herbs, A to Z, each with what it is traditionally used for and what the research says, how to brew it (°F and °C), the plant, its cautions and its sources. An herb with a serious caution says so at the top of its page. Four &quot;don&#x27;t use&quot; pages say why not.
+- A finder by everyday need: sleep, calm, digestion, colds, sore throat, nausea, headache, period cramps, pregnancy and nursing.
+- A brew timer with green and black tea, herbal infusion, decoction and settings of your own. It rings with the screen off.
+- A journal of what you brewed, and a cupboard of what you have.
+- The journal, cupboard and your own timer settings can be kept as one file and read back in.
+
+No account, no network: there is no internet permission. It is a reference book, not medical advice.</content>
+  </entry>
+  <entry>
+    <title>Engraver 0.0.17</title>
+    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.17"/>
+    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.17</id>
+    <updated>2026-11-20T16:29:03Z</updated>
+    <content type="text"># Engraver 0.0.17
+
+- Re-indent in the editor&#x27;s ⋯ menu sets the spaces at the start of each line the way Frescobaldi does (a port of python-ly&#x27;s indenter): two spaces a level, a line that carries on after a bracket lines up with what follows it, and Scheme indents the way Emacs does. Only the white space at the start of lines changes, and Undo takes it back in one step
+- The scrollbar shows where you are on a row taller than the page</content>
+  </entry>
+  <entry>
+    <title>Handheld Games 0.1.42</title>
+    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.42"/>
+    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.42</id>
+    <updated>2026-11-20T15:44:12Z</updated>
+    <content type="text"># Handheld Games 0.1.42
+
+- A and B are back to their earlier size and place: larger, close together on the slant, and one thumb between them presses both
+- The scrollbar shows where you are in a row taller than the page</content>
+  </entry>
   <entry>
     <title>Home 1.0.2</title>
     <link href="https://github.com/wanderwildwood/iori/releases/tag/v1.0.2"/>
@@ -961,158 +1044,6 @@ Thank you. For plain inkOS, go to [gezimos&#x27;s repository](https://github.com
 - Converter: a pasted sin, cos or tan follows the degrees or radians setting
 - Clear tape deletes the saved tape, so a full phone cannot bring the old sums back
 - A tape that cannot be saved no longer stops the answer from showing
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Sky 0.13.15</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.15"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.15</id>
-    <updated>2026-11-19T03:52:30Z</updated>
-    <content type="text"># Sky 0.13.15
-
-- A new icon: a rain cloud
-- Alerts come from the US Weather Service for every place and, outside the US, from KDE&#x27;s alert server as well; when the Weather Service fails for a place that may be in the US, the alerts shown and kept stay as they were
-- Radar tries again on the next return after a load that failed
-- German: the app is called Sky, as the launcher shows it
-- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Instant alerts: Turn off on the notification works at once instead of waiting on the servers
-- Instant alerts make the new subscription before letting the old one go, replace a key the server rejects, keep trying to delete a subscription the server did not confirm but not one it refused outright, and take down a channel given up while offline once the connection is back
-- The time rain or snow starts or stops, on the lock screen and in Wander, is read on the place&#x27;s own clock, so it is right across a change of the clocks
-- Once the forecast&#x27;s start or stop of rain or snow has passed, Wander is given the sky after it, not the one before
-- A weather station gets five seconds, so a slow one does not outlast the refresh
-- An Instant alerts service refused in the background stops cleanly
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Solitaire 0.1.25</title>
-    <link href="https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.25"/>
-    <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.25</id>
-    <updated>2026-11-19T03:52:23Z</updated>
-    <content type="text"># Solitaire 0.1.25
-
-- Spider deals over empty columns once fewer cards than columns are left on the table
-- FreeCell: Deal # asks for a second tap when a game is under way
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A saved game that no longer replays is kept aside, and the game goes on from the moves that still do
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Speedometer 0.1.33</title>
-    <link href="https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.33"/>
-    <id>https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.33</id>
-    <updated>2026-11-19T03:52:15Z</updated>
-    <content type="text"># Speedometer 0.1.33
-
-- Speed, heights and accuracy are rounded to the nearest whole number, not cut
-- A fix older than five seconds dashes only the speed and shows the searching line, while position, altitude and sea-level pressure stay; a location provider switched off says so
-- The scrollbar sits at the screen&#x27;s edge
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- The meter keeps its screen through a dark-mode or font-size change
-- A location dialog dismissed the first time is not shown as turned off for good, a later yes clears the blocked wording, and a refusal is remembered across launches
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Lens 0.1.40</title>
-    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.40"/>
-    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.40</id>
-    <updated>2026-11-19T03:52:05Z</updated>
-    <content type="text"># Lens 0.1.40
-
-- A new icon: an aperture
-- A photo or video taken for another app never carries where it was taken, is written only to the address that app gave, and never overwrites a picture Lens saved itself
-- A photo another app asks for is taken as one plain picture, even with HDR+ or Night left on; asked for without an address, it is kept in Lens&#x27;s folder as well as handed back as a preview
-- A scan another app asks for opens in photo mode, where codes are read, even when Lens was last left in video
-- Datebook, Passwords, Wallet and Pictures are handed a scanned event, code or picture only when they are the real apps
-- A link in a code opens only in an app that takes links from a browser
-- Over the lock screen, settings open only after the phone is unlocked
-- A two-step sign-in code read from a QR code is not shown again and has no Copy: it goes only to Passwords or the authenticator
-- The Menu key opens the same settings as the settings button
-- A photo that could not be saved, a video that failed or ran out of room, and a camera that could not start are said on screen
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A Wi-Fi code Android cannot take is copied rather than closing the app
-- The gallery circle empties when the last picture is gone
-- The bar follows the window that comes back after another app&#x27;s photo or scan
-- The Menu key keeps working in that window, and neither it nor the settings button closes the camera while a photo is taken
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Wallet 0.1.29</title>
-    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.29"/>
-    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.29</id>
-    <updated>2026-11-19T03:51:55Z</updated>
-    <content type="text"># Wallet 0.1.29
-
-- A card handed in while another is being edited asks before leaving the unsaved one
-- A scanned card joins the group shown
-- A card&#x27;s dates go to Datebook only when it is the real Datebook
-- The export password uses a password keyboard when shown
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Dates chosen by hand no longer shift a day when you move time zones, and an exported first day counts in Catima for the whole day
-- Edit accepts an end on the same day as the start, whatever the hours
-- A pass date without a zone or time is read in the phone&#x27;s zone, and one that cannot be read is left out instead of refusing the pass
-- Each pass in a bundle is copied out under a name of its own
-- Canceling or a failed export no longer deletes or damages a file that was there before
-- Save adds a new card once however often it is pressed
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Tuner 0.1.52</title>
-    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.52"/>
-    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.52</id>
-    <updated>2026-11-19T03:51:41Z</updated>
-    <content type="text"># Tuner 0.1.52
-
-- The metronome stops for a call or another player
-- Tuner no longer offers itself for every text file: instruments, temperaments and stretch tunings come in through Load from file
-- Load temperaments: a file where some have errors loads the clean ones and says how many were skipped
-- Stretch-tuning and temperament editor rows are parted by the dotted rule
-- A recording&#x27;s audio is wiped when the tuner stops listening, and let go once saved or canceled
-- On Android 13 and later, notifications are asked for once
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A damaged instruments list or temperament, or a file that cannot be read or is over 1 MB, is refused instead of crashing or freezing
-- Saving a stretch tuning or a recording to a file that cannot be written says so instead of crashing, and the saved notice comes only after the write
-- Metronome beats keep showing past a day of play
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Parked 0.2.19</title>
-    <link href="https://github.com/wanderwildwood/okiba/releases/tag/v0.2.19"/>
-    <id>https://github.com/wanderwildwood/okiba/releases/tag/v0.2.19</id>
-    <updated>2026-11-19T03:51:33Z</updated>
-    <content type="text"># Parked 0.2.19
-
-- Notifications are asked about on first launch, not at the first ring
-- Opening the app sets the meter&#x27;s alarm again, so one dropped by a force-stop or by exact alarms being taken back still rings
-- A running meter says that after a restart it rings only once the phone is unlocked, and that a ring more than two minutes late is only shown as missed
-- The quiet notification channel is called &quot;Meter alarm, getting ready&quot; and says what it is for
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Putting the missed notice away no longer stops a ring
-- Setting the phone&#x27;s clock during a ring neither stretches nor cuts its two minutes
-- A ticket time in the hour the clock repeats in autumn is taken the second time round, not tomorrow
-- A warning&#x27;s quieting that arrives as the end starts no longer silences the end
-- An answer to the location question after the window was rebuilt is not taken for a refusal
 - A tap on the scrollbar lands on the right row after the screen changes</content>
   </entry>
 </feed>
