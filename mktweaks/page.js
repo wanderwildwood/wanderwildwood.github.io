@@ -220,7 +220,7 @@ async function readDefaults() {
 // ---- 5. stock apps -----------------------------------------------------------------------
 
 async function readStock() {
-  const s = sec("stock"), list = $("[data-list]", s);
+  const s = sec("hide-mudita-apps"), list = $("[data-list]", s);
   const all = L.parsePackages((await sh("pm list packages com.mudita")).out);
   const off = L.parsePackages((await sh(L.cmd.disabled())).out);
   const holders = L.parseRoles((await sh(L.cmd.roles())).out);
@@ -286,7 +286,7 @@ async function readAll() {
 }
 
 function placeholders() {
-  for (const id of ["defaults", "stock", "background"]) {
+  for (const id of ["defaults", "hide-mudita-apps", "background"]) {
     $(`#${id} [data-list]`).replaceChildren(el("li", { class: "empty", text: "Connect to see what is on the phone." }));
   }
   for (const id of ["browser", "animations", "dns"]) setState(sec(id), "—");
