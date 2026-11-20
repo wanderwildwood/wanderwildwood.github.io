@@ -4,6 +4,7 @@ https://wanderthe.dev/apps.json.
 
     _tools/apps-manifest.py            # write apps.json at the top of this repository
     _tools/apps-manifest.py --dry-run  # print it instead
+    _tools/apps-manifest.py --staged FILE   # releases staged but not out yet (see below)
 
 For each app in the list below (the core set and the extras from Home's MAKEOVER-PLAN.md, "The
 package") and each app Home hands its Nextcloud account to (IoriAccount.CALLERS in Home's
@@ -18,6 +19,19 @@ An APK signed by more than one certificate, or by another certificate than the o
 it, is left out with a warning: Home would refuse it anyway. The APK link is the release's own
 (the tag in the address), so the SHA-256 stays true when a newer release comes out; run this
 again after each release.
+
+--staged FILE is for writing the list before a batch of releases goes out, so the site and the
+releases can go live together. FILE is JSON, kept out of this repository:
+
+    {"apps": [{"repo": "garo", "tag": "v0.8.28", "apk": "/path/to/the/staged/garo.apk",
+               "versionName": "0.8.28", "versionCode": 53, "sha256": "...", "certSha256": "...",
+               "size": 3722052}, ...]}
+
+For each app named there, the staged APK on disk is read instead of the latest release (the same
+checks: one certificate, Home's pin, the size), it must agree with every value the file gives, and
+its link is the one the release will have: .../<repo>/releases/download/<tag>/<repo>.apk, the
+same form as the published ones. Every other app is as published. Once the releases are out, run
+it again without --staged: the result must be the same file (git diff apps.json shows nothing).
 
 Downloads are kept out of the repository (in ~/.cache/apps-manifest), and what was read from
 each one is remembered by its address, size and upload time, so a second run downloads only
@@ -129,6 +143,26 @@ def latest_apk(repo):
     return None
 
 
+def read_file(apk):
+    """What Home's list says of an APK on disk."""
+    sha = hashlib.sha256(open(apk, "rb").read()).hexdigest()
+    size = os.path.getsize(apk)
+    badging = subprocess.run([tool("aapt2"), "dump", "badging", apk], capture_output=True, text=True, check=True).stdout
+    pkg = re.search(r"package: name='([^']+)' versionCode='(\d+)' versionName='([^']*)'", badging)
+    min_sdk = re.search(r"(?:minSdkVersion|sdkVersion):'(\d+)'", badging)
+    signers = subprocess.run([tool("apksigner"), "verify", "--print-certs", apk], capture_output=True, text=True)
+    certs = sorted(set(re.findall(r"certificate SHA-256 digest: ([0-9a-f]{64})", signers.stdout)))
+    return {
+        "package": pkg.group(1) if pkg else None,
+        "versionCode": int(pkg.group(2)) if pkg else 0,
+        "versionName": pkg.group(3) if pkg else "",
+        "minSdk": int(min_sdk.group(1)) if min_sdk else 1,
+        "sha256": sha,
+        "size": size,
+        "certs": certs if signers.returncode == 0 else [],
+    }
+
+
 def read_apk(repo, tag, asset, memo):
     key = f'{asset["url"]} {asset["size"]} {asset.get("updatedAt", "")}'
     if key in memo:
@@ -136,25 +170,32 @@ def read_apk(repo, tag, asset, memo):
     with tempfile.TemporaryDirectory(dir=CACHE) as d:
         subprocess.run(["gh", "release", "download", tag, "--repo", f"{OWNER}/{repo}",
                         "--pattern", asset["name"], "--dir", d], check=True, capture_output=True)
-        apk = os.path.join(d, asset["name"])
-        sha = hashlib.sha256(open(apk, "rb").read()).hexdigest()
-        size = os.path.getsize(apk)
-        badging = subprocess.run([tool("aapt2"), "dump", "badging", apk], capture_output=True, text=True, check=True).stdout
-        pkg = re.search(r"package: name='([^']+)' versionCode='(\d+)' versionName='([^']*)'", badging)
-        min_sdk = re.search(r"(?:minSdkVersion|sdkVersion):'(\d+)'", badging)
-        signers = subprocess.run([tool("apksigner"), "verify", "--print-certs", apk], capture_output=True, text=True)
-        certs = sorted(set(re.findall(r"certificate SHA-256 digest: ([0-9a-f]{64})", signers.stdout)))
-        facts = {
-            "package": pkg.group(1) if pkg else None,
-            "versionCode": int(pkg.group(2)) if pkg else 0,
-            "versionName": pkg.group(3) if pkg else "",
-            "minSdk": int(min_sdk.group(1)) if min_sdk else 1,
-            "sha256": sha,
-            "size": size,
-            "certs": certs if signers.returncode == 0 else [],
-        }
+        facts = read_file(os.path.join(d, asset["name"]))
     memo[key] = facts
     return facts
+
+
+def staged(path):
+    """repo -> its staged release, from --staged FILE."""
+    out = {}
+    for s in json.load(open(path, encoding="utf-8"))["apps"]:
+        if not re.fullmatch(r"[A-Za-z0-9_.-]+", s["repo"]) or not re.fullmatch(r"v[0-9][0-9A-Za-z.+-]*", s["tag"]):
+            sys.exit(f"--staged: bad repo or tag in {s}")
+        out[s["repo"]] = s
+    return out
+
+
+def read_staged(s):
+    """(tag, asset, facts) for a staged APK; exits when the APK is not what the staged file says."""
+    f = read_file(s["apk"])
+    for k in ("versionName", "versionCode", "sha256", "size"):
+        if k in s and s[k] != f[k]:
+            sys.exit(f"--staged {s['repo']}: {k} is {f[k]!r} in {s['apk']}, the staged file says {s[k]!r}")
+    if "certSha256" in s and f["certs"] != [s["certSha256"]]:
+        sys.exit(f"--staged {s['repo']}: signed by {f['certs']}, the staged file says {s['certSha256']}")
+    name = f"{s['repo']}.apk"
+    asset = {"name": name, "url": f"https://github.com/{OWNER}/{s['repo']}/releases/download/{s['tag']}/{name}"}
+    return s["tag"], asset, f
 
 
 def main():
@@ -164,6 +205,13 @@ def main():
     site = cards()
     by_repo = {repo: (name, summary) for name, (repo, summary) in site.items()}
     pins, callers = home_pins()
+    stage = {}
+    if "--staged" in sys.argv:
+        i = sys.argv.index("--staged")
+        if i + 1 >= len(sys.argv):
+            sys.exit("--staged needs a file")
+        stage = staged(sys.argv[i + 1])
+    staged_repos, written = set(stage), set()
 
     wanted = [(n, True) for n in CORE] + [(n, False) for n in EXTRAS]
     rows = []  # (shown name, repo, summary, core)
@@ -187,19 +235,22 @@ def main():
 
     apps = []
     for name, repo, summary, core in rows:
-        print(f"{name} ({repo})", file=sys.stderr)
-        found = latest_apk(repo)
-        if not found:
-            warn("no APK in the latest release, left out")
-            continue
-        tag, asset = found
-        try:
-            f = read_apk(repo, tag, asset, memo)
-        except subprocess.CalledProcessError as e:
-            warn(f"could not read {asset['name']}: {e}")
-            continue
-        finally:
-            json.dump(memo, open(memo_file, "w"), indent=1)
+        print(f"{name} ({repo})" + (" staged" if repo in stage else ""), file=sys.stderr)
+        if repo in stage:
+            tag, asset, f = read_staged(stage.pop(repo))
+        else:
+            found = latest_apk(repo)
+            if not found:
+                warn("no APK in the latest release, left out")
+                continue
+            tag, asset = found
+            try:
+                f = read_apk(repo, tag, asset, memo)
+            except subprocess.CalledProcessError as e:
+                warn(f"could not read {asset['name']}: {e}")
+                continue
+            finally:
+                json.dump(memo, open(memo_file, "w"), indent=1)
         if not f["package"]:
             warn(f"{asset['name']}: aapt2 could not read it, left out")
             continue
@@ -229,9 +280,14 @@ def main():
             "minSdk": f["minSdk"],
             "size": f["size"],
         })
+        written.add(repo)
         if not asset["url"].startswith("https://"):
             sys.exit(f"{asset['url']}: not https")
 
+    if staged_repos - written - set(stage):
+        sys.exit(f"--staged: left out of the list: {', '.join(sorted(staged_repos - written - set(stage)))}")
+    if stage:
+        warn(f"staged but not on the list (no card, or not one of Home's apps): {', '.join(sorted(stage))}")
     text = json.dumps({"version": 1, "apps": apps}, indent=1, ensure_ascii=False) + "\n"
     if "--dry-run" in sys.argv:
         print(text)

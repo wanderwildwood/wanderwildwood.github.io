@@ -32,26 +32,26 @@
    "name": "Connections",
    "summary": "Everyone you know, under tabs for all, favorites and groups.",
    "core": true,
-   "versionName": "0.2.40",
-   "versionCode": 68,
-   "apk": "https://github.com/wanderwildwood/enishi/releases/download/v0.2.40/enishi.apk",
-   "sha256": "896a46e230401504390120463432c338d477e11993452472818b7838c99ba72e",
+   "versionName": "0.2.41",
+   "versionCode": 69,
+   "apk": "https://github.com/wanderwildwood/enishi/releases/download/v0.2.41/enishi.apk",
+   "sha256": "42c820148aeeee1836add08f5bec569b6c3256abefebbc12ffebf187031e32ee",
    "certSha256": "def146af0a169328cee14b3cb40db62f8d352fadf1e20371dbcf68018c8a5c5b",
    "minSdk": 25,
-   "size": 3940565
+   "size": 3937797
   },
   {
    "package": "com.wanderwildwood.koyomi",
    "name": "Datebook",
    "summary": "Month, week, day and agenda, with repeats of every ordinary shape and reminders that light the screen.",
    "core": true,
-   "versionName": "0.1.72",
-   "versionCode": 73,
-   "apk": "https://github.com/wanderwildwood/koyomi/releases/download/v0.1.72/koyomi.apk",
-   "sha256": "293d11b7c9ed960805ff9ea79ea2e15f6e30edc1326c3178daf41c41be42c185",
+   "versionName": "0.1.73",
+   "versionCode": 74,
+   "apk": "https://github.com/wanderwildwood/koyomi/releases/download/v0.1.73/koyomi.apk",
+   "sha256": "4338844fa6078990259294899b1276b58a6b0a13439e3f873a2ebf9eb858b132",
    "certSha256": "96f0e571a4e14ce861d40e4f6c536adac2026fa271b8a4ec932eb922351957bd",
    "minSdk": 25,
-   "size": 4886698
+   "size": 4902638
   },
   {
    "package": "com.wanderwildwood.oboegaki",
@@ -71,26 +71,26 @@
    "name": "Mailbox",
    "summary": "Any mail account that takes a password, read and written in black and white, a page at a time.",
    "core": true,
-   "versionName": "0.1.64",
-   "versionCode": 64,
-   "apk": "https://github.com/wanderwildwood/tayori/releases/download/v0.1.64/tayori.apk",
-   "sha256": "3d665cb2671c8f6ddeabea88c10393b6bdab91d7c4bc33b90299648c19d9e223",
+   "versionName": "0.1.65",
+   "versionCode": 65,
+   "apk": "https://github.com/wanderwildwood/tayori/releases/download/v0.1.65/tayori.apk",
+   "sha256": "e7ce588bedebf42fa9c33311621dc4b2c230d8380b55873d9939fe874e238be3",
    "certSha256": "0ef6de6e5de9a155a7b5dc91c37004b2ba0ccb50efab2cafcbdb8ac56f370a76",
    "minSdk": 26,
-   "size": 10317746
+   "size": 10325538
   },
   {
    "package": "com.wanderwildwood.garo",
    "name": "Pictures",
    "summary": "The pictures on the phone, by folder, a page at a time.",
    "core": true,
-   "versionName": "0.8.27",
-   "versionCode": 52,
-   "apk": "https://github.com/wanderwildwood/garo/releases/download/v0.8.27/garo.apk",
-   "sha256": "6e9787821a819dd8b31ce5757d3b571ad19926ab24b1be847208c33108c484e9",
+   "versionName": "0.8.28",
+   "versionCode": 53,
+   "apk": "https://github.com/wanderwildwood/garo/releases/download/v0.8.28/garo.apk",
+   "sha256": "693fedae9d1a325b63e20dc71a3b0732484a1ff18454ff5547b72affcab4c6ae",
    "certSha256": "fb01c054c1e349eb5df5937c7e6c4968824dd719ada7566342dfcb1a562d96c5",
    "minSdk": 31,
-   "size": 3707720
+   "size": 3722052
   },
   {
    "package": "com.wanderwildwood.shashinki",
@@ -110,13 +110,13 @@
    "name": "Cabinet",
    "summary": "A file manager, with the shared drives on your own servers as places like any other, and other apps open and save through it.",
    "core": true,
-   "versionName": "0.9.21",
-   "versionCode": 52,
-   "apk": "https://github.com/wanderwildwood/tana/releases/download/v0.9.21/tana.apk",
-   "sha256": "9054af76a9c9e6a4826f424e046edcb3fd9b7af640d721faf0f61e6ab6a31def",
+   "versionName": "0.9.22",
+   "versionCode": 53,
+   "apk": "https://github.com/wanderwildwood/tana/releases/download/v0.9.22/tana.apk",
+   "sha256": "bf9f319b53c16895f197df1cbb79199c0df47ffb9f42167d93c8c2a5c13fe31b",
    "certSha256": "2b3995b71fe50c7514d975b8df753b1ea9695e695c3c4d1f1ed83d64c81afe86",
    "minSdk": 30,
-   "size": 5457253
+   "size": 5475109
   },
   {
    "package": "com.wanderwildwood.aikotoba",
@@ -188,13 +188,13 @@
    "name": "Feeds",
    "summary": "Feeds read as plain text, with Gemini, gopher and Spartan alongside, and podcasts played under their show notes, marked once heard; fetched on wifi, read with the radio off.",
    "core": true,
-   "versionName": "0.6.19",
-   "versionCode": 70,
-   "apk": "https://github.com/wanderwildwood/kirinuki/releases/download/v0.6.19/kirinuki.apk",
-   "sha256": "bc7651681c843184536b50ba315d2c0d4782e24dce020dee08fa2fa7ee50c822",
+   "versionName": "0.6.20",
+   "versionCode": 71,
+   "apk": "https://github.com/wanderwildwood/kirinuki/releases/download/v0.6.20/kirinuki.apk",
+   "sha256": "c2c02b0aa9f128795333ad1ca5fdaa61f3c8465eea7f402e6020aaf701814673",
    "certSha256": "bbbc92440c2333077deca468c24b98cec426626be04f49daef1a4f284fd464af",
    "minSdk": 29,
-   "size": 32636511
+   "size": 32691247
   },
   {
    "package": "com.wanderwildwood.jibiki",
@@ -227,52 +227,52 @@
    "name": "Recipes",
    "summary": "A recipe book that keeps a recipe page's words, not the life story above them.",
    "core": false,
-   "versionName": "0.2.25",
-   "versionCode": 27,
-   "apk": "https://github.com/wanderwildwood/kondate/releases/download/v0.2.25/kondate.apk",
-   "sha256": "7ccd3cb6917f27585232a8873b666b2dda33994e98bf0cb9ca5f881b01997e9c",
+   "versionName": "0.2.26",
+   "versionCode": 28,
+   "apk": "https://github.com/wanderwildwood/kondate/releases/download/v0.2.26/kondate.apk",
+   "sha256": "5de579714e500ff8d2a6c8e599002fe6d5541e5cf82009ba1d9177dd59b79cfd",
    "certSha256": "f886bee796090ba4f97dd8babe7616b347c4a86cbab5954ab34dc43ed4072bd2",
    "minSdk": 30,
-   "size": 3141926
+   "size": 3158310
   },
   {
    "package": "com.wanderwildwood.shoka",
    "name": "Shelf",
    "summary": "Scan a book's barcode and Shelf finds its Dewey number and its place on your shelves, by number or in broad sections with Fiction first.",
    "core": false,
-   "versionName": "0.1.40",
-   "versionCode": 41,
-   "apk": "https://github.com/wanderwildwood/shoka/releases/download/v0.1.40/shoka.apk",
-   "sha256": "59df5e39061fcd736e403d8093f8c658b0e5a1bcce4994d2f9a5e07061b647db",
+   "versionName": "0.1.41",
+   "versionCode": 42,
+   "apk": "https://github.com/wanderwildwood/shoka/releases/download/v0.1.41/shoka.apk",
+   "sha256": "e9d7d587b38d8a23a4e011fa695e8c045521a4949bb9f66e3fd7467ef72757cb",
    "certSha256": "7479c85dab42dd4e97629ccff0b7eb62e1f09722b9da86ab781737286a5c6342",
    "minSdk": 30,
-   "size": 13741976
+   "size": 13754272
   },
   {
    "package": "com.wanderwildwood.mimidoku",
    "name": "Audio Reader",
    "summary": "An audiobook player.",
    "core": false,
-   "versionName": "1.3.69",
-   "versionCode": 199,
-   "apk": "https://github.com/wanderwildwood/mimidoku/releases/download/v1.3.69/mimidoku.apk",
-   "sha256": "36e1079c7e9c19a3c2aae5111d1259ec3846a5fbc7b394e13b72332c3526b88d",
+   "versionName": "1.3.70",
+   "versionCode": 200,
+   "apk": "https://github.com/wanderwildwood/mimidoku/releases/download/v1.3.70/mimidoku.apk",
+   "sha256": "0f936720aa674a544db1296f16e7b683a4c181e88326cffa5f953a421c6b6a8f",
    "certSha256": "dd932da2650dfc58b52ac6897648eb2a2e9ee8ae67d750c3869ddd3ca0d83f0e",
    "minSdk": 28,
-   "size": 5669336
+   "size": 5689816
   },
   {
    "package": "com.wanderwildwood.yumecho",
    "name": "Dream Log",
    "summary": "Arm it before sleep; if a dream wakes you, press a volume key in the dark and say it.",
    "core": false,
-   "versionName": "0.1.37",
-   "versionCode": 38,
-   "apk": "https://github.com/wanderwildwood/yumecho/releases/download/v0.1.37/yumecho.apk",
-   "sha256": "55adf3b948cf73c0e485438088068bba8ccd5c15e9886c625174bf84b7e16efb",
+   "versionName": "0.1.38",
+   "versionCode": 39,
+   "apk": "https://github.com/wanderwildwood/yumecho/releases/download/v0.1.38/yumecho.apk",
+   "sha256": "bd92d8418fa9e71552efb22d17115b21c41570f09dae92573ac6f4d91b37a100",
    "certSha256": "6ce096a3c48c12e1ef0d158e0d4eb3a8c355c74be8ac84c92697de2d84f9f62f",
    "minSdk": 31,
-   "size": 65834444
+   "size": 65853764
   },
   {
    "package": "com.wanderwildwood.fukuyaku",
@@ -604,13 +604,13 @@
    "name": "Songbook",
    "summary": "Chords, words and tab saved from the page they were found on or typed in, to play from offline.",
    "core": false,
-   "versionName": "0.1.13",
-   "versionCode": 14,
-   "apk": "https://github.com/wanderwildwood/utahon/releases/download/v0.1.13/utahon.apk",
-   "sha256": "063e39052ff73c1cbd8247a640afce80b328d0032f7c244d8a18c3bd0d7e38e5",
+   "versionName": "0.1.14",
+   "versionCode": 15,
+   "apk": "https://github.com/wanderwildwood/utahon/releases/download/v0.1.14/utahon.apk",
+   "sha256": "8b0d513398495301d1094a5610f2f3d5cc354fa387e1af1a08c2fe97cb63f750",
    "certSha256": "b6f04691f0e4a0b75bad3ec496a8503661fc96c830082e7861495c1499dd3ae8",
    "minSdk": 30,
-   "size": 3228730
+   "size": 3227942
   }
  ]
 }
