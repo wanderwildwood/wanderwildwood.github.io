@@ -33,13 +33,14 @@
     --line: #8c7f6c;     /* a link's underline */
     --edge: #bfb4a2;
     --lift: 0 1px 1px rgba(60, 45, 25, .10), 0 10px 22px -14px rgba(60, 45, 25, .45);
+    --hard: rgba(40, 30, 15, .2);   /* a hard shadow, as the game's page has: the light from one side, no blur */
     color-scheme: light;
   }
   /* Dark follows the computer or phone, unless the button in the corner has been pressed (theme.js). */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --edge: #3a342b; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); color-scheme: dark; }
+    :root:not([data-theme="light"]) { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --edge: #3a342b; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); --hard: rgba(0, 0, 0, .55); color-scheme: dark; }
   }
-  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --edge: #3a342b; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); color-scheme: dark; }
+  :root[data-theme="dark"] { --ink: #e7e0d3; --quiet: #a19684; --rule: #38322a; --paper: #17150f; --raise: #1d1a14; --line: #776b5b; --edge: #3a342b; --lift: 0 1px 1px rgba(0, 0, 0, .4), 0 10px 22px -14px rgba(0, 0, 0, .9); --hard: rgba(0, 0, 0, .55); color-scheme: dark; }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -89,8 +90,10 @@
     padding: 0.54rem 1.35rem 0.54rem 0.99rem;
     border: 2px solid var(--ink); text-decoration: none;
     font-weight: 600; font-size: 1.08rem; line-height: 1.2;
+    background: var(--raise); box-shadow: 4px 4px 0 var(--ink);   /* pressed, it goes down into its shadow, as on the game's page */
   }
-  .feedlink:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+  .feedlink:hover { background: var(--paper); text-decoration: none; }
+  .feedlink:active { transform: translate(4px, 4px); box-shadow: none; }
   .feedlink .llama { width: 3.825rem; height: 3.825rem; flex: none; }
   .feedlink .heart { width: 3.825rem; height: 3.825rem; flex: none; fill: currentColor; }   /* GitHub's own heart (Octicons, MIT) in the llama's box, so the two buttons are the same size */
   /* The drawing beside the name and what this is; on a phone, above it. */
@@ -138,7 +141,7 @@
   .shot {
     display: block; width: 100%; height: auto; aspect-ratio: 400 / 627;
     margin: 0 0 0.9rem; background: #fff;
-    border: 1px solid var(--edge); border-radius: 6px; box-shadow: var(--lift);
+    border: 1px solid var(--edge); border-radius: 6px; box-shadow: 5px 5px 0 var(--hard);   /* the game's hard shadow */
   }
   /* One to a row on a phone: a full-width screenshot would be a whole screen tall. */
   @media (max-width: 36rem) { .shot { max-width: 15rem; } }
@@ -163,8 +166,10 @@
   .shotlink { display: block; }
   .app h4 a { color: inherit; text-decoration: none; } .app h4 a:hover { text-decoration: underline; }
   .links.go { font-size: 1rem; color: var(--ink); padding-top: 0.6rem; }
-  .gobtn { display: inline-block; border: 2px solid var(--ink); padding: 0.4rem 0.85rem; margin: 0 0.7rem 0.5rem 0; color: var(--ink); text-decoration: none; }
-  .gobtn:hover { background: var(--ink); color: var(--paper); text-decoration: none; }
+  .gobtn { display: inline-block; border: 2px solid var(--ink); padding: 0.4rem 0.85rem; margin: 0 0.9rem 0.6rem 0; color: var(--ink); text-decoration: none;
+    background: var(--raise); box-shadow: 3px 3px 0 var(--ink); }   /* buttons as the game's page has them: pressed, they go down into their shadow */
+  .gobtn:hover { background: var(--paper); text-decoration: none; }
+  .gobtn:active { transform: translate(3px, 3px); box-shadow: none; }
   .gobtn span[hidden] { display: none; }
 
   /* Home, the launcher: the piece that ties the apps together, so its card is a little more than the
@@ -173,7 +178,7 @@
   .app.home {
     display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 1.2rem 2.25rem; align-items: start;
     margin: 2rem 0 2.2rem; padding: 1.5rem 1.6rem 1.2rem;
-    background: var(--raise); border: 1px solid var(--rule); border-radius: 8px;
+    background: var(--raise); border: 1px solid var(--rule); border-radius: 8px; box-shadow: 6px 6px 0 var(--hard);
   }
   .app.home .shot { margin: 0; max-width: none; }
   /* On a wide screen, a second picture on the right: Settings, Your apps. */
