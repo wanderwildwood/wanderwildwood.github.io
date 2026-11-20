@@ -181,38 +181,26 @@
     background: var(--raise); border: 1px solid var(--rule); border-radius: 8px; box-shadow: 6px 6px 0 var(--hard);
   }
   .app.home .shot { margin: 0; max-width: none; }
-  /* The words in two columns, the list's items flowing into them, and the buttons and links in the
-     place the list leaves free beside its last item; one column on a narrow card. */
-  .app.home .home-text { min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    column-gap: 2rem; max-width: 44rem; align-content: start; }
-  .app.home .home-text > h4, .app.home .home-text > p { grid-column: 1 / -1; }
-  .app.home ul.adds { display: contents; }
-  .app.home ul.adds[hidden] { display: none; }   /* the other language's list stays out of the grid */
-  .app.home ul.adds li { margin-bottom: 0.55rem; }
-  .app.home .actions { align-self: end; }
-  /* With two columns: the buttons at the head of the left one, the list's items after them, filling
-     the left column's other two places and the right column's three. */
+  /* The name with Source and Release notes far right on its line, the words, then two columns that
+     each simply stack: the buttons and two of the things Home adds on the left, three on the right.
+     One column on a narrow card. */
+  .app.home .home-text { min-width: 0; max-width: 44rem; }
+  .app.home .titlebar { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 1.5rem; margin-bottom: 0.55rem; }
+  .app.home .titlebar h4 { margin-bottom: 0; }
+  .app.home .links.top { margin: 0; font-size: 0.92rem; }
+  .app.home .links.top a:last-of-type:not([hidden]) { margin-right: 0; }
+  .app.home ul.adds { display: block; margin: 0; max-width: none; }
+  .app.home ul.adds[hidden] { display: none; }   /* the other language's list stays out */
+  .app.home ul.adds li { margin-bottom: 0.85rem; line-height: 1.5; break-inside: avoid; }
+  .app.home .actions .links.go { padding-top: 0.15rem; margin-bottom: 1.1rem; }
+  .app.home .home-text > p.en, .app.home .home-text > p.ja { max-width: none; margin-bottom: 1.1rem; }   /* the words as wide as the columns under them, so their right edges meet */
   @media (min-width: 64rem) {
-    /* the words a little closer */
     /* the picture exactly as wide as the app cards' pictures below: one of the grid's four columns
        (the page is min(70rem, the window less 2.5rem) wide, with three gaps of 1.75rem) */
-    .app.home { grid-template-columns: calc((min(70rem, 100vw - 2.5rem) - 3 * 1.75rem) / 4) minmax(0, 1fr);
-      padding: 1.3rem 1.5rem 1.1rem; gap: 1rem 2rem; }
-    .app.home ul.adds li { margin-bottom: 0.4rem; line-height: 1.45; }
-    .app.home .home-text > p.en, .app.home .home-text > p.ja { margin-bottom: 0.8rem; }
-    .app.home .actions { grid-column: 1; grid-row: 3; align-self: start; }   /* rows 1-2: the name with its links, the words */
-    .app.home ul.adds li:nth-child(1) { grid-column: 1; grid-row: 4; }
-    .app.home ul.adds li:nth-child(2) { grid-column: 2; grid-row: 3; }
-    .app.home ul.adds li:nth-child(3) { grid-column: 1; grid-row: 5; }
-    .app.home ul.adds li:nth-child(4) { grid-column: 2; grid-row: 4; }
-    .app.home ul.adds li:nth-child(5) { grid-column: 2; grid-row: 5; }
-    .app.home .actions .links.go { padding-top: 0; }
+    .app.home { grid-template-columns: calc((min(70rem, 100vw - 2.5rem) - 3 * 1.75rem) / 4) minmax(0, 1fr); gap: 1rem 2rem; }
+    .app.home .cols { column-count: 2; column-gap: 2rem; }
+    .app.home ul.adds li:nth-child(3) { break-before: column; }   /* the right column starts with the Nextcloud account */
   }
-  /* the name, and Source and Release notes far right on the same line */
-  .app.home .titlebar { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 1.5rem; }
-  .app.home .links.top { margin: 0 0 0.5rem; font-size: 0.92rem; }
-  .app.home .links.top a:last-of-type:not([hidden]) { margin-right: 0; }
-  .app.home .actions .links.go { padding-top: 0.3rem; }
   .app.home h4 { font-size: 1.3rem; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 0.4rem; margin-bottom: 0.5rem; }
   .app.home h4 .mark { width: 1.7em; height: 1.4em; align-self: center; color: var(--ink); margin-right: 0.15rem; }
   .app.home p { max-width: 40rem; margin-bottom: 0.7rem; }
@@ -325,22 +313,24 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
   It is built on gezimos's <a href="https://github.com/gezimos/inkos">inkOS</a>, and everything inkOS
   does still works. What Home adds:</p>
   <p class="ja" lang="ja" hidden>庵は、このページのアプリのために作ったホーム画面。アプリを短い言葉の一覧で並べる。KompaktのMuditaOS KでもKompaktOSでも、Android 10以降のほかの電話でも使える。gezimosの<a href="https://github.com/gezimos/inkos">inkOS</a>をもとにしていて、inkOSにできることはそのまま全部できる。庵が足すもの：</p>
+  <div class="cols">
+  <div class="actions">
+  <p class="links go"><a class="gobtn" href="home/"><span class="en">How Home works</span><span class="ja" lang="ja" hidden>庵のしくみ</span></a><a class="gobtn" href="https://github.com/wanderwildwood/iori/releases/latest/download/iori.apk"><span class="en">Download</span><span class="ja" lang="ja" hidden>ダウンロード</span></a></p>
+  </div>
   <ul class="adds en">
     <li><b>Installs the apps here</b> and keeps them up to date, from Settings → Your apps. The core apps, marked <svg class="hut-inline" aria-hidden="true"><use href="#hut"/></svg>, come first.</li>
-    <li><b>One Nextcloud account for the phone.</b> Sign in once in Home, and the apps marked <svg class="nc-inline" aria-hidden="true"><use href="#nc"/></svg> can use it, with nothing more to type.</li>
     <li><b>Dark mode for the apps here</b>, from one switch on MuditaOS.</li>
+    <li><b>One Nextcloud account for the phone.</b> Sign in once in Home, and the apps marked <svg class="nc-inline" aria-hidden="true"><use href="#nc"/></svg> can use it, with nothing more to type.</li>
     <li><b>Which app opens what</b>: calls, texts, contacts, maps, pictures and more, chosen in one place.</li>
     <li><b>Today on the home screen</b>: up to three lines from <a href="#hitome">Glance</a> under your apps, such as events, the weather and what is unread.</li>
   </ul>
   <ul class="adds ja" lang="ja" hidden>
     <li><b>ここのアプリを入れて、新しく保つ</b>。設定 → Your appsから。基本のアプリ（印 <svg class="hut-inline" aria-hidden="true"><use href="#hut"/></svg>）が先。</li>
-    <li><b>電話ひとつに、Nextcloudのアカウントひとつ。</b>庵で一度サインインすれば、印 <svg class="nc-inline" aria-hidden="true"><use href="#nc"/></svg> のアプリはそれを使える。もう何も打たなくていい。</li>
     <li><b>ここのアプリのダークモード</b>。MuditaOSでスイッチひとつ。</li>
+    <li><b>電話ひとつに、Nextcloudのアカウントひとつ。</b>庵で一度サインインすれば、印 <svg class="nc-inline" aria-hidden="true"><use href="#nc"/></svg> のアプリはそれを使える。もう何も打たなくていい。</li>
     <li><b>何をどのアプリで開くか</b>。電話、メッセージ、連絡先、地図、写真などを一か所で選ぶ。</li>
     <li><b>今日のことをホーム画面に</b>。アプリの下に<a href="#hitome">一目</a>から三行まで：予定、天気、未読など。</li>
   </ul>
-  <div class="actions">
-  <p class="links go"><a class="gobtn" href="home/"><span class="en">How Home works</span><span class="ja" lang="ja" hidden>庵のしくみ</span></a><a class="gobtn" href="https://github.com/wanderwildwood/iori/releases/latest/download/iori.apk"><span class="en">Download</span><span class="ja" lang="ja" hidden>ダウンロード</span></a></p>
   </div>
   </div>
 </div>
