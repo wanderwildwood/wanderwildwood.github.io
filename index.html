@@ -137,12 +137,11 @@
   #sanpo p { max-width: none; }   /* the game's text runs the width of its picture */
   /* The note that says what his peeks mean, as a small card he looks out over, as he does over the app
      pictures below: the top of him above its edge, the rest behind it. */
-  /* the two buttons and the note on one row, the note filling the rest of it; under each other on a phone */
-  #sanpo .walkrow { display: flex; flex-wrap: wrap; align-items: center; gap: 3.4rem 1.6rem; padding-top: 0.6rem; }
-  @media (min-width: 48rem) { #sanpo .walkrow { padding-top: 3.2rem; } }   /* room above for his hat when the note is beside the buttons */
-  #sanpo .walkrow .links.go { margin: 0 0 0.1rem; flex: 0 1 auto; display: flex; flex-wrap: wrap; gap: 0.6rem 0; }
-  #sanpo .walkrow .gobtn { margin-bottom: 0; }
-  #sanpo .peeknote { position: relative; flex: 1 1 18rem; min-width: 0; max-width: 40rem; margin: 0; padding: 0.75rem 1.1rem 0.8rem;
+  /* the words on the left and the note beside them, the two buttons under both; on a phone, one after another */
+  #sanpo .descrow { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 3.4rem 2rem; }
+  #sanpo .descrow .desc { flex: 1 1 30rem; min-width: 0; }
+  #sanpo .descrow .desc p:last-child { margin-bottom: 0; }
+  #sanpo .peeknote { position: relative; flex: 0 1 22rem; min-width: 0; max-width: 26rem; margin: 0; padding: 0.75rem 1.1rem 0.8rem;
     background: var(--raise); border: 1px solid var(--rule); border-radius: 6px; box-shadow: 4px 4px 0 var(--hard);
     font-size: 0.95rem; line-height: 1.55; }
   #sanpo .peeknote[hidden] { display: none; }
@@ -288,18 +287,21 @@
        alt="By day at a ring of stones, wander lights a fire, Kumo the llama lying by: the kettle on, a cup of tea, then the pipe. Opens the game's own page."
        data-dark-alt="Supper by the fire at nightfall, the dark wood all round: wander with the pan on, a cup of tea, the pipe, Kumo the llama lying by. Opens the game's own page."></picture></a>
   <h4><a href="wanderthegame/">Wander</a> <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 散歩 sanpo</button> <span class="coming en">&mdash; Coming soon</span><span class="coming ja" lang="ja" hidden>&mdash; もうすぐ</span></h4>
+  <div class="descrow">
+  <div class="desc">
   <p class="en">A walk in the redwoods with Kumo the llama: a quiet, ASMR-like game about stopping,
   noticing and connecting. Made for the Mudita Kompakt and tested on it.</p>
   <p class="en">One walk is one day, about twelve minutes by the real clock, from the morning mist to dusk.
   There is nothing to win and no words on the screen.</p>
   <p class="ja" lang="ja" hidden>ラマのクモとレッドウッドの森を歩く。立ち止まり、気づき、つながることの、静かでASMRのようなゲーム。Mudita Kompaktのために作り、Kompaktで試している。</p>
   <p class="ja" lang="ja" hidden>一度の散歩は一日。朝の霧から夕暮れまで、本当の時計でおよそ十二分。勝ち負けはなく、画面に言葉もない。</p>
-  <div class="walkrow">
-  <p class="links go"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></p>
+  </div>
   <p class="en peeknote"><span class="peekmark" aria-hidden="true"></span>Where Wander peeks out over an app further down this page, that app and the game are
   connected: the game quietly takes something of it into the wood.</p>
   <p class="ja peeknote" lang="ja" hidden><span class="peekmark" aria-hidden="true"></span>このページの下のほうで、アプリの上からwanderがのぞいていたら、そのアプリとゲームはつながっている。ゲームはそっと、そのアプリから何かを森へ持ちこむ。</p>
   </div>
+  <p class="links go"><a class="gobtn" href="wanderthegame/"><span class="en">Walk through the game's page</span><span class="ja" lang="ja" hidden>ゲームのページを歩いてみる</span></a><a class="gobtn" href="wanderthegame/#soon"><span class="en">Tell me when it's out</span><span class="ja" lang="ja" hidden>出たら知らせて</span></a></p>
+
 </div>
 </div>
 
