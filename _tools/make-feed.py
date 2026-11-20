@@ -25,10 +25,17 @@ if len(names) < 40:
 
 entries = []
 for repo, name in names.items():
-    out = subprocess.run(
+    run = subprocess.run(
         ["gh", "api", f"repos/{OWNER}/{repo}/releases?per_page=5"],
-        capture_output=True, text=True, check=True).stdout
-    for r in json.loads(out):
+        capture_output=True, text=True)
+    if run.returncode != 0:
+        # A repository the workflow's token cannot see (still private, like Home's before it goes
+        # public) answers 404: leave it out until it can be seen. Anything else stops the run.
+        if "HTTP 404" in run.stderr:
+            print(f"  {repo}: not found or not public, left out", file=sys.stderr)
+            continue
+        sys.exit(f"{repo}: gh api failed: {run.stderr.strip()}")
+    for r in json.loads(run.stdout):
         if r["draft"] or r["prerelease"] or not r.get("published_at"):
             continue
         entries.append((r["published_at"], repo, name, r))
