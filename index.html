@@ -176,6 +176,12 @@
     background: var(--raise); border: 1px solid var(--rule); border-radius: 8px;
   }
   .app.home .shot { margin: 0; max-width: none; }
+  /* On a wide screen, a second picture on the right: Settings, Your apps. */
+  .app.home .shot.second { display: none; }
+  @media (min-width: 64rem) {
+    .app.home { grid-template-columns: 15rem minmax(0, 1fr) 15rem; }
+    .app.home .shot.second { display: block; }
+  }
   .app.home .home-text { min-width: 0; display: flex; flex-direction: column; }
   .app.home h4 { font-size: 1.3rem; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 0.4rem; margin-bottom: 0.5rem; }
   .app.home h4 .mark { width: 1.7em; height: 1.4em; align-self: center; color: var(--ink); margin-right: 0.15rem; }
@@ -304,6 +310,8 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
     <a class="obtainium" href="obtainium://add/https://github.com/wanderwildwood/iori" hidden>Obtainium</a>
   </p>
   </div>
+  <img class="shot second" src="shots/iori-apps.png" data-dark="shots/dark/iori-apps.png" width="400" height="627" loading="lazy"
+       alt="Home's Settings, Your apps: a folder for each group of apps (Core, Outdoors, On the road, Daily life, Music, Reading and writing, Games and oracles, Tools), each saying how many of its apps are on the phone">
 </div>
 
 <nav class="jump" aria-label="Sections">
