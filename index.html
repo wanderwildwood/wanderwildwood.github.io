@@ -82,6 +82,8 @@
   .jump a { padding: 0.15rem 0.7rem; border: 2px solid transparent; text-decoration: none; color: var(--ink); }
   .jump a:hover { border-color: var(--ink); }
   .jump a.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .catbox { display: flex; flex-direction: column; }   /* the row stays first in reading order, shown after the grid */
+  .catbox > .jump { order: 1; position: sticky; bottom: 0; z-index: 5; margin: 1.5rem 0 0; padding: 0.6rem 0; background: var(--paper); border-top: 2px solid var(--ink); }
   .ethos { margin-bottom: 0; }
   .aside { font-size: 0.9rem; color: var(--quiet); margin: 0.9rem 0 0; }
   /* The one thing on the page that asks for something: the llama from the tattoo, large, and a button. */
@@ -487,6 +489,9 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
   </div>
 </div>
 
+<!-- The categories row and the grid share a box: the row rides the foot of the screen while the grid
+     passes and is left under the last card, before Stop motion; scrolling back up picks it up again. -->
+<div class="catbox">
 <nav class="jump" aria-label="Sections">
 <span class="jump-label">Categories:</span>
 <a href="#everyday">Everyday</a>
@@ -1383,6 +1388,7 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
   </p>
 </div>
 
+</div>
 </div>
 
 <h2 id="stop-motion">Stop motion</h2>
