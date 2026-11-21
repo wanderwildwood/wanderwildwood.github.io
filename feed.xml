@@ -4,8 +4,37 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-20T19:52:06Z</updated>
+  <updated>2026-11-21T00:38:25Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Handset 0.1.41</title>
+    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.41"/>
+    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.41</id>
+    <updated>2026-11-21T00:38:25Z</updated>
+    <content type="text"># Handset 0.1.41
+
+- On a phone with two SIMs, Settings can give each SIM a name, like Work or Personal, which Recents, &quot;Call from&quot; and the call screen show in place of &quot;SIM 1&quot;</content>
+  </entry>
+  <entry>
+    <title>Handset 0.1.40</title>
+    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.40"/>
+    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.40</id>
+    <updated>2026-11-21T00:28:31Z</updated>
+    <content type="text"># Handset 0.1.40
+
+- On a phone with two SIMs, Recents and the calls on a person&#x27;s page say which SIM each call was on (SIM 1 or SIM 2)
+- &quot;Call from&quot; names each SIM by its slot as well as its carrier (&quot;SIM 1 · carrier&quot;), so two SIMs from the same provider are told apart</content>
+  </entry>
+  <entry>
+    <title>Home 1.0.3</title>
+    <link href="https://github.com/wanderwildwood/iori/releases/tag/v1.0.3"/>
+    <id>https://github.com/wanderwildwood/iori/releases/tag/v1.0.3</id>
+    <updated>2026-11-20T20:36:25Z</updated>
+    <content type="text"># Home 1.0.3
+
+- **KompaktOS:** an app&#x27;s E-ink mode opens the Kompakt app, where KompaktOS keeps the modes, and the e-ink refresh gesture asks KompaktOS for a full refresh. On first start Home shows the real status bar and leaves the swipe down to the system&#x27;s notification shade; a backup restored from MuditaOS keeps both.
+- **Restricted settings:** on Android 13 and later, when Home was installed from a file, Home says how to let it read notifications or use Accessibility: App info, then ⋮, then Allow restricted settings.</content>
+  </entry>
   <entry>
     <title>Messaging 1.35.47</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.47"/>
@@ -976,74 +1005,6 @@ Thank you. For plain inkOS, go to [gezimos&#x27;s repository](https://github.com
 - A remote picture over plain http is refused before a file is made
 - A canceled Export as EML no longer turns the next attachment save into an export
 - Picking a sound in account settings no longer stops the page reading the notification channel back
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Tarot 0.1.27</title>
-    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.27"/>
-    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.27</id>
-    <updated>2026-11-19T03:52:56Z</updated>
-    <content type="text"># Tarot 0.1.27
-
-- Today: the card and its date follow the day when the app is opened again after midnight
-- Settings: a damaged journal kept aside can be exported as it is
-- Card meanings in American spelling
-- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A reading that cannot be saved says so instead of closing the app, and a note that cannot be saved stays in its dialog with the reason
-- Undo keeps its bar when the reading could not be put back
-- A backup that could not be restored says so, not that the file could not be read
-- A journal file that cannot be read is kept aside rather than closing the app at every start, and is never saved over
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Cabinet 0.9.21</title>
-    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.21"/>
-    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.21</id>
-    <updated>2026-11-19T03:52:46Z</updated>
-    <content type="text"># Cabinet 0.9.21
-
-- A save from another app that does not reach the server, or that the app let go of, is kept in Download/Unsent saves, with a notification that opens it and shows no file name on the lock screen; why it did not go is said in plain words
-- A save kept inside the app for want of room moves to Download at a later start, once there is room, and one still going up when the app was stopped is kept in Unsent saves
-- A server folder given to another app through the file picker reaches only that saved server, never the phone&#x27;s own files
-- Folder, search, trash and text lists show no page counter: the scrollbar shows where you are, as in the other apps
-- Nearby lists only devices that take HTTPS, and stops a file that runs past its offered size
-- Rename allows a new case of the same name (notes.txt to Notes.txt)
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Paste: two files of one name from search results, or names that differ only by case, no longer replace each other, a name that differs from one in the folder only by case is asked about first, and a stopped WebDAV copy is not uploaded half done
-- Share and Open from a server: two picked files of one name come as two files, the second numbered
-- A copy from a server never lands outside the folder it goes into
-- A search that was replaced stops adding to the new one
-- A saved server password the keystore cannot open just now is kept
-- Nearby: a page closed while the server is still starting stops that server, and an odd request ends only its own connection, never the app
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Abacus 0.2.34</title>
-    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.34"/>
-    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.34</id>
-    <updated>2026-11-19T03:52:38Z</updated>
-    <content type="text"># Abacus 0.2.34
-
-- A new icon: an abacus
-- A function half typed into Graph comes back if the phone stops the app
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A number in E form stays one number when the sum goes on: 1E+3 squared is 1E+6
-- Programmer: NOT after a bracket applies to that bracket only, and digits typed onto a negative number go on correctly
-- = gives its answer once, and drops it if keys were pressed meanwhile
-- Paste drops words whole, and a decimal written with the other mark stays a decimal
-- Converter: a pasted sin, cos or tan follows the degrees or radians setting
-- Clear tape deletes the saved tape, so a full phone cannot bring the old sums back
-- A tape that cannot be saved no longer stops the answer from showing
 - A tap on the scrollbar lands on the right row after the screen changes</content>
   </entry>
 </feed>
