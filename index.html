@@ -82,8 +82,11 @@
   .jump a { padding: 0.15rem 0.7rem; border: 2px solid transparent; text-decoration: none; color: var(--ink); }
   .jump a:hover { border-color: var(--ink); }
   .jump a.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-  .catbox { display: flex; flex-direction: column; }   /* the row stays first in reading order, shown after the grid */
-  .catbox > .jump { order: 1; position: sticky; bottom: 0; z-index: 5; margin: 1.5rem 0 0; padding: 0.6rem 0; background: var(--paper); border-top: 2px solid var(--ink); }
+  .catbox { display: flex; flex-direction: column; }
+  /* The row's copy: once the row itself has gone off the top of the screen, the copy rides the foot of the
+     screen and is left under the grid; scrolled back up past the row, it hides and the row is back in place. */
+  .catbox > .jump.follow { order: 1; position: sticky; bottom: 0; z-index: 5; margin: 1.5rem 0 0; padding: 0.6rem 0; background: var(--paper); border-top: 2px solid var(--ink); visibility: hidden; }
+  .catbox > .jump.follow.shown { visibility: visible; }
   .ethos { margin-bottom: 0; }
   .aside { font-size: 0.9rem; color: var(--quiet); margin: 0.9rem 0 0; }
   /* The one thing on the page that asks for something: the llama from the tattoo, large, and a button. */
@@ -489,8 +492,8 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
   </div>
 </div>
 
-<!-- The categories row and the grid share a box: the row rides the foot of the screen while the grid
-     passes and is left under the last card, before Stop motion; scrolling back up picks it up again. -->
+<!-- The categories row and the grid share a box, so the row's copy (made in the script at the foot) can
+     ride the foot of the screen while the grid passes and be left under the last card, before Stop motion. -->
 <div class="catbox">
 <nav class="jump" aria-label="Sections">
 <span class="jump-label">Categories:</span>
@@ -1441,6 +1444,16 @@ if (/Android/.test(navigator.userAgent)) {
 <script>
 // The categories row as tabs: the one whose apps are on the screen is filled in, as the apps' own
 // selected tab is; pressing one fills it at once.
+(function () {
+  var row = document.querySelector('.catbox > .jump');
+  if (row) {
+    var copy = row.cloneNode(true); copy.classList.add('follow'); copy.setAttribute('aria-label', 'Sections, at the foot');
+    row.parentNode.appendChild(copy);
+    var follow = function () { copy.classList.toggle('shown', row.getBoundingClientRect().bottom < 0); };
+    addEventListener('scroll', function () { requestAnimationFrame(follow); }, { passive: true });
+    addEventListener('resize', follow); follow();
+  }
+})();
 (function () {
   var tabs = [].slice.call(document.querySelectorAll('.jump a')); if (!tabs.length) return;
   var heads = tabs.map(function (a) { return document.querySelector(a.getAttribute('href')); });
