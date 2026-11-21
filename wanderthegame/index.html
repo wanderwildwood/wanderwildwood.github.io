@@ -80,6 +80,7 @@
   /* a piece of the game set into a page: its own frames, in whole pixels */
   .fig { display: block; width: 100%; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); margin: 0 0 1.1rem; background: #d6d6d6; }
   picture { display: block; }
+  .fig.tall { width: min(100%, 12rem); margin-inline: auto; }   /* an upright piece (the blanket from above), in whole pixels */
   .fig.crop { aspect-ratio: 396 / 174; object-fit: cover; object-position: 50% 100%; }   /* a taller scene, cut to the others' shape from the top */
   .kinds { display: block; width: 100%; height: auto; image-rendering: pixelated; border: 2px solid var(--rule); margin: 0 0 0.9rem; }
   code { font-size: 0.8rem; word-break: break-all; }
@@ -256,6 +257,42 @@
       <img class="kinds" src="kinds.png" width="62" height="15" loading="lazy"
            alt="森の地面に並ぶ五つのきのこ：アンズタケ、イグチ、ベニテングタケ、アミガサタケ、マッシュルーム。">
       <p>ときどき、古い石の輪に出会います。そこを指で長押しすると、おじいさんは膝をつき、火打ち石で火花を飛ばし、息を吹きかけて火をおこします。火を長押しすれば、やかんをかけます。あとはもう、お茶を飲むだけです。</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <picture><img class="fig tall" src="blanket.png" width="96" height="160" loading="lazy"
+         alt="His blanket spread on the ground, seen from above, with everything from the basket laid out on it: the kettle, a cup of tea with a leaf in it, the notebook and two older ones tied with cord, an open fly box with three fish drawn in the lid, mushrooms of six kinds, a double ocarina, a carved wren, two skeins of wool and a spindle, a coil of cord, a bundle of drying herbs and a few rose hips."
+         data-alt-ja="地面に広げた毛布を上から見たところ。籠の中身がすべて並んでいる：やかん、葉の浮いたお茶、ノートと紐で結んだ古いノート二冊、ふたの裏に三匹の魚が描かれた毛ばりの箱、六種類のきのこ、二連のオカリナ、彫ったミソサザイ、毛糸の綛二つと紡錘、ひと巻きの紐、乾かしている薬草の束、ローズヒップがいくつか。"></picture>
+    <div class="en">
+      <h2>Everything he carries</h2>
+      <p>By the fire at night, tap him and he spreads his blanket out and empties the basket onto it.
+      The day's mushrooms, the kettle, the fly box, a half-carved wren, the wool he's been spinning.</p>
+      <p>Nothing on it is there for show. Each thing is something he made, found or kept, and the blanket
+      fills up slowly over the year.</p>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>持ち歩いているもの</h2>
+      <p>夜、焚き火のそばでおじいさんをタップすると、毛布を広げて、籠の中身を並べます。その日のきのこ、やかん、毛ばりの箱、彫りかけのミソサザイ、紡いでいる毛糸。</p>
+      <p>飾りのためのものは、ひとつもありません。どれも、自分で作ったか、見つけたか、取っておいたものです。毛布の上は、一年をかけて少しずつにぎやかになります。</p>
+    </div>
+  </section>
+
+  <section class="page right">
+    <picture><img class="fig" src="notebook.png" width="768" height="424" loading="lazy"
+         alt="Three pages of his notebook, a year in, each inside a worn leather cover with an elastic band: a page of mushrooms and finds drawn small, a chart of the year's moons from new to full, and a map of the walk, unfolded, with the places he has been marked along the path."
+         data-alt-ja="一年たったノートの三ページ。どれも使いこんだ革の表紙とゴムバンドの内側にある：小さく描いたきのこと見つけたもののページ、新月から満月までの一年の月の表、そして広げた散歩道の地図。道沿いに、行ったことのある場所が印されている。"></picture>
+    <div class="en">
+      <h2>The notebook</h2>
+      <p>He keeps a small leather notebook, and at night by the fire you can tap to open it. What you found
+      goes in on its own, drawn the way he'd draw it, never written as a list of things still missing.</p>
+      <p>There's a page for what grows, one for what moves, the year and its moons, and a map that starts
+      folded small and opens out as the walk gets longer. The last page is for the things nobody can explain.</p>
+    </div>
+    <div class="ja" lang="ja" hidden>
+      <h2>ノート</h2>
+      <p>おじいさんは小さな革のノートを持っています。夜、焚き火のそばでタップすると開きます。見つけたものは、ひとりでに書きこまれます。おじいさんが描くように描かれ、まだ足りないものの一覧になることはありません。</p>
+      <p>育つもののページ、動くもののページ、一年とその月のページ、そして地図。地図ははじめ小さくたたまれていて、歩く道がのびるにつれて広がっていきます。最後のページは、誰にも説明できないもののためにあります。</p>
     </div>
   </section>
 
