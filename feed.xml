@@ -4,8 +4,91 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-21T00:38:25Z</updated>
+  <updated>2026-11-21T16:56:48Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Cabinet 0.9.23</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.23"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.23</id>
+    <updated>2026-11-21T16:56:48Z</updated>
+    <content type="text"># Cabinet 0.9.23
+
+## Fixed
+
+- An app password for a WebDAV server is taken without the spaces or line breaks a paste can bring along
+- The note on the WebDAV page gives an example address for a WebDAV server other than Nextcloud (Koofr&#x27;s), and says to sign in with your email there</content>
+  </entry>
+  <entry>
+    <title>Sky 0.13.17</title>
+    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.17"/>
+    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.17</id>
+    <updated>2026-11-21T16:38:14Z</updated>
+    <content type="text"># Sky 0.13.17
+
+- Units left on Automatic follow the country the forecast is for, not the phone&#x27;s: a phone set to English (United States) in Sydney reads Celsius
+- Settings says where the phone was last found, and when
+- A swipe across the hours strip on Today jumps to the later hours and back, as the pages up and down do</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.48</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.48"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.48</id>
+    <updated>2026-11-21T14:03:00Z</updated>
+    <content type="text"># Messaging 1.35.48
+
+- Signal calls use the newer call library that Signal itself now builds with, so calls end more cleanly
+- Words typed into a content filter (Settings → Blocking) are kept exactly as typed, with no keyboard autocorrect or added spaces</content>
+  </entry>
+  <entry>
+    <title>Glance 0.1.59</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.59"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.59</id>
+    <updated>2026-11-21T13:59:52Z</updated>
+    <content type="text"># Glance 0.1.59
+
+- On MuditaOS 2.0 and KompaktOS the panel leaves out Messaging&#x27;s unread count, since the lock screen shows unread texts in its own row. Mailbox&#x27;s count stays.
+- There the Apps page lists only the apps Glance shows on the panel, and the notification access and Show text rows are left out, as Glance counts no other app&#x27;s notifications there.</content>
+  </entry>
+  <entry>
+    <title>Home 1.0.4</title>
+    <link href="https://github.com/wanderwildwood/iori/releases/tag/v1.0.4"/>
+    <id>https://github.com/wanderwildwood/iori/releases/tag/v1.0.4</id>
+    <updated>2026-11-21T13:49:06Z</updated>
+    <content type="text"># Home 1.0.4
+
+- **Lock-screen music:** on MuditaOS 2.0 and KompaktOS the phone&#x27;s own lock screen shows a player for any app, so Home&#x27;s music strip stands aside there and only one player shows. On MuditaOS 1.x it works as before.</content>
+  </entry>
+  <entry>
+    <title>Glance 0.1.58</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.58"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.58</id>
+    <updated>2026-11-21T13:49:01Z</updated>
+    <content type="text"># Glance 0.1.58
+
+- On MuditaOS 2.0 and KompaktOS the panel sits clear of the lock screen&#x27;s own player and its missed call and text rows, and moves as they come and go.
+- While they take the middle of the screen, each section shrinks to one line, in your order, with &quot;+N&quot; for what it leaves out. The full panel comes back when they go.
+- There the panel no longer repeats the song or other apps&#x27; notifications, which the lock screen already shows.</content>
+  </entry>
+  <entry>
+    <title>Music Box 2.18.47</title>
+    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.47"/>
+    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.47</id>
+    <updated>2026-11-21T13:48:55Z</updated>
+    <content type="text"># Music Box 2.18.47
+
+- On MuditaOS 2.0 and KompaktOS the lock screen has its own player for any app, so Music Box&#x27;s lock-screen controls stand aside there and only one player shows. On MuditaOS 1.x they work as before.
+- Where they stand aside, Settings leaves out the Lock-screen controls row, or, while the service is still on, says it is not needed and that it can be turned off in Accessibility.</content>
+  </entry>
+  <entry>
+    <title>Audio Reader 1.3.71</title>
+    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.71"/>
+    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.71</id>
+    <updated>2026-11-21T13:48:49Z</updated>
+    <content type="text"># Audio Reader 1.3.71
+
+- On MuditaOS 2.0 and KompaktOS the lock screen has its own player for any app, so Audio Reader&#x27;s lock-screen controls stand aside there and only one player shows. On MuditaOS 1.x they work as before.
+- Where they stand aside, Settings leaves out the Lock-screen controls row, or, while the service is still on, says it is not needed and that it can be turned off in Accessibility.</content>
+  </entry>
   <entry>
     <title>Handset 0.1.41</title>
     <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.41"/>
@@ -812,199 +895,6 @@ Thank you. For plain inkOS, go to [gezimos&#x27;s repository](https://github.com
 - Opening a book in a player stopped from a headset plays instead of sitting still
 - An odd Audiobookshelf answer says &quot;not Audiobookshelf&quot; instead of crashing the app; a pasted key loses the line break it brought, and a key that cannot be used is said in words instead of crashing
 - Lengths and tags are read on Android 9 too
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Bitcoin 0.1.18</title>
-    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.18"/>
-    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.18</id>
-    <updated>2026-11-19T03:54:26Z</updated>
-    <content type="text"># Bitcoin 0.1.18
-
-- A fingerprint added to the phone turns fingerprint unlock off for wallets with a PIN, which then ask for it, and each wallet says so once; this works from the first start after the update, and fingerprint unlock set up again afterward is kept
-- Other apps can no longer crash the wallet, switch Hide amounts on, or open the developer screen; a wallet opened from outside must be one this app holds, a link reaches Send only when it is a bitcoin: link, and the notification&#x27;s Log out tells no other app the wallet&#x27;s id
-- The screen where a recovery phrase is typed is kept out of screenshots and the Recents picture
-- Over Tor or a proxy, price requests go one at a time and wait ten seconds at most, so amounts no longer queue behind them, and they no longer reconnect during a hardware wallet&#x27;s PIN or genuine check
-- The Electrum backup server gives way to the first one again when it stops answering
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A failed price fetch waits a minute before trying again, and a rate more than an hour old is not used
-- A lock-screen price for the currency just changed from is dropped
-- A payment link opens Send once, not again when the app is recreated or reopened from Recents
-- The backup Electrum server stays chosen when two connections both find the first not answering
-- The fingerprint prompt comes up without a pause
-- An answered fingerprint notice no longer comes back after another change to the wallet, such as its passphrase setting
-- The connected notification of a hardware wallet that is not remembered opens it again
-- Hardware wallet replies are logged only in debug builds
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Field Kit 0.1.30</title>
-    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.30"/>
-    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.30</id>
-    <updated>2026-11-19T03:54:09Z</updated>
-    <content type="text"># Field Kit 0.1.30
-
-- On the lock screen a reminder numbers a patient, never names them, also when the phone locks with the reminder screen up
-- Each patient has their own reminder: with several overdue, all are reminded, the one due first first, and a shortened interval is never passed over
-- No screenshots or Recents picture of an assessment or its note, and the keyboard is asked not to learn what is typed in them; autocorrect stays
-- The note&#x27;s first line carries the day the assessment began, not only its times
-- The note never takes a location more than five minutes old as where the patient is
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A later patient&#x27;s reminder is no longer lost behind an earlier one, and the alarm no longer goes off again and again
-- A patient file that cannot be read at start no longer cancels the alarm or takes down the reminder
-- Vitals typed before the first answer stay with the patient they begin
-- Vitals typed but not yet saved stay through an aid page, the note or the read-out, and the 15-second count buzzes even with another screen open
-- A deleted, discarded or cleared note is removed when its ten minutes are up, not only the next time the app opens
-- A last note replaced by a newer one waits for Undo, and putting one back never wipes the newer
-- Typing in an assessment is saved when the typing pauses, not at every letter
-- A picked emergency contact survives the app being stopped
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Dream Log 0.1.37</title>
-    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.37"/>
-    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.37</id>
-    <updated>2026-11-19T03:53:58Z</updated>
-    <content type="text"># Dream Log 0.1.37
-
-- Keep dreams in Memo sends nothing unless the app answering is the real Memo, checked before every send, and names an app answering in Memo&#x27;s place as the one turned away
-- Nextcloud sign-in keeps to https and the server you typed; an account the server names on another address is not kept, and its new app password is taken back
-- A dream is sent to Nextcloud again only when its own words change
-- A press while armed that leaves nothing recorded gives one long buzz, not the two of a recording that stopped
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A sleeping phone no longer stays armed for days; a press after the longest night records that dream and disarms when it ends, and the disarm never cuts a recording short
-- A storage error ends the recording instead of the app
-- A recording cut off by a stopped app is kept on the next start, and one that failed before a second was heard is not kept as an empty dream
-- A dream that could not be read or written stays waiting rather than heard as nothing or stopping the app, and one that stopped the app three times is no longer tried at every start
-- An empty log answering for several notes in Memo removes none of them
-- Saving the words to a file says so when there is nothing to save, and a failed write leaves no cut-off file
-- A quick change of languages no longer leaves one chosen whose model was just deleted, and a model already here is not fetched twice
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Songbook 0.1.13</title>
-    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.13"/>
-    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.13</id>
-    <updated>2026-11-19T03:53:47Z</updated>
-    <content type="text"># Songbook 0.1.13
-
-- Anything shared in from another app waits for a yes before it is read or brought in, and the question, or a list of pages being read, comes back when the window is rebuilt
-- Songbook no longer offers itself for every JSON file: a saved songbook comes in through Settings
-- Browser sign-in keeps to https and the server it started with, and carries on when you leave the screen
-- Open page opens a song&#x27;s plain http address over https, and shows only for a web page
-- A song being typed comes back when the window is rebuilt
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A song the phone could not read, or a phone with none of its songs, deletes nothing on Nextcloud
-- Every song deleted here is deleted on Nextcloud, and a song folder made again there deletes nothing here
-- An artist&#x27;s folder left empty is taken away only while it is still as it was listed, so a song another phone has just put in it stays
-- A damaged song file comes back from the server, and a song the server refuses no longer stops the setlists
-- An edit to a song a sync changed keeps both, the edit as the phone&#x27;s copy
-- Setlist edits no longer write over lists a sync just brought in, and a setlist file that cannot be read is set aside so the next sync takes the server&#x27;s lists
-- A sheet ChordPro cannot carry whole is kept word for word
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Translate 0.9.27</title>
-    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.27"/>
-    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.27</id>
-    <updated>2026-11-19T03:53:38Z</updated>
-    <content type="text"># Translate 0.9.27
-
-- Picture reading keeps a line whose last word is faint, and the words read are not written to the log
-- A second picture arriving during a read is read next instead of deleted, and a picture still waiting at a fresh start is read too
-- The read-from-a-picture line goes once the text is edited by hand
-- Reopened from Recents, the app keeps your draft instead of taking back the text or picture it first started with
-- Other apps can no longer put text in place of your draft
-- Language packs come only from the two catalog hosts: a redirect elsewhere is refused
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Two language pack downloads no longer clash, and deleting a pack spares what a running download needs
-- A finished pack no longer turns back to not downloaded
-- Storage filling up during a pack download is reported as no room, not as offline
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Time 0.2.30</title>
-    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.30"/>
-    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.30</id>
-    <updated>2026-11-19T03:53:29Z</updated>
-    <content type="text"># Time 0.2.30
-
-- Where the alarm service cannot start, the notification sounds the alarm itself, following its sound and vibration settings: Silent only vibrates, and vibration off only sounds
-- World clock: cities take their names in your language, and search finds either name
-- Only apps allowed to set alarms can change them, and asking for an alarm that exists but is off switches it on
-- German: the app is called Time, as the launcher shows it
-- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A change of the phone&#x27;s clock or time zone no longer makes a running timer missed or ring late, and the list shows the minutes it has left
-- Save on a timer&#x27;s edit screen while it rings ends the ring, and no longer writes over a ring, stop or extra minute that came while the screen was open
-- A new length for a timer started on the fly no longer deletes it
-- A repeating alarm still rings today after the clock jumped forward
-- A ring left from a stopped process or from before a restart is marked missed at once, not rung again with the next alarm, and a timer it leaves at Time&#x27;s up is reset
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Car Check 0.1.26</title>
-    <link href="https://github.com/wanderwildwood/tenken/releases/tag/v0.1.26"/>
-    <id>https://github.com/wanderwildwood/tenken/releases/tag/v0.1.26</id>
-    <updated>2026-11-19T03:53:21Z</updated>
-    <content type="text"># Car Check 0.1.26
-
-- Readings say so when the car has stopped answering
-- Clearing the codes, on a second tap, is the one thing the app asks the car to change, and the home line no longer says Read-only
-- The reminder goes to Datebook and the codes to Memo only when each is the real app
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Trouble codes end only when all three requests have answered, and a car with no stored codes no longer ends the reading before the pending ones are asked for
-- A clear the car refused is not sent again after it has been reported
-- The check-engine light is not shown when the car does not answer the question about it
-- Remind me means this time tomorrow by the phone&#x27;s clock, so a night the clocks change is not an hour out
-- Disconnect cuts short a connection still being made
-- A dismissed Bluetooth prompt is not taken for Android refusing
-- The page you had open survives the window being rebuilt, and opens Home instead when no car is behind it anymore
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Mailbox 0.1.64</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.64"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.64</id>
-    <updated>2026-11-19T03:53:13Z</updated>
-    <content type="text"># Mailbox 0.1.64
-
-- Settings export carries text size, turn with the phone, the lock-screen unread count, and dark mode when the app&#x27;s own switch is set
-- Account setup: a Gmail, iCloud or Zoho address is set up from the settings the app carries, with no lookup
-- Server check: after 30 seconds the slow server is named, and an answer that comes later still counts
-- Contacts requests go to Connections only when it is the real one
-- Glance&#x27;s unread count changes when the unread widget does
-- Push info&#x27;s Learn more opens the Push email section of the README
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A failed settings import changes none of Mailbox&#x27;s own settings, and a file from before them leaves them as they are
-- Saving a remote picture over an existing file leaves it as it was when the download is too large or cut off
-- A remote picture over plain http is refused before a file is made
-- A canceled Export as EML no longer turns the next attachment save into an export
-- Picking a sound in account settings no longer stops the page reading the notification channel back
 - A tap on the scrollbar lands on the right row after the screen changes</content>
   </entry>
 </feed>
