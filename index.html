@@ -87,6 +87,13 @@
      screen and is left under the grid; scrolled back up past the row, it hides and the row is back in place. */
   .catbox > .jump.follow { order: 1; position: sticky; bottom: 0; z-index: 5; margin: 1.5rem 0 0; padding: 0.6rem 0; background: var(--paper); border-top: 2px solid var(--ink); visibility: hidden; }
   .catbox > .jump.follow.shown { visibility: visible; }
+  /* On a phone the copy is one line: no label, and the categories slide sideways, the filled one kept in view. */
+  @media (max-width: 48rem) {
+    .catbox > .jump.follow { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 0 0.6rem; }
+    .catbox > .jump.follow::-webkit-scrollbar { display: none; }
+    .catbox > .jump.follow .jump-label { display: none; }
+    .catbox > .jump.follow a { white-space: nowrap; flex: none; }
+  }
   .ethos { margin-bottom: 0; }
   .aside { font-size: 0.9rem; color: var(--quiet); margin: 0.9rem 0 0; }
   /* The one thing on the page that asks for something: the llama from the tattoo, large, and a button. */
@@ -1457,7 +1464,14 @@ if (/Android/.test(navigator.userAgent)) {
 (function () {
   var tabs = [].slice.call(document.querySelectorAll('.jump a')); if (!tabs.length) return;
   var heads = tabs.map(function (a) { return document.querySelector(a.getAttribute('href')); });
-  function mark(i) { tabs.forEach(function (a, j) { a.classList.toggle('on', j === i); }); }
+  var bar = document.querySelector('.jump.follow'), last = -1;
+  function mark(i) {
+    tabs.forEach(function (a, j) { a.classList.toggle('on', j % heads.length === i % heads.length); });
+    if (bar && i !== last && bar.scrollWidth > bar.clientWidth) {   // the copy slides so its filled category shows, without moving the page
+      var on = bar.querySelector('a.on'); if (on) bar.scrollTo({ left: bar.scrollLeft + on.getBoundingClientRect().left - bar.getBoundingClientRect().left - 16, behavior: 'smooth' });
+    }
+    last = i;
+  }
   function pick() {
     var y = innerHeight * 0.3, at = 0;   // the first until a later one is reached
     heads.forEach(function (h, i) { if (h && h.getBoundingClientRect().top <= y) at = i; });
