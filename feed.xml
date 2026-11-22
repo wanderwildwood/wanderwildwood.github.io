@@ -4,8 +4,249 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-22T01:36:31Z</updated>
+  <updated>2026-11-22T15:06:46Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Chess+ 1.3.31-chessplus</title>
+    <link href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.31-chessplus"/>
+    <id>https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.31-chessplus</id>
+    <updated>2026-11-22T15:06:46Z</updated>
+    <content type="text"># Chess+ 1.3.31
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Bitcoin 0.1.19</title>
+    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.19"/>
+    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.19</id>
+    <updated>2026-11-22T15:06:32Z</updated>
+    <content type="text"># Bitcoin 0.1.19
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Field Kit 0.1.31</title>
+    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.31"/>
+    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.31</id>
+    <updated>2026-11-22T15:06:16Z</updated>
+    <content type="text"># Field Kit 0.1.31
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Detour 0.1.32</title>
+    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.32"/>
+    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.32</id>
+    <updated>2026-11-22T15:06:09Z</updated>
+    <content type="text"># Detour 0.1.32
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Car Check 0.1.27</title>
+    <link href="https://github.com/wanderwildwood/tenken/releases/tag/v0.1.27"/>
+    <id>https://github.com/wanderwildwood/tenken/releases/tag/v0.1.27</id>
+    <updated>2026-11-22T15:06:02Z</updated>
+    <content type="text"># Car Check 0.1.27
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Birding 1.7.49</title>
+    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.49"/>
+    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.49</id>
+    <updated>2026-11-22T15:05:54Z</updated>
+    <content type="text"># Birding 1.7.49
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Abacus 0.2.35</title>
+    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.35"/>
+    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.35</id>
+    <updated>2026-11-22T15:05:44Z</updated>
+    <content type="text"># Abacus 0.2.35
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Solitaire 0.1.26</title>
+    <link href="https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.26"/>
+    <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.26</id>
+    <updated>2026-11-22T15:05:38Z</updated>
+    <content type="text"># Solitaire 0.1.26
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Speedometer 0.1.34</title>
+    <link href="https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.34"/>
+    <id>https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.34</id>
+    <updated>2026-11-22T15:05:32Z</updated>
+    <content type="text"># Speedometer 0.1.34
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Tuner 0.1.54</title>
+    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.54"/>
+    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.54</id>
+    <updated>2026-11-22T15:05:25Z</updated>
+    <content type="text"># Tuner 0.1.54
+
+- A row taller than the page shows where the page is on the scrollbar
+- About&#x27;s privacy section lists every other app it can see
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Parked 0.2.20</title>
+    <link href="https://github.com/wanderwildwood/okiba/releases/tag/v0.2.20"/>
+    <id>https://github.com/wanderwildwood/okiba/releases/tag/v0.2.20</id>
+    <updated>2026-11-22T15:05:19Z</updated>
+    <content type="text"># Parked 0.2.20
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Practice 0.2.11</title>
+    <link href="https://github.com/wanderwildwood/nikka/releases/tag/v0.2.11"/>
+    <id>https://github.com/wanderwildwood/nikka/releases/tag/v0.2.11</id>
+    <updated>2026-11-22T15:05:12Z</updated>
+    <content type="text"># Practice 0.2.11
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Level 0.1.41</title>
+    <link href="https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.41"/>
+    <id>https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.41</id>
+    <updated>2026-11-22T15:05:05Z</updated>
+    <content type="text"># Level 0.1.41
+
+- A row taller than the page shows where the page is on the scrollbar
+- About&#x27;s privacy section lists every other app it can see
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Go 1.2.29</title>
+    <link href="https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.29"/>
+    <id>https://github.com/wanderwildwood/kuroban/releases/tag/v1.2.29</id>
+    <updated>2026-11-22T15:04:59Z</updated>
+    <content type="text"># Go 1.2.29
+
+- A row taller than the page shows where the page is on the scrollbar
+- About&#x27;s privacy section lists every other app it can see
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Hum 0.1.29</title>
+    <link href="https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.29"/>
+    <id>https://github.com/wanderwildwood/hanauta/releases/tag/v0.1.29</id>
+    <updated>2026-11-22T15:04:52Z</updated>
+    <content type="text"># Hum 0.1.29
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Medicine 0.1.39</title>
+    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.39"/>
+    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.39</id>
+    <updated>2026-11-22T15:04:45Z</updated>
+    <content type="text"># Medicine 0.1.39
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>I Ching 0.1.11</title>
+    <link href="https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.11"/>
+    <id>https://github.com/wanderwildwood/ekikyo/releases/tag/v0.1.11</id>
+    <updated>2026-11-22T15:04:39Z</updated>
+    <content type="text"># I Ching 0.1.11
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Cycle 0.3.18</title>
+    <link href="https://github.com/wanderwildwood/cycle/releases/tag/v0.3.18"/>
+    <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.18</id>
+    <updated>2026-11-22T15:04:32Z</updated>
+    <content type="text"># Cycle 0.3.18
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Topo 0.2.23</title>
+    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.23"/>
+    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.23</id>
+    <updated>2026-11-22T15:04:25Z</updated>
+    <content type="text"># Topo 0.2.23
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Mesh 0.3.25</title>
+    <link href="https://github.com/wanderwildwood/amime/releases/tag/v0.3.25"/>
+    <id>https://github.com/wanderwildwood/amime/releases/tag/v0.3.25</id>
+    <updated>2026-11-22T15:04:08Z</updated>
+    <content type="text"># Mesh 0.3.25
+
+- A row taller than the page shows where the page is on the scrollbar
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Star Chart 0.5.24</title>
+    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.24"/>
+    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.24</id>
+    <updated>2026-11-22T12:52:03Z</updated>
+    <content type="text"># Star Chart 0.5.24
+
+- A row taller than the page shows where the page is on the scrollbar
+- About&#x27;s privacy section lists every other app it can see: Home, Cabinet, browsers and text actions</content>
+  </entry>
+  <entry>
+    <title>Typewriter 0.1.47</title>
+    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.47"/>
+    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.47</id>
+    <updated>2026-11-22T12:51:56Z</updated>
+    <content type="text"># Typewriter 0.1.47
+
+- A row taller than the page shows where the page is on the scrollbar
+- About&#x27;s privacy section lists every other app it can see: Home, Cabinet, browsers and text actions</content>
+  </entry>
+  <entry>
+    <title>Translate 0.9.28</title>
+    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.28"/>
+    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.28</id>
+    <updated>2026-11-22T12:51:47Z</updated>
+    <content type="text"># Translate 0.9.28
+
+- A row taller than the page shows where the page is on the scrollbar</content>
+  </entry>
+  <entry>
+    <title>Dictionary 0.1.28</title>
+    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.28"/>
+    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.28</id>
+    <updated>2026-11-22T12:51:32Z</updated>
+    <content type="text"># Dictionary 0.1.28
+
+- A row taller than the page shows where the page is on the scrollbar</content>
+  </entry>
   <entry>
     <title>Cabinet 0.9.24</title>
     <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.24"/>
@@ -454,372 +695,5 @@ Thank you. For plain inkOS, go to [gezimos&#x27;s repository](https://github.com
 ## Fixed
 
 - The scrollbar shows where you are on a page with a row taller than the screen</content>
-  </entry>
-  <entry>
-    <title>Passwords 0.1.30</title>
-    <link href="https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.30"/>
-    <id>https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.30</id>
-    <updated>2026-11-20T03:59:49Z</updated>
-    <content type="text"># Passwords 0.1.30
-
-- The add button is a filled rounded square with a round-ended plus, the same as in the other apps
-
-## Fixed
-
-- The scrollbar shows where you are on a page with a row taller than the screen</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.46</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.46"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.46</id>
-    <updated>2026-11-20T03:59:32Z</updated>
-    <content type="text"># Messaging 1.35.46
-
-- The compose button&#x27;s pencil is the outlined pencil Mailbox uses, so the two apps&#x27; corner buttons match</content>
-  </entry>
-  <entry>
-    <title>Mailbox 0.1.65</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.65"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.65</id>
-    <updated>2026-11-20T03:59:09Z</updated>
-    <content type="text"># Mailbox 0.1.65
-
-- Outbox: a message that could not be sent says why where its preview would be, such as &quot;Not sent: the phone is offline.&quot;, &quot;Not sent: couldn&#x27;t reach the mail server.&quot; or &quot;Not sent: the mail server didn&#x27;t accept the password.&quot; A reason the app doesn&#x27;t know is shown as the server gave it
-- Outbox: Send messages in the ⋮ menu tries every message in the Outbox again, even one Mailbox had stopped trying after too many failed tries
-
-## Fixed
-
-- On a page with a row taller than the page, the scrollbar shows where you are</content>
-  </entry>
-  <entry>
-    <title>Songbook 0.1.14</title>
-    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.14"/>
-    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.14</id>
-    <updated>2026-11-20T03:59:01Z</updated>
-    <content type="text"># Songbook 0.1.14
-
-- Where Home (the launcher) is signed in to a Nextcloud, the Nextcloud screen has a new row: &quot;Use the phone&#x27;s Nextcloud account&quot;. Songbook then uses Home&#x27;s account instead of its own sign-in, takes a new app password from Home, and signs out when Home does, with your songs and setlists left on the phone. &quot;Stop using it&quot; goes back to the app&#x27;s own sign-in
-- Songbook asks Home for the account only after checking that Home is the real app
-- The server is shown the same way everywhere, without https:// in front
-
-## Fixed
-
-- Songs are kept in your own Nextcloud folder even when you sign in with an email address or another login name than your Nextcloud user name</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.73</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.73"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.73</id>
-    <updated>2026-11-20T03:58:52Z</updated>
-    <content type="text"># Datebook 0.1.73
-
-- Calendar server: when Home holds the phone&#x27;s Nextcloud account, a &quot;Use the phone&#x27;s Nextcloud account&quot; row signs Datebook in with it, so you do not type the password again. The account then shows &quot;&lt;name&gt; on &lt;server&gt;, from Home.&quot; with &quot;Stop using it&quot;
-- Using Home&#x27;s account replaces only your sign-ins on that same server; accounts on other servers stay. You are asked a second time only when something will be removed
-- A new password in Home reaches Datebook on its own. If Home signs out or is removed, Datebook stops syncing and drops its copy of the password; your calendars stay on the phone
-- Without Home, signing in works as before
-- The scrollbar shows where you are on a page that holds a row taller than the screen</content>
-  </entry>
-  <entry>
-    <title>Connections 0.2.41</title>
-    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.41"/>
-    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.41</id>
-    <updated>2026-11-20T03:58:42Z</updated>
-    <content type="text"># Connections 0.2.41
-
-- Where Home is signed in to a Nextcloud, Settings, Contacts server has one row, &quot;Use the phone&#x27;s Nextcloud account&quot;: it syncs your contacts with that account, with no password to type
-- The app takes the account only from the real Home, and keeps only which account it chose; the password stays Home&#x27;s and is read from Home again before each sync
-- When Home signs out, or signs in to another account, this app stops syncing with it too and says so; your contacts stay on the phone
-- Stop using it takes that account and its people off the phone; the server keeps them
-- The account it makes on the phone is named user@host, as one you sign in to yourself, with the port when it is not the usual one
-- A sign-in you made yourself for the same account is taken over, after its waiting changes are sent; one whose changes cannot be sent stays, and the page says so
-
-## Fixed
-
-- A scrollbar beside a row taller than the screen shows where you are in it
-- A second pull while it is syncing asks nothing more</content>
-  </entry>
-  <entry>
-    <title>Feeds 0.6.20</title>
-    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.20"/>
-    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.20</id>
-    <updated>2026-11-20T03:56:26Z</updated>
-    <content type="text"># Feeds 0.6.20
-
-- Sync with a feed server has a Use the phone&#x27;s Nextcloud account row when Home is signed in to Nextcloud: Feeds then syncs with that Nextcloud&#x27;s News app, with no password typed here
-- Home keeps the password; Feeds asks Home for it before each sync and when it opens, and holds it in memory only
-- When Home signs out of Nextcloud, Feeds stops syncing and says so, with no error; feeds and articles stay on the phone. When Home signs in to another account, Feeds forgets the old one until the row is pressed again
-- Stop using it goes back to the app&#x27;s own sign-in
-- A feed server you sync with sees the app as &quot;Feeds&quot; in its log; feeds and sites still see the old name
-- With Feeds closed, the play button on headphones, in a car or in a navigation app carries on with the podcast episode heard last, where it stopped; one heard to the end is not started again
-
-## Fixed
-
-- Pressing Sync while a sync with the feed server runs does nothing, instead of starting the sync over
-- In a list where one item is taller than the screen, the scrollbar shows where you are in it</content>
-  </entry>
-  <entry>
-    <title>Cabinet 0.9.22</title>
-    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.22"/>
-    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.22</id>
-    <updated>2026-11-20T03:56:14Z</updated>
-    <content type="text"># Cabinet 0.9.22
-
-- With Home (the launcher) signed in to a Nextcloud, &quot;Use the phone&#x27;s Nextcloud account&quot; on the Add a server page adds that account as a server, with no password to type. It follows Home&#x27;s sign-in; when Home signs out, the server stays on the start page, closed, and says why, and your pins and copied files stay on the phone
-- &quot;Stop using it&quot; on that server&#x27;s page goes back to the app&#x27;s own sign-in
-
-## Fixed
-
-- The scrollbar shows where you are in a list whose rows are taller than the screen
-- Signing in to a Nextcloud with an email address (or a name in another case) opens your files
-- Right after Home signs out, opening its server no longer tries the old password</content>
-  </entry>
-  <entry>
-    <title>Audio Reader 1.3.70</title>
-    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.70"/>
-    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.70</id>
-    <updated>2026-11-20T03:56:05Z</updated>
-    <content type="text"># Audio Reader 1.3.70
-
-- With Home signed in to a Nextcloud, Settings → Nextcloud folder offers **Use the phone&#x27;s Nextcloud account**, so the address and an app password need not be typed again. The password stays with Home; the app asks Home for it when it reads the folder or downloads a book, and keeps it in memory only
-- When Home signs out, this app is signed out too: the shelves show only the books on the phone, and the books already downloaded stay. **Stop using it** goes back to the app&#x27;s own sign-in
-- The app answers to Home only after checking, by its signing certificate, that it is the real Home
-- The privacy page lists every other app the app can see on the phone (Home, Cabinet, a browser) and what it asks of each
-
-## Fixed
-
-- On a list with a row taller than the screen, the scrollbar shows where you are</content>
-  </entry>
-  <entry>
-    <title>Shelf 0.1.41</title>
-    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.41"/>
-    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.41</id>
-    <updated>2026-11-20T03:55:56Z</updated>
-    <content type="text"># Shelf 0.1.41
-
-- Nextcloud has a new choice in Settings: &quot;Use the phone&#x27;s Nextcloud account&quot;. When Home is signed in to Nextcloud, one tap uses that account here too, with nothing to type
-- While it is in use, Settings shows the account and the server, and &quot;Stop using it&quot; goes back to signing in here yourself
-- When Home signs out of Nextcloud, this app stops using the account too; your books stay on the phone, and it picks the account up again when Home signs back in to it
-- Your own sign-in still works as before
-- The Nextcloud server is shown the same way everywhere, without https:// in front
-
-## Fixed
-
-- Sync finds the right folder on servers where the user name you sign in with, such as an email address, is not the account&#x27;s own name
-- The scrollbar shows where you are on a page with a very tall row</content>
-  </entry>
-  <entry>
-    <title>Dream Log 0.1.38</title>
-    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.38"/>
-    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.38</id>
-    <updated>2026-11-20T03:55:42Z</updated>
-    <content type="text"># Dream Log 0.1.38
-
-- Settings &gt; Nextcloud has &quot;Use the phone&#x27;s Nextcloud account&quot;: if Home, the launcher, is signed in to Nextcloud, Dream Log can use that account, with no sign-in of its own
-- Only the real Home is asked, checked by its name and signature; Dream Log keeps nothing of the password, asks Home for it again when it needs it, and holds it in memory only
-- When Home signs out or is removed, Dream Log is signed out too and stops sending; your dreams stay on the phone, and copies already in Nextcloud stay
-- &quot;Stop using it&quot; lets Home&#x27;s account go here and leaves Home signed in, so you can sign in here instead
-- The server is shown the same way for both kinds of account: no https://, no slash at the end
-
-## Fixed
-
-- Dreams go to the right Nextcloud folder when the user&#x27;s login name is not their user id, as with an email address
-- A dream longer than the screen has a scrollbar that shows where you are in it</content>
-  </entry>
-  <entry>
-    <title>Pictures 0.8.28</title>
-    <link href="https://github.com/wanderwildwood/garo/releases/tag/v0.8.28"/>
-    <id>https://github.com/wanderwildwood/garo/releases/tag/v0.8.28</id>
-    <updated>2026-11-20T03:54:51Z</updated>
-    <content type="text"># Pictures 0.8.28
-
-- Nextcloud has a new choice in Settings: &quot;Use the phone&#x27;s Nextcloud account&quot;. When Home is signed in to Nextcloud, one tap uses that account here too, with nothing to type
-- While it is in use, Settings shows the account and the server, and &quot;Stop using it&quot; goes back to signing in here yourself
-- When Home signs out of Nextcloud, this app stops using the account too; your pictures stay on the phone
-- Your own sign-in still works as before, and stays in place if Home&#x27;s account cannot be kept safely on this phone
-
-## Fixed
-
-- Backup and browsing on Nextcloud find the right folders on servers where the user name you sign in with is not the account&#x27;s own name
-- Settings show what a backup run in the background did, without a restart
-- A picture added while the app is open, such as a screenshot or a download, shows in the list and is counted by Back up, without a restart
-- Forgetting the pictures fetched from Nextcloud no longer holds up the screen</content>
-  </entry>
-  <entry>
-    <title>Recipes 0.2.26</title>
-    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.26"/>
-    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.26</id>
-    <updated>2026-11-20T03:53:36Z</updated>
-    <content type="text"># Recipes 0.2.26
-
-- Nextcloud: a new row, &quot;Use the phone&#x27;s Nextcloud account&quot;, shows when Home holds a Nextcloud account. Press it and the app syncs with that account, with no sign-in of its own
-- A new password set in Home is taken without asking; when Home signs out of Nextcloud, or is removed, the app signs out too and your recipes stay on the phone
-- &quot;Stop using it&quot; goes back to the app&#x27;s own sign-in
-- The server is shown the same way everywhere, without https:// in front
-
-## Fixed
-
-- Nextcloud: signing in with an email address, or with the login name in other capitals, now finds your recipe folder
-- The scrollbar shows where you are when one entry is taller than the screen</content>
-  </entry>
-  <entry>
-    <title>Glance 0.1.57</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.57"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.57</id>
-    <updated>2026-11-20T01:03:30Z</updated>
-    <content type="text"># Glance 0.1.57
-
-- On the lock screen, Memo&#x27;s items now sit set in under their note, with the text following close after the bullet</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.45</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.45"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.45</id>
-    <updated>2026-11-19T19:21:26Z</updated>
-    <content type="text"># Messaging 1.35.45
-
-## Fixed
-
-- Linking a computer under Linked devices: after scanning its code, the confirmation stays up until you answer instead of vanishing</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.44</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.44"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.44</id>
-    <updated>2026-11-19T15:47:08Z</updated>
-    <content type="text"># Messaging 1.35.44
-
-- A passphrase lock, off unless you turn it on (Settings, Display, Passphrase lock). While locked, Signal messages and calls wait until you unlock, Desktop Sync stops, and a text shows only that something arrived; it is brought into the app when you unlock. It locks when the screen turns off, a set time after you leave the app, or when you choose Lock now, never during a call. If the passphrase is forgotten, the only way back is to clear the app&#x27;s data and link Signal again
-- When the lock closes, the memory the app used is overwritten, so nothing read can be recovered from it (can be turned off)
-- Backups are encrypted with a 30-digit backup code, made once and shown for writing down; no backup is made without one. To restore on another phone, enter that phone&#x27;s code first. Older backups still restore
-- Automatic backups, daily or weekly, keeping the newest 1 to 10
-- The backup location row names the folder in use
-- An optional SOCKS proxy for Signal (Settings, Signal), for example Orbot for Tor. Signal calls are off while it is on, because they cannot go through it
-- In a conversation with disappearing messages, call lines disappear with the messages
-- Signal&#x27;s encryption library is updated to 0.108.0, as Signal Android uses it
-
-## Fixed
-
-- An edit of a view-once message no longer makes its picture last
-- Settings no longer stops responding when many Signal updates arrive at once</content>
-  </entry>
-  <entry>
-    <title>Handset 0.1.39</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.39"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.39</id>
-    <updated>2026-11-19T15:31:33Z</updated>
-    <content type="text"># Handset 0.1.39
-
-- On a phone with two SIMs, a call on SIM 2 that Handset rings itself now uses the ringtone set for SIM 2 in the phone&#x27;s settings (MuditaOS 2.0), as the phone does for every other call
-- In lists, a row taller than the page gets a scroll thumb that shows where on the row you are</content>
-  </entry>
-  <entry>
-    <title>Lens 0.1.41</title>
-    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.41"/>
-    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.41</id>
-    <updated>2026-11-19T12:36:34Z</updated>
-    <content type="text"># Lens 0.1.41
-
-- The viewfinder is as wide as the screen, with no black strips at the sides; the top and bottom of the picture run under the edges, and the photo keeps them
-
-## Fixed
-
-- On a row taller than the page, the scrollbar shows where on the page you are</content>
-  </entry>
-  <entry>
-    <title>Sky 0.13.16</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.16"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.16</id>
-    <updated>2026-11-19T12:36:27Z</updated>
-    <content type="text"># Sky 0.13.16
-
-- The UV index and the air quality share one line on Today
-
-## Fixed
-
-- On a row taller than the page, the scrollbar shows where on the page you are</content>
-  </entry>
-  <entry>
-    <title>Tuner 0.1.53</title>
-    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.53"/>
-    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.53</id>
-    <updated>2026-11-19T05:27:18Z</updated>
-    <content type="text"># Tuner 0.1.53
-
-- A readout to tune by: below the strings, the note in large type, how many cents flat or sharp with which way to turn, and a scale from −50 to +50 cents with a dot where the pitch sits
-- The reading holds still on a held note: it shows the middle of each half second&#x27;s readings and redraws only when that moves three cents or more
-- When the string dies away the last reading stays, grayed, until another note is aimed at
-- In tune also says by how many cents
-- The pitch graph is a tap away: a tap on the readout shows the graph in its place, a tap on the graph brings the readout back, and the choice is remembered</content>
-  </entry>
-  <entry>
-    <title>Feeds 0.6.19</title>
-    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.19"/>
-    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.19</id>
-    <updated>2026-11-19T04:44:44Z</updated>
-    <content type="text"># Feeds 0.6.19
-
-- A Reading row under Podcasts, for the feeds that are in no folder: tap it for every article from them, or its + to show the feeds</content>
-  </entry>
-  <entry>
-    <title>Shelf 0.1.40</title>
-    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.40"/>
-    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.40</id>
-    <updated>2026-11-19T04:13:25Z</updated>
-    <content type="text"># Shelf 0.1.40
-
-- The bar with Scan and Shelf order is the same height as the other apps&#x27; top bars
-- Spreadsheet export keeps every text cell from running as a formula, and a book known only by its LCCN survives the round trip
-- A QR sign-in is checked with the server before it is kept
-- Books found without the Library of Congress are looked up there again quietly, two a minute and never ahead of a fresh scan; with no connection, the asking waits for one to come back
-- The tabs always fit across the screen
-- Listen asks only the real Audio Reader, before a title goes out or a book is opened
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Sync compares files from a compressing web server as the same file
-- An unreadable catalog is kept aside, and a failed write no longer closes the app
-- Nothing is saved, synced or imported until the library has loaded, and a book added meanwhile is kept
-- Import matches a row known by its LCCN alone, so books still waiting for a lookup no longer hide it as already here
-- A Dewey number with a stray mark is saved clean and no longer crashes Sections
-- A lookup only the unreachable catalogs might know is a miss, not tried every minute
-- Genre fill with a catalog out of reach waits for the next start instead of ending for good
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.72</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.72"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.72</id>
-    <updated>2026-11-19T04:13:16Z</updated>
-    <content type="text"># Datebook 0.1.72
-
-- Month: today&#x27;s frame is twice as heavy, so it stands out at a glance on e-ink</content>
-  </entry>
-  <entry>
-    <title>Atlas 0.1.15</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.15"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.15</id>
-    <updated>2026-11-19T04:08:09Z</updated>
-    <content type="text"># Atlas 0.1.15
-
-- Follow trail: Walk to here follows a trail from where you meet it to the spot marked on it, kept across restarts; away from the trail, Walk to the trail plans a walking route to its nearest point
-- Walk to here has its own icon: a walking figure with a flag ahead
-- Dark mode reaches the wait dialogs for moving maps and sharing or importing bookmarks; the streamed map and the OpenStreetMap profile picture keep their colors
-- Own-server dialogs say that a plain http:// address is taken for a server at home, and is sent unencrypted
-- A contact&#x27;s address tapped into the search, or used for directions from the place screen, is not kept in the search history
-- A bug report carries the phone&#x27;s system information as text in the mail rather than the app&#x27;s log, and log archives left by earlier reports are deleted
-- Place types use US English (Highway, not Motorway); British and New Zealand English keep Motorway
-- Bookmark notes load nothing from the network, so a picture in an imported note does not tell its server the place was opened
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Walk to here starts from a fresh, close position, stops on the pass of the trail that was marked, and finds the marked spot on a trail made of several lines; deleting the followed track ends following
-- An online address lookup tries Photon when the Census geocoder cannot be reached
-- Fastest for one trip no longer turns off avoid-motorways set in Settings
-- On a phone that turns sideways, the navigation and downloader panels no longer close the app
-- Another app can no longer plan a route through the map&#x27;s own extras, or close the app with a bookmark or track that is gone
-- Search asks Contacts off the main thread as you type
-- A tap on the scrollbar lands on the right row after the screen changes</content>
   </entry>
 </feed>
