@@ -3,13 +3,15 @@
 // the picture of each app the game quietly knows about (the cards named in data-cards: nothing says why). On Home's page he walks in along the
 // bottom of the screen and stays there, looks up, and sits down by the end; scrolled back, he gets up and walks off. A press on him opens the game's page.
 // Drawn from shots/wander-peek.png: fourteen frames of 14x37 from the game's own sheet (stand, look up, the
-// eight of the walk, the three of sitting down, and sitting).
+// eight of the walk, the three of sitting down, and sitting). Sat on Home's page he has his pipe: shots/wander-pipe.png,
+// eight frames of the sitting one with the game's pipe in his hand (its fire's sitpipe), a wisp off the bowl rising as you scroll.
 (function () {
   var script = document.currentScript, base = (script && script.dataset.base) || '';
   var mode = (script && script.dataset.mode) || 'rise';
   var W = 14, H = 37, S = 3, N = 14;               // a frame; screen pixels to a game pixel; frames in the strip
   var STAND = 0, LOOK = 1, WALK = 2, SITDOWN = 10, SIT = 13;
   var STRIDE = 2 * S;                              // a walk frame for every two of his pixels gone, as the game steps him
+  var PIPE_N = 8, PUFF = 28;                        // the pipe's frames; page pixels scrolled to each
 
   var feathered = ((script && script.dataset.feather) || '').split(',');   // cards where he has the feather in his hat band, as the game draws it
   function figure(feather) {
@@ -25,6 +27,7 @@
     return a;
   }
   function pose(el, n) { el.style.backgroundPosition = (-n * W * S) + 'px 0'; }
+  function sheet(el, url, n) { if (el.dataset.sheet !== url) { el.dataset.sheet = url; el.style.backgroundImage = 'url(' + url + ')'; el.style.backgroundSize = W * S * n + 'px ' + H * S + 'px'; } }
   function face(el, left) { el.style.transform = left ? 'scaleX(-1)' : 'none'; }
   function snap(v) { return Math.round(v / S) * S; }   // whole game pixels
   function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
@@ -61,9 +64,12 @@
       });
   } else {
     // Along the foot of the screen, as on the game's page: scrolled down, he walks in from the right edge and
-    // stops a little way in, staying at the bottom of the screen while the page goes by; he looks up, and by
-    // the end of the page he has sat down. Scrolled back, he gets up and walks off the way he came.
+    // stops a little way in, staying at the bottom of the screen while the page goes by; he looks up, sits down
+    // soon after, and has his pipe the rest of the way down, a wisp off it rising as the page goes by (22 Nov 2026).
+    // Scrolled back, he puts it away, gets up and walks off the way he came.
     var w = figure();
+    var pipeUrl = base + 'shots/wander-pipe.png', walkUrl = base + 'shots/wander-peek.png';
+    new Image().src = pipeUrl;
     w.style.position = 'fixed';
     w.style.bottom = '0';
     w.style.zIndex = '40';
@@ -79,8 +85,11 @@
       var off = -W * S - 4;
       var x, n;
       if (p < 0.22) { var a = part(p, 0.03, 0.22); x = off + (into - off) * a; n = a > 0 && a < 1 ? walkFrame(x - off) : STAND; }
-      else if (p < 0.8) { x = into; n = part(p, 0.3, 0.5) > 0 && p < 0.7 ? LOOK : STAND; }
-      else { x = into; var s = part(p, 0.8, 0.95); n = s >= 1 ? SIT : s <= 0 ? STAND : SITDOWN + Math.min(2, Math.floor(s * 3)); }
+      else if (p < 0.27) { x = into; n = p >= 0.235 && p < 0.26 ? LOOK : STAND; }
+      else { x = into; var s = part(p, 0.27, 0.3); n = s >= 1 ? SIT : s <= 0 ? STAND : SITDOWN + Math.min(2, Math.floor(s * 3)); }
+      var piping = n === SIT;
+      sheet(w, piping ? pipeUrl : walkUrl, piping ? PIPE_N : N);
+      if (piping) n = Math.floor(Math.max(0, scrollY - 0.3 * span) / PUFF) % PIPE_N;
       face(w, true);                                     // come in from the right, facing into the page
       w.style.right = snap(x) + 'px';
       w.style.visibility = p > 0.03 ? 'visible' : 'hidden';
