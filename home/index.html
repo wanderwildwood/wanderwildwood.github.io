@@ -28,15 +28,15 @@
     --body: #3a362f;     /* the phone */
     --body-edge: #3a362f;
     --hard: rgba(30, 30, 28, .2);   /* a hard shadow, as the pages of the game's page have */
-    --screen: #e4e3df; --screen-ink: #232323;   /* an E Ink screen: a soft grey, ink a little short of black */
+    --screen: #d0d0cf; --screen-ink: #161616;   /* the Kompakt's screen: the same grey by day and by night */
     --eink: contrast(0.88) brightness(0.96);    /* the screenshots toned to it, as on the home page */
     color-scheme: light;
   }
   /* Dark follows the phone or computer, unless the button at the top has been pressed. */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --body: #2b2b29; --body-edge: #4a4a46; --hard: rgba(0, 0, 0, .5); --screen: #171717; --screen-ink: #dcdcdc; --eink: contrast(0.82); color-scheme: dark; }
+    :root:not([data-theme="light"]) { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --body: #2b2b29; --body-edge: #4a4a46; --hard: rgba(0, 0, 0, .5); --eink: contrast(0.82); color-scheme: dark; }
   }
-  :root[data-theme="dark"] { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --body: #2b2b29; --body-edge: #4a4a46; --hard: rgba(0, 0, 0, .5); --screen: #171717; --screen-ink: #dcdcdc; --eink: contrast(0.82); color-scheme: dark; }
+  :root[data-theme="dark"] { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --body: #2b2b29; --body-edge: #4a4a46; --hard: rgba(0, 0, 0, .5); --eink: contrast(0.82); color-scheme: dark; }
   * { box-sizing: border-box; }
   html { overflow-x: hidden; }
   body {
@@ -113,12 +113,22 @@
   .toc[hidden] { display: none; }
 
   .phone { margin: 0; justify-self: center; width: 100%; max-width: 17rem; }
-  .phone .body { background: var(--body); border: 1px solid var(--body-edge); border-radius: 1.5rem;
-    padding: 1.6rem 0.85rem 2.6rem; box-shadow: 6px 6px 0 var(--hard); position: relative; transition: background-color .5s; }
-  .phone .body::after { content: ""; position: absolute; left: 50%; bottom: 0.95rem; width: 2.4rem; height: 0.32rem;
-    margin-left: -1.2rem; border-radius: 0.2rem; background: rgba(255, 255, 255, .14); }   /* the home key */
+  /* The phone drawn as the Kompakt is: a silver frame, a black face, the earpiece above the glass, the keys at the
+     sides, and back, home and the E Ink key printed under the screen. All in proportions, so it scales. */
+  .phone .body { position: relative; padding: 2.4%; border-radius: 15.6% / 8.5%;
+    background: linear-gradient(90deg, #9e9ea2, #adacb1 6%, #adacb1 94%, #9e9ea2);
+    box-shadow: inset 0 0 0 1px #747477, inset 0 2px 0 rgba(255, 255, 255, .25); }
+  .phone .key { position: absolute; width: 1.6%; border-radius: 2px; background: linear-gradient(90deg, #8e8e92, #b4b3b8 50%, #8e8e92); }
+  .phone .key.l { left: -1.3%; top: 33%; height: 6.6%; }
+  .phone .key.r { right: -0.9%; top: 16%; height: 15.6%; }
+  .phone .face { position: relative; background: #1e1e1e; border-radius: 14% / 7.6%; padding: 18% 8.8% 0;
+    box-shadow: 0 0 0 1px #3f3f42; }
+  .phone .ear { position: absolute; left: 50%; top: 6.3%; width: 12%; height: 1.5%; margin-left: -6%;
+    border-radius: 99px; background: #101010; box-shadow: inset 0 1px 0 #070707; }
+  .phone .nav { display: flex; justify-content: space-around; align-items: center; padding: 8% 8% 9%; color: #aeaeb0; }
+  .phone .nav svg { width: 9%; height: auto; display: block; }
   .screen { container-type: inline-size; position: relative; overflow: hidden; aspect-ratio: 400 / 627;
-    background: var(--screen); color: var(--screen-ink); border-radius: 3px; padding: 13% 10% 0;
+    background: var(--screen); color: var(--screen-ink); border-radius: 2px; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25); padding: 13% 10% 0;
     font-family: "Helvetica Neue", Arial, "Liberation Sans", sans-serif; line-height: 1.25; }
   .screen span { display: block; white-space: nowrap; }
   .screen .t { font-size: 15cqw; font-weight: 300; letter-spacing: -0.02em; line-height: 1; }
@@ -284,8 +294,8 @@
     /* a small phone in the corner that keeps turning; a press makes it bigger */
     .stage { position: fixed; right: 0.8rem; bottom: 0.8rem; z-index: 30; width: 5.2rem; cursor: zoom-in; }
     .stage .phone { position: static; margin: 0; }
-    .stage .phone .body { padding: 0.45rem 0.3rem 0.9rem; border-radius: 0.7rem; box-shadow: 3px 3px 0 var(--hard); }
-    .stage .phone .body::after { display: none; }
+    .stage .phone .ear, .stage .phone .key { display: none; }
+    .stage:not(.big) .phone .nav svg { width: 14%; }
     .stage .cap, .stage figcaption { display: none; }
     .stage.big { width: 13rem; cursor: zoom-out; }
   }
@@ -320,8 +330,7 @@
   a.btn:active, button.daynight:active { transform: translate(4px, 4px); }
   a.btn.plain { box-shadow: none; }
   .folder { border-radius: 0; border-width: 2px; box-shadow: var(--step-soft); }
-  .phone .body { box-shadow: var(--step-soft); }
-  .stage .screen img { filter: var(--eink); }
+  .stage .screen img { mix-blend-mode: multiply; }   /* the shots' white becomes the screen's grey, black stays black */
   button.theme { border-radius: 0; border-width: 2px; }
   @keyframes px-fill { 0% { background: repeating-conic-gradient(var(--ink) 0 25%, transparent 0 50%) 0 0 / 4px 4px; color: var(--ink); } }
   @media (prefers-reduced-motion: no-preference) { .back a:hover, a.btn:hover, button.daynight:hover { animation: px-fill .12s step-end both; } }
@@ -596,7 +605,7 @@ plain inkOS, go to <a href="https://github.com/gezimos/inkos">gezimos's reposito
 </div>
 <aside class="stage" aria-label="Home's screens, as the page goes on">
 <figure class="phone">
-<div class="body"><div class="screen">
+<div class="body"><i class="key l"></i><i class="key r"></i><div class="face"><i class="ear"></i><div class="screen">
 <img data-name="iori" data-cap="Home" data-cap-ja="庵" src="../shots/iori.png" data-dark="../shots/dark/iori.png" width="400" height="627" alt="Home" loading="eager" class="on">
 <img data-name="iori-firstrun-welcome" data-cap="The first run: welcome" data-cap-ja="初回設定：ようこそ" src="../shots/iori-firstrun-welcome.png" data-dark="../shots/dark/iori-firstrun-welcome.png" width="400" height="627" alt="The first run: welcome" loading="eager">
 <img data-name="iori-nextcloud" data-cap="The first run: Nextcloud" data-cap-ja="初回設定：Nextcloud" src="../shots/iori-nextcloud.png" data-dark="../shots/dark/iori-nextcloud.png" width="400" height="627" alt="The first run: Nextcloud" loading="eager">
@@ -610,7 +619,7 @@ plain inkOS, go to <a href="https://github.com/gezimos/inkos">gezimos's reposito
 <img data-name="iori-firstrun" data-cap="The first run: your apps" data-cap-ja="初回設定：アプリ" src="../shots/iori-firstrun.png" data-dark="../shots/dark/iori-firstrun.png" width="400" height="627" alt="The first run: your apps" loading="eager">
 <img data-name="iori-folder" data-cap="Your apps: a folder" data-cap-ja="Your apps：フォルダー" src="../shots/iori-folder.png" data-dark="../shots/dark/iori-folder.png" width="400" height="627" alt="Your apps: a folder" loading="eager">
 <img data-name="iori-installing" data-cap="Your apps: getting an app" data-cap-ja="Your apps：入れているところ" src="../shots/iori-installing.png" data-dark="../shots/dark/iori-installing.png" width="400" height="627" alt="Your apps: getting an app" loading="eager">
-</div></div>
+</div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
 <p class="cap" aria-live="polite"><span class="en">Home</span><span class="ja" lang="ja" hidden>庵</span></p>
 <figcaption>
 <p class="en">Home has a dark mode too. On MuditaOS it is a switch in Home's Settings.</p>
