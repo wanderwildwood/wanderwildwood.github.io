@@ -4,8 +4,64 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-21T16:56:48Z</updated>
+  <updated>2026-11-22T01:10:52Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Mailbox 0.1.67</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.67"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.67</id>
+    <updated>2026-11-22T01:10:52Z</updated>
+    <content type="text"># Mailbox 0.1.67
+
+## Fixed
+
+- Passwords and sign-in tokens no longer show up in the app&#x27;s logs</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.75</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.75"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.75</id>
+    <updated>2026-11-22T01:04:06Z</updated>
+    <content type="text"># Datebook 0.1.75
+
+- The Day view&#x27;s date is no longer cut off; a long date shortens to fit
+- Today&#x27;s number in the month has no black tile now, only the heavy frame
+- An event&#x27;s place opens in Atlas when Atlas is on the phone
+- Leftover link calendars can be removed from Settings → Calendars</content>
+  </entry>
+  <entry>
+    <title>Feeds 0.6.21</title>
+    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.21"/>
+    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.21</id>
+    <updated>2026-11-21T23:33:15Z</updated>
+    <content type="text"># Feeds 0.6.21
+
+- Podcast chapters and transcripts, when a show&#x27;s feed has them: Chapters and Transcript buttons on the episode page. A chapter or a line of the transcript starts the episode there; the chapter playing is shaded, and Go to now finds the line being spoken
+- Both are kept with a downloaded episode, so they open with no signal
+- Episodes already on the phone get their chapters and transcripts at the next sync
+- On an episode page the volume keys set the volume; on articles they still turn the page
+- Podcasts synced through a feed server do not get chapters or transcripts yet</content>
+  </entry>
+  <entry>
+    <title>Time 0.2.31</title>
+    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.31"/>
+    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.31</id>
+    <updated>2026-11-21T21:08:07Z</updated>
+    <content type="text"># Time 0.2.31
+
+- Noise: a new tab of sound for sleep, made as it plays so it never repeats. Choose Soft, Deep or Fan, and let it fade out and stop after 30 minutes, 1 hour or 2 hours, or play until you stop it (it stops on its own after 12 hours). It keeps playing with the screen off, a Stop button sits in its notification, and a ringing alarm or a call stops it
+- A row taller than the page shows where it is in the scrollbar</content>
+  </entry>
+  <entry>
+    <title>Sky 0.13.18</title>
+    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.18"/>
+    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.18</id>
+    <updated>2026-11-21T20:40:42Z</updated>
+    <content type="text"># Sky 0.13.18
+
+- The hours strip on Today turns only by Now and Later, no longer by a swipe: swipes up and down over it to scroll the page kept turning it by mistake
+- The later hours&#x27; strip leaves its first hour to the line above, so it no longer runs into the hour two columns on</content>
+  </entry>
   <entry>
     <title>Cabinet 0.9.23</title>
     <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.23"/>
@@ -778,123 +834,6 @@ Thank you. For plain inkOS, go to [gezimos&#x27;s repository](https://github.com
 - A microphone that will not open says Not listening with a notice why, and a press to listen tries again
 - A recording is written whole or not at all, and recordings kept for the session are no longer cleared by a change of font size, language or dark mode
 - Species names with a comma are quoted in the spreadsheet
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Chess+ 1.3.30-chessplus</title>
-    <link href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.30-chessplus"/>
-    <id>https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.30-chessplus</id>
-    <updated>2026-11-19T04:07:07Z</updated>
-    <content type="text"># Chess+ 1.3.30
-
-- When the engine fails while choosing a move it is started again; if it still cannot play, the game is kept, not resigned and deleted
-- A saved game that cannot be read is no longer deleted silently: a message offers Keep or Discard, and a new game over it asks first
-- Two players: Undo with a move placed but not confirmed takes back only that move
-- New game saves the chosen difficulty and move hints before the game starts
-- Statistics: Clear all asks with a second tap on the button instead of a dialog
-- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- An engine that stops answering is ended after two seconds and started again on the next move, and a restarted engine is no longer disturbed by the old one
-- Leaving the no-engine message goes back to the menu without bringing the message back
-- A damaged copy of the engine&#x27;s net is made again instead of staying missing
-- A computer move canceled before its search began no longer waits forever
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Topo 0.2.22</title>
-    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.22"/>
-    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.22</id>
-    <updated>2026-11-19T04:06:57Z</updated>
-    <content type="text"># Topo 0.2.22
-
-- A Geocaches map layer, off until added under Layers: open a geocache GPX file or Pocket Query zip from the map menu or another app, and, with signal, see the Opencaching sites&#x27; caches for the map on the screen. Each cache shows its kind, a tick once found and a cross after a did-not-find; its sheet has the hint, the description, Navigate, Found it, Not found and a note. Field notes export for Geocaching.com or Opencaching. A saved area keeps its caches too
-- Save this area tries a failed tile again after a pause; an area that could not be fetched in full says how many map and elevation tiles are missing and offers to fetch just those
-- Save this area still fetches the map tiles when the elevation server is out of reach, and an elevation tile the server does not have is not counted as missing
-- Save this area says when the fruit and nut trees or the streets could not be kept with it
-- Opening a GPX file of waypoints asks before adding them as beacons and turns down a file of thousands
-- Backup says that saved areas are not in it and are saved again on a new phone
-- Settings has an Open DuraSpeed row on a phone that has DuraSpeed
-- My region packs only keeps the Forage and Streets layers off the network too
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- The bottom bar says Navigate in full, rather than a cut-off Navigat...
-- The Location and Elevation home-screen widgets draw again rather than closing the app on each update
-- Backups restore again when saved areas or the Forage and Streets layers hold many files: tiles are left out and fetched again on use
-- Zoomed-out and edge map tiles a saved area kept are drawn with no signal too
-- Deleting a saved area finishes removing its tiles even if the page is left part way, and tiles left by a save that failed or was closed are removed
-- Importing or removing an elevation model touches that model only; a zip that is not an elevation model leaves the loaded one as it was, and a model imported before this version is removed by Remove and replaced by a new import
-- A region pack named like the viewed terrain, the imported model or a saved area&#x27;s elevation no longer replaces it
-- A region pack download left part way is not reported as a failure, and leaves no partial file
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Detour 0.1.31</title>
-    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.31"/>
-    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.31</id>
-    <updated>2026-11-19T04:06:47Z</updated>
-    <content type="text"># Detour 0.1.31
-
-- The walk&#x27;s destination survives the app being stopped in the background
-- Back from Settings returns to the walk
-- Settings turns its pages like the app&#x27;s other lists
-- The GPS and the compass are let go while the screen is away and start again on the way back
-- Arrived is said only from a live position sure to within 50 meters
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A newer GPS fix is always taken, even a little less sure than the last, and a clock set back during a walk no longer freezes the position
-- A permission dialog closed with Back is not taken as refused for good, Ask every time still asks again, and a refusal Android stopped asking about is recognized in later runs
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Star Chart 0.5.23</title>
-    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.23"/>
-    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.23</id>
-    <updated>2026-11-19T04:06:39Z</updated>
-    <content type="text"># Star Chart 0.5.23
-
-- Planets&#x27; brightness is worked out for the night from their distance and phase, not their brightest ever
-- Where: the phone&#x27;s newest location is used, and a place taken from the phone still says so after the app is closed
-- When: a chosen moment survives the app being stopped in the background
-- The first-run question about where you are is not asked again when the window is rebuilt
-- Dark mode takes Home&#x27;s switch only from the real Home app, and the app&#x27;s own setting applies again once Home is removed; it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- Outer planets near the end of the tables are placed from their own day
-- A position that is not a number is not taken as a place, and a stored one asks again instead of showing Greenwich unasked
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Audio Reader 1.3.69</title>
-    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.69"/>
-    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.69</id>
-    <updated>2026-11-19T04:06:30Z</updated>
-    <content type="text"># Audio Reader 1.3.69
-
-- A book whose first file is renamed, or gains a file in front, keeps its place, bookmarks and chapter marks
-- Listening on after the screen is gone keeps its place
-- A file another app opens comes in paused, so playback starts only when you press play
-- Server sync: a downloaded book whose file changes on the server goes back to Download, which fetches the new file instead of the player stopping at it; while it waits, the book stays in Downloaded and can still be removed
-- Only the app, the system and the controllers it vouches for (notification, Bluetooth, lock screen) can see or steer what is playing, and Open with takes only a file or a document
-- On Android 13 and later, notifications are asked for once, the first time a book is kept
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A folder that fails to list part way keeps its books, places and bookmarks
-- A file gone from a book&#x27;s folder leaves its chapter list, so the player no longer stops at it; a file the server no longer has leaves it too, unless its audio is on the phone, so the book can be downloaded again
-- Restoring places moves the book in the strip and in the player, so Play does not carry on from the old place
-- Opening the book already in the player carries on from where it is, instead of going a few seconds back
-- Opening a book in a player stopped from a headset plays instead of sitting still
-- An odd Audiobookshelf answer says &quot;not Audiobookshelf&quot; instead of crashing the app; a pasted key loses the line break it brought, and a key that cannot be used is said in words instead of crashing
-- Lengths and tags are read on Android 9 too
 - A tap on the scrollbar lands on the right row after the screen changes</content>
   </entry>
 </feed>
