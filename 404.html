@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Off the path · wander</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
+<script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<style>
+  /* The page a wrong address lands on: a stretch of trail, his footprints going on, and his hat left on the path.
+     The site's own paper, ink and faces (index.html), dark following the computer unless theme.js has been pressed. */
+  @font-face { font-family: "Departure Mono"; src: url(/fonts/DepartureMono-Regular.woff2) format("woff2"); font-display: swap; }
+  @font-face { font-family: "Geist Mono"; src: url(/fonts/GeistMono-Regular.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+  :root { --ink: #252422; --quiet: #52504c; --paper: #d9d8d3; --line: #83817b; color-scheme: light; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --ink: #dddcd7; --quiet: #a4a39d; --paper: #222221; --line: #76756f; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --ink: #dddcd7; --quiet: #a4a39d; --paper: #222221; --line: #76756f; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 3rem 1.25rem;
+    background: var(--paper); color: var(--ink); font: 15px/1.7 "Geist Mono", ui-monospace, Menlo, Consolas, monospace; }
+  main { max-width: 37.5rem; width: 100%; }
+  .trail { width: 100%; height: auto; image-rendering: pixelated; display: block; margin: 0 0 2.2rem; }
+  .trail.night { display: none; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .trail.day { display: none; } :root:not([data-theme="light"]) .trail.night { display: block; } }
+  :root[data-theme="dark"] .trail.day { display: none; }
+  :root[data-theme="dark"] .trail.night { display: block; }
+  h1 { font: 400 22px/1.3 "Departure Mono", ui-monospace, monospace; margin: 0 0 .8rem; }
+  p { margin: 0 0 1.6rem; color: var(--quiet); max-width: 34rem; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--line); }
+  a:hover { text-decoration-style: dotted; text-decoration-color: currentColor; }
+  .back { font: 400 15px "Departure Mono", ui-monospace, monospace; }
+</style>
+</head>
+<body>
+<main>
+  <img class="trail day" src="/lost.png" width="600" height="184" alt="A trail through the redwoods with ferns and a mushroom; wander's pointed hat, a leaf in its band, sits on the path, and his footprints go on off the edge.">
+  <img class="trail night" src="/lost-dark.png" width="600" height="184" alt="" aria-hidden="true">
+  <h1>You've wandered off the path.</h1>
+  <p>Nothing grows at this address. He went on ahead and left his hat on the trail; it'll keep.</p>
+  <p class="back"><a href="/">Back to the clearing</a></p>
+</main>
+</body>
+</html>
