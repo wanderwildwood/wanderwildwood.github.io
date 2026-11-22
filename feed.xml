@@ -4,8 +4,19 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-22T01:10:52Z</updated>
+  <updated>2026-11-22T01:36:31Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Cabinet 0.9.24</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.24"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.24</id>
+    <updated>2026-11-22T01:36:31Z</updated>
+    <content type="text"># Cabinet 0.9.24
+
+## Fixed
+
+- &quot;Opens folders and downloads&quot; can be reached again at the end of the first screen. On a screen where the list filled its pages exactly, as on the Kompakt, the page would not turn to it</content>
+  </entry>
   <entry>
     <title>Mailbox 0.1.67</title>
     <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.67"/>
@@ -809,31 +820,6 @@ Thank you. For plain inkOS, go to [gezimos&#x27;s repository](https://github.com
 - On a phone that turns sideways, the navigation and downloader panels no longer close the app
 - Another app can no longer plan a route through the map&#x27;s own extras, or close the app with a bookmark or track that is gone
 - Search asks Contacts off the main thread as you type
-- A tap on the scrollbar lands on the right row after the screen changes</content>
-  </entry>
-  <entry>
-    <title>Birding 1.7.48</title>
-    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.48"/>
-    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.48</id>
-    <updated>2026-11-19T04:07:19Z</updated>
-    <content type="text"># Birding 1.7.48
-
-- A place gone stale or unknown stops weighing the answers, and a detection is no longer stamped with a stale place, even with the screen left in front
-- Listening lets go of the microphone on stop
-- The species list keeps its search across a return
-- The app keeps its English name in every language, so it is never taken for the phone&#x27;s own app
-- Dark mode and the file picker trust only the real Home and Cabinet apps; once Home is removed, the app&#x27;s own dark setting applies again, and it keeps its last setting while Home is briefly unavailable, as during its update
-
-## Fixed
-
-- A newer run of the same bird no longer crashes the app with a duplicate row
-- Restore keeps the old log until the new one has been read, and detections after a restore land in the restored log
-- A restore on a full phone says the phone is too full, not that the backup is damaged
-- A backup naming a bird the app has no name for is refused, and the log leaves such a line off rather than failing on it
-- Removing a row from the condensed Heard log no longer takes another day&#x27;s readings with it
-- A microphone that will not open says Not listening with a notice why, and a press to listen tries again
-- A recording is written whole or not at all, and recordings kept for the session are no longer cleared by a change of font size, language or dark mode
-- Species names with a comma are quoted in the spreadsheet
 - A tap on the scrollbar lands on the right row after the screen changes</content>
   </entry>
 </feed>
