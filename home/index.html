@@ -291,7 +291,9 @@
   .stage figcaption { margin-top: 0.4rem; }
   @media (max-width: 52rem) {
     .story { grid-template-columns: minmax(0, 1fr); }
-    /* a small phone in the corner that keeps turning; a press makes it bigger */
+    /* On a phone the drawn Kompakt is left out (22 Nov 2026): wander walks in from the edge
+       and sits there instead (peek.js). The rules below are for the small corner phone it was. */
+    .stage { display: none; }
     .stage { position: fixed; right: 0.8rem; bottom: 0.8rem; z-index: 30; width: 5.2rem; cursor: zoom-in; }
     .stage .phone { position: static; margin: 0; }
     .stage .phone .ear, .stage .phone .key { display: none; }
@@ -742,7 +744,7 @@ document.querySelectorAll('button.jp').forEach(function (b) {
   sync();
 })();
 </script>
-<script src="../peek.js?v=10" data-base="../" data-mode="side" data-at="#home-app"></script>
+<script src="../peek.js?v=11" data-base="../" data-mode="side" data-at="#home-app"></script>
 <script src="../scrollbar.js"></script>
 </body>
 </html>

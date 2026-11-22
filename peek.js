@@ -72,10 +72,10 @@
       var span = Math.max(1, document.documentElement.scrollHeight - innerHeight);
       var p = clamp(scrollY / span);
       var narrow = innerWidth < 52 * 16;
-      // where he stops: in the margin on a wide screen; on a phone, just left of the small phone in the corner
+      // where he stops: in the margin on a wide screen; on a phone, just out from the edge (no phone in the corner there now)
       var main = document.querySelector('main') || document.body;
       var room = innerWidth - main.getBoundingClientRect().right;
-      var into = narrow ? Math.round(5.2 * 16 + 0.8 * 16 + 10) : Math.min(Math.max(room * 0.5 - W * S / 2, 16), 160);
+      var into = narrow ? 16 : Math.min(Math.max(room * 0.5 - W * S / 2, 16), 160);
       var off = -W * S - 4;
       var x, n;
       if (p < 0.22) { var a = part(p, 0.03, 0.22); x = off + (into - off) * a; n = a > 0 && a < 1 ? walkFrame(x - off) : STAND; }
