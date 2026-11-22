@@ -258,6 +258,14 @@
   .fan.reach ul.apps li { font-size: 0.92rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .fan.reach ul.apps li span { color: var(--quiet); }
   .fan.reach ul.apps li.none s { text-decoration-thickness: 1.5px; }
+  .fan.reach ul.apps li span i { font-style: normal; }
+  @media (max-width: 34rem) {   /* on a phone the name, and under it what it's for, smaller: one line each had them cut off */
+    .fan.reach { grid-template-columns: 2.8rem 2.4rem minmax(0, 1fr); }
+    .fan.reach svg.lines { height: 10.8rem; }   /* four rows of 2.7rem: each line still ends at its name */
+    .fan.reach ul.apps li { height: 2.7rem; display: flex; flex-direction: column; justify-content: center; line-height: 1.15; white-space: nowrap; }
+    .fan.reach ul.apps li > span > span { display: block; font-size: 0.74rem; }
+    .fan.reach ul.apps li span i { display: none; }
+  }
   .fan.reach .lines path.none { stroke-dasharray: .04 .04; }
   .js .fan.reach .lines path.none { stroke-dashoffset: 0; opacity: 0; }
   .js .seen .fan.reach .lines path.none { opacity: 1; transition: opacity .3s steps(2, end); transition-delay: .9s; }
@@ -549,10 +557,10 @@ email from your own mail app.</p>
 <div class="from" aria-hidden="true"><svg class="big"><use href="#hut"/></svg></div>
 <svg class="lines" viewBox="0 0 64 128" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" style="--i:0" d="M0 64 C 28 64, 36 16, 64 16"/><path pathLength="1" style="--i:1" d="M0 64 C 28 64, 36 48, 64 48"/><path pathLength="1" style="--i:2" d="M0 64 C 28 64, 36 80, 64 80"/><path class="none" pathLength="1" d="M0 64 C 28 64, 36 112, 64 112"/></svg>
 <ul class="apps">
-  <li style="--i:0"><span class="en">wanderthe.dev <span>· the list of apps</span></span><span class="ja" lang="ja" hidden>wanderthe.dev <span>· アプリの一覧</span></span></li>
-  <li style="--i:1"><span class="en">GitHub <span>· the apps you ask for</span></span><span class="ja" lang="ja" hidden>GitHub <span>· 頼んだアプリ</span></span></li>
-  <li style="--i:2"><span class="en">your Nextcloud <span>· sign in, sign out</span></span><span class="ja" lang="ja" hidden>自分のNextcloud <span>· サインインとアウト</span></span></li>
-  <li class="none" style="--i:3"><span class="en"><s>a server of Home's own</s> <span>· none</span></span><span class="ja" lang="ja" hidden><s>庵自身のサーバー</s> <span>· ない</span></span></li>
+  <li style="--i:0"><span class="en">wanderthe.dev <span><i>· </i>the list of apps</span></span><span class="ja" lang="ja" hidden>wanderthe.dev <span><i>· </i>アプリの一覧</span></span></li>
+  <li style="--i:1"><span class="en">GitHub <span><i>· </i>the apps you ask for</span></span><span class="ja" lang="ja" hidden>GitHub <span><i>· </i>頼んだアプリ</span></span></li>
+  <li style="--i:2"><span class="en">your Nextcloud <span><i>· </i>sign in, sign out</span></span><span class="ja" lang="ja" hidden>自分のNextcloud <span><i>· </i>サインインとアウト</span></span></li>
+  <li class="none" style="--i:3"><span class="en"><s>a server of Home's own</s> <span><i>· </i>none</span></span><span class="ja" lang="ja" hidden><s>庵自身のサーバー</s> <span><i>· </i>ない</span></span></li>
 </ul>
 </figure>
 </div>
