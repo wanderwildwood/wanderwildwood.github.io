@@ -4,8 +4,309 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-22T15:06:46Z</updated>
+  <updated>2026-11-22T23:25:38Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Music Box 2.18.48</title>
+    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.48"/>
+    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.48</id>
+    <updated>2026-11-22T23:25:38Z</updated>
+    <content type="text"># Music Box 2.18.48
+
+- The settings cog stays in the top-right corner on every tab
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Glance 0.1.60</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.60"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.60</id>
+    <updated>2026-11-22T23:25:31Z</updated>
+    <content type="text"># Glance 0.1.60
+
+- On MuditaOS, Glance&#x27;s panel on the lock screen stays light in dark mode, as the phone&#x27;s own lock screen does; the app itself still goes dark
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Cycle 0.3.19</title>
+    <link href="https://github.com/wanderwildwood/cycle/releases/tag/v0.3.19"/>
+    <id>https://github.com/wanderwildwood/cycle/releases/tag/v0.3.19</id>
+    <updated>2026-11-22T23:20:21Z</updated>
+    <content type="text"># Cycle 0.3.19
+
+- The fertile window is a short bar under each date again, with a dot on the day of ovulation; the dotted box around it was louder than the box around today</content>
+  </entry>
+  <entry>
+    <title>Herbal 0.1.2</title>
+    <link href="https://github.com/wanderwildwood/yakuso/releases/tag/v0.1.2"/>
+    <id>https://github.com/wanderwildwood/yakuso/releases/tag/v0.1.2</id>
+    <updated>2026-11-22T23:12:52Z</updated>
+    <content type="text"># Herbal 0.1.2
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Mailbox 0.1.68</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.68"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.68</id>
+    <updated>2026-11-22T23:12:46Z</updated>
+    <content type="text"># Mailbox 0.1.68
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Dream Log 0.1.39</title>
+    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.39"/>
+    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.39</id>
+    <updated>2026-11-22T23:12:35Z</updated>
+    <content type="text"># Dream Log 0.1.39
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Atlas 0.1.17</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.17"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.17</id>
+    <updated>2026-11-22T23:07:29Z</updated>
+    <content type="text"># Atlas 0.1.17
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Memo 0.3.36</title>
+    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.36"/>
+    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.36</id>
+    <updated>2026-11-22T23:06:55Z</updated>
+    <content type="text"># Memo 0.3.36
+
+- Tasks: under a list&#x27;s opened Done tasks, Delete the done tasks deletes them all at once, asking twice
+- Tasks: Delete this list, at the end of one of your own Nextcloud lists, deletes the list and its tasks, asking twice; the Nextcloud keeps a deleted list in its trash bin for a while
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Feeds 0.6.22</title>
+    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.22"/>
+    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.22</id>
+    <updated>2026-11-22T23:06:42Z</updated>
+    <content type="text"># Feeds 0.6.22
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Songbook 0.1.15</title>
+    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.15"/>
+    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.15</id>
+    <updated>2026-11-22T23:06:34Z</updated>
+    <content type="text"># Songbook 0.1.15
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Translate 0.9.29</title>
+    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.29"/>
+    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.29</id>
+    <updated>2026-11-22T23:06:27Z</updated>
+    <content type="text"># Translate 0.9.29
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Time 0.2.32</title>
+    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.32"/>
+    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.32</id>
+    <updated>2026-11-22T23:06:17Z</updated>
+    <content type="text"># Time 0.2.32
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Tarot 0.1.29</title>
+    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.29"/>
+    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.29</id>
+    <updated>2026-11-22T23:06:09Z</updated>
+    <content type="text"># Tarot 0.1.29
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Cabinet 0.9.25</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.25"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.25</id>
+    <updated>2026-11-22T23:06:02Z</updated>
+    <content type="text"># Cabinet 0.9.25
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Sky 0.13.19</title>
+    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.19"/>
+    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.19</id>
+    <updated>2026-11-22T23:05:55Z</updated>
+    <content type="text"># Sky 0.13.19
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Shelf 0.1.42</title>
+    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.42"/>
+    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.42</id>
+    <updated>2026-11-22T23:05:48Z</updated>
+    <content type="text"># Shelf 0.1.42
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Lens 0.1.42</title>
+    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.42"/>
+    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.42</id>
+    <updated>2026-11-22T23:05:40Z</updated>
+    <content type="text"># Lens 0.1.42
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Star Chart 0.5.25</title>
+    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.25"/>
+    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.25</id>
+    <updated>2026-11-22T23:05:32Z</updated>
+    <content type="text"># Star Chart 0.5.25
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Wallet 0.1.31</title>
+    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.31"/>
+    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.31</id>
+    <updated>2026-11-22T23:05:26Z</updated>
+    <content type="text"># Wallet 0.1.31
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Audio Reader 1.3.72</title>
+    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.72"/>
+    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.72</id>
+    <updated>2026-11-22T23:05:18Z</updated>
+    <content type="text"># Audio Reader 1.3.72
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.76</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.76"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.76</id>
+    <updated>2026-11-22T23:05:11Z</updated>
+    <content type="text"># Datebook 0.1.76
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Recipes 0.2.27</title>
+    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.27"/>
+    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.27</id>
+    <updated>2026-11-22T23:05:05Z</updated>
+    <content type="text"># Recipes 0.2.27
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Mushroom Journal 0.3.44</title>
+    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.44"/>
+    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.44</id>
+    <updated>2026-11-22T23:04:58Z</updated>
+    <content type="text"># Mushroom Journal 0.3.44
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Handheld Games 0.1.43</title>
+    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.43"/>
+    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.43</id>
+    <updated>2026-11-22T23:04:51Z</updated>
+    <content type="text"># Handheld Games 0.1.43
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Engraver 0.0.19</title>
+    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.19"/>
+    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.19</id>
+    <updated>2026-11-22T23:04:42Z</updated>
+    <content type="text"># Engraver 0.0.19
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Dictionary 0.1.29</title>
+    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.29"/>
+    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.29</id>
+    <updated>2026-11-22T23:04:34Z</updated>
+    <content type="text"># Dictionary 0.1.29
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Handset 0.1.42</title>
+    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.42"/>
+    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.42</id>
+    <updated>2026-11-22T23:04:28Z</updated>
+    <content type="text"># Handset 0.1.42
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Torrents 0.1.30</title>
+    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.30"/>
+    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.30</id>
+    <updated>2026-11-22T23:04:14Z</updated>
+    <content type="text"># Torrents 0.1.30
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Pictures 0.8.29</title>
+    <link href="https://github.com/wanderwildwood/garo/releases/tag/v0.8.29"/>
+    <id>https://github.com/wanderwildwood/garo/releases/tag/v0.8.29</id>
+    <updated>2026-11-22T23:04:06Z</updated>
+    <content type="text"># Pictures 0.8.29
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Remote 0.2.31</title>
+    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.31"/>
+    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.31</id>
+    <updated>2026-11-22T23:04:00Z</updated>
+    <content type="text"># Remote 0.2.31
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Connections 0.2.42</title>
+    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.42"/>
+    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.42</id>
+    <updated>2026-11-22T23:03:53Z</updated>
+    <content type="text"># Connections 0.2.42
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Typewriter 0.1.48</title>
+    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.48"/>
+    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.48</id>
+    <updated>2026-11-22T23:03:47Z</updated>
+    <content type="text"># Typewriter 0.1.48
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
+  <entry>
+    <title>Passwords 0.1.31</title>
+    <link href="https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.31"/>
+    <id>https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.31</id>
+    <updated>2026-11-22T23:03:40Z</updated>
+    <content type="text"># Passwords 0.1.31
+
+- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
+  </entry>
   <entry>
     <title>Chess+ 1.3.31-chessplus</title>
     <link href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.31-chessplus"/>
@@ -280,420 +581,5 @@
 - Today&#x27;s number in the month has no black tile now, only the heavy frame
 - An event&#x27;s place opens in Atlas when Atlas is on the phone
 - Leftover link calendars can be removed from Settings → Calendars</content>
-  </entry>
-  <entry>
-    <title>Feeds 0.6.21</title>
-    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.21"/>
-    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.21</id>
-    <updated>2026-11-21T23:33:15Z</updated>
-    <content type="text"># Feeds 0.6.21
-
-- Podcast chapters and transcripts, when a show&#x27;s feed has them: Chapters and Transcript buttons on the episode page. A chapter or a line of the transcript starts the episode there; the chapter playing is shaded, and Go to now finds the line being spoken
-- Both are kept with a downloaded episode, so they open with no signal
-- Episodes already on the phone get their chapters and transcripts at the next sync
-- On an episode page the volume keys set the volume; on articles they still turn the page
-- Podcasts synced through a feed server do not get chapters or transcripts yet</content>
-  </entry>
-  <entry>
-    <title>Time 0.2.31</title>
-    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.31"/>
-    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.31</id>
-    <updated>2026-11-21T21:08:07Z</updated>
-    <content type="text"># Time 0.2.31
-
-- Noise: a new tab of sound for sleep, made as it plays so it never repeats. Choose Soft, Deep or Fan, and let it fade out and stop after 30 minutes, 1 hour or 2 hours, or play until you stop it (it stops on its own after 12 hours). It keeps playing with the screen off, a Stop button sits in its notification, and a ringing alarm or a call stops it
-- A row taller than the page shows where it is in the scrollbar</content>
-  </entry>
-  <entry>
-    <title>Sky 0.13.18</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.18"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.18</id>
-    <updated>2026-11-21T20:40:42Z</updated>
-    <content type="text"># Sky 0.13.18
-
-- The hours strip on Today turns only by Now and Later, no longer by a swipe: swipes up and down over it to scroll the page kept turning it by mistake
-- The later hours&#x27; strip leaves its first hour to the line above, so it no longer runs into the hour two columns on</content>
-  </entry>
-  <entry>
-    <title>Cabinet 0.9.23</title>
-    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.23"/>
-    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.23</id>
-    <updated>2026-11-21T16:56:48Z</updated>
-    <content type="text"># Cabinet 0.9.23
-
-## Fixed
-
-- An app password for a WebDAV server is taken without the spaces or line breaks a paste can bring along
-- The note on the WebDAV page gives an example address for a WebDAV server other than Nextcloud (Koofr&#x27;s), and says to sign in with your email there</content>
-  </entry>
-  <entry>
-    <title>Sky 0.13.17</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.17"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.17</id>
-    <updated>2026-11-21T16:38:14Z</updated>
-    <content type="text"># Sky 0.13.17
-
-- Units left on Automatic follow the country the forecast is for, not the phone&#x27;s: a phone set to English (United States) in Sydney reads Celsius
-- Settings says where the phone was last found, and when
-- A swipe across the hours strip on Today jumps to the later hours and back, as the pages up and down do</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.48</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.48"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.48</id>
-    <updated>2026-11-21T14:03:00Z</updated>
-    <content type="text"># Messaging 1.35.48
-
-- Signal calls use the newer call library that Signal itself now builds with, so calls end more cleanly
-- Words typed into a content filter (Settings → Blocking) are kept exactly as typed, with no keyboard autocorrect or added spaces</content>
-  </entry>
-  <entry>
-    <title>Glance 0.1.59</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.59"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.59</id>
-    <updated>2026-11-21T13:59:52Z</updated>
-    <content type="text"># Glance 0.1.59
-
-- On MuditaOS 2.0 and KompaktOS the panel leaves out Messaging&#x27;s unread count, since the lock screen shows unread texts in its own row. Mailbox&#x27;s count stays.
-- There the Apps page lists only the apps Glance shows on the panel, and the notification access and Show text rows are left out, as Glance counts no other app&#x27;s notifications there.</content>
-  </entry>
-  <entry>
-    <title>Home 1.0.4</title>
-    <link href="https://github.com/wanderwildwood/iori/releases/tag/v1.0.4"/>
-    <id>https://github.com/wanderwildwood/iori/releases/tag/v1.0.4</id>
-    <updated>2026-11-21T13:49:06Z</updated>
-    <content type="text"># Home 1.0.4
-
-- **Lock-screen music:** on MuditaOS 2.0 and KompaktOS the phone&#x27;s own lock screen shows a player for any app, so Home&#x27;s music strip stands aside there and only one player shows. On MuditaOS 1.x it works as before.</content>
-  </entry>
-  <entry>
-    <title>Glance 0.1.58</title>
-    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.58"/>
-    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.58</id>
-    <updated>2026-11-21T13:49:01Z</updated>
-    <content type="text"># Glance 0.1.58
-
-- On MuditaOS 2.0 and KompaktOS the panel sits clear of the lock screen&#x27;s own player and its missed call and text rows, and moves as they come and go.
-- While they take the middle of the screen, each section shrinks to one line, in your order, with &quot;+N&quot; for what it leaves out. The full panel comes back when they go.
-- There the panel no longer repeats the song or other apps&#x27; notifications, which the lock screen already shows.</content>
-  </entry>
-  <entry>
-    <title>Music Box 2.18.47</title>
-    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.47"/>
-    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.47</id>
-    <updated>2026-11-21T13:48:55Z</updated>
-    <content type="text"># Music Box 2.18.47
-
-- On MuditaOS 2.0 and KompaktOS the lock screen has its own player for any app, so Music Box&#x27;s lock-screen controls stand aside there and only one player shows. On MuditaOS 1.x they work as before.
-- Where they stand aside, Settings leaves out the Lock-screen controls row, or, while the service is still on, says it is not needed and that it can be turned off in Accessibility.</content>
-  </entry>
-  <entry>
-    <title>Audio Reader 1.3.71</title>
-    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.71"/>
-    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.71</id>
-    <updated>2026-11-21T13:48:49Z</updated>
-    <content type="text"># Audio Reader 1.3.71
-
-- On MuditaOS 2.0 and KompaktOS the lock screen has its own player for any app, so Audio Reader&#x27;s lock-screen controls stand aside there and only one player shows. On MuditaOS 1.x they work as before.
-- Where they stand aside, Settings leaves out the Lock-screen controls row, or, while the service is still on, says it is not needed and that it can be turned off in Accessibility.</content>
-  </entry>
-  <entry>
-    <title>Handset 0.1.41</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.41"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.41</id>
-    <updated>2026-11-21T00:38:25Z</updated>
-    <content type="text"># Handset 0.1.41
-
-- On a phone with two SIMs, Settings can give each SIM a name, like Work or Personal, which Recents, &quot;Call from&quot; and the call screen show in place of &quot;SIM 1&quot;</content>
-  </entry>
-  <entry>
-    <title>Handset 0.1.40</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.40"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.40</id>
-    <updated>2026-11-21T00:28:31Z</updated>
-    <content type="text"># Handset 0.1.40
-
-- On a phone with two SIMs, Recents and the calls on a person&#x27;s page say which SIM each call was on (SIM 1 or SIM 2)
-- &quot;Call from&quot; names each SIM by its slot as well as its carrier (&quot;SIM 1 · carrier&quot;), so two SIMs from the same provider are told apart</content>
-  </entry>
-  <entry>
-    <title>Home 1.0.3</title>
-    <link href="https://github.com/wanderwildwood/iori/releases/tag/v1.0.3"/>
-    <id>https://github.com/wanderwildwood/iori/releases/tag/v1.0.3</id>
-    <updated>2026-11-20T20:36:25Z</updated>
-    <content type="text"># Home 1.0.3
-
-- **KompaktOS:** an app&#x27;s E-ink mode opens the Kompakt app, where KompaktOS keeps the modes, and the e-ink refresh gesture asks KompaktOS for a full refresh. On first start Home shows the real status bar and leaves the swipe down to the system&#x27;s notification shade; a backup restored from MuditaOS keeps both.
-- **Restricted settings:** on Android 13 and later, when Home was installed from a file, Home says how to let it read notifications or use Accessibility: App info, then ⋮, then Allow restricted settings.</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.47</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.47"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.47</id>
-    <updated>2026-11-20T19:52:06Z</updated>
-    <content type="text"># Messaging 1.35.47
-
-- A Signal message the other person has already received stays on screen as sent, even when the copy for your other phone does not go through. It used to vanish and come back into the writing box, so sending it again gave them two copies
-- Desktop Sync shows an edited Signal message&#x27;s new words straight away, marked &quot;edited&quot;</content>
-  </entry>
-  <entry>
-    <title>Mailbox 0.1.66</title>
-    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.66"/>
-    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.66</id>
-    <updated>2026-11-20T18:39:47Z</updated>
-    <content type="text"># Mailbox 0.1.66
-
-## Fixed
-
-- Outbox: a message could sit in the Outbox unsent, with later messages waiting behind it and Send messages doing nothing, until the app was restarted. Mailbox now keeps going after any error, so one failed job no longer holds up every send after it
-- Outbox: a message that hasn&#x27;t been tried yet says &quot;Waiting to send&quot; where its preview would be</content>
-  </entry>
-  <entry>
-    <title>Herbal 0.1.1</title>
-    <link href="https://github.com/wanderwildwood/yakuso/releases/tag/v0.1.1"/>
-    <id>https://github.com/wanderwildwood/yakuso/releases/tag/v0.1.1</id>
-    <updated>2026-11-20T17:44:12Z</updated>
-    <content type="text">Herbal 0.1.1
-
-- The home bar has only the settings cog; About&#x27;s i is on the Settings page, as in the other apps.
-- Every list sits at the same margin as the herb pages.
-- The journal and the cupboard add from a button at the top: &quot;Add an entry&quot;, &quot;Add to the cupboard&quot;.
-- About &gt; Licenses shows the full texts of CC BY 4.0, CC BY 3.0 and CC BY-SA 4.0, the licenses of the articles some herb text is adapted from.
-- When the timer&#x27;s &quot;Turn on&quot; or &quot;Allow&quot; can&#x27;t open the phone&#x27;s settings, it says so.
-- Settings rows are a little taller, as in the other apps.</content>
-  </entry>
-  <entry>
-    <title>Engraver 0.0.18</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.18"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.18</id>
-    <updated>2026-11-20T16:47:37Z</updated>
-    <content type="text"># Engraver 0.0.18
-
-- Share to Engraver: text or a .ly file shared from another app becomes a new score in your folder and opens in the editor. From an AI app&#x27;s answer, the LilyPond code block is taken and the sentences around it are left out; a name already in the folder gets a number (&quot;shared 2.ly&quot;)
-- Pictures and other files that are not text are turned away with a message, as is anything over 2 MB</content>
-  </entry>
-  <entry>
-    <title>Herbal 0.1.0</title>
-    <link href="https://github.com/wanderwildwood/yakuso/releases/tag/v0.1.0"/>
-    <id>https://github.com/wanderwildwood/yakuso/releases/tag/v0.1.0</id>
-    <updated>2026-11-20T16:45:32Z</updated>
-    <content type="text">Herbal 0.1.0: the first release.
-
-A small offline book of herbs for tea, for the Mudita Kompakt.
-
-- 44 herbs, A to Z, each with what it is traditionally used for and what the research says, how to brew it (°F and °C), the plant, its cautions and its sources. An herb with a serious caution says so at the top of its page. Four &quot;don&#x27;t use&quot; pages say why not.
-- A finder by everyday need: sleep, calm, digestion, colds, sore throat, nausea, headache, period cramps, pregnancy and nursing.
-- A brew timer with green and black tea, herbal infusion, decoction and settings of your own. It rings with the screen off.
-- A journal of what you brewed, and a cupboard of what you have.
-- The journal, cupboard and your own timer settings can be kept as one file and read back in.
-
-No account, no network: there is no internet permission. It is a reference book, not medical advice.</content>
-  </entry>
-  <entry>
-    <title>Engraver 0.0.17</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.17"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.17</id>
-    <updated>2026-11-20T16:29:03Z</updated>
-    <content type="text"># Engraver 0.0.17
-
-- Re-indent in the editor&#x27;s ⋯ menu sets the spaces at the start of each line the way Frescobaldi does (a port of python-ly&#x27;s indenter): two spaces a level, a line that carries on after a bracket lines up with what follows it, and Scheme indents the way Emacs does. Only the white space at the start of lines changes, and Undo takes it back in one step
-- The scrollbar shows where you are on a row taller than the page</content>
-  </entry>
-  <entry>
-    <title>Handheld Games 0.1.42</title>
-    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.42"/>
-    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.42</id>
-    <updated>2026-11-20T15:44:12Z</updated>
-    <content type="text"># Handheld Games 0.1.42
-
-- A and B are back to their earlier size and place: larger, close together on the slant, and one thumb between them presses both
-- The scrollbar shows where you are in a row taller than the page</content>
-  </entry>
-  <entry>
-    <title>Home 1.0.2</title>
-    <link href="https://github.com/wanderwildwood/iori/releases/tag/v1.0.2"/>
-    <id>https://github.com/wanderwildwood/iori/releases/tag/v1.0.2</id>
-    <updated>2026-11-20T06:26:56Z</updated>
-    <content type="text"># Home 1.0.2
-
-- **Your apps:** each app in a folder is now just its name and its version, so a page holds about seven apps on the Kompakt. The one-line description, cut short, said too little to keep.</content>
-  </entry>
-  <entry>
-    <title>Home 1.0.1</title>
-    <link href="https://github.com/wanderwildwood/iori/releases/tag/v1.0.1"/>
-    <id>https://github.com/wanderwildwood/iori/releases/tag/v1.0.1</id>
-    <updated>2026-11-20T06:20:27Z</updated>
-    <content type="text"># Home 1.0.1
-
-- **Your apps:** a folder now shows several apps to a page (five on the Kompakt) instead of one. Each app takes three short lines: its name, what it is, and its version, or for an update &quot;0.1.36 to 0.1.39&quot;. A long name or description is cut off rather than wrapped.</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.74</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.74"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.74</id>
-    <updated>2026-11-20T05:01:46Z</updated>
-    <content type="text"># Datebook 0.1.74
-
-- The frame around today in the month is a little lighter: still easy to find, less heavy on the page</content>
-  </entry>
-  <entry>
-    <title>Home 1.0.0</title>
-    <link href="https://github.com/wanderwildwood/iori/releases/tag/v1.0.0"/>
-    <id>https://github.com/wanderwildwood/iori/releases/tag/v1.0.0</id>
-    <updated>2026-11-20T04:42:36Z</updated>
-    <content type="text"># Home 1.0.0
-
-Home is a plain, quiet home screen for E Ink phones, made on the Mudita Kompakt. It is
-[inkOS](https://github.com/gezimos/inkos) by gezimos, as its own app beside inkOS, with what
-the apps made to work with it need. Everything inkOS does still works, and a backup from inkOS
-restores into Home.
-
-- **One Nextcloud account for the whole phone.** Sign in once, in the first run or in
-  Settings → Nextcloud account. The apps that sign in to Nextcloud get a row &quot;Use the phone&#x27;s
-  Nextcloud account&quot;: one tap there, and nothing to type. The password is locked on the phone
-  and handed only to those apps, checked by their signing key. Signing out in Home signs them
-  out too and deletes the password on the server.
-- **Your apps.** Settings → Your apps lists the apps made to work with Home, in folders (Core
-  first), each one installed or missing, with Install and Update. A download is installed only
-  if its size, checksum, package, version and signing key are the right ones. With no
-  connection it shows the list Home carries, without installing.
-- **Settings in groups**: Phone, Apps, Home screen, Setup and about, in the same plain look as
-  the other apps. inkOS&#x27;s own pages and rows are all still there.
-- **Dark mode for all the apps.** On MuditaOS, Settings → Dark mode turns Home dark, and the
-  other apps follow it. On other phones, Home follows the phone&#x27;s own dark setting.
-- **A first run of its own**: welcome and privacy, setup, your apps, default apps, Nextcloud,
-  theme and home apps. Settings → Run setup again opens it again; nothing is reset.
-- **Default apps.** One row for each kind of thing the apps open: calls, texts, contacts,
-  calendar, alarms, gallery, maps, text files, passwords and more. Each row says what Android
-  does today.
-- **Lines on home.** Up to three lines under the home apps from
-  [Glance](https://github.com/wanderwildwood/hitome) 0.1.24 or later: today&#x27;s events, the
-  weather, what is unread. A press opens the app the line came from; a long press shows each
-  source and what it is doing. The lines can sit at the top or at the bottom.
-- Also: music on the lock screen for any player, folders in the app drawer, E-ink mode per app
-  on MuditaOS 2.0 and later, a contact found in search opens in Connections, all-day events
-  show on their own date, and service notifications no longer badge their apps.
-
-Unlike inkOS, Home has the internet permission, used only for Your apps and for your own
-Nextcloud server. Home has no server of its own and sends nothing about you.
-
-1.0.0 installs over a 0.1.0 test build and keeps its settings.
-
-Nearly all of Home is inkOS, by [gezimos](https://github.com/gezimos), under the GPL-3.0.
-Thank you. For plain inkOS, go to [gezimos&#x27;s repository](https://github.com/gezimos/inkos).</content>
-  </entry>
-  <entry>
-    <title>Memo 0.3.35</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.35"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.35</id>
-    <updated>2026-11-20T04:12:08Z</updated>
-    <content type="text"># Memo 0.3.35
-
-- Nextcloud: a new row, &quot;Use the phone&#x27;s Nextcloud account&quot;, uses the account Home already holds, so there is nothing to sign in to here; the screen then says who, on which server, from Home, with &quot;Stop using it&quot;
-- When Home signs out of Nextcloud, Memo does too, and your notes and tasks stay on the phone; when Home has the same account again, Memo carries on with it
-- Your notes on the phone belong to one account: they are never sent to another one, and that account&#x27;s own notes come back if it had some
-- Signing in by email works with an app password, and the Nextcloud user id is used for the notes folder and the task lists
-- Locked notes: hold a note and press Lock, with a PIN of 4 to 8 digits. A locked note is encrypted on the phone and stays there only: it leaves Nextcloud, Desktop Sync and Glance, and its copy on the server is deleted by the next sync. A forgotten PIN cannot be got around; those notes are lost
-- Every floating button is a filled rounded square, the same as in the other apps
-- The scrollbar shows the right place when one item is taller than the screen
-
-## Fixed
-
-- Signing in again to the same account, by email or by name, keeps the notes on the phone and the task lists
-- Settings shows the server the same way for every account, with its port when it is not the usual one</content>
-  </entry>
-  <entry>
-    <title>Remote 0.2.30</title>
-    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.30"/>
-    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.30</id>
-    <updated>2026-11-20T04:01:20Z</updated>
-    <content type="text"># Remote 0.2.30
-
-- The search buttons for Bluetooth devices and Kodi boxes wait while a search runs, instead of starting it over on a second press
-- In a row taller than the page, the scrollbar shows where the page is inside that row</content>
-  </entry>
-  <entry>
-    <title>Music Box 2.18.46</title>
-    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.46"/>
-    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.46</id>
-    <updated>2026-11-20T04:01:11Z</updated>
-    <content type="text"># Music Box 2.18.46
-
-- A play button on headphones, in a car or in a navigation app carries on with the last queue while Music Box is closed, at the song and place it stopped; a song that is only on YouTube is passed over, and a radio station starts live
-- The player keeps its own song and place on every pause and change of song, so a pause from headphones or the notification is where play carries on
-
-## Fixed
-
-- In a row taller than the page, the scrollbar shows where the page is</content>
-  </entry>
-  <entry>
-    <title>Atlas 0.1.16</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.16"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.16</id>
-    <updated>2026-11-20T04:00:49Z</updated>
-    <content type="text"># Atlas 0.1.16
-
-- Map downloads count up in steps of ten percent, with no moving sweep
-- Download maps lists only the maps that are not on the phone yet; the maps you have keep their own list. A region stays in the list until every one of its maps is on the phone
-- Text fields show a steady caret instead of a blinking one
-
-## Fixed
-
-- In a list where one row is taller than the screen, the scrollbar shows where you are in it</content>
-  </entry>
-  <entry>
-    <title>Wallet 0.1.30</title>
-    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.30"/>
-    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.30</id>
-    <updated>2026-11-20T04:00:32Z</updated>
-    <content type="text"># Wallet 0.1.30
-
-- Settings has a new switch, &quot;Block screenshots&quot;, on from the start: no screenshot or recent-apps picture shows a card. Turn it off to save a code as a picture
-- The README says how the cards are kept: the app does not encrypt them itself; they sit in its private storage, which Android encrypts while the phone is locked, and Android&#x27;s backup is off for them
-- The privacy text lists every other app Wallet can see: Cabinet for opening and saving files, the browsers a link can open in, and the apps offered for selected text
-
-## Fixed
-
-- The scrollbar shows where you are when a row is taller than the page</content>
-  </entry>
-  <entry>
-    <title>Torrents 0.1.29</title>
-    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.29"/>
-    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.29</id>
-    <updated>2026-11-20T04:00:20Z</updated>
-    <content type="text"># Torrents 0.1.29
-
-- The torrent list screenshot is retaken as the list looks now, the scrollbar ending above the add button
-
-## Fixed
-
-- The scrollbar shows where you are on a page with a row taller than the screen
-- The text cursor shows in dark mode: it stays steady, as before, and is now drawn in the text&#x27;s color instead of always black</content>
-  </entry>
-  <entry>
-    <title>Mushroom Journal 0.3.43</title>
-    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.43"/>
-    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.43</id>
-    <updated>2026-11-20T04:00:09Z</updated>
-    <content type="text"># Mushroom Journal 0.3.43
-
-- In dark mode the drawings of the mushrooms turn with the page, like the rest of the app; your own photographs keep their colors
-
-## Fixed
-
-- The scrollbar shows where you are on a page with a row taller than the screen</content>
-  </entry>
-  <entry>
-    <title>Tarot 0.1.28</title>
-    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.28"/>
-    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.28</id>
-    <updated>2026-11-20T03:59:59Z</updated>
-    <content type="text"># Tarot 0.1.28
-
-- In dark mode the card pictures turn with the page, like the rest of the app
-
-## Fixed
-
-- The scrollbar shows where you are on a page with a row taller than the screen</content>
   </entry>
 </feed>
