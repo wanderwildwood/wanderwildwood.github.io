@@ -83,6 +83,7 @@
   .jump a:hover { border-color: var(--ink); }
   .jump a.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
   .catbox { display: flex; flex-direction: column; }
+  .catbox > .app.home { margin-top: 0; }   /* the row's own space is enough above Home's card */
   /* The row's copy: once the row itself has gone off the top of the screen, the copy rides the foot of the
      screen and is left under the grid; scrolled back up past the row, it hides and the row is back in place. */
   .catbox > .jump.follow { order: 1; position: sticky; bottom: 0; z-index: 5; margin: 1.5rem 0 0; padding: 0.6rem 0; background: var(--paper); border-top: 2px solid var(--ink); visibility: hidden; }
@@ -458,6 +459,18 @@ or <a href="kompakt-guide/Mudita-Kompakt-How-to-Guides.pdf">PDF</a>.</p>
 can keep them updated. If it says "rate limit exceeded", give it a free GitHub token in its settings
 (no permissions needed). A newer APK installs over the old one and keeps your data.</p>
 
+<!-- The categories row, Home's card and the grid share a box (the row above Home, his choice 11-23), so the row's copy (made in the script at the foot) can
+     ride the foot of the screen while the grid passes and be left under the last card, before Stop motion. -->
+<div class="catbox">
+<nav class="jump" aria-label="Sections">
+<span class="jump-label">Categories:</span>
+<a href="#everyday">Everyday</a>
+<a href="#reading">Reading, writing, listening</a>
+<a href="#outdoors">Outdoors</a>
+<a href="#instruments">Instruments</a>
+<a href="#games">Games</a>
+</nav>
+
 <!-- Home, the launcher that ties the apps together: a card of its own under the Kompakt's intro, wider
      than the others, its screen beside what it adds. -->
 <div class="app home" id="iori">
@@ -500,17 +513,6 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
   </div>
 </div>
 
-<!-- The categories row and the grid share a box, so the row's copy (made in the script at the foot) can
-     ride the foot of the screen while the grid passes and be left under the last card, before Stop motion. -->
-<div class="catbox">
-<nav class="jump" aria-label="Sections">
-<span class="jump-label">Categories:</span>
-<a href="#everyday">Everyday</a>
-<a href="#reading">Reading, writing, listening</a>
-<a href="#outdoors">Outdoors</a>
-<a href="#instruments">Instruments</a>
-<a href="#games">Games</a>
-</nav>
 
 <!-- Each app card's description (p.en, and p.ja saying the same) is 40 to 45 words, counted with the tags stripped. Write a new card, or edit one, to that length. Wander, the game card at the top, is the one exception and runs longer. -->
 <div class="apps">
