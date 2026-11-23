@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wander: memo</title>
+<meta name="description" content="Notes, lists, voice notes and scanned pages for the Mudita Kompakt, kept as plain Markdown files on your own Nextcloud or on the phone.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/memo/">
+<meta property="og:title" content="wander: memo">
+<meta property="og:description" content="Notes, lists, voice notes and scans as plain Markdown, for the Mudita Kompakt.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="../app-page.css">
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="oboegaki-list">
+<h1>Memo <span class="jp">/ 覚書 oboegaki</span></h1>
+<p class="lede">Notes, lists, voice notes and scanned paper, kept as plain Markdown files in a folder you choose: on your own Nextcloud, or anywhere on the phone.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/oboegaki/releases/latest/download/oboegaki.apk">Download oboegaki.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/oboegaki">Source</a></p>
+<nav class="toc" aria-label="On this page"><a href="#notes">Notes</a><a href="#anywhere">From anywhere</a><a href="#lists">Lists</a><a href="#reminders">Reminders</a><a href="#voice">Voice notes and scans</a><a href="#locked">Locked notes</a><a href="#places">Where notes are kept</a><a href="#obsidian">With Obsidian</a><a href="#tasks">Tasks</a><a href="#trash">Trash</a><a href="#desktop">Desktop Sync</a><a href="#get">Get it</a></nav>
+</header>
+
+<section id="notes" class="rv" data-shot="oboegaki-list">
+<h2>Notes</h2>
+<p>Notes are Markdown files. A note's title is its file name and folders are folders, so the same notes open as they are in Obsidian or any editor on a computer. The list shows every note, the last one touched at the top, with its folder named on the row.</p>
+<p>The line above it narrows the list to lists, voice notes, scans, shared notes, a folder or the archive, and orders it by newest, oldest or title. Pinned notes stay at the top, archived ones move to an Archive folder, and the magnifier searches titles and text.</p>
+</section>
+
+<section id="anywhere" class="rv">
+<h2>From anywhere</h2>
+<p>Text shared from another app, or selected and sent with Note, becomes a note; a page shared with its name becomes a note holding a link to it. New note and Record are shortcuts on the icon, and a Markdown or text file opened from Files is shown, and kept as a note if you want it.</p>
+<p>Other apps on a short list kept in Memo can write notes into it; Dream Log is the first.</p>
+</section>
+
+<section id="lists" class="rv" data-shot="oboegaki-checklist">
+<h2>Lists</h2>
+<p>Lists are ordinary <code>- [ ] milk</code> lines. A note with tasks in it opens as a list: a tick is one tap, and an item is added from the foot without the keyboard covering the list.</p>
+</section>
+
+<section id="reminders" class="rv" data-shot="oboegaki-reminder">
+<h2>Reminders</h2>
+<p>Reminders ring on the phone as an alarm clock does: <b>Remind me</b> in a note's menu, or a long press on one item of a list. With the screen off the reminder fills the screen over the lock screen, with <b>Done</b> and <b>Snooze</b> on it. If the phone was off when one was due, it rings as soon as it can and says it is late.</p>
+<p>The time is written into the note, so it travels with it and reads plainly anywhere. A reminder rings only on the phone it was set on, and a note's reminder can go to a calendar app instead.</p>
+</section>
+
+<section id="voice" class="rv" data-shot="oboegaki-voice">
+<h2>Voice notes and scans</h2>
+<p>The microphone starts recording at once and keeps going with the screen off. Stopping makes a note with the recording beside it, and the phone then listens and writes the words under it, in English or one of a dozen other languages chosen in Settings. It mishears sometimes, so the recording stays and is the real one. The words are worked out on the phone.</p>
+<p data-shot="oboegaki-scan">A photograph of a page, from a camera app or one already taken, has its corners guessed and dragged where the guess is wrong. It is straightened and kept in black and white, grays or color, and the pages become one PDF beside a note that shows them.</p>
+</section>
+
+<section id="locked" class="rv" data-shot="oboegaki-locked">
+<h2>Locked notes</h2>
+<p>Hold a note in the list and press <b>Lock</b>. Memo asks for a PIN of 4 to 8 digits, and the note shows in the list only as Locked note and the day it changed. Pressing it asks for the PIN, and it closes again as soon as it is left.</p>
+<p>A locked note never leaves the phone: it is taken out of the notes folder, so no sync, Desktop Sync or lock screen sees it, and it is encrypted on the phone. A forgotten PIN cannot be got around, by you or by anyone. A note that holds recordings, scans or pictures cannot be locked.</p>
+</section>
+
+<section id="places" class="rv" data-shot="oboegaki-places">
+<h2>Where notes are kept</h2>
+<p>On a Nextcloud, or any WebDAV server, the notes are kept on the phone as well, so they open with no signal, and sync when the server can be reached. When the same note has been changed in two places, the changes are put together line by line, and where the same line was changed two ways, both versions are kept.</p>
+<p>Or keep them in a folder on the phone, where they are plain .md files, and whatever syncs that folder takes them along. <b>Notes kept in</b> in Settings can change the place later, and bring the notes along. On Nextcloud a note can be shared with others on the same server, and a shared list can be ticked on one phone while it is added to on another.</p>
+</section>
+
+<section id="obsidian" class="rv">
+<h2>With Obsidian</h2>
+<p>A vault is a folder of Markdown files, so Memo can keep its notes in one; set <b>New notes go in</b> to a folder of it to keep what the phone makes together. Something has to keep the phone's folder and the computer's the same: Syncthing, Nextcloud with its desktop app, a WebDAV service, Obsidian Sync, or a cable and a copy.</p>
+</section>
+
+<section id="tasks" class="rv" data-shot="oboegaki-tasks">
+<h2>Tasks</h2>
+<p>With the notes on a Nextcloud, the Tasks page shows that Nextcloud's task lists, and they sync both ways, so a task ticked on the phone is ticked in Nextcloud's Tasks app and in Thunderbird. A task has a due day or time, a priority and notes, changes made with no signal wait for one, and a task due at a time rings on the phone.</p>
+<p>A long press on an item of a list offers <b>Move to Tasks</b>. Without a Nextcloud, tasks are kept in one list on the phone.</p>
+</section>
+
+<section id="trash" class="rv" data-shot="oboegaki-trash">
+<h2>Trash</h2>
+<p>Deleted notes are kept for seven days in a hidden folder next to your notes, then removed. <b>Restore</b> puts one back in its folder, and <b>Delete forever</b> and <b>Empty trash</b> remove at once, each on a second tap.</p>
+</section>
+
+<section id="desktop" class="rv" data-shot="oboegaki-sync">
+<h2>Desktop Sync</h2>
+<p>A small web server runs inside the app and serves a page to a browser on your computer, like Google Keep in a tab: no cloud, no relay, nothing installed on the computer. Notes show as cards with tick boxes that tick on the phone too, and you can make, edit, pin, archive and delete notes there, and use your tasks.</p>
+<p>It is off until you turn it on, and a computer pairs once with a code. <b>VPN only</b> is on by default and keeps it to computers on your VPN. Each paired computer is listed in Settings and can be removed, and one not used for 30 days is removed by itself.</p>
+</section>
+
+<section id="get" class="rv" data-shot="oboegaki-list">
+<h2>Get it</h2>
+<p>Download the APK and open it, or add the repository to Obtainium to keep it up to date. Memo installs on any Android 11 or later device, Supernote's tablets among them. It is about 65 MB, nearly all of it the speech model; choosing another language for voice notes downloads a second model, once.</p>
+<p>With Glance installed, what is due today and your pinned notes show on the lock screen.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/oboegaki/releases/latest/download/oboegaki.apk">Download oboegaki.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/oboegaki">Source</a><a class="btn plain" href="https://github.com/wanderwildwood/oboegaki/releases/latest">Release notes</a><a class="btn plain obtainium" href="obtainium://add/https://github.com/wanderwildwood/oboegaki" hidden>Obtainium</a></p>
+<p>Memo is free software under the GNU General Public License, version 3, built with Mudita's <a href="https://github.com/mudita/MMD">MMD</a> design system, with speech recognition by <a href="https://github.com/ggml-org/whisper.cpp">whisper.cpp</a> running on the phone itself.</p>
+</section>
+
+</div>
+<aside class="stage" aria-label="Memo's screens, as the page goes on">
+<figure class="phone">
+<div class="body"><i class="key l"></i><i class="key r"></i><div class="face"><i class="ear"></i><div class="screen">
+<img data-name="oboegaki-list" data-cap="Every note" src="../shots/oboegaki-list.png" width="400" height="627" alt="Every note" loading="eager" class="on">
+<img data-name="oboegaki-checklist" data-cap="A list, ticked in one tap" src="../shots/oboegaki-checklist.png" width="400" height="627" alt="A list, ticked in one tap" loading="eager">
+<img data-name="oboegaki-trash" data-cap="The Trash" src="../shots/oboegaki-trash.png" width="400" height="627" alt="The Trash" loading="eager">
+<img data-name="oboegaki-sync" data-cap="Desktop Sync, in Settings" src="../shots/oboegaki-sync.png" width="400" height="627" alt="Desktop Sync, in Settings" loading="eager">
+<img data-name="oboegaki-reminder" data-cap="A reminder over the lock screen" src="../shots/oboegaki-reminder.png" width="400" height="627" alt="A reminder over the lock screen" loading="eager">
+<img data-name="oboegaki-tasks" data-cap="Tasks, in two lists" src="../shots/oboegaki-tasks.png" width="400" height="627" alt="Tasks, in two lists" loading="eager">
+<img data-name="oboegaki-voice" data-cap="A voice note, written out" src="../shots/oboegaki-voice.png" width="400" height="627" alt="A voice note, written out" loading="eager">
+<img data-name="oboegaki-scan" data-cap="Scanning a page" src="../shots/oboegaki-scan.png" width="400" height="627" alt="Scanning a page" loading="eager">
+<img data-name="oboegaki-locked" data-cap="A locked note in the list" src="../shots/oboegaki-locked.png" width="400" height="627" alt="A locked note in the list" loading="eager">
+<img data-name="oboegaki-places" data-cap="Where notes are kept" src="../shots/oboegaki-places.png" width="400" height="627" alt="Where notes are kept" loading="eager">
+</div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
+<p class="cap" aria-live="polite">Every note</p>
+<div class="dots"></div>
+</figure>
+</aside>
+</div>
+</main>
+<script src="../theme.js"></script>
+<script src="../app-page.js"></script>
+<script src="../scrollbar.js"></script>
+</body>
+</html>

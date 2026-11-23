@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wander: audio reader</title>
+<meta name="description" content="An audiobook player for the Mudita Kompakt: choose a folder and that is the library, with your place kept in every book.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/audio-reader/">
+<meta property="og:title" content="wander: audio reader">
+<meta property="og:description" content="An audiobook player for the Mudita Kompakt that keeps your place in every book.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="../app-page.css">
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="mimidoku-library">
+<h1>Audio Reader <span class="jp">/ 耳読 mimidoku</span></h1>
+<p class="lede">An audiobook player for the Mudita Kompakt. Choose a folder and that is the library; it keeps your place in each book, and can also read an Audiobookshelf server or a Nextcloud folder.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/mimidoku/releases/latest/download/mimidoku.apk">Download mimidoku.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/mimidoku">Source</a></p>
+<nav class="toc" aria-label="On this page"><a href="#library">The library</a><a href="#player">Playing</a><a href="#chapters">Chapters</a><a href="#servers">Servers</a><a href="#others">With other apps</a><a href="#get">Get it</a></nav>
+</header>
+
+<section id="library" class="rv" data-shot="mimidoku-library">
+<h2>The library</h2>
+<p>Point it at a folder of books and tell it once how they are laid out: authors, books, or one book. A folder holding audio is a book, and a folder holding folders is a shelf. Every row says what the scan made of that folder, which is the first thing worth knowing when a book has not turned up.</p>
+<p>An author is one shelf however the files spell the name, and the same book twice is listed once. <b>Recent</b>, above the shelves, lists the books you played lately. A swipe down at the top reads an Audiobookshelf server or Nextcloud folder again.</p>
+</section>
+
+<section id="player" class="rv" data-shot="mimidoku-player">
+<h2>Playing</h2>
+<p data-shot="mimidoku-marks">Big buttons a thumb can find, and the sleep timer, playback speed, chapter list and bookmarks a press away. Each book remembers where you were.</p>
+<p>The sleep timer can be set by hand or run on its own between two hours you choose, and a shake keeps it going.</p>
+</section>
+
+<section id="chapters" class="rv" data-shot="mimidoku-chapters">
+<h2>Chapters</h2>
+<p>Chapters are read from the files' own marks, an mp3's chapter frames or an m4b's chapter list, so thirteen hours still opens as a list rather than one bar to drag.</p>
+</section>
+
+<section id="servers" class="rv" data-shot="mimidoku-settings">
+<h2>Servers</h2>
+<p>Audiobooks can come from a folder on the phone, an Audiobookshelf server you run, or a Nextcloud folder. With Home signed in to Nextcloud, Audio Reader can use that account, so the address and password need not be typed again.</p>
+<p>The folder is read through the phone's own folder picker, so it works on a memory card without asking for access to everything on the phone.</p>
+</section>
+
+
+<section id="others" class="rv" data-shot="mimidoku-glance">
+<h2>With other apps</h2>
+<p>An m4b opened from a file manager plays as a book of its own, with its chapters, paused at the place you stopped if you opened it before. With Glance installed and <b>Show the book being read in Glance</b> turned on, the book shows on the lock screen; it is off to begin with.</p>
+<p>With Shelf installed, a book's page there shows <b>Listen</b> when this library has a recording of it, and opens it here.</p>
+</section>
+
+<section id="get" class="rv" data-shot="mimidoku-library">
+<h2>Get it</h2>
+<p>Download the APK and open it, or add the repository to Obtainium to keep it up to date. Audio Reader is written from scratch, and later releases install over it, keeping your settings.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/mimidoku/releases/latest/download/mimidoku.apk">Download mimidoku.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/mimidoku">Source</a><a class="btn plain" href="https://github.com/wanderwildwood/mimidoku/releases/latest">Release notes</a><a class="btn plain obtainium" href="obtainium://add/https://github.com/wanderwildwood/mimidoku" hidden>Obtainium</a></p>
+<p>Audio Reader is free software under the GNU General Public License, version 3, with playback by <a href="https://developer.android.com/media/media3">Media3</a>.</p>
+</section>
+
+</div>
+<aside class="stage" aria-label="Audio Reader's screens, as the page goes on">
+<figure class="phone">
+<div class="body"><i class="key l"></i><i class="key r"></i><div class="face"><i class="ear"></i><div class="screen">
+<img data-name="mimidoku-library" data-cap="The library" src="../shots/mimidoku-library.png" width="400" height="627" alt="The library" loading="eager" class="on">
+<img data-name="mimidoku-player" data-cap="Playing" src="../shots/mimidoku-player.png" width="400" height="627" alt="Playing" loading="eager">
+<img data-name="mimidoku-chapters" data-cap="The chapters" src="../shots/mimidoku-chapters.png" width="400" height="627" alt="The chapters" loading="eager">
+<img data-name="mimidoku-settings" data-cap="Settings" src="../shots/mimidoku-settings.png" width="400" height="627" alt="Settings" loading="eager">
+<img data-name="mimidoku-marks" data-cap="Bookmarks" src="../shots/mimidoku-marks.png" width="400" height="627" alt="Bookmarks" loading="eager">
+<img data-name="mimidoku-glance" data-cap="The Glance switch, in Settings" src="../shots/mimidoku-glance.png" width="400" height="627" alt="The Glance switch, in Settings" loading="eager">
+</div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
+<p class="cap" aria-live="polite">The library</p>
+<div class="dots"></div>
+</figure>
+</aside>
+</div>
+</main>
+<script src="../theme.js"></script>
+<script src="../app-page.js"></script>
+<script src="../scrollbar.js"></script>
+</body>
+</html>

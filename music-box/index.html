@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wander: music box</title>
+<meta name="description" content="A music player for the Mudita Kompakt: a folder of your own music, a music server you run, internet radio and YouTube Music.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/music-box/">
+<meta property="og:title" content="wander: music box">
+<meta property="og:description" content="Your own music, a music server, radio and YouTube Music on the Mudita Kompakt.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="../app-page.css">
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="jimeikin-songs">
+<h1>Music Box <span class="jp">/ 自鳴琴 jimeikin</span></h1>
+<p class="lede">A music player for the Mudita Kompakt: a folder of your own music, a music server you run, internet radio and YouTube Music. Downloads stay on the phone as ordinary music files.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/jimeikin/releases/latest/download/jimeikin.apk">Download jimeikin.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/jimeikin">Source</a></p>
+<nav class="toc" aria-label="On this page"><a href="#music">Your own music</a><a href="#names">Names and tags</a><a href="#playing">Playing</a><a href="#queue">The queue</a><a href="#radio">Radio</a><a href="#server">A music server</a><a href="#youtube">YouTube Music</a><a href="#downloads">Downloads</a><a href="#other">Opening a file</a><a href="#lock">On the lock screen</a><a href="#backup">Backup and dark mode</a><a href="#sends">What it sends</a><a href="#get">Get it</a></nav>
+</header>
+
+<section id="music" class="rv" data-shot="jimeikin-songs">
+<h2>Your own music</h2>
+<p>Add a folder from the cog, on the memory card or the phone's own Music folder. Its songs, albums, artists and playlists play offline, and any .m3u or .m3u8 file in the folder becomes a playlist. An album credited to one artist stays one artist however many guests appear on its tracks.</p>
+<p>Songs with no album in their tags are grouped by the folder they sit in, and a CD 2 folder joins its album as disc 2. A folder that cannot be read, such as a card that has not mounted yet, is reported as unread, and nothing under it leaves the library.</p>
+</section>
+
+<section id="names" class="rv" data-shot="jimeikin-tags">
+<h2>Names and tags</h2>
+<p>Hold a song to rename it, or an album or artist; the new name shows everywhere in the app and the files are left alone. You can also edit a song's tags, written into the file safely: the change goes into a copy, is read back to check, and only then replaces the original.</p>
+<p>Gaps in an album's tags can be filled in from MusicBrainz, a setting that is off to begin with; the files are not changed. Hold a song to heart it, and a Hearted list heads Playlists.</p>
+</section>
+
+<section id="playing" class="rv" data-shot="jimeikin-player">
+<h2>Playing</h2>
+<p>Long listening keeps its place. A track of twenty minutes or more, such as a podcast episode, a talk or a mix, starts again where you stopped it.</p>
+<p>A folder called Audiobooks or Podcasts remembers the file you were on and where in it, so a book can be put down and picked up.</p>
+</section>
+
+<section id="queue" class="rv" data-shot="jimeikin-player">
+<h2>The queue</h2>
+<p>One now-playing queue mixes local files and YouTube tracks, with shuffle and repeat that keep your place. The skip buttons on headphones, a Bluetooth speaker or the lock screen go through the same queue, and Settings can make them skip ahead 30 seconds and back 10 instead.</p>
+<p>Playing from headphones or in a car works with Music Box closed: the last queue carries on where it stopped.</p>
+</section>
+
+<section id="radio" class="rv" data-shot="jimeikin-radio">
+<h2>Radio</h2>
+<p>Stations on the internet are browsed by place, country then town then what is on the air there, or found with the magnifying glass by name, town or postal code. Tap one to hear it. Hold one to keep it among your favorite stations.</p>
+<p>A station can also be added by its address, for one that is not listed. The list is radio.garden's, with Radio Browser tried when a search finds nothing there. FM is the phone's own tuner, if it has one, and its row opens it; it needs headphones as the aerial.</p>
+</section>
+
+<section id="server" class="rv" data-shot="jimeikin-server">
+<h2>A music server</h2>
+<p>Settings has <b>Music server</b> for a Navidrome, other Subsonic or Jellyfin server. Give it the address, user name and password, and the whole library appears beside the music on the card, with the server's playlists. A song held both places is shown once, and the copy on the card plays with no network.</p>
+<p>Hold a song, or use the button on an album, artist or playlist, to download it as an ordinary file. The password is kept on the phone, sealed with a key that cannot be exported. Plain http is allowed for a server at home, and a server reachable from outside the house wants https.</p>
+</section>
+
+<section id="youtube" class="rv" data-shot="jimeikin-search">
+<h2>YouTube Music</h2>
+<p>Start typing in Search. No account is needed to search or stream, and the toggles above the results choose whether a search looks on the phone, the server or YouTube. With YouTube off, nothing is sent to it. A small cloud on a row marks a song that is not on the phone and plays only with a signal.</p>
+<p>Tracks can be downloaded for offline playback, one at a time or a whole album. Connecting a YouTube account in Settings makes search reflect it, and nothing else needs one. Respect artists' rights and your local laws when streaming or downloading.</p>
+</section>
+
+<section id="downloads" class="rv" data-shot="jimeikin-downloads">
+<h2>Downloads</h2>
+<p>Songs from the server and from YouTube go into one queue and download one at a time. A line along the bottom of every screen says which song and how far along, and Downloads lists what is waiting, underway and finished, with the reason when one failed. Each can be canceled, or tried again. Downloads carry on with the screen off, with a notification that has a Stop button.</p>
+<p>Downloaded songs are ordinary music files in Music/Music Box, on the memory card if one is in. They stay if Music Box is removed, and file managers and other players can see them. After a reinstall, choosing a folder that holds Music/Music Box brings them back as downloads.</p>
+</section>
+
+<section id="other" class="rv">
+<h2>Opening a file</h2>
+<p>Music Box is offered for any audio file, from Open with in a file manager, a download or an attachment. It plays at once, on its own, and is not added to the library. Audiobooks in m4b are left to Audio Reader.</p>
+</section>
+
+<section id="lock" class="rv">
+<h2>On the lock screen</h2>
+<p>With Glance installed, and <b>Show what is playing in Glance</b> turned on, the song shows on its lock-screen panel as Song and Artist, and nothing once playback stops. It is off to begin with.</p>
+<p>Lock-screen controls are an optional accessibility service, off until you turn it on in Android's Accessibility settings. It draws Music Box's controls where Mudita's own widget sits, and reads nothing else.</p>
+</section>
+
+<section id="backup" class="rv">
+<h2>Backup and dark mode</h2>
+<p>Settings can save the playlists you made here and your kept radio stations to a file you choose, only when you ask, and read them back. Dark mode switches the app to white on black; it follows the phone's dark setting too.</p>
+</section>
+
+<section id="sends" class="rv">
+<h2>What it sends</h2>
+<p>The app goes online only for what you use: your own music server, radio.garden and Radio Browser for stations, a postal-code lookup when you type a US or Canadian postal code into the radio search, MusicBrainz if you switch it on, and YouTube. There are no ads, no analytics and no tracking.</p>
+</section>
+
+<section id="get" class="rv" data-shot="jimeikin-songs">
+<h2>Get it</h2>
+<p>Download the APK and open it, or add the repository to Obtainium to keep it up to date. Music Box needs Android 9 or newer, and later releases install over it, keeping your library, playlists and settings.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/jimeikin/releases/latest/download/jimeikin.apk">Download jimeikin.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/jimeikin">Source</a><a class="btn plain" href="https://github.com/wanderwildwood/jimeikin/releases/latest">Release notes</a><a class="btn plain obtainium" href="obtainium://add/https://github.com/wanderwildwood/jimeikin" hidden>Obtainium</a></p>
+<p>Music Box is free software under the GNU General Public License, version 3. It is a fork of <a href="https://github.com/davidraywilson/CalmMusic">CalmMusic</a>, adapted to the Kompakt's e-ink screen and Mudita's MMD design system. YouTube streams are resolved with <a href="https://github.com/TeamNewPipe/NewPipeExtractor">NewPipeExtractor</a>, and the station lists come from <a href="https://radio.garden">radio.garden</a> and <a href="https://www.radio-browser.info">Radio Browser</a>.</p>
+</section>
+
+</div>
+<aside class="stage" aria-label="Music Box's screens, as the page goes on">
+<figure class="phone">
+<div class="body"><i class="key l"></i><i class="key r"></i><div class="face"><i class="ear"></i><div class="screen">
+<img data-name="jimeikin-songs" data-cap="Songs" src="../shots/jimeikin-songs.png" width="400" height="627" alt="Songs" loading="eager" class="on">
+<img data-name="jimeikin-player" data-cap="Playing" src="../shots/jimeikin-player.png" width="400" height="627" alt="Playing" loading="eager">
+<img data-name="jimeikin-radio" data-cap="Radio" src="../shots/jimeikin-radio.png" width="400" height="627" alt="Radio" loading="eager">
+<img data-name="jimeikin-server" data-cap="Pointing it at a music server" src="../shots/jimeikin-server.png" width="400" height="627" alt="Pointing it at a music server" loading="eager">
+<img data-name="jimeikin-search" data-cap="Search: Phone, and YouTube" src="../shots/jimeikin-search.png" width="400" height="627" alt="Search: Phone, and YouTube" loading="eager">
+<img data-name="jimeikin-downloads" data-cap="Downloads, in three states" src="../shots/jimeikin-downloads.png" width="400" height="627" alt="Downloads, in three states" loading="eager">
+<img data-name="jimeikin-tags" data-cap="Edit details on a song" src="../shots/jimeikin-tags.png" width="400" height="627" alt="Edit details on a song" loading="eager">
+</div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
+<p class="cap" aria-live="polite">Songs</p>
+<div class="dots"></div>
+</figure>
+</aside>
+</div>
+</main>
+<script src="../theme.js"></script>
+<script src="../app-page.js"></script>
+<script src="../scrollbar.js"></script>
+</body>
+</html>

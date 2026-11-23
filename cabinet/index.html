@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wander: cabinet</title>
+<meta name="description" content="A file manager for the Mudita Kompakt, with the shared drives on your own servers as places like any other.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/cabinet/">
+<meta property="og:title" content="wander: cabinet">
+<meta property="og:description" content="A file manager for an e-ink phone, with your servers as places like any other.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="../app-page.css">
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="tana-home">
+<h1>Cabinet <span class="jp">/ 棚 tana</span></h1>
+<p class="lede">A file manager for the Mudita Kompakt and for the drives on the servers at home. Other apps open and save through it, and a copy is written whole or not at all.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/tana/releases/latest/download/tana.apk">Download tana.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/tana">Source</a></p>
+<nav class="toc" aria-label="On this page"><a href="#places">Places</a><a href="#servers">Servers</a><a href="#copy">Copy and move</a><a href="#reading">Reading</a><a href="#sheets">Spreadsheets and zips</a><a href="#opening">Opening files</a><a href="#finding">Finding things</a><a href="#nearby">Nearby</a><a href="#other">For other apps</a><a href="#not">What it leaves out</a><a href="#get">Get it</a></nav>
+</header>
+
+<section id="places" class="rv" data-shot="tana-trash">
+<h2>Places</h2>
+<p>The start page is a list of places, not the top of a tree: recent files, Downloads, phone storage, the SD card, folders you pinned, and your servers. A swipe down at the top of a folder reads it again. A folder that only another app's picker can reach, Termux's home for one, can be added as a place too.</p>
+<p>Delete on the phone moves things to a trash that keeps them seven days, and <b>Restore</b> puts one back, never over something of the same name. A server has no trash here: deleting there cannot be undone from Cabinet, and the button says so before the second tap.</p>
+</section>
+
+<section id="servers" class="rv" data-shot="tana-addserver">
+<h2>Servers</h2>
+<p>Any Samba or Windows share, as a guest or with a user name and password, and any Nextcloud or other WebDAV server. Browse, open, copy either way, rename, delete and make folders. A file on a server is fetched to the phone to be opened or shared.</p>
+<p>Away from home it reaches whatever the phone can reach, so a server's Tailscale address works with Tailscale on. A Nextcloud is added with an app password; with Home signed in to Nextcloud, Cabinet can use that account too.</p>
+</section>
+
+<section id="copy" class="rv" data-shot="tana-choose">
+<h2>Copy and move</h2>
+<p>A long press starts choosing; a press adds or takes away, and <b>All</b> takes the folder. Then copy, move, delete or share. Pick things up with Copy or Move, go anywhere, and Paste: a phone and a server are the same to it.</p>
+<p>A file is written under a temporary name and takes its real name only once every byte has arrived and the size is checked. If a name is already taken, it asks before it starts: keep both, leave those out, or replace. Long copies carry on with the screen off, with a notification that can stop them.</p>
+</section>
+
+<section id="reading" class="rv" data-shot="tana-pdf">
+<h2>Reading</h2>
+<p data-shot="tana-reader">Text and Markdown files open in a reader that turns by whole lines, with two buttons for smaller and larger text. Markdown is shown as plain reading, and a file of many megabytes opens as quickly as a short one.</p>
+<p>PDFs open a page to a screen, fitted whole. A swipe, or a tap near either edge, turns the page, two fingers zoom in on small print, and each PDF opens again at the page it was left at. PDFs from other apps open here too.</p>
+</section>
+
+<section id="sheets" class="rv" data-shot="tana-sheet">
+<h2>Spreadsheets and zips</h2>
+<p>A CSV, Excel or LibreOffice file opens as a list of its rows with <b>Find</b> at the top: type a few words and only the rows holding all of them stay. Tap a row to see it whole, each heading beside its value. It is read only.</p>
+<p>Zip files open like a folder, and <b>Compress</b> makes one. A zip on a server works the same.</p>
+</section>
+
+<section id="opening" class="rv">
+<h2>Opening files</h2>
+<p>A file opens in the app that handles it, or asks which with Open with. It installs an APK, and the installer asks once whether to allow installs from here. A contact card opens in Connections to be added, and a GPS track in Topo to be imported.</p>
+<p><b>More, Print</b> on a PDF or a picture sends it through the phone's own print service, which finds most Wi-Fi printers by itself.</p>
+</section>
+
+<section id="finding" class="rv">
+<h2>Finding things</h2>
+<p>Search by name below the folder you are in, or everywhere on the phone, and narrow it to documents, pictures, audio, video, archives or apps. Sort by name, date, size or type; numbers sort as numbers, so chapter 2 comes before chapter 10.</p>
+<p><b>Show as a grid</b> lays any folder out three across, with photographs and videos as their own pictures. <b>Info</b> gives size, place and date, and the SHA-256 on request, set out in fours so it can be read against one posted somewhere else.</p>
+</section>
+
+<section id="nearby" class="rv" data-shot="tana-nearby">
+<h2>Nearby</h2>
+<p>With <a href="https://localsend.org">LocalSend</a>, choose files and press <b>More, Send nearby</b>, then tap a computer or phone on the same Wi-Fi that has LocalSend open. To receive, open Nearby on the start page; you are asked first, and the files land in Downloads.</p>
+<p>Away from Wi-Fi, two phones with Cabinet can make a network of their own: start one on one phone, then hold the other against it. A laptop can join it too.</p>
+</section>
+
+<section id="other" class="rv">
+<h2>For other apps</h2>
+<p>Servers also show in Android's own file picker, under Cabinet, so a password vault or an editor can open a file there and save it back. If a save does not reach the server, a copy is kept on the phone, in Download/Unsent saves, and a notification says where.</p>
+<p>Cabinet can also answer other apps' Open, Save and Choose-a-folder in its own screens, and can be the phone's file manager: choose it once with <b>Always</b>.</p>
+</section>
+
+<section id="not" class="rv">
+<h2>What it leaves out</h2>
+<p>No small pictures of files on a server, and no Android/data, which Android 12 shuts to every app. A zip is read, never rewritten; a spreadsheet is read, never edited; a PDF is read, not searched or filled in; text is read, never edited.</p>
+</section>
+
+<section id="get" class="rv" data-shot="tana-home">
+<h2>Get it</h2>
+<p>Download the APK and open it, or add the repository to Obtainium to keep it up to date. Cabinet installs on any Android 11 or later device, Supernote's tablets among them. Nothing is sent anywhere but to the servers you add and the nearby devices you send to.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/tana/releases/latest/download/tana.apk">Download tana.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/tana">Source</a><a class="btn plain" href="https://github.com/wanderwildwood/tana/releases/latest">Release notes</a><a class="btn plain obtainium" href="obtainium://add/https://github.com/wanderwildwood/tana" hidden>Obtainium</a></p>
+<p>Cabinet is free software under the GNU General Public License, version 3, built with Mudita's <a href="https://github.com/mudita/MMD">MMD</a> design system. Berend Sliedrecht's <a href="https://github.com/berendsliedrecht/MonoFiles">MonoFiles</a> showed there was a gap for one.</p>
+</section>
+
+</div>
+<aside class="stage" aria-label="Cabinet's screens, as the page goes on">
+<figure class="phone">
+<div class="body"><i class="key l"></i><i class="key r"></i><div class="face"><i class="ear"></i><div class="screen">
+<img data-name="tana-home" data-cap="The start page" src="../shots/tana-home.png" width="400" height="627" alt="The start page" loading="eager" class="on">
+<img data-name="tana-choose" data-cap="Two files chosen on a server" src="../shots/tana-choose.png" width="400" height="627" alt="Two files chosen on a server" loading="eager">
+<img data-name="tana-reader" data-cap="A text file in the reader" src="../shots/tana-reader.png" width="400" height="627" alt="A text file in the reader" loading="eager">
+<img data-name="tana-pdf" data-cap="A PDF, page by page" src="../shots/tana-pdf.png" width="400" height="627" alt="A PDF, page by page" loading="eager">
+<img data-name="tana-sheet" data-cap="A spreadsheet, found by two words" src="../shots/tana-sheet.png" width="400" height="627" alt="A spreadsheet, found by two words" loading="eager">
+<img data-name="tana-nearby" data-cap="Nearby" src="../shots/tana-nearby.png" width="400" height="627" alt="Nearby" loading="eager">
+<img data-name="tana-trash" data-cap="The trash" src="../shots/tana-trash.png" width="400" height="627" alt="The trash" loading="eager">
+<img data-name="tana-addserver" data-cap="Adding a server" src="../shots/tana-addserver.png" width="400" height="627" alt="Adding a server" loading="eager">
+</div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
+<p class="cap" aria-live="polite">The start page</p>
+<div class="dots"></div>
+</figure>
+</aside>
+</div>
+</main>
+<script src="../theme.js"></script>
+<script src="../app-page.js"></script>
+<script src="../scrollbar.js"></script>
+</body>
+</html>

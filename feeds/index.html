@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wander: feeds</title>
+<meta name="description" content="A reader for the Mudita Kompakt: feeds as plain text, podcasts, and Gemini, gopher and Spartan, with everything kept on the phone.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/feeds/">
+<meta property="og:title" content="wander: feeds">
+<meta property="og:description" content="Feeds as plain text, podcasts, and the smolnet, for the Mudita Kompakt.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="../app-page.css">
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="kirinuki-feeds">
+<h1>Feeds <span class="jp">/ 切抜 kirinuki</span></h1>
+<p class="lede">A reader for the Mudita Kompakt: feeds as plain text, podcasts played under their show notes, and Gemini, gopher and Spartan alongside. No account, and everything is kept on the phone.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/kirinuki/releases/latest/download/kirinuki.apk">Download kirinuki.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/kirinuki">Source</a></p>
+<nav class="toc" aria-label="On this page"><a href="#feeds">Feeds</a><a href="#reading">Reading</a><a href="#keeping">Saving and keeping</a><a href="#aloud">Read aloud</a><a href="#podcasts">Podcasts</a><a href="#offline">Episodes offline</a><a href="#smolnet">The smolnet</a><a href="#sync">Sync</a><a href="#get">Get it</a></nav>
+</header>
+
+<section id="feeds" class="rv">
+<h2>Feeds</h2>
+<p data-shot="kirinuki-feeds">Three screens: the feeds, what is in one, and the thing itself. Feeds are fetched straight from the sites that publish them, with no account and no server of ours; nothing is registered and nothing phones home. Subscribe by pasting an address, or by scanning a QR code of one, and bring your feeds in with OPML and take them out again the same way.</p>
+<p data-shot="kirinuki-articles">Open a feed, or All feeds, to see what is in it. A swipe down at the top of a list fetches again, and a line says Syncing, then Up to date or what went wrong. Everything is fetched on wifi and stored, so the reading afterwards needs no network.</p>
+</section>
+
+<section id="reading" class="rv" data-shot="kirinuki-article">
+<h2>Reading</h2>
+<p>Text only: no images and no embedded web view. The volume keys turn the page, and so does a swipe, which stops at the paragraph the bottom of the screen cut through, so the next page opens on the line you did not finish.</p>
+<p>Dark mode is a switch in Settings, and the app follows the phone's own dark setting.</p>
+</section>
+
+<section id="keeping" class="rv" data-shot="kirinuki-addfeed">
+<h2>Saving and keeping</h2>
+<p>Share a link to Feeds, or type it into Add feed, and choose <b>Save the page</b> to keep a whole article for reading offline. Feeds with only a summary can fetch the full text from the page, which depends on the page and sometimes fails; the screen says so and gives you back the summary.</p>
+<p>Downloaded articles stay until you say. Settings removes them after 7, 30 or 90 days, or never, and never touches a starred article.</p>
+</section>
+
+<section id="aloud" class="rv" data-shot="kirinuki-article">
+<h2>Read aloud</h2>
+<p>The button under the text reads the article with the phone's own voice. The sentence being read is underlined and the page turns with it, and nothing on the screen changes between two sentences.</p>
+<p>At the foot of a story, <b>Show the link as a QR code</b> puts its address on the screen for a computer or another phone to open.</p>
+</section>
+
+<section id="podcasts" class="rv" data-shot="kirinuki-episode">
+<h2>Podcasts</h2>
+<p>A podcast is subscribed to like any other feed, or found by name with <b>Find a podcast</b>, which asks Apple's podcast directory only when you press Search. Podcasts are kept apart from the reading in their own Podcasts row. An episode opens like an article, with its show notes as the text and the player along the bottom.</p>
+<p>It plays with the screen off, remembers where you stopped in every episode, and has back 15 seconds, on 30, a speed button and a sleep timer. The skip buttons on headphones skip 30 seconds ahead and 15 back, and play from headphones or a car carries on the episode you heard last.</p>
+</section>
+
+<section id="offline" class="rv">
+<h2>Episodes offline</h2>
+<p><b>Download</b> keeps an episode on the phone to hear with the radio off. It waits for wifi unless you turn that off in Settings, and the episode is removed once you have heard it to the end.</p>
+<p><b>Audio files on this phone</b>, in Add feed, makes a folder of sound files into one podcast, each file an episode that keeps its place.</p>
+</section>
+
+<section id="smolnet" class="rv" data-shot="kirinuki-capsule">
+<h2>The smolnet</h2>
+<p><code>gemini://</code>, <code>gopher://</code> and <code>spartan://</code> links open in the app and read like anything else, and a capsule link tapped or shared anywhere arrives here, shown with an Open button before anything is fetched. Subscribe to a gemlog and its entries arrive like any other feed's.</p>
+<p>A Gemini capsule is trusted the first time it is seen and checked against that afterwards; a different certificate is refused, and the screen says why. When you know the change is genuine, Settings can forget a capsule's certificate. Gopher text is fitted to the screen rather than reflowed, so tables and art survive.</p>
+</section>
+
+<section id="sync" class="rv" data-shot="kirinuki-sync">
+<h2>Sync</h2>
+<p>Sync is only there if you sign in to a feed server: FreshRSS, Miniflux or another that speaks the Google Reader API, or Nextcloud News. The app then also talks to that one server, with your login, your feeds and what you have read or starred. A plain http address is taken only for a home server, and used only on Wi-Fi or a VPN. With Home signed in to Nextcloud, Feeds can use that account without a password typed here.</p>
+</section>
+
+<section id="get" class="rv" data-shot="kirinuki-feeds">
+<h2>Get it</h2>
+<p>Download the APK and open it, or add the repository to Obtainium to keep it up to date; if Obtainium asks which file, choose kirinuki.apk rather than the one with a version in its name. Feeds needs Android 10 or newer.</p>
+<p>On a Kompakt, add Feeds to DuraSpeed once, or feeds are not refreshed in the background. On a phone with DuraSpeed, Settings has an <b>Open DuraSpeed</b> row that goes to the right page.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/kirinuki/releases/latest/download/kirinuki.apk">Download kirinuki.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/kirinuki">Source</a><a class="btn plain" href="https://github.com/wanderwildwood/kirinuki/releases/latest">Release notes</a><a class="btn plain obtainium" href="obtainium://add/https://github.com/wanderwildwood/kirinuki" hidden>Obtainium</a></p>
+<p>Feeds is free software under the GNU General Public License, version 3. It is a fork of <a href="https://github.com/spacecowboy/Feeder">Feeder</a>, pared to a reader and rebuilt on Mudita's <a href="https://github.com/mudita/MMD">MMD</a> design system, with full text pulled out by <a href="https://github.com/dankito/Readability4J">Readability4J</a>.</p>
+</section>
+
+</div>
+<aside class="stage" aria-label="Feeds's screens, as the page goes on">
+<figure class="phone">
+<div class="body"><i class="key l"></i><i class="key r"></i><div class="face"><i class="ear"></i><div class="screen">
+<img data-name="kirinuki-feeds" data-cap="The feeds" src="../shots/kirinuki-feeds.png" width="400" height="627" alt="The feeds" loading="eager" class="on">
+<img data-name="kirinuki-articles" data-cap="All feeds" src="../shots/kirinuki-articles.png" width="400" height="627" alt="All feeds" loading="eager">
+<img data-name="kirinuki-article" data-cap="An article, with Read aloud" src="../shots/kirinuki-article.png" width="400" height="627" alt="An article, with Read aloud" loading="eager">
+<img data-name="kirinuki-capsule" data-cap="A capsule, over Gemini" src="../shots/kirinuki-capsule.png" width="400" height="627" alt="A capsule, over Gemini" loading="eager">
+<img data-name="kirinuki-episode" data-cap="An episode, playing" src="../shots/kirinuki-episode.png" width="400" height="627" alt="An episode, playing" loading="eager">
+<img data-name="kirinuki-addfeed" data-cap="Add feed, with Save the page" src="../shots/kirinuki-addfeed.png" width="400" height="627" alt="Add feed, with Save the page" loading="eager">
+<img data-name="kirinuki-sync" data-cap="Sync with a feed server" src="../shots/kirinuki-sync.png" width="400" height="627" alt="Sync with a feed server" loading="eager">
+</div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
+<p class="cap" aria-live="polite">The feeds</p>
+<div class="dots"></div>
+</figure>
+</aside>
+</div>
+</main>
+<script src="../theme.js"></script>
+<script src="../app-page.js"></script>
+<script src="../scrollbar.js"></script>
+</body>
+</html>

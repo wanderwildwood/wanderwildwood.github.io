@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wander: mailbox</title>
+<meta name="description" content="Any mail account that takes a password, read and written in black and white on the Mudita Kompakt, a page at a time.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/mailbox/">
+<meta property="og:title" content="wander: mailbox">
+<meta property="og:description" content="Mail in black and white, a page at a time, for the Mudita Kompakt.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="../app-page.css">
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="tayori-address">
+<h1>Mailbox <span class="jp">/ 便り tayori</span></h1>
+<p class="lede">Any mail account that takes a password, read and written in black and white, a page at a time, on the Mudita Kompakt. It is Thunderbird for Android, redrawn for this screen.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/tayori/releases/latest/download/tayori.apk">Download tayori.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/tayori">Source</a></p>
+<nav class="toc" aria-label="On this page"><a href="#signin">Signing in</a><a href="#servers">Server settings</a><a href="#private">Where mail goes</a><a href="#pages">A page at a time</a><a href="#push">Push</a><a href="#lock">On the lock screen</a><a href="#licenses">Licenses</a><a href="#get">Get it</a></nav>
+</header>
+
+<section id="signin" class="rv" data-shot="tayori-address">
+<h2>Signing in</h2>
+<p>Type your address and Mailbox looks up how to reach your provider; Gmail, iCloud and Zoho are already known to it. It opens on your address, with no welcome page.</p>
+<p>Any server that speaks IMAP or POP3 and SMTP with a password works. There is no Sign in with Google or Microsoft: Gmail, Yahoo, AOL and Fastmail take an app password instead, made in the account's own security settings. Outlook.com no longer accepts one, so it cannot be used here.</p>
+</section>
+
+<section id="servers" class="rv" data-shot="tayori-server">
+<h2>Server settings</h2>
+<p>If nothing is found for the address, you fill the servers in by hand: protocol, server, security, port, authentication and user name.</p>
+</section>
+
+<section id="private" class="rv">
+<h2>Where mail goes</h2>
+<p>Mail goes between the phone and the servers you give it, and nowhere else. Setting up an account also asks the address's own domain, and Mozilla's list of providers, how to reach it; Mozilla is told the domain, not the address.</p>
+<p>Pictures in a message are not fetched unless you ask, for one message or for a whole account.</p>
+</section>
+
+<section id="pages" class="rv" data-shot="tayori-inbox">
+<h2>A page at a time</h2>
+<p>A swipe turns one page and stops, in the inbox, in a message and in settings. Nothing scrolls on its own and nothing animates. In the inbox, the message the foot cuts through shows there and opens the next page whole; in a message, the line the old page cut through opens the next one; in settings, a page holds whole rows.</p>
+<p data-shot="tayori-message">It is black and white, in Lato, with no avatars and no icons on settings rows. Dialogs are white inside a black rim and never gray out the screen behind them. Dark mode is a switch in Settings, or follows the phone's dark setting, and pictures in a message keep their colors.</p>
+</section>
+
+<section id="push" class="rv" data-shot="tayori-push">
+<h2>Push</h2>
+<p>With an account's folders set to push, Mailbox keeps a connection open to the server so mail shows up as it arrives, and Android keeps a notification up while it does.</p>
+<p>That notification can be hidden: <b>Configure notification</b> on the Push info page opens its settings, and push keeps working with it off. For mail that need not come at once, <b>Disable push</b> on the same page checks every so often instead, and no notification is needed.</p>
+</section>
+
+<section id="lock" class="rv">
+<h2>On the lock screen</h2>
+<p>With Glance installed, how much mail is unread shows on the lock screen, beside Messaging's count. The switch is in Settings.</p>
+</section>
+
+<section id="licenses" class="rv" data-shot="tayori-licenses">
+<h2>Licenses</h2>
+<p>About lists the app and then every library it bundles, each with its own license.</p>
+</section>
+
+<section id="get" class="rv" data-shot="tayori-address">
+<h2>Get it</h2>
+<p>Download the APK and open it, or add the repository to Obtainium to keep it up to date. Mailbox needs Android 8 or newer. It installs beside Thunderbird rather than over it, and updates keep your accounts and mail.</p>
+<p>On a Kompakt, add Mailbox to DuraSpeed once. The phone closes apps a few minutes after the screen goes dark, and until Mailbox is added, new mail is not looked for until you open the app. While it is at risk, Mailbox keeps a notification up that opens the right page, and you answer <b>It's switched on</b> once you have done it.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/tayori/releases/latest/download/tayori.apk">Download tayori.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/tayori">Source</a><a class="btn plain" href="https://github.com/wanderwildwood/tayori/releases/latest">Release notes</a><a class="btn plain obtainium" href="obtainium://add/https://github.com/wanderwildwood/tayori" hidden>Obtainium</a></p>
+<p>Mailbox is free software under the GNU General Public License, version 3, forked from <a href="https://github.com/thunderbird/thunderbird-android">Thunderbird for Android</a>, whose own code stays under the Apache License. The typeface is <a href="https://www.latofonts.com/">Lato</a>.</p>
+</section>
+
+</div>
+<aside class="stage" aria-label="Mailbox's screens, as the page goes on">
+<figure class="phone">
+<div class="body"><i class="key l"></i><i class="key r"></i><div class="face"><i class="ear"></i><div class="screen">
+<img data-name="tayori-address" data-cap="Setting up: the address" src="../shots/tayori-address.png" width="400" height="627" alt="Setting up: the address" loading="eager" class="on">
+<img data-name="tayori-server" data-cap="Server settings, when none is found" src="../shots/tayori-server.png" width="400" height="627" alt="Server settings, when none is found" loading="eager">
+<img data-name="tayori-licenses" data-cap="Licenses" src="../shots/tayori-licenses.png" width="400" height="627" alt="Licenses" loading="eager">
+<img data-name="tayori-inbox" data-cap="The inbox, a page at a time" src="../shots/tayori-inbox.png" width="400" height="627" alt="The inbox, a page at a time" loading="eager">
+<img data-name="tayori-message" data-cap="A message, open" src="../shots/tayori-message.png" width="400" height="627" alt="A message, open" loading="eager">
+<img data-name="tayori-push" data-cap="Push info" src="../shots/tayori-push.png" width="400" height="627" alt="Push info" loading="eager">
+</div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
+<p class="cap" aria-live="polite">Setting up: the address</p>
+<div class="dots"></div>
+</figure>
+</aside>
+</div>
+</main>
+<script src="../theme.js"></script>
+<script src="../app-page.js"></script>
+<script src="../scrollbar.js"></script>
+</body>
+</html>

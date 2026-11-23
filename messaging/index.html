@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wander: messaging</title>
+<meta name="description" content="SMS, MMS and Signal in one inbox for the Mudita Kompakt, with a page your phone serves to your own computer so you can text from a keyboard.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/messaging/">
+<meta property="og:title" content="wander: messaging">
+<meta property="og:description" content="SMS, MMS and Signal in one inbox, and Desktop Sync, for the Mudita Kompakt.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="../app-page.css">
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="kotozute-list">
+<h1>Messaging <span class="jp">/ 言伝 kotozute</span></h1>
+<p class="lede">SMS, MMS and Signal in one inbox for the Mudita Kompakt, drawn for its e-ink screen, and a page your phone serves to your own computer so you can text from a keyboard.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/kotozute/releases/latest/download/kotozute.apk">Download kotozute.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/kotozute">Source</a></p>
+<nav class="toc" aria-label="On this page"><a href="#inbox">One inbox</a><a href="#conversation">Conversations</a><a href="#writing">Writing</a><a href="#signal">Signal</a><a href="#linking">Linking</a><a href="#arriving">Getting messages</a><a href="#safety">Safety numbers</a><a href="#calls">Calls</a><a href="#desktop">Desktop Sync</a><a href="#private">Keeping it private</a><a href="#lock">On the lock screen</a><a href="#get">Get it</a></nav>
+</header>
+
+<section id="inbox" class="rv" data-shot="kotozute-list">
+<h2>One inbox</h2>
+<p>Signal conversations sit in the same list as your texts, newest first, with a badge on the rows that came over Signal. Nothing is marked SMS: unmarked means SMS, and a setting turns that around if most of your conversations are on Signal. The tabs along the top are All, Groups and Unknown.</p>
+<p>It is black and white, with no avatars, and its bubbles and type are measured against the phone's own Messaging app. Dark mode is a switch in Settings, and the app follows the phone's dark setting too. Pictures keep their colors.</p>
+</section>
+
+<section id="conversation" class="rv" data-shot="kotozute-conversation">
+<h2>Conversations</h2>
+<p>Conversations can be pinned, muted, marked unread, archived or blocked. Search reaches message bodies on both texts and Signal at once. The same person's text and Signal conversations stay separate, and a badge in either one crosses to the other.</p>
+<p>With Whereabouts installed, the attach menu has <b>Send where I am</b>, in texts and on Signal alike. Whereabouts asks first, takes one fix and hands it over, and Messaging sends a map link and the coordinates. Messaging itself has no location permission.</p>
+</section>
+
+<section id="writing" class="rv" data-shot="kotozute-reply">
+<h2>Writing</h2>
+<p data-shot="kotozute-scheduled">Write a message now and pick a time to send it later; the phone sends it at that time. The scheduled ones are listed, and can be cancelled. On Signal you can react to a message by holding it and picking an emoji.</p>
+<p>Attachments of any file type are supported, and so are voice messages. Backup and restore are there too.</p>
+</section>
+
+<section id="signal" class="rv" data-shot="kotozute-signal">
+<h2>Signal</h2>
+<p>Signal runs in the app, which holds a Signal identity of its own and talks to Signal's servers directly, with nothing in between. One-to-one and group conversations, pictures, reactions and disappearing messages work, and a view-once photo is never stored.</p>
+<p>Messaging is an unofficial client, not a Signal product and with no connection to the Signal Foundation. It uses Signal's own published libraries, and an account reached this way is still your account.</p>
+</section>
+
+<section id="linking" class="rv">
+<h2>Linking</h2>
+<p>Link it as a device from a phone that already has your Signal: Settings, Linked devices, Link new device, and scan the code this one shows, as Signal Desktop is linked. Or register this phone's own number, for a phone that is the only Signal you have. That makes it the account for that number, so Signal anywhere else on the number stops working, and the number must be able to receive a text from a short code.</p>
+<p>Conversations start empty and fill from the day you pair, since Signal's servers do not hold history. A Signal Desktop export can bring older messages across.</p>
+</section>
+
+<section id="arriving" class="rv">
+<h2>Getting messages</h2>
+<p>Signal does not send notifications to anything but its own apps, so <b>Keep Signal connected</b> decides how quickly a message arrives: on, they arrive as they are sent, with a permanent notification; off, the app catches up about every 15 minutes and whenever you open it.</p>
+</section>
+
+<section id="safety" class="rv">
+<h2>Safety numbers</h2>
+<p>A changed safety number is flagged loudly. A message to that person waits as Not sent until you choose <b>View safety number</b> or <b>Accept and send</b>, and nothing is sent before you accept. Compare the number with them first if the message is private.</p>
+</section>
+
+<section id="calls" class="rv" data-shot="kotozute-call">
+<h2>Calls</h2>
+<p>Signal voice calls work both ways. A call comes up over the lock screen the way a phone call does, rings with the phone's ringtone as the ringer setting allows, and keeps going with the screen off. The <b>Audio</b> button moves the sound between the earpiece, the speaker, a wired headset and a Bluetooth one.</p>
+<p>Calls go through Signal's relay servers, so the other person never learns this phone's address. One-to-one conversations have a phone at the top to call out; groups do not have a call button. There are no video calls: the Kompakt has no front camera, and a video call rings here as a voice call.</p>
+</section>
+
+<section id="desktop" class="rv" data-shot="kotozute-link">
+<h2>Desktop Sync</h2>
+<p>A small server runs inside the app on the phone and serves its own page to a browser on your computer: no cloud service and no relay in between. There you can read conversations, search, page back through long threads, start a new conversation, send replies and schedule a message. Pictures and video play in place, and reading a thread there marks it read on the phone.</p>
+<p>It is off until you switch it on in Settings. <b>Show link</b> gives the address and a six-digit code that lasts three minutes and works once. Each paired browser is listed on the phone and can be forgotten on its own, and one unused for 30 days is forgotten by itself.</p>
+</section>
+
+<section id="private" class="rv" data-shot="kotozute-sync">
+<h2>Keeping it private</h2>
+<p><b>VPN only</b> is on by default, so a request that does not come through your VPN is refused before anything else is looked at; any VPN that gives the phone its own address works, Tailscale among them. Turned off, it accepts private networks only, never a public address.</p>
+<p><b>Use HTTPS</b> is off by default: the phone makes its own certificate, so the browser shows a warning you have to accept. Every request also needs the key of a paired browser. Do not port-forward it.</p>
+</section>
+
+<section id="lock" class="rv">
+<h2>On the lock screen</h2>
+<p>With Glance installed, how many messages are unread shows on the lock screen, texts and Signal each on their own. Only the numbers are handed over, and only to Glance. A switch in Settings turns it off.</p>
+</section>
+
+<section id="get" class="rv" data-shot="kotozute-list">
+<h2>Get it</h2>
+<p>Download the APK and open it, or add the repository to Obtainium to keep it up to date. The app never checks for updates or installs them by itself.</p>
+<p>Messaging asks to be your default SMS app and reads your existing messages the first time it runs, which on a long history takes several minutes. It installs alongside the stock Mudita app, so you can switch back whenever you like. If you have inkMessage+, uninstall it first: this is a different app to Android, and your messages stay safe in Android's own message store.</p>
+<p>On a Kompakt, switch Messaging on in DuraSpeed as well. Without that, the phone can close the app a few minutes after the screen goes dark, and a text that arrives then is lost, picture messages and Signal's connection with it. The app's setup guide has an <b>Open DuraSpeed</b> button that takes you to the right page.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/kotozute/releases/latest/download/kotozute.apk">Download kotozute.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/kotozute">Source</a><a class="btn plain" href="https://github.com/wanderwildwood/kotozute/releases/latest">Release notes</a><a class="btn plain obtainium" href="obtainium://add/https://github.com/wanderwildwood/kotozute" hidden>Obtainium</a></p>
+<p>Messaging is free software under the GNU Affero General Public License, version 3. It continues <a href="https://github.com/moezbhatti/qksms">QKSMS</a> by way of <a href="https://github.com/octoshrimpy/quik">QUIK</a>, and branched off <a href="https://github.com/lamdanAmiti/InkMessage">InkMessage</a>, where the e-ink work started.</p>
+</section>
+
+</div>
+<aside class="stage" aria-label="Messaging's screens, as the page goes on">
+<figure class="phone">
+<div class="body"><i class="key l"></i><i class="key r"></i><div class="face"><i class="ear"></i><div class="screen">
+<img data-name="kotozute-list" data-cap="The inbox" src="../shots/kotozute-list.png" width="400" height="627" alt="The inbox" loading="eager" class="on">
+<img data-name="kotozute-conversation" data-cap="A conversation" src="../shots/kotozute-conversation.png" width="400" height="627" alt="A conversation" loading="eager">
+<img data-name="kotozute-reply" data-cap="A reply half written" src="../shots/kotozute-reply.png" width="400" height="627" alt="A reply half written" loading="eager">
+<img data-name="kotozute-sync" data-cap="Desktop Sync, in Settings" src="../shots/kotozute-sync.png" width="400" height="627" alt="Desktop Sync, in Settings" loading="eager">
+<img data-name="kotozute-call" data-cap="A Signal call" src="../shots/kotozute-call.png" width="400" height="627" alt="A Signal call" loading="eager">
+<img data-name="kotozute-scheduled" data-cap="A message waiting for its time" src="../shots/kotozute-scheduled.png" width="400" height="627" alt="A message waiting for its time" loading="eager">
+<img data-name="kotozute-signal" data-cap="Settings, Signal" src="../shots/kotozute-signal.png" width="400" height="627" alt="Settings, Signal" loading="eager">
+<img data-name="kotozute-link" data-cap="Desktop Sync, the link and code" src="../shots/kotozute-link.png" width="400" height="627" alt="Desktop Sync, the link and code" loading="eager">
+</div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
+<p class="cap" aria-live="polite">The inbox</p>
+<div class="dots"></div>
+</figure>
+</aside>
+</div>
+</main>
+<script src="../theme.js"></script>
+<script src="../app-page.js"></script>
+<script src="../scrollbar.js"></script>
+</body>
+</html>

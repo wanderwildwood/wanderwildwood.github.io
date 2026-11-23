@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wander: lens</title>
+<meta name="description" content="Photos and video on the Mudita Kompakt, laid out like the phone's own camera, with HDR, Night and codes read as you point.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/lens/">
+<meta property="og:title" content="wander: lens">
+<meta property="og:description" content="Photos, video and QR codes for the Mudita Kompakt, with nothing drawn over the viewfinder.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="../app-page.css">
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="shashinki-photo">
+<h1>Lens <span class="jp">/ 写真機 shashinki</span></h1>
+<p class="lede">Photos and video on the Mudita Kompakt, laid out like the phone's own camera: the viewfinder, and below it the last picture, the shutter and the flash. It is Open Camera underneath.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/shashinki/releases/latest/download/shashinki.apk">Download shashinki.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/shashinki">Source</a></p>
+<nav class="toc" aria-label="On this page"><a href="#photo">Photos and video</a><a href="#light">Shadows, HDR and Night</a><a href="#codes">Reading codes</a><a href="#result">What a code offers</a><a href="#others">For other apps</a><a href="#settings">Settings</a><a href="#privacy">Privacy</a><a href="#get">Get it</a></nav>
+</header>
+
+<section id="photo" class="rv" data-shot="shashinki-photo">
+<h2>Photos and video</h2>
+<p>One line above the shutter switches between photo and video; while recording, the shutter is a square and the line says so. Tap the viewfinder to focus there, and pinch to zoom. The flash cycles through automatic, off and on in place, and nothing is drawn over the viewfinder, since on this screen everything there is redrawn with every frame.</p>
+<p>The last picture opens in Pictures when it is installed, or in the phone's gallery. In Settings the same button can open all your pictures, newest first, or the newest picture in a folder you pick. Photos go to DCIM/Camera, where the phone's own camera puts them.</p>
+</section>
+
+<section id="light" class="rv" data-shot="shashinki-photo">
+<h2>Shadows, HDR and Night</h2>
+<p>One press of Shadows brightens the dark parts of a single shot, so it is as quick as a plain photo and fine handheld. A second press shows HDR, which joins three exposures so a bright sky keeps its detail; a third turns it off. Night joins several quick frames for less grain in the dark, and says how many megapixels the picture will have.</p>
+<p>HDR and Night say Hold still while they take their frames.</p>
+</section>
+
+<section id="codes" class="rv" data-shot="shashinki-square">
+<h2>Reading codes</h2>
+<p>Codes are read as you point at them, with no photo to take. A square comes up over the middle of the viewfinder to aim with, and it reads QR, Data Matrix, Aztec and PDF417 codes and the barcodes on things in shops. A QR code anywhere in the picture is focused on as soon as it is seen, and outside the square one is taken only once it fills a fair part of the picture, so a poster across the room is left alone.</p>
+<p data-shot="shashinki-codes">Reading can be turned off in Settings.</p>
+</section>
+
+<section id="result" class="rv" data-shot="shashinki-code">
+<h2>What a code offers</h2>
+<p>A read gives one short tick, and the code comes up on a screen of its own, with what it is (a web address, a Wi-Fi network, a contact, a place, a sign-in code, a product) and the one thing to do with it, handed to the app on the phone that does that. Nothing opens until you press a button.</p>
+<p><b>Save to Wallet</b> keeps it as a card. A two-step sign-in code can go to Passwords instead, and since it holds the account's secret it is not drawn again and has no Copy. Every other code can be copied.</p>
+</section>
+
+<section id="others" class="rv">
+<h2>For other apps</h2>
+<p>Other apps can ask it for a photo or a video, as they would ask the phone's own camera, and get the picture back. An app that asks for a scan the way ZXing's Barcode Scanner does gets the first code read, straight back.</p>
+<p><b>Read code</b> in the share sheet reads a code out of a picture, such as a screenshot of a ticket or a photo of a poster, and shows it on the same screen.</p>
+</section>
+
+<section id="settings" class="rv" data-shot="shashinki-settings">
+<h2>Settings</h2>
+<p>Twelve settings: reading codes, picture size, video size, steady video, picture quality, a self-timer, the shutter sound, writing where a photo was taken into it, a grid, dark mode, the folder under DCIM, and what the gallery button opens. Dark mode follows the phone's dark setting unless you switch it here.</p>
+<p>Steady video takes some of the shake out of a hand-held phone and cuts the picture a little narrower to do it. It is on to begin with, and only there on a camera that can.</p>
+</section>
+
+<section id="privacy" class="rv" data-shot="shashinki-about">
+<h2>Privacy</h2>
+<p>Everything you photograph or record stays on the phone. The app has no internet access, so nothing is sent anywhere and nothing is collected about you.</p>
+</section>
+
+<section id="get" class="rv" data-shot="shashinki-photo">
+<h2>Get it</h2>
+<p>Download the APK and open it, or add the repository to Obtainium to keep it up to date. Lens needs Android 12 or later. If the camera cannot be opened, usually because the switch on the Kompakt's left side has turned it off, the screen says so.</p>
+<p>There is no front camera, since the Kompakt has none, and no RAW, panorama, bracketing or manual controls.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/shashinki/releases/latest/download/shashinki.apk">Download shashinki.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/shashinki">Source</a><a class="btn plain" href="https://github.com/wanderwildwood/shashinki/releases/latest">Release notes</a><a class="btn plain obtainium" href="obtainium://add/https://github.com/wanderwildwood/shashinki" hidden>Obtainium</a></p>
+<p>Lens is free software under the GNU General Public License, version 3 or later, built on <a href="https://opencamera.org.uk">Open Camera</a>, with codes read by <a href="https://github.com/zxing/zxing">ZXing</a>.</p>
+</section>
+
+</div>
+<aside class="stage" aria-label="Lens's screens, as the page goes on">
+<figure class="phone">
+<div class="body"><i class="key l"></i><i class="key r"></i><div class="face"><i class="ear"></i><div class="screen">
+<img data-name="shashinki-photo" data-cap="The viewfinder" src="../shots/shashinki-photo.png" width="400" height="627" alt="The viewfinder" loading="eager" class="on">
+<img data-name="shashinki-settings" data-cap="Settings" src="../shots/shashinki-settings.png" width="400" height="627" alt="Settings" loading="eager">
+<img data-name="shashinki-codes" data-cap="Settings, with Read codes" src="../shots/shashinki-codes.png" width="400" height="627" alt="Settings, with Read codes" loading="eager">
+<img data-name="shashinki-about" data-cap="Privacy" src="../shots/shashinki-about.png" width="400" height="627" alt="Privacy" loading="eager">
+<img data-name="shashinki-code" data-cap="What a code offers" src="../shots/shashinki-code.png" width="400" height="627" alt="What a code offers" loading="eager">
+<img data-name="shashinki-square" data-cap="The square to aim with" src="../shots/shashinki-square.png" width="400" height="627" alt="The square to aim with" loading="eager">
+</div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
+<p class="cap" aria-live="polite">The viewfinder</p>
+<div class="dots"></div>
+</figure>
+</aside>
+</div>
+</main>
+<script src="../theme.js"></script>
+<script src="../app-page.js"></script>
+<script src="../scrollbar.js"></script>
+</body>
+</html>
