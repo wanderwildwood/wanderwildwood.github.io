@@ -28,13 +28,13 @@
 <h1>Music Box <span class="jp">/ 自鳴琴 jimeikin</span></h1>
 <p class="lede">A music player for the Mudita Kompakt: a folder of your own music, a music server you run, internet radio and YouTube Music. Downloads stay on the phone as ordinary music files.</p>
 <p class="go"><a class="btn" href="https://github.com/wanderwildwood/jimeikin/releases/latest/download/jimeikin.apk">Download jimeikin.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/jimeikin">Source</a></p>
-<nav class="toc" aria-label="On this page"><a href="#music">Your own music</a><a href="#names">Names and tags</a><a href="#playing">Playing</a><a href="#queue">The queue</a><a href="#radio">Radio</a><a href="#server">A music server</a><a href="#youtube">YouTube Music</a><a href="#downloads">Downloads</a><a href="#other">Opening a file</a><a href="#lock">On the lock screen</a><a href="#backup">Backup and dark mode</a><a href="#sends">What it sends</a><a href="#get">Get it</a></nav>
+<nav class="toc" aria-label="On this page"><a href="#music">Your own music</a><a href="#names">Names and tags</a><a href="#playing">Playing</a><a href="#queue">The queue</a><a href="#radio">Radio</a><a href="#favorites">Favorite stations</a><a href="#server">A music server</a><a href="#youtube">YouTube Music</a><a href="#downloads">Downloads</a><a href="#other">Opening a file</a><a href="#lock">On the lock screen</a><a href="#backup">Backup, sound and dark mode</a><a href="#sends">What it sends</a><a href="#get">Get it</a></nav>
 </header>
 
 <section id="music" class="rv" data-shot="jimeikin-songs">
 <h2>Your own music</h2>
 <p>Add a folder from the cog, on the memory card or the phone's own Music folder. Its songs, albums, artists and playlists play offline, and any .m3u or .m3u8 file in the folder becomes a playlist. An album credited to one artist stays one artist however many guests appear on its tracks.</p>
-<p>Songs with no album in their tags are grouped by the folder they sit in, and a CD 2 folder joins its album as disc 2. A folder that cannot be read, such as a card that has not mounted yet, is reported as unread, and nothing under it leaves the library.</p>
+<p>Songs with no album in their tags are grouped by the folder they sit in, and a CD 2 folder joins its album as disc 2. A folder that cannot be read, such as a card that has not mounted yet, is reported as unread, and nothing under it leaves the library. Playlists that looked empty after a card dropped out fill again at the next scan.</p>
 </section>
 
 <section id="names" class="rv" data-shot="jimeikin-tags">
@@ -59,6 +59,13 @@
 <h2>Radio</h2>
 <p>Stations on the internet are browsed by place, country then town then what is on the air there, or found with the magnifying glass by name, town or postal code. Tap one to hear it. Hold one to keep it among your favorite stations.</p>
 <p>A station can also be added by its address, for one that is not listed. The list is radio.garden's, with Radio Browser tried when a search finds nothing there. FM is the phone's own tuner, if it has one, and its row opens it; it needs headphones as the aerial.</p>
+</section>
+
+<section id="favorites" class="rv">
+<h2>Favorite stations</h2>
+<p>Favorite stations sit at the top of the Radio tab. Hold a favorite to choose its folder, or to take it off the list. Folders sit above the loose favorites: tap one to open it, hold one to rename it.</p>
+<p>With a Navidrome or other Subsonic server set up, favorites are kept the same as the server's own radio list, so a station kept here is in its web player and apps too, and one added there turns up here. This happens when the Radio tab opens and after each change, or at once when you pull the list down. Navidrome lets only its admin add to that list; for anyone else the server's stations come to the phone and nothing goes back. Folders stay on the phone.</p>
+<p>Settings has <b>Save stations as .m3u</b>, which writes your favorites, folders included, as a list any player reads, and <b>Add stations from .m3u</b>, which reads one back and adds the stations not kept yet.</p>
 </section>
 
 <section id="server" class="rv" data-shot="jimeikin-server">
@@ -91,8 +98,9 @@
 </section>
 
 <section id="backup" class="rv">
-<h2>Backup and dark mode</h2>
+<h2>Backup, sound and dark mode</h2>
 <p>Settings can save the playlists you made here and your kept radio stations to a file you choose, only when you ask, and read them back. Dark mode switches the app to white on black; it follows the phone's dark setting too.</p>
+<p>Settings has <b>Sound</b>, the phone's own equalizer: its presets, and five bands you can each step up or down. You hear each change as you make it. A phone without an equalizer has no Sound row.</p>
 </section>
 
 <section id="sends" class="rv">
