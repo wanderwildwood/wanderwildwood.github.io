@@ -241,6 +241,7 @@
   /* the game's card: the picture and the title go to its own page, and two plain buttons under the words */
   .shotlink { display: block; }
   .app h4 a { color: inherit; text-decoration: none; } .app h4 a:hover { text-decoration: underline; }
+  .app a.page { display: block; }   /* a card's screenshot, when the app has a page of its own */
   .links.go { font-size: 1rem; color: var(--ink); padding-top: 0.6rem; }
   .gobtn { display: inline-block; border: 2px solid var(--ink); padding: 0.4rem 0.85rem; margin: 0 0.9rem 0.6rem 0; color: var(--ink); text-decoration: none;
     background: var(--raise); box-shadow: 3px 3px 0 var(--ink); }   /* buttons as the game's page has them: pressed, they go down into their shadow */
@@ -601,9 +602,9 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 </div>
 
 <div class="app" id="tokei">
-  <img class="shot" src="shots/tokei.png" data-dark="shots/dark/tokei.png" width="400" height="627" loading="lazy"
-       alt="Time&#x27;s Timer tab: Tea 5 min ready to start, Bread and Laundry running with the time each rings, and a 1 h Slow cooker timer">
-  <h4>Time <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 時計 tokei</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
+  <a class="page" href="time/"><img class="shot" src="shots/tokei.png" data-dark="shots/dark/tokei.png" width="400" height="627" loading="lazy"
+       alt="Time&#x27;s Timer tab: Tea 5 min ready to start, Bread and Laundry running with the time each rings, and a 1 h Slow cooker timer"></a>
+  <h4><a href="time/">Time</a> <span class="tail"><button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 時計 tokei</button> <a class="mk hut" href="home/#your-apps" title="Core app: part of Home's set" aria-label="Core app: part of Home's set" data-ja-title="庵の基本のアプリ"><svg aria-hidden="true"><use href="#hut"/></svg></a></span></h4>
   <p class="en">Alarms without a limit, in groups such as Office and Home that switch on, off or skip a day
   together. Timers that ring with the phone locked, a stopwatch, a world clock. With <a href="#soramoyo">Sky</a>, a line of weather as it rings.</p>
   <p class="ja" lang="ja" hidden>数に限りのないアラームを、「仕事」「家」のようにまとめて、一度に入れたり切ったり一日休ませたり。ロック中でも鳴るタイマー、ストップウォッチ、世界時計。<a href="#soramoyo">空模様</a>と使えば、鳴る画面に天気が一行。</p>

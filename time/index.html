@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wander: time</title>
+<meta name="description" content="Time, alarms, timers, a stopwatch and a world clock for the Mudita Kompakt, laid out like the phone's own Alarm app.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/time/">
+<meta property="og:title" content="wander: time">
+<meta property="og:description" content="Alarms, timers, a stopwatch and a world clock for the Mudita Kompakt.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="../app-page.css">
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="tokei-alarms">
+<h1>Time <span class="jp">/ 時計 tokei</span></h1>
+<p class="lede">Alarms, timers, a stopwatch and a world clock for the Mudita Kompakt, laid out like the phone's own Alarm app. It installs on any Android 12 phone.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/tokei/releases/latest/download/tokei.apk">Download tokei.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/tokei">Source</a></p>
+<nav class="toc" aria-label="On this page"><a href="#alarms">Alarms</a><a href="#ringing">Ringing</a><a href="#groups">Groups</a><a href="#timers">Timers</a><a href="#stopwatch">Stopwatch</a><a href="#world">World clock</a><a href="#get">Get it</a></nav>
+</header>
+
+<section id="alarms" class="rv" data-shot="tokei-alarm">
+<h2>Alarms</h2>
+<p>As many as you like. Each has its time, the days it repeats on (or once), a name, a sound and vibration, and a switch. The time is typed on the number keys, or stepped with the arrows, to the minute.</p>
+<p>The sound is the phone's own alarm sound, any of its other alarm sounds, a sound file of your own, or none, to vibrate only. A repeating alarm can skip its next ring, for a day off, without being switched off.</p>
+</section>
+
+<section id="ringing" class="rv" data-shot="tokei-ringing">
+<h2>Ringing</h2>
+<p>An alarm rings until it is answered, on the alarm volume, so a phone set to silent still rings. It can start quiet and grow to full volume over a minute. The round Snooze button puts it off for the length you set; under it, 5, 15 and 30 minutes and 1 hour each snooze for that long at a press.</p>
+<p>If nobody answers, it stops after 10 minutes (or 5, 15 or 30) and is listed as missed. If an alarm or a timer could not ring, because the app was stopped or the phone was off, the first screen and a notification say which one, when, and why, as far as the phone can tell.</p>
+</section>
+
+<section id="groups" class="rv">
+<h2>Groups</h2>
+<p data-shot="tokei-groups">Alarms can go in groups, such as Office and Home: type a name in an alarm's settings, or pick one already in use. The Alarm tab lists a group's alarms together under its name, with one switch that turns all of them on or off.</p>
+<p data-shot="tokei-group">Pressing the group's name offers <b>Skip the next one</b> for each of its repeating alarms, and a new name for the group. Changing over from office days to days at home is two presses.</p>
+</section>
+
+<section id="timers" class="rv" data-shot="tokei-timers">
+<h2>Timers</h2>
+<p>As many as you like, each kept with its length and name to start again, and several can run at once. When one reaches zero it rings like an alarm, with the screen off or the phone locked, until it is stopped or given a minute more.</p>
+</section>
+
+<section id="stopwatch" class="rv" data-shot="tokei-stopwatch">
+<h2>Stopwatch</h2>
+<p>A stopwatch with laps. It keeps counting with the app closed.</p>
+</section>
+
+<section id="world" class="rv" data-shot="tokei-world">
+<h2>World clock</h2>
+<p>The cities you choose, each with its day and how far ahead or behind it is.</p>
+</section>
+
+<section id="get" class="rv" data-shot="tokei-alarms">
+<h2>Get it</h2>
+<p>Download the APK and open it, or add the repository to Obtainium to keep it up to date. Time's first screen asks for the few settings an alarm needs to ring on time on a Kompakt, only while they are needed.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/tokei/releases/latest/download/tokei.apk">Download tokei.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/tokei">Source</a><a class="btn plain" href="https://github.com/wanderwildwood/tokei/releases/latest">Release notes</a><a class="btn plain obtainium" href="obtainium://add/https://github.com/wanderwildwood/tokei" hidden>Obtainium</a></p>
+<p>Time is free software under the GNU General Public License, version 3, built with Mudita's <a href="https://github.com/mudita/MMD">MMD</a> design system.</p>
+</section>
+
+</div>
+<aside class="stage" aria-label="Time's screens, as the page goes on">
+<figure class="phone">
+<div class="body"><i class="key l"></i><i class="key r"></i><div class="face"><i class="ear"></i><div class="screen">
+<img data-name="tokei-alarms" data-cap="The alarms" src="../shots/tokei-alarms.png" width="400" height="627" alt="The alarms" loading="eager" class="on">
+<img data-name="tokei-alarm" data-cap="Setting an alarm" src="../shots/tokei-alarm.png" width="400" height="627" alt="Setting an alarm" loading="eager">
+<img data-name="tokei-ringing" data-cap="An alarm ringing" src="../shots/tokei-ringing.png" width="400" height="627" alt="An alarm ringing" loading="eager">
+<img data-name="tokei-groups" data-cap="Alarms in two groups" src="../shots/tokei-groups.png" width="400" height="627" alt="Alarms in two groups" loading="eager">
+<img data-name="tokei-group" data-cap="What a group's name offers" src="../shots/tokei-group.png" width="400" height="627" alt="What a group's name offers" loading="eager">
+<img data-name="tokei-timers" data-cap="Timers" src="../shots/tokei-timers.png" width="400" height="627" alt="Timers" loading="eager">
+<img data-name="tokei-stopwatch" data-cap="The stopwatch" src="../shots/tokei-stopwatch.png" width="400" height="627" alt="The stopwatch" loading="eager">
+<img data-name="tokei-world" data-cap="The world clock" src="../shots/tokei-world.png" width="400" height="627" alt="The world clock" loading="eager">
+</div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
+<p class="cap" aria-live="polite">The alarms</p>
+<div class="dots"></div>
+</figure>
+</aside>
+</div>
+</main>
+<script src="../theme.js"></script>
+<script src="../app-page.js"></script>
+<script src="../scrollbar.js"></script>
+</body>
+</html>

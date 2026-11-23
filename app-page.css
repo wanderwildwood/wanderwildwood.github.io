@@ -1,0 +1,137 @@
+/* An app's own page (time/ and the ones after it): the look of home/, with the parts every
+   such page shares. The words go down the left; on the right a drawn Kompakt stays in view and
+   turns to the app's screen for whatever the words have come to. */
+:root {
+  --ink: #252422;
+  --quiet: #52504c;
+  --rule: #c1bfb8;
+  --paper: #d9d8d3;
+  --raise: #e2e1dc;
+  --line: #83817b;
+  --hard: rgba(30, 30, 28, .2);
+  --screen: #d0d0cf; --screen-ink: #161616;   /* the Kompakt's screen: the same grey by day and by night */
+  --pixel: "Departure Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+  --step: 2px 2px 0 var(--ink), 4px 4px 0 var(--ink);
+  color-scheme: light;
+}
+/* Dark follows the phone or computer, unless the button at the top has been pressed. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --hard: rgba(0, 0, 0, .5); color-scheme: dark; }
+}
+:root[data-theme="dark"] { --ink: #dddcd7; --quiet: #a4a39d; --rule: #3d3d3a; --paper: #222221; --raise: #2a2a28; --line: #76756f; --hard: rgba(0, 0, 0, .5); color-scheme: dark; }
+
+@font-face { font-family: "Departure Mono"; src: url(fonts/DepartureMono-Regular.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url(fonts/GeistMono-Regular.woff2) format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url(fonts/GeistMono-SemiBold.woff2) format("woff2"); font-weight: 600 700; font-display: swap; }
+
+* { box-sizing: border-box; }
+html { overflow-x: hidden; }
+body {
+  margin: 0;
+  padding: 3rem 1.25rem 5rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.7 "Geist Mono", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+  -webkit-text-size-adjust: 100%;
+  transition: background-color .5s, color .5s;
+}
+@media (max-width: 32rem) { body { padding: 2rem 1rem 4rem; } }
+main { max-width: 70rem; margin: 0 auto; }
+p, ol, ul { max-width: 34rem; }
+:target, section { scroll-margin-top: 1.5rem; }
+h1, h2, .back, a.btn, .toc, .stage .cap, dl.facts dt { font-family: var(--pixel); font-weight: 400; letter-spacing: 0; }
+h1 { font-size: 33px; line-height: 1.15; margin: 0 0 1rem; }   /* the face is sharpest at 11, 22 and 33px */
+h1 .jp { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.6em; color: var(--quiet); }   /* the pixel face has no kana */
+h2 { font-size: 22px; margin: 3.2rem 0 1.25rem; padding-bottom: 0.6rem;
+  background: repeating-linear-gradient(90deg, var(--rule) 0 2px, transparent 2px 4px) left bottom / 100% 2px no-repeat; }
+p { margin: 0 0 1.1rem; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; text-decoration-color: var(--line); }
+a:hover { text-decoration-style: dotted; text-decoration-color: currentColor; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+ol, ul { padding-left: 1.3rem; margin: 0 0 1.1rem; }
+li { margin-bottom: 0.5rem; }
+b { font-weight: 600; }
+[hidden] { display: none !important; }
+.lede { color: var(--quiet); font-size: 1.08rem; }
+
+/* the way back as a small tab on the paper */
+.back { font-size: 0.9rem; color: var(--quiet); margin-bottom: 1.6rem; }
+.back a { display: inline-block; color: var(--ink); text-decoration: none; background: var(--raise);
+  border: 2px solid var(--rule); padding: 0.1rem 0.6rem; }
+
+/* Light or dark, in the corner. */
+button.theme { position: fixed; top: calc(0.9rem + env(safe-area-inset-top, 0px)); right: calc(1rem + env(safe-area-inset-right, 0px));
+  width: 2.25rem; height: 2.25rem; z-index: 50; padding: 0.45rem; cursor: pointer; color: var(--quiet);
+  background: var(--paper); border: 2px solid var(--rule); }
+button.theme:hover { color: var(--ink); }
+button.theme svg { display: block; width: 100%; height: 100%; }
+button.theme[aria-pressed="true"] .moon, button.theme:not([aria-pressed="true"]) .sun { display: none; }
+
+/* buttons: a hard shadow in two steps, and pressed, they go down into it */
+.go { display: flex; flex-wrap: wrap; gap: 0.8rem 1rem; margin: 1.4rem 0; max-width: none; }
+a.btn { display: inline-block; color: var(--ink); text-decoration: none; background: var(--raise);
+  border: 2px solid var(--ink); padding: 0.45rem 0.95rem; box-shadow: var(--step); line-height: 1.3; }
+a.btn:active { transform: translate(4px, 4px); box-shadow: none; }
+a.btn.plain { background: none; box-shadow: none; border-color: var(--rule); }
+a.btn.plain:active { transform: none; }
+.back a:hover, a.btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); text-decoration: none; }
+@keyframes px-fill { 0% { background: repeating-conic-gradient(var(--ink) 0 25%, transparent 0 50%) 0 0 / 4px 4px; color: var(--ink); } }
+@media (prefers-reduced-motion: no-preference) { .back a:hover, a.btn:hover { animation: px-fill .12s step-end both; } }
+.toc { display: flex; flex-wrap: wrap; gap: 0.2rem 1.4rem; font-size: 0.92rem; color: var(--quiet); max-width: 34rem; }
+
+/* The plain facts, at the foot: a name and what it is, a row each. */
+dl.facts { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.45rem 1.6rem; max-width: 34rem; margin: 0 0 1.1rem; }
+dl.facts dt { color: var(--quiet); font-size: 0.92rem; }
+dl.facts dd { margin: 0; }
+
+/* The words on the left, the phone on the right. */
+.story { display: grid; grid-template-columns: minmax(0, 1fr) 16.5rem; gap: 0 4.5rem; }
+.flow { min-width: 0; }
+.hero { max-width: 62rem; margin-bottom: 1rem; }
+.stage { align-self: stretch; }
+.phone { margin: 4rem 0 0; position: sticky; top: 4.5rem; width: 100%; max-width: 16.5rem; }
+/* The phone drawn as the Kompakt is: a silver frame, a black face, the earpiece above the glass, the keys at the
+   sides, and back, home and the E Ink key printed under the screen. All in proportions, so it scales. */
+.phone .body { position: relative; padding: 2.4%; border-radius: 15.6% / 8.5%;
+  background: linear-gradient(90deg, #9e9ea2, #adacb1 6%, #adacb1 94%, #9e9ea2);
+  box-shadow: inset 0 0 0 1px #747477, inset 0 2px 0 rgba(255, 255, 255, .25); }
+.phone .key { position: absolute; width: 1.6%; border-radius: 2px; background: linear-gradient(90deg, #8e8e92, #b4b3b8 50%, #8e8e92); }
+.phone .key.l { left: -1.3%; top: 33%; height: 6.6%; }
+.phone .key.r { right: -0.9%; top: 16%; height: 15.6%; }
+.phone .face { position: relative; background: #1e1e1e; border-radius: 14% / 7.6%; padding: 18% 8.8% 0;
+  box-shadow: 0 0 0 1px #3f3f42; }
+.phone .ear { position: absolute; left: 50%; top: 6.3%; width: 12%; height: 1.5%; margin-left: -6%;
+  border-radius: 99px; background: #101010; box-shadow: inset 0 1px 0 #070707; }
+.phone .nav { display: flex; justify-content: space-around; align-items: center; padding: 8% 8% 9%; color: #aeaeb0; }
+.phone .nav svg { width: 9%; height: auto; display: block; }
+.screen { position: relative; overflow: hidden; aspect-ratio: 400 / 627;
+  background: var(--screen); border-radius: 2px; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25); }
+.screen img { position: absolute; inset: 0; width: 100%; height: 100%; display: none; mix-blend-mode: multiply; }   /* the shots' white becomes the screen's grey */
+.screen img.on { display: block; }
+/* E Ink turns a page with a flash, not a fade. */
+.screen::after { content: ""; position: absolute; inset: 0; background: var(--screen-ink); opacity: 0; pointer-events: none; }
+.screen.flash::after { animation: refresh .5s steps(1, end) both; }
+@keyframes refresh { 0% { opacity: 1; background: var(--screen-ink); } 45% { opacity: 1; background: var(--screen); } 100% { opacity: 0; } }
+.stage .cap { margin: 0.9rem 0 0.4rem; font-size: 0.92rem; min-height: 1.4em; text-align: center; }
+/* The dots under the phone pick a screen. */
+.dots { display: flex; flex-wrap: wrap; gap: 0.55rem; justify-content: center; margin-top: 0.6rem; }
+.dots button { width: 0.7rem; height: 0.7rem; padding: 0; cursor: pointer; border: 2px solid var(--ink); background: none; }
+.dots button[aria-pressed="true"] { background: var(--ink); }
+
+/* On a narrow screen the phone comes first, under the name, and stays where it is; the dots turn it. */
+@media (max-width: 52rem) {
+  .story { grid-template-columns: minmax(0, 1fr); }
+  .stage { order: -1; margin-bottom: 1.5rem; }
+  .phone { position: static; margin: 0; max-width: 13.5rem; }
+  .stage .cap { text-align: left; }
+  .dots { justify-content: flex-start; }
+  h1 { font-size: 22px; }
+}
+
+/* Sections come up into place as they are reached (only with the script, and only where motion is welcome). */
+.js section.rv { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+.js section.rv.seen { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js section.rv { opacity: 1; transform: none; }
+}
