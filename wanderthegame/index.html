@@ -40,10 +40,10 @@
   canvas.wood { position: fixed; left: 0; bottom: 0; z-index: 0; image-rendering: pixelated; pointer-events: none; }
   canvas.wood.front { z-index: 2; }
   /* the seal in the window's bottom left corner, on a slip of the notebook's paper so it reads by day and by night */
-  .corner-seal { position: fixed; left: 1rem; bottom: 1rem; z-index: 3; display: block; width: 2.9rem; height: auto; padding: 0.3rem;
+  .corner-seal { position: fixed; left: 1rem; bottom: 1rem; z-index: 3; display: block; padding: 0.3rem;
     background: var(--paper); border: 2px solid var(--rule); box-shadow: 3px 3px 0 rgba(0,0,0,.25); }
-  .corner-seal img { display: block; width: 100%; height: auto; }   /* (the seal leads back to wanderthe.dev) */
-  @media (max-width: 36rem) { .corner-seal { width: 2.1rem; left: 0.6rem; bottom: 0.6rem; padding: 0.2rem; } }
+  .corner-seal img { display: block; width: 1.875rem; height: 3rem; }   /* the pixel seal, 30 x 48 cells, one px each */   /* (the seal leads back to wanderthe.dev) */
+  @media (max-width: 36rem) { .corner-seal { left: 0.6rem; bottom: 0.6rem; padding: 0.2rem; } }
   main { position: relative; z-index: 1; max-width: 60rem; margin: 0 auto; padding: 2.5rem 1rem calc(var(--strip, 30vh) + 2rem); }   /* (the foot clears the strip of ground drawn over the pages) */
   [hidden] { display: none !important; }
   .page {
@@ -56,7 +56,7 @@
   .home { font-size: 0.9rem; margin: 0 0 1rem; }
   .home a { color: var(--ink); background: var(--paper); padding: 0.1rem 0.4rem; border: 2px solid var(--rule); text-decoration: none; }
   h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 0.8rem; letter-spacing: -0.01em; }
-  .seal { float: right; width: 3.4rem; height: auto; margin: 0.2rem 0.75rem 0.5rem 1rem; transform: rotate(2deg); }
+  .seal { float: right; width: 2.8125rem; height: 4.5rem; margin: 0.2rem 0.75rem 0.5rem 1rem; }   /* 1.5 px a cell; set straight, a turned pixel stamp smears */
   h2 { font-size: 1.15rem; font-weight: 600; color: var(--quiet); margin: 0 0 0.9rem;
     padding-bottom: 0.4rem; border-bottom: 2px solid var(--rule); text-wrap: balance; }
   p { margin: 0 0 0.9rem; text-wrap: pretty; }
@@ -179,14 +179,14 @@
 <canvas class="wood front" aria-hidden="true"></canvas>
 <div class="cue" aria-hidden="true"></div>
 <button type="button" class="snd" hidden aria-pressed="false" title="Sound: off" aria-label="Sound: off"></button>
-<a class="corner-seal" href="../" aria-label="wanderthe.dev"><img src="seal.svg" width="64" height="91" alt=""></a>
+<a class="corner-seal" href="../" aria-label="wanderthe.dev"><img src="../seal-pixel.png" width="30" height="48" alt=""></a>
 <main>
   <p class="home"><a href="../">wander 彷徨う</a></p>
 
   <section class="page" id="top" style="--gap: 0">
     <h1>Wander <button type="button" class="jp" aria-pressed="false" title="日本語で読む" aria-label="散歩 sanpo: 日本語で読む (read in Japanese)">/ 散歩 sanpo</button></h1>
     <div class="en">
-      <img class="seal" src="seal.svg" width="64" height="91" alt="The game's seal: WANDER in two columns, WAN and DER, stamped in rough ink." data-alt-ja="ゲームの印。WANDER の文字を二列（WAN と DER）に、かすれたインクで押した判。">
+      <img class="seal" src="../seal-pixel.png" width="30" height="48" alt="The game's seal: WANDER in two columns, WAN and DER, stamped in rough ink." data-alt-ja="ゲームの印。WANDER の文字を二列（WAN と DER）に、かすれたインクで押した判。">
       <p>Wander is a walking game. You guide an old man and his llama, Kumo, through the coast redwoods.
       Each time you play is one day: out in the morning mist, into the tent by lantern light.</p>
       <p>Nothing on the screen tells you what to do. There's no score and nothing to win. The game is
@@ -194,7 +194,7 @@
       <p class="buttons"><a class="btn small" href="#soon">Tell me when it's out</a></p>
     </div>
     <div class="ja" lang="ja" hidden>
-      <img class="seal" src="seal.svg" width="64" height="91" alt="ゲームの印。WANDER の文字を二列（WAN と DER）に、かすれたインクで押した判。">
+      <img class="seal" src="../seal-pixel.png" width="30" height="48" alt="ゲームの印。WANDER の文字を二列（WAN と DER）に、かすれたインクで押した判。">
       <p>Wander は、歩くゲームです。おじいさんと、ラマのクモ（雲）を導いて、海岸のレッドウッドの森を歩きます。一度遊ぶと、それが一日。朝の霧の中へ出かけ、ランタンの明かりでテントに入ります。</p>
       <p>画面は何も教えてくれません。点数も、勝ち負けもありません。立ち止まって眺めたものが、そのままゲームになります。</p>
       <p class="buttons"><a class="btn small" href="#soon">出たら知らせて</a></p>
