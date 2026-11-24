@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wander: whereabouts</title>
+<meta name="description" content="Find your phone when it is lost: where it is, a ring, a lock. By text, or through a server you run yourself that keeps a map of the people who share with you.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/whereabouts/">
+<meta property="og:title" content="wander: whereabouts">
+<meta property="og:description" content="Find your phone when it is lost, by text or through your own server, for the Mudita Kompakt.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="../app-page.css">
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="story">
+<div class="flow">
+<header class="hero" data-shot="ibasho-setup">
+<h1>Whereabouts <span class="jp">/ 居場所 ibasho</span></h1>
+<p class="lede">Finds your phone when it is lost: where it is, a ring, a lock. Ask it by text, with no server at all, or through a server you run yourself, which also puts the people who share with you on one map.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/ibasho/releases/latest/download/ibasho.apk">Download ibasho.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/ibasho">Source</a></p>
+<nav class="toc" aria-label="On this page"><a href="#setup">Setting up</a><a href="#commands">Commands</a><a href="#texts">By text</a><a href="#guard">Who may ask</a><a href="#locating">Locating</a><a href="#not">What it does not do</a><a href="#server">The server</a><a href="#family">Family</a><a href="#iphone">An iPhone</a><a href="#share">Send where I am</a><a href="#kompakt">On a Kompakt</a><a href="#get">Get it</a></nav>
+</header>
+
+<section id="setup" class="rv" data-shot="ibasho-setup">
+<h2>Setting up</h2>
+<p>The first screen asks one question: how should this phone be reached when it is lost? <b>Texts only</b> means a phone you trust texts this one, and it answers with where it is, or rings. Nothing else to set up.</p>
+<p><b>Texts and a server</b> adds a web page with a map and buttons, on a server that you or someone you know runs. Either way the app then asks only for the permissions the commands you use need, one Grant button at a time.</p>
+</section>
+
+<section id="commands" class="rv" data-shot="ibasho-commands">
+<h2>Commands</h2>
+<p><b>locate</b> answers with where the phone is. <b>ring</b> rings it at full volume for up to five minutes, through silent mode and Do Not Disturb, and puts the phone's own settings back after. <b>lock</b> locks the screen, can show a message on it, and asks for the phone's password rather than a fingerprint to open it again.</p>
+<p>The rest are for the phone you are looking for: turn Bluetooth, location or Do Not Disturb on and off, set the ringer mode, flash the camera light, scan for nearby Bluetooth devices, and <b>stats</b> for the networks around it. <b>help</b> lists them all. The Commands tab shows each one with the permissions it needs.</p>
+</section>
+
+<section id="texts" class="rv" data-shot="ibasho-sms">
+<h2>By text</h2>
+<p>Text the phone a word and a command, <code>fmd locate</code> for example, and it texts back. No server, no internet and no account: it works wherever the phone can get a text. The word is yours to change.</p>
+<p>Another app's notifications can carry commands too, so a message from a chat app can ask where the phone is, and the answer goes back as a reply to that notification. That way always needs the password.</p>
+</section>
+
+<section id="guard" class="rv" data-shot="ibasho-sms">
+<h2>Who may ask</h2>
+<p>Numbers on the allowed list may send commands as they are. Any other number has to include the password, and is then let in for ten minutes so the password need not be typed again.</p>
+<p>Guessing is slow. After five wrong passwords in a row from one sender, that sender's passwords are not checked for an hour, and every one it sends meanwhile starts the hour again; everyone else's still are. After thirty wrong ones in an hour from all senders together, no password sent that way is checked until the hour is over. The phone says when either happens, and the allowed numbers and your server keep working. Passwords show as <code>***</code> in the app's log.</p>
+</section>
+
+<section id="locating" class="rv" data-shot="ibasho-commands">
+<h2>Locating</h2>
+<p>Location comes from whatever the phone can offer: GPS, and Android's own fused provider. Indoors, where GPS cannot see the sky, it can also look up nearby cell towers and Wi-Fi networks through <a href="https://beacondb.net/">BeaconDB</a> and <a href="https://opencellid.org/">OpenCelliD</a>. Those services learn roughly where the phone is each time they are asked, so a plain <b>locate</b> asks them only once you turn that on in Settings; <b>locate cell</b> asks them because it names them.</p>
+</section>
+
+<section id="not" class="rv" data-shot="ibasho-commands">
+<h2>What it does not do</h2>
+<p><b>It cannot erase the phone.</b> The wipe command is gone, and so is the right to erase. A lost phone can be found, rung or locked; nobody who gets hold of a server login or fakes a text can reset it.</p>
+<p><b>It cannot take a photograph.</b> The camera command is gone, and the camera permission with it. A silent photo is something the person holding the phone cannot know has happened.</p>
+<p><b>Lock from the server is off</b> until you allow it on the phone, since a lock can put any message on the screen.</p>
+</section>
+
+<section id="server" class="rv" data-shot="ibasho-settings">
+<h2>The server</h2>
+<p>With a server, the phone uploads where it is every so many minutes, as you set it, and a web page shows it on a map with buttons to ring, lock or locate it now. The place is encrypted on the phone before it leaves, so the server holds it without being able to read it: only the password chosen on the phone opens it, and it cannot be reset. There is no public server and no default; you enter your own.</p>
+<p>The <a href="https://github.com/wanderwildwood/ibasho-server">Whereabouts server</a> is <a href="https://gitlab.com/fmd-foss/fmd-server">FMD Server</a> with an ink-on-paper web page, a real dark theme, a gray map and no animation, and the page can be installed as an app. It speaks the same protocol, so Whereabouts works with either. It is one program, built into a Docker image or downloaded as a single file for Linux, and wants a reverse proxy with a certificate in front, because the page decrypts in the browser and browsers only allow that on HTTPS. Set a registration token so strangers cannot make accounts.</p>
+<p>Commands reach the phone by push. Whereabouts keeps its own quiet connection to Mozilla's push service for that, so no separate push app is needed; Mozilla learns when your server wakes the phone, not what it asks, which the phone fetches from your server itself. If you already use a push app such as ntfy, pick it instead.</p>
+</section>
+
+<section id="family" class="rv" data-shot="ibasho-settings">
+<h2>Family</h2>
+<p>Everyone with an account on the same server is family. On the phone, under <b>Family</b>, you tick who may see where this phone was last, and see the people who share with you, how long ago, and their battery; a row opens their place in a map app. The server's web page shows them on the same map as your own phone.</p>
+<p>The server keeps one sealed copy of your last place for each person you ticked, so it can see who shares with whom but not where anyone is. Only the last place is kept, never a trail. A pause switch on the web page stops sharing from a computer if the phone itself is lost. If someone's key changes, their place is hidden until you choose to trust the new one, since that could mean the server is passing someone else off as them.</p>
+</section>
+
+<section id="iphone" class="rv">
+<h2>An iPhone</h2>
+<p>There is no Whereabouts for the iPhone. Instead an iPhone runs <a href="https://overland.p3k.app/">Overland</a>, which posts where it is to a small bridge beside the server, and the bridge seals each point into that phone's account just as the app would, and shares it with the family the same way. One link sets Overland up in a tap. The bridge sees each point before sealing it, which is the price of an iPhone taking part without an app of its own, and it cannot ring or lock the iPhone.</p>
+</section>
+
+<section id="share" class="rv">
+<h2>Send where I am</h2>
+<p>Another app can ask Whereabouts where you are, once. Whereabouts names the app that asked, and on <b>Share</b> takes one fresh fix and hands it back; nothing is kept, and nothing goes anywhere else. <a href="../messaging/">Messaging</a> uses this for <b>Send where I am</b>, so Messaging itself needs no location permission. Any app can do the same; the README has the details.</p>
+</section>
+
+<section id="kompakt" class="rv">
+<h2>On a Kompakt</h2>
+<p>DuraSpeed, a service on the Kompakt, closes apps a few minutes after the screen goes dark. Until Whereabouts is let through, it can answer a text but cannot upload on its own or hear the server. Its <b>Setup warnings</b> screen says so, and its <b>Open DuraSpeed</b> button goes to the right place: tap <b>Open</b>, then switch Whereabouts on in the list. On means allowed.</p>
+<p>Ringing also needs <b>Display over other apps</b> and <b>Do Not Disturb access</b>, both granted from the app's own buttons.</p>
+</section>
+
+<section id="get" class="rv" data-shot="ibasho-setup">
+<h2>Get it</h2>
+<p>Download the APK and open it, or add the repository to Obtainium to keep it up to date. The server comes from its own releases, with checksums beside each file.</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/ibasho/releases/latest/download/ibasho.apk">Download ibasho.apk</a><a class="btn plain" href="https://github.com/wanderwildwood/ibasho">Source</a><a class="btn plain" href="https://github.com/wanderwildwood/ibasho/releases/latest">Release notes</a><a class="btn plain" href="https://github.com/wanderwildwood/ibasho-server/releases/latest">The server</a><a class="btn plain obtainium" href="obtainium://add/https://github.com/wanderwildwood/ibasho" hidden>Obtainium</a></p>
+<p>Whereabouts is free software under the GNU General Public License, version 3 or later. It is a fork of <a href="https://gitlab.com/Nulide/findmydevice">FindMyDevice</a> by Nulide and its contributors, and most of the code is theirs: the protocol, the encryption and the ways in. The server is <a href="https://gitlab.com/fmd-foss/fmd-server">FMD Server</a> by Nulide, Thore Goebel and its contributors, under the same license.</p>
+</section>
+
+</div>
+<aside class="stage" aria-label="Whereabouts' screens, as the page goes on">
+<figure class="phone">
+<div class="body"><i class="key l"></i><i class="key r"></i><div class="face"><i class="ear"></i><div class="screen">
+<img data-name="ibasho-setup" data-cap="Setting up" src="../shots/ibasho-setup.png" width="400" height="627" alt="Setting up: Texts only, or Texts and a server" loading="eager" class="on">
+<img data-name="ibasho-commands" data-cap="Commands" src="../shots/ibasho-commands.png" width="400" height="627" alt="The Commands tab: bluetooth and bluetoothscan, each with the permissions it needs" loading="eager">
+<img data-name="ibasho-sms" data-cap="Channels, SMS" src="../shots/ibasho-sms.png" width="400" height="627" alt="The SMS channel: how to text the phone, and who may" loading="eager">
+<img data-name="ibasho-settings" data-cap="Settings" src="../shots/ibasho-settings.png" width="400" height="627" alt="Settings: Server, Family, Commands, Access control, BeaconDB and OpenCelliD" loading="eager">
+</div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
+<p class="cap" aria-live="polite">Setting up</p>
+<div class="dots"></div>
+</figure>
+</aside>
+</div>
+</main>
+<script src="../theme.js"></script>
+<script src="../app-page.js"></script>
+<script src="../scrollbar.js"></script>
+</body>
+</html>
