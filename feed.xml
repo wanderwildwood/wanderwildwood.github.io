@@ -4,8 +4,36 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-23T23:33:50Z</updated>
+  <updated>2026-11-24T11:53:22Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Messaging 1.35.50</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.50"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.50</id>
+    <updated>2026-11-24T11:53:22Z</updated>
+    <content type="text"># Messaging 1.35.50
+
+- Saving a picture or video from a message puts it straight into the Gallery (Pictures/Messaging, Movies/Messaging)
+- Other files are saved with their real type, and a file sent without a name gets a proper extension</content>
+  </entry>
+  <entry>
+    <title>Glance 0.1.63</title>
+    <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.63"/>
+    <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.63</id>
+    <updated>2026-11-24T11:49:53Z</updated>
+    <content type="text"># Glance 0.1.63
+
+- On MuditaOS 2.0, Glance no longer covers the unlock line when it runs to two lines, as it does in German: it stays above the padlock in any language</content>
+  </entry>
+  <entry>
+    <title>Tuner 0.1.56</title>
+    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.56"/>
+    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.56</id>
+    <updated>2026-11-24T11:49:47Z</updated>
+    <content type="text"># Tuner 0.1.56
+
+- The reference pitch reaches from 350 to 500 Hz for A, so French Baroque&#x27;s 392 Hz and lower early-music pitches can be set</content>
+  </entry>
   <entry>
     <title>Dream Log 0.1.42</title>
     <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.42"/>
@@ -536,33 +564,6 @@
     <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.72</id>
     <updated>2026-11-22T23:05:18Z</updated>
     <content type="text"># Audio Reader 1.3.72
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Datebook 0.1.76</title>
-    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.76"/>
-    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.76</id>
-    <updated>2026-11-22T23:05:11Z</updated>
-    <content type="text"># Datebook 0.1.76
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Recipes 0.2.27</title>
-    <link href="https://github.com/wanderwildwood/kondate/releases/tag/v0.2.27"/>
-    <id>https://github.com/wanderwildwood/kondate/releases/tag/v0.2.27</id>
-    <updated>2026-11-22T23:05:05Z</updated>
-    <content type="text"># Recipes 0.2.27
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Mushroom Journal 0.3.44</title>
-    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.44"/>
-    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.44</id>
-    <updated>2026-11-22T23:04:58Z</updated>
-    <content type="text"># Mushroom Journal 0.3.44
 
 - Long About sections turn a page at a time on whole lines, never opening on half a line</content>
   </entry>
