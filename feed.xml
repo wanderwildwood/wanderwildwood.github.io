@@ -4,8 +4,229 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-23T11:30:11Z</updated>
+  <updated>2026-11-23T23:33:50Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Dream Log 0.1.42</title>
+    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.42"/>
+    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.42</id>
+    <updated>2026-11-23T23:33:50Z</updated>
+    <content type="text"># Dream Log 0.1.42
+
+- The privacy policy now says what the app asks Home for when it uses the phone&#x27;s Nextcloud account, and what signing out and Stop using it delete on the server
+- Nothing else in the app changes</content>
+  </entry>
+  <entry>
+    <title>Audio Reader 1.3.75</title>
+    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.75"/>
+    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.75</id>
+    <updated>2026-11-23T23:33:36Z</updated>
+    <content type="text"># Audio Reader 1.3.75
+
+- A folder you choose from now on is given to the app for reading only, since nothing writes to it
+- The privacy policy lists what is kept for Nextcloud, including when the phone&#x27;s Nextcloud account is used</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.49</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.49"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.49</id>
+    <updated>2026-11-23T20:32:56Z</updated>
+    <content type="text"># Messaging 1.35.49
+
+- &quot;Unread on the lock screen&quot; is only shown when Glance is installed, or when you have set the switch on yourself
+- &quot;Choose files with&quot; is only shown when another file app is installed</content>
+  </entry>
+  <entry>
+    <title>Bitcoin 0.1.20</title>
+    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.20"/>
+    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.20</id>
+    <updated>2026-11-23T20:28:50Z</updated>
+    <content type="text"># Bitcoin 0.1.20
+
+- Nothing you can see changes in this release</content>
+  </entry>
+  <entry>
+    <title>Atlas 0.1.18</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.18"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.18</id>
+    <updated>2026-11-23T20:28:26Z</updated>
+    <content type="text"># Atlas 0.1.18
+
+- Settings → Navigation: the server address and Wi-Fi-only rows are only shown while their switch is on</content>
+  </entry>
+  <entry>
+    <title>Dream Log 0.1.41</title>
+    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.41"/>
+    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.41</id>
+    <updated>2026-11-23T20:28:07Z</updated>
+    <content type="text"># Dream Log 0.1.41
+
+- &quot;Keep dreams in Memo&quot; is only shown when Memo is installed or the switch is on</content>
+  </entry>
+  <entry>
+    <title>Memo 0.3.38</title>
+    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.38"/>
+    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.38</id>
+    <updated>2026-11-23T20:27:51Z</updated>
+    <content type="text"># Memo 0.3.38
+
+- The corner button sits at the same height as Messaging&#x27;s
+- The lock-screen switch for Glance is only shown when Glance is installed, or when you have set it on yourself</content>
+  </entry>
+  <entry>
+    <title>Feeds 0.6.23</title>
+    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.23"/>
+    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.23</id>
+    <updated>2026-11-23T20:27:36Z</updated>
+    <content type="text"># Feeds 0.6.23
+
+- Podcasts that sync through a feed server get chapters and transcripts too, where the podcast publishes them
+- &quot;Capsule certificates&quot; in Settings only appears once a certificate is pinned</content>
+  </entry>
+  <entry>
+    <title>Music Box 2.18.49</title>
+    <link href="https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.49"/>
+    <id>https://github.com/wanderwildwood/jimeikin/releases/tag/v2.18.49</id>
+    <updated>2026-11-23T20:27:25Z</updated>
+    <content type="text"># Music Box 2.18.49
+
+- Settings → Sound: the phone&#x27;s equalizer, with its presets and five bands you can step up or down
+- Favorite stations can be kept in folders: hold a favorite to choose its folder or remove it
+- With a Navidrome or other Subsonic server, favorite stations stay the same as the server&#x27;s radio list
+- Favorite stations can be saved as an .m3u file for any player, and added from one
+- Playlists that looked empty after a memory card dropped out fill again at the next scan, and a playlist&#x27;s count is of the songs it can show
+- &quot;Playing on lock screen&quot; is only shown when Glance is installed or the switch is on</content>
+  </entry>
+  <entry>
+    <title>Mailbox 0.1.69</title>
+    <link href="https://github.com/wanderwildwood/tayori/releases/tag/v0.1.69"/>
+    <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.69</id>
+    <updated>2026-11-23T20:27:15Z</updated>
+    <content type="text"># Mailbox 0.1.69
+
+- The compose button sits at the same height as Messaging&#x27;s
+- &quot;End-to-end encryption&quot; in an account&#x27;s settings is only shown when an OpenPGP app is installed or one is set for the account
+- &quot;Unread on the lock screen&quot; is only shown when Glance is installed, or when you have set the switch on yourself</content>
+  </entry>
+  <entry>
+    <title>Topo 0.2.24</title>
+    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.24"/>
+    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.24</id>
+    <updated>2026-11-23T20:26:57Z</updated>
+    <content type="text"># Topo 0.2.24
+
+- Settings → Experimental no longer lists settings for tools Topo does not have (metal direction, cliff height, pressure forecast)</content>
+  </entry>
+  <entry>
+    <title>Lens 0.1.43</title>
+    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.43"/>
+    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.43</id>
+    <updated>2026-11-23T20:26:45Z</updated>
+    <content type="text"># Lens 0.1.43
+
+- The old settings screen Lens no longer used is gone from the app; nothing else can open it now. The camera and Lens&#x27;s own settings are unchanged</content>
+  </entry>
+  <entry>
+    <title>Time 0.2.33</title>
+    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.33"/>
+    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.33</id>
+    <updated>2026-11-23T20:26:26Z</updated>
+    <content type="text"># Time 0.2.33
+
+- A night clock: the moon in the top bar turns the screen sideways and shows the day and the time as large as it fits. Three words along the foot are its buttons: Backlight (as set, low, off), Black or White for the page, and Noise for the sleep noise
+- While the sleep noise plays, the volume keys change the noise. On a Kompakt they were moving the ringtone</content>
+  </entry>
+  <entry>
+    <title>Audio Reader 1.3.74</title>
+    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.74"/>
+    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.74</id>
+    <updated>2026-11-23T20:26:17Z</updated>
+    <content type="text"># Audio Reader 1.3.74
+
+- The add buttons on Bookmarks and Folders sit at the same height as Messaging&#x27;s
+- &quot;Show the book being read in Glance&quot; is only shown when Glance is installed or the switch is on</content>
+  </entry>
+  <entry>
+    <title>Cabinet 0.9.28</title>
+    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.28"/>
+    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.28</id>
+    <updated>2026-11-23T20:26:09Z</updated>
+    <content type="text"># Cabinet 0.9.28
+
+- &quot;Print&quot; is only offered on a phone that can print</content>
+  </entry>
+  <entry>
+    <title>Medicine 0.1.40</title>
+    <link href="https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.40"/>
+    <id>https://github.com/wanderwildwood/fukuyaku/releases/tag/v0.1.40</id>
+    <updated>2026-11-23T20:26:00Z</updated>
+    <content type="text"># Medicine 0.1.40
+
+- Nothing you can see changes in this release</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.78</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.78"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.78</id>
+    <updated>2026-11-23T20:25:52Z</updated>
+    <content type="text"># Datebook 0.1.78
+
+- &quot;Sync calendars now&quot; is only shown when a calendar belongs to an account that syncs</content>
+  </entry>
+  <entry>
+    <title>Typewriter 0.1.49</title>
+    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.49"/>
+    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.49</id>
+    <updated>2026-11-23T20:25:42Z</updated>
+    <content type="text"># Typewriter 0.1.49
+
+- &quot;Keyboard layout&quot; is only shown when the phone has that settings page</content>
+  </entry>
+  <entry>
+    <title>Sky 0.13.20</title>
+    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.20"/>
+    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.20</id>
+    <updated>2026-11-23T20:25:33Z</updated>
+    <content type="text"># Sky 0.13.20
+
+- The lock-screen switch stays visible while it is on, so it can be turned off after Glance is removed</content>
+  </entry>
+  <entry>
+    <title>Field Kit 0.1.33</title>
+    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.33"/>
+    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.33</id>
+    <updated>2026-11-23T20:25:23Z</updated>
+    <content type="text"># Field Kit 0.1.33
+
+- A card&#x27;s lock-screen section is only shown when Glance is installed or the card is already on the lock screen</content>
+  </entry>
+  <entry>
+    <title>Wallet 0.1.32</title>
+    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.32"/>
+    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.32</id>
+    <updated>2026-11-23T20:25:13Z</updated>
+    <content type="text"># Wallet 0.1.32
+
+- The lock-screen switch is only shown when Glance is installed, or when you have set it on yourself</content>
+  </entry>
+  <entry>
+    <title>Tuner 0.1.55</title>
+    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.55"/>
+    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.55</id>
+    <updated>2026-11-23T20:25:04Z</updated>
+    <content type="text"># Tuner 0.1.55
+
+- The add buttons sit at the same height as Messaging&#x27;s</content>
+  </entry>
+  <entry>
+    <title>Passwords 0.1.33</title>
+    <link href="https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.33"/>
+    <id>https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.33</id>
+    <updated>2026-11-23T20:24:46Z</updated>
+    <content type="text"># Passwords 0.1.33
+
+- The add button sits at the same height as Messaging&#x27;s</content>
+  </entry>
   <entry>
     <title>Cabinet 0.9.27</title>
     <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.27"/>
@@ -343,228 +564,6 @@
     <updated>2026-11-22T23:04:58Z</updated>
     <content type="text"># Mushroom Journal 0.3.44
 
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Handheld Games 0.1.43</title>
-    <link href="https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.43"/>
-    <id>https://github.com/wanderwildwood/keitaiyugi/releases/tag/v0.1.43</id>
-    <updated>2026-11-22T23:04:51Z</updated>
-    <content type="text"># Handheld Games 0.1.43
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Engraver 0.0.19</title>
-    <link href="https://github.com/wanderwildwood/josho/releases/tag/v0.0.19"/>
-    <id>https://github.com/wanderwildwood/josho/releases/tag/v0.0.19</id>
-    <updated>2026-11-22T23:04:42Z</updated>
-    <content type="text"># Engraver 0.0.19
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Dictionary 0.1.29</title>
-    <link href="https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.29"/>
-    <id>https://github.com/wanderwildwood/jibiki/releases/tag/v0.1.29</id>
-    <updated>2026-11-22T23:04:34Z</updated>
-    <content type="text"># Dictionary 0.1.29
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Handset 0.1.42</title>
-    <link href="https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.42"/>
-    <id>https://github.com/wanderwildwood/itodenwa/releases/tag/v0.1.42</id>
-    <updated>2026-11-22T23:04:28Z</updated>
-    <content type="text"># Handset 0.1.42
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Torrents 0.1.30</title>
-    <link href="https://github.com/wanderwildwood/honryu/releases/tag/v0.1.30"/>
-    <id>https://github.com/wanderwildwood/honryu/releases/tag/v0.1.30</id>
-    <updated>2026-11-22T23:04:14Z</updated>
-    <content type="text"># Torrents 0.1.30
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Pictures 0.8.29</title>
-    <link href="https://github.com/wanderwildwood/garo/releases/tag/v0.8.29"/>
-    <id>https://github.com/wanderwildwood/garo/releases/tag/v0.8.29</id>
-    <updated>2026-11-22T23:04:06Z</updated>
-    <content type="text"># Pictures 0.8.29
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Remote 0.2.31</title>
-    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.31"/>
-    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.31</id>
-    <updated>2026-11-22T23:04:00Z</updated>
-    <content type="text"># Remote 0.2.31
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Connections 0.2.42</title>
-    <link href="https://github.com/wanderwildwood/enishi/releases/tag/v0.2.42"/>
-    <id>https://github.com/wanderwildwood/enishi/releases/tag/v0.2.42</id>
-    <updated>2026-11-22T23:03:53Z</updated>
-    <content type="text"># Connections 0.2.42
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Typewriter 0.1.48</title>
-    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.48"/>
-    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.48</id>
-    <updated>2026-11-22T23:03:47Z</updated>
-    <content type="text"># Typewriter 0.1.48
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Passwords 0.1.31</title>
-    <link href="https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.31"/>
-    <id>https://github.com/wanderwildwood/aikotoba/releases/tag/v0.1.31</id>
-    <updated>2026-11-22T23:03:40Z</updated>
-    <content type="text"># Passwords 0.1.31
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Chess+ 1.3.31-chessplus</title>
-    <link href="https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.31-chessplus"/>
-    <id>https://github.com/wanderwildwood/MuditaOS-K-Chess-opensource/releases/tag/v1.3.31-chessplus</id>
-    <updated>2026-11-22T15:06:46Z</updated>
-    <content type="text"># Chess+ 1.3.31
-
-- A row taller than the page shows where the page is on the scrollbar
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Bitcoin 0.1.19</title>
-    <link href="https://github.com/wanderwildwood/zeni/releases/tag/v0.1.19"/>
-    <id>https://github.com/wanderwildwood/zeni/releases/tag/v0.1.19</id>
-    <updated>2026-11-22T15:06:32Z</updated>
-    <content type="text"># Bitcoin 0.1.19
-
-- A row taller than the page shows where the page is on the scrollbar
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Field Kit 0.1.31</title>
-    <link href="https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.31"/>
-    <id>https://github.com/wanderwildwood/zatsuno/releases/tag/v0.1.31</id>
-    <updated>2026-11-22T15:06:16Z</updated>
-    <content type="text"># Field Kit 0.1.31
-
-- A row taller than the page shows where the page is on the scrollbar
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Detour 0.1.32</title>
-    <link href="https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.32"/>
-    <id>https://github.com/wanderwildwood/yorimichi/releases/tag/v0.1.32</id>
-    <updated>2026-11-22T15:06:09Z</updated>
-    <content type="text"># Detour 0.1.32
-
-- A row taller than the page shows where the page is on the scrollbar
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Car Check 0.1.27</title>
-    <link href="https://github.com/wanderwildwood/tenken/releases/tag/v0.1.27"/>
-    <id>https://github.com/wanderwildwood/tenken/releases/tag/v0.1.27</id>
-    <updated>2026-11-22T15:06:02Z</updated>
-    <content type="text"># Car Check 0.1.27
-
-- A row taller than the page shows where the page is on the scrollbar
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Birding 1.7.49</title>
-    <link href="https://github.com/wanderwildwood/tancho/releases/tag/v1.7.49"/>
-    <id>https://github.com/wanderwildwood/tancho/releases/tag/v1.7.49</id>
-    <updated>2026-11-22T15:05:54Z</updated>
-    <content type="text"># Birding 1.7.49
-
-- A row taller than the page shows where the page is on the scrollbar
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Abacus 0.2.35</title>
-    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.35"/>
-    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.35</id>
-    <updated>2026-11-22T15:05:44Z</updated>
-    <content type="text"># Abacus 0.2.35
-
-- A row taller than the page shows where the page is on the scrollbar
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Solitaire 0.1.26</title>
-    <link href="https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.26"/>
-    <id>https://github.com/wanderwildwood/solitaire/releases/tag/v0.1.26</id>
-    <updated>2026-11-22T15:05:38Z</updated>
-    <content type="text"># Solitaire 0.1.26
-
-- A row taller than the page shows where the page is on the scrollbar
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Speedometer 0.1.34</title>
-    <link href="https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.34"/>
-    <id>https://github.com/wanderwildwood/sokudokei/releases/tag/v0.1.34</id>
-    <updated>2026-11-22T15:05:32Z</updated>
-    <content type="text"># Speedometer 0.1.34
-
-- A row taller than the page shows where the page is on the scrollbar
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Tuner 0.1.54</title>
-    <link href="https://github.com/wanderwildwood/onsa/releases/tag/v0.1.54"/>
-    <id>https://github.com/wanderwildwood/onsa/releases/tag/v0.1.54</id>
-    <updated>2026-11-22T15:05:25Z</updated>
-    <content type="text"># Tuner 0.1.54
-
-- A row taller than the page shows where the page is on the scrollbar
-- About&#x27;s privacy section lists every other app it can see
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Parked 0.2.20</title>
-    <link href="https://github.com/wanderwildwood/okiba/releases/tag/v0.2.20"/>
-    <id>https://github.com/wanderwildwood/okiba/releases/tag/v0.2.20</id>
-    <updated>2026-11-22T15:05:19Z</updated>
-    <content type="text"># Parked 0.2.20
-
-- A row taller than the page shows where the page is on the scrollbar
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Practice 0.2.11</title>
-    <link href="https://github.com/wanderwildwood/nikka/releases/tag/v0.2.11"/>
-    <id>https://github.com/wanderwildwood/nikka/releases/tag/v0.2.11</id>
-    <updated>2026-11-22T15:05:12Z</updated>
-    <content type="text"># Practice 0.2.11
-
-- A row taller than the page shows where the page is on the scrollbar
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Level 0.1.41</title>
-    <link href="https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.41"/>
-    <id>https://github.com/wanderwildwood/mizumori/releases/tag/v0.1.41</id>
-    <updated>2026-11-22T15:05:05Z</updated>
-    <content type="text"># Level 0.1.41
-
-- A row taller than the page shows where the page is on the scrollbar
-- About&#x27;s privacy section lists every other app it can see
 - Long About sections turn a page at a time on whole lines, never opening on half a line</content>
   </entry>
 </feed>
