@@ -4,8 +4,19 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-24T11:53:22Z</updated>
+  <updated>2026-11-24T19:58:22Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Topo 0.2.25</title>
+    <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.25"/>
+    <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.25</id>
+    <updated>2026-11-24T19:58:22Z</updated>
+    <content type="text"># Topo 0.2.25
+
+- Plan one section of a path: on a point, choose &quot;Section from here&quot;, then tap where the section ends. Topo shows its length, climb and descent, and draws it bolder on the map. &quot;Follow section&quot; leads to it and along the trail to its end, even when you are not on the path yet.
+- Tapping the path line on a path&#x27;s map picks the nearest point, also when the path draws no points.
+- Descent no longer shows with a minus sign while following a path.</content>
+  </entry>
   <entry>
     <title>Messaging 1.35.50</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.50"/>
@@ -555,15 +566,6 @@
     <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.31</id>
     <updated>2026-11-22T23:05:26Z</updated>
     <content type="text"># Wallet 0.1.31
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Audio Reader 1.3.72</title>
-    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.72"/>
-    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.72</id>
-    <updated>2026-11-22T23:05:18Z</updated>
-    <content type="text"># Audio Reader 1.3.72
 
 - Long About sections turn a page at a time on whole lines, never opening on half a line</content>
   </entry>
