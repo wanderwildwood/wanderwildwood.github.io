@@ -135,3 +135,8 @@ dl.facts dd { margin: 0; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js section.rv { opacity: 1; transform: none; }
 }
+
+/* A wide picture in the text (a computer screen, not a phone one): the column's width, a hard edge. */
+.flow figure.wide { margin: 1.4rem 0 1.6rem; }
+.flow figure.wide img { display: block; width: 100%; height: auto; border: 2px solid var(--ink); box-shadow: var(--step); }
+.flow figure.wide figcaption { margin-top: 0.7rem; font-size: 0.92rem; color: var(--quiet); }

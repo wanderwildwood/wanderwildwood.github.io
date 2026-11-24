@@ -134,9 +134,9 @@
     .intro { display: block; }
     .portrait { width: 218px; height: 218px; margin-bottom: 1.2rem; }
   }
-  /* Multiply would sink the drawing into a dark ground; the circle reads as itself. */
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .portrait { mix-blend-mode: normal; } }
-  :root[data-theme="dark"] .portrait { mix-blend-mode: normal; }
+  /* Multiply would sink the drawing into a dark ground; the circle reads as itself, in grey. */
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .portrait { mix-blend-mode: normal; filter: grayscale(1); } }
+  :root[data-theme="dark"] .portrait { mix-blend-mode: normal; filter: grayscale(1); }
 
   /* Four across, falling to two and then one, never three: the groups hold four apps each,
      and three across left one card alone on a row. A group's name takes a row to itself. */
@@ -392,8 +392,10 @@
 <main>
 
 <div class="intro">
-  <img class="portrait" src="wander.png" width="246" height="246"
-       alt="A small drawn figure in a pointed hat and round glasses, with a seal reading wander">
+  <img class="portrait" src="wander.png" width="246" height="246" data-light="wander.png" data-dark="wander-dark.png"
+       alt="A small drawn figure in a pointed hat and round glasses, with a seal reading wander"
+       data-light-alt="A small drawn figure in a pointed hat and round glasses, with a seal reading wander"
+       data-dark-alt="The same small drawn figure in a pointed hat, now in dark round sunglasses, with a seal reading wander">
   <div class="intro-body">
   <div class="intro-text">
     <h1>wander <button type="button" class="jp" aria-pressed="false" title="日本語で読む">彷徨う</button></h1>

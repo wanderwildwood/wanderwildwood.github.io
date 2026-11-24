@@ -39,7 +39,7 @@
 
 <section id="commands" class="rv" data-shot="ibasho-commands">
 <h2>Commands</h2>
-<p><b>locate</b> answers with where the phone is. <b>ring</b> rings it at full volume for up to five minutes, through silent mode and Do Not Disturb, and puts the phone's own settings back after. <b>lock</b> locks the screen, can show a message on it, and asks for the phone's password rather than a fingerprint to open it again.</p>
+<p data-shot="ibasho-ring"><b>locate</b> answers with where the phone is. <b>ring</b> rings it at full volume for up to five minutes, through silent mode and Do Not Disturb, and puts the phone's own settings back after. <b>lock</b> locks the screen, can show a message on it, and asks for the phone's password rather than a fingerprint to open it again.</p>
 <p>The rest are for the phone you are looking for: turn Bluetooth, location or Do Not Disturb on and off, set the ringer mode, flash the camera light, scan for nearby Bluetooth devices, and <b>stats</b> for the networks around it. <b>help</b> lists them all. The Commands tab shows each one with the permissions it needs.</p>
 </section>
 
@@ -71,10 +71,11 @@
 <h2>The server</h2>
 <p>With a server, the phone uploads where it is every so many minutes, as you set it, and a web page shows it on a map with buttons to ring, lock or locate it now. The place is encrypted on the phone before it leaves, so the server holds it without being able to read it: only the password chosen on the phone opens it, and it cannot be reset. There is no public server and no default; you enter your own.</p>
 <p>The <a href="https://github.com/wanderwildwood/ibasho-server">Whereabouts server</a> is <a href="https://gitlab.com/fmd-foss/fmd-server">FMD Server</a> with an ink-on-paper web page, a real dark theme, a gray map and no animation, and the page can be installed as an app. It speaks the same protocol, so Whereabouts works with either. It is one program, built into a Docker image or downloaded as a single file for Linux, and wants a reverse proxy with a certificate in front, because the page decrypts in the browser and browsers only allow that on HTTPS. Set a registration token so strangers cannot make accounts.</p>
+<figure class="wide"><img src="../shots/ibasho-server.png" data-dark="../shots/ibasho-server-dark.png" width="1200" height="800" loading="lazy" alt="The server's People page on a computer: Hazel, Nina and Tomas listed with how long ago each was seen and their battery, Pause my sharing under them, and their three named dots on a gray street map"><figcaption>The server's page on a computer: the people who share with you, each where their phone was last.</figcaption></figure>
 <p>Commands reach the phone by push. Whereabouts keeps its own quiet connection to Mozilla's push service for that, so no separate push app is needed; Mozilla learns when your server wakes the phone, not what it asks, which the phone fetches from your server itself. If you already use a push app such as ntfy, pick it instead.</p>
 </section>
 
-<section id="family" class="rv" data-shot="ibasho-settings">
+<section id="family" class="rv" data-shot="ibasho-family">
 <h2>Family</h2>
 <p>Everyone with an account on the same server is family. On the phone, under <b>Family</b>, you tick who may see where this phone was last, and see the people who share with you, how long ago, and their battery; a row opens their place in a map app. The server's web page shows them on the same map as your own phone.</p>
 <p>The server keeps one sealed copy of your last place for each person you ticked, so it can see who shares with whom but not where anyone is. Only the last place is kept, never a trail. A pause switch on the web page stops sharing from a computer if the phone itself is lost. If someone's key changes, their place is hidden until you choose to trust the new one, since that could mean the server is passing someone else off as them.</p>
@@ -110,6 +111,8 @@
 <img data-name="ibasho-setup" data-cap="Setting up" src="../shots/ibasho-setup.png" width="400" height="627" alt="Setting up: Texts only, or Texts and a server" loading="eager" class="on">
 <img data-name="ibasho-commands" data-cap="Commands" src="../shots/ibasho-commands.png" width="400" height="627" alt="The Commands tab: bluetooth and bluetoothscan, each with the permissions it needs" loading="eager">
 <img data-name="ibasho-sms" data-cap="Channels, SMS" src="../shots/ibasho-sms.png" width="400" height="627" alt="The SMS channel: how to text the phone, and who may" loading="eager">
+<img data-name="ibasho-ring" data-cap="Ringing" src="../shots/ibasho-ring.png" width="400" height="627" alt="Ringing: one big Stop ringing button fills the screen" loading="eager">
+<img data-name="ibasho-family" data-cap="Settings, Family" src="../shots/ibasho-family.png" width="400" height="627" alt="Family: sharing on, and Ada sharing with you, last place 12 minutes ago, battery 82 percent" loading="eager">
 <img data-name="ibasho-settings" data-cap="Settings" src="../shots/ibasho-settings.png" width="400" height="627" alt="Settings: Server, Family, Commands, Access control, BeaconDB and OpenCelliD" loading="eager">
 </div><div class="nav" aria-hidden="true"><svg viewBox="0 0 26 24"><path d="M23 12H5M12.5 4.5 5 12l7.5 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9.5" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><svg viewBox="0 0 26 26"><path d="M9 4v12M17 10v12M9 22v0M17 4v0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div></div></div>
 <p class="cap" aria-live="polite">Setting up</p>
