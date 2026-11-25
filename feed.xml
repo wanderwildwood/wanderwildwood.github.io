@@ -4,8 +4,18 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-25T02:18:13Z</updated>
+  <updated>2026-11-25T10:54:20Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Dream Log 0.1.43</title>
+    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.43"/>
+    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.43</id>
+    <updated>2026-11-25T10:54:20Z</updated>
+    <content type="text"># Dream Log 0.1.43
+
+- When the phone is set to a language other than the one dreams are heard in, the main screen offers to hear them in the phone&#x27;s language. Nothing downloads until you press Hear in; Not now hides it for that language
+- The offer is shown only for the languages in Settings, never while Dream Log is armed</content>
+  </entry>
   <entry>
     <title>Messaging 1.35.52</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.52"/>
@@ -562,15 +572,6 @@
     <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.42</id>
     <updated>2026-11-22T23:05:48Z</updated>
     <content type="text"># Shelf 0.1.42
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Lens 0.1.42</title>
-    <link href="https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.42"/>
-    <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.42</id>
-    <updated>2026-11-22T23:05:40Z</updated>
-    <content type="text"># Lens 0.1.42
 
 - Long About sections turn a page at a time on whole lines, never opening on half a line</content>
   </entry>
