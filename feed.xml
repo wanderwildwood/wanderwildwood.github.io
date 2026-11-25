@@ -4,8 +4,31 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-24T19:58:22Z</updated>
+  <updated>2026-11-25T02:18:13Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Messaging 1.35.52</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.52"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.52</id>
+    <updated>2026-11-25T02:18:13Z</updated>
+    <content type="text"># Messaging 1.35.52
+
+- Linking this phone to Signal follows Signal 8.37.3: the link code&#x27;s encryption is now done by Signal&#x27;s own library
+- A link code nobody scans now ends after about five minutes with a clear &quot;nobody scanned the code in time&quot;, instead of waiting forever
+- The conversation list no longer shows random previews in italics: italics mark a draft and nothing else</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.51</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.51"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.51</id>
+    <updated>2026-11-25T01:10:01Z</updated>
+    <content type="text"># Messaging 1.35.51
+
+- A Signal message that could not be sent stays in the conversation as &quot;Not sent&quot;, with the reason and a tap to send it again
+- Switching Signal off now closes the composer at once, and switching it back on reconnects without restarting the app
+- A message too long for Signal is turned down straight away, not after half a minute
+- Receipts, the account&#x27;s records and the sender certificate follow Signal&#x27;s own timing more closely</content>
+  </entry>
   <entry>
     <title>Topo 0.2.25</title>
     <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.25"/>
@@ -548,24 +571,6 @@
     <id>https://github.com/wanderwildwood/shashinki/releases/tag/v0.1.42</id>
     <updated>2026-11-22T23:05:40Z</updated>
     <content type="text"># Lens 0.1.42
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Star Chart 0.5.25</title>
-    <link href="https://github.com/wanderwildwood/seizu/releases/tag/v0.5.25"/>
-    <id>https://github.com/wanderwildwood/seizu/releases/tag/v0.5.25</id>
-    <updated>2026-11-22T23:05:32Z</updated>
-    <content type="text"># Star Chart 0.5.25
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Wallet 0.1.31</title>
-    <link href="https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.31"/>
-    <id>https://github.com/wanderwildwood/satsuire/releases/tag/v0.1.31</id>
-    <updated>2026-11-22T23:05:26Z</updated>
-    <content type="text"># Wallet 0.1.31
 
 - Long About sections turn a page at a time on whole lines, never opening on half a line</content>
   </entry>
