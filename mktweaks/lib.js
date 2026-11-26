@@ -40,9 +40,26 @@ export const cmd = {
   },
   openDuraSpeed: () =>
     "am start -a android.settings.APPLICATION_DETAILS_SETTINGS -d package:com.mediatek.duraspeed",
+  fontScale: () => "settings get system font_scale",
+  setFontScale: (v) => {
+    if (!isFontScale(v)) throw new Error("not a text size: " + v);
+    return `settings put system font_scale ${v}`;
+  },
   install: (remote) => `pm install -r ${remote}`,
   removeTemp: (remote) => `rm -f ${remote}`,
 };
+
+// Text sizes offered: 1 is as the phone came. Nothing outside 0.85-2 reaches a shell line.
+export const FONT_SCALES = ["1.0", "1.15", "1.3", "1.5", "1.75", "2.0"];
+export const isFontScale = (v) => typeof v === "string" && /^[0-2](\.\d{1,2})?$/.test(v)
+  && Number(v) >= 0.85 && Number(v) <= 2;
+
+// `settings get system font_scale`: "null" (never set) is 1.
+export function parseFontScale(text) {
+  const t = String(text).trim();
+  const n = t === "" || t === "null" ? 1 : Number(t);
+  return Number.isNaN(n) ? 1 : n;
+}
 
 export const ANIMATION_KEYS = [
   "window_animation_scale",

@@ -12,6 +12,8 @@ const sec = (id) => document.getElementById(id);
 const nameOf = (p) => NAMES[p] || p;
 
 let adb = null;
+// What each read found, for the "What's changed" list at the top. Cleared on disconnect.
+let seen = {};
 
 // ---- small page helpers ------------------------------------------------------------------
 
@@ -88,12 +90,14 @@ async function readBrowser() {
   const s = sec("browser"), b = $("[data-act]", s);
   const there = L.parsePackages((await sh(L.cmd.installed(SHELL_BROWSER))).out).has(SHELL_BROWSER);
   if (!there) {
+    seen.browserOff = false;
     setState(s, "This phone has no hidden browser.");
     b.hidden = true; b.dataset.never = "1";
     return;
   }
   b.hidden = false; b.dataset.never = "";
   const off = L.parsePackages((await sh(L.cmd.disabled())).out).has(SHELL_BROWSER);
+  seen.browserOff = off;
   const link = L.parseLinkHandler((await sh(L.cmd.linkHandler())).out);
   const where = link.kind === "app" ? `Web links open in ${nameOf(link.pkg)}.`
     : link.kind === "ask" ? "Web links ask which browser to use."
@@ -101,6 +105,7 @@ async function readBrowser() {
   setState(s, (off ? "Switched off. " : "Switched on. ") + where, !off);
   b.textContent = off ? "Switch it back on" : "Switch it off";
   b.onclick = () => change(s, off ? L.cmd.unhide(SHELL_BROWSER) : L.cmd.hide(SHELL_BROWSER), readBrowser);
+  renderChanged();
 }
 
 // ---- 2. installing -----------------------------------------------------------------------
@@ -158,6 +163,8 @@ async function readBackground() {
   const apps = [...L.parsePackages((await sh(L.cmd.thirdParty())).out)];
   const allowed = L.parseAllowList((await sh(L.cmd.allowList())).out);
   apps.sort((a, b) => nameOf(a).localeCompare(nameOf(b)));
+  seen.allowed = apps.filter((p) => allowed.user.has(p));
+  renderChanged();
   if (!apps.length) { list.replaceChildren(el("li", { class: "empty", text: "No apps of your own are installed." })); return; }
   list.replaceChildren(...apps.map((p) => {
     const on = allowed.user.has(p) || allowed.system.has(p);
@@ -214,6 +221,9 @@ async function readDefaults() {
       set));
   }
   list.replaceChildren(...rows);
+  seen.defaults = Object.keys(L.ROLES).map((key) => [key, (holders.get(L.ROLES[key].name) || [])[0] || ""])
+    .filter(([, p]) => p && !/^(com\.mudita\.|com\.android\.|com\.mediatek\.|android$|org\.chromium\.)/.test(p));
+  renderChanged();
   return holders;
 }
 
@@ -225,6 +235,8 @@ async function readStock() {
   const off = L.parsePackages((await sh(L.cmd.disabled())).out);
   const holders = L.parseRoles((await sh(L.cmd.roles())).out);
   const items = STOCK.filter((a) => all.has(a.pkg));
+  seen.hidden = items.filter((a) => off.has(a.pkg));
+  renderChanged();
   if (!items.length) { list.replaceChildren(el("li", { class: "empty", text: "None of Mudita's apps are on this phone." })); return; }
   list.replaceChildren(...items.map((a) => {
     const hidden = off.has(a.pkg);
@@ -248,6 +260,8 @@ async function readStock() {
 async function readAnimations() {
   const s = sec("animations"), b = $("[data-act]", s);
   const a = L.parseAnimations((await sh(L.cmd.animations())).out);
+  seen.animationsOff = a.state !== "on";
+  renderChanged();
   setState(s, a.state === "off" ? "Off." : a.state === "on" ? "On." : `Partly off (${a.values.join(", ")}).`, a.state !== "off");
   b.textContent = a.state === "off" ? "Turn them back on" : "Turn them off";
   b.onclick = () => change(s, L.cmd.setAnimations(a.state === "off"), readAnimations);
@@ -258,6 +272,8 @@ async function readAnimations() {
 async function readDns() {
   const s = sec("dns");
   const d = L.parseDns((await sh(L.cmd.dns())).out);
+  seen.dns = d;
+  renderChanged();
   setState(s, d.mode === "opportunistic" ? "Automatic: encrypted when the network's own server allows it."
     : d.mode === "off" ? "Off."
     : d.mode === "hostname" ? `Using ${d.host || "a server with no name set"}.` : d.mode, d.mode === "hostname");
@@ -276,24 +292,102 @@ function wireDns() {
   };
 }
 
+// ---- 10. text size ----------------------------------------------------------------------
+
+const sizeLabel = (v) => Number(v) === 1 ? "As it came" : `${Math.round(Number(v) * 100)}%`;
+
+async function readText() {
+  const s = sec("text"), pick = $("[data-size]", s);
+  const now = L.parseFontScale((await sh(L.cmd.fontScale())).out);
+  seen.font = now;
+  renderChanged();
+  setState(s, now === 1 ? "As it came." : `${Math.round(now * 100)}% of the size it came with.`, now !== 1);
+  const here = L.FONT_SCALES.find((v) => Number(v) === now);
+  pick.replaceChildren(...L.FONT_SCALES.map((v) => el("option", { value: v, text: sizeLabel(v), selected: v === here })));
+  if (!here) pick.prepend(el("option", { value: "", text: `${Math.round(now * 100)}% (now)`, selected: true }));
+}
+
+function wireText() {
+  const s = sec("text");
+  $("[data-act]", s).onclick = () => {
+    const v = $("[data-size]", s).value;
+    if (!L.isFontScale(v)) { say(s, "Pick a size first.", true); return; }
+    change(s, L.cmd.setFontScale(v), readText);
+  };
+}
+
+// ---- what's changed ----------------------------------------------------------------------
+// From what the reads above found. Only what has a known "as it came" goes in the put-back
+// button; default apps and the background list have no known "as it came" and stay as they are.
+
+function backCommands() {
+  const c = [];
+  if (seen.browserOff) c.push(L.cmd.unhide(SHELL_BROWSER));
+  for (const a of seen.hidden || []) c.push(L.cmd.unhide(a.pkg));
+  if (seen.animationsOff) c.push(L.cmd.setAnimations(true));
+  if (seen.dns && seen.dns.mode !== "opportunistic") c.push(L.cmd.dnsAutomatic());
+  if (seen.font !== undefined && seen.font !== 1) c.push(L.cmd.setFontScale("1.0"));
+  return c;
+}
+
+function renderChanged() {
+  const s = sec("changed"), list = $("[data-list]", s), b = $("[data-act]", s);
+  if (!adb) return;
+  const rows = [];
+  const row = (name, line) => rows.push(el("li", {}, el("span", { class: "who" },
+    el("span", { class: "name", text: name }), el("span", { class: "line", text: line }))));
+  if (seen.browserOff) row("Hidden browser", "Switched off.");
+  for (const a of seen.hidden || []) row(a.name, "Hidden.");
+  if (seen.animationsOff) row("Animations", "Off.");
+  if (seen.dns && seen.dns.mode !== "opportunistic")
+    row("Private DNS", seen.dns.mode === "hostname" ? `Using ${seen.dns.host || "a server with no name"}.`
+      : seen.dns.mode === "off" ? "Off." : `Set to ${seen.dns.mode}.`);
+  if (seen.font !== undefined && seen.font !== 1) row("Text size", `${Math.round(seen.font * 100)}%.`);
+  const back = rows.length;
+  for (const [key, p] of seen.defaults || []) row(ROLE_LABEL[key], `${nameOf(p)}. Change it under Default apps.`);
+  if ((seen.allowed || []).length)
+    row("In the background", seen.allowed.map(nameOf).join(", ") + " let through. Set back under Letting an app run.");
+  const empty = !seen.done ? "Reading the phone…"
+    : seen.failed ? "Some of the phone couldn't be read, so this list may be missing something."
+    : "Nothing: everything here is as the phone came.";
+  if (seen.done && seen.failed && rows.length) rows.push(el("li", { class: "empty", text: empty }));
+  list.replaceChildren(...(rows.length ? rows : [el("li", { class: "empty", text: empty })]));
+  b.hidden = !back;
+  b.dataset.never = back ? "" : "1";
+  b.disabled = running || !back;
+}
+
+function wireChanged() {
+  const s = sec("changed");
+  $("[data-act]", s).onclick = () => {
+    const c = backCommands();
+    if (c.length) change(s, c, readAll);
+  };
+}
+
 // ---- connecting --------------------------------------------------------------------------
 
 async function readAll() {
-  const steps = [readBrowser, readBackground, readDefaults, readStock, readAnimations, readDns];
+  const steps = [readBrowser, readBackground, readDefaults, readStock, readAnimations, readDns, readText];
+  seen.done = false; seen.failed = false;
   for (const f of steps) {
-    try { await f(); } catch (e) { console.error(e); }
+    try { await f(); } catch (e) { console.error(e); seen.failed = true; }
   }
+  seen.done = true;
+  renderChanged();
 }
 
 function placeholders() {
-  for (const id of ["defaults", "hide-mudita-apps", "background"]) {
+  for (const id of ["changed", "defaults", "hide-mudita-apps", "background"]) {
     $(`#${id} [data-list]`).replaceChildren(el("li", { class: "empty", text: "Connect to see what is on the phone." }));
   }
-  for (const id of ["browser", "animations", "dns"]) setState(sec(id), "—");
+  for (const id of ["browser", "animations", "dns", "text"]) setState(sec(id), "—");
+  $("#changed [data-act]").hidden = true;
 }
 
 function disconnected() {
   adb = null;
+  seen = {};
   setStatus("Not connected.");
   $("#connect-btn").textContent = "Connect";
   placeholders();
@@ -344,6 +438,8 @@ async function connect() {
 placeholders();
 wireDrop();
 wireDns();
+wireText();
+wireChanged();
 lockAll(false);
 if (!("usb" in navigator) || !AdbDaemonWebUsbDeviceManager.BROWSER) {
   $("#nousb").hidden = false;

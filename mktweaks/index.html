@@ -36,7 +36,7 @@
   }
   @media (max-width: 32rem) { body { padding: 2rem 1rem 4rem; } }
   main { max-width: 70rem; margin: 0 auto; }
-  p, ol { max-width: 34rem; }
+  p, ol, ul.help { max-width: 34rem; }
   h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 1.4rem; letter-spacing: -0.01em; }
   h2 {
     font-size: 1.2rem; font-weight: 600; color: var(--quiet);
@@ -53,8 +53,8 @@
   .back a { display: inline-block; color: var(--ink); text-decoration: none; background: var(--raise);
     border: 2px solid var(--rule); padding: 0.1rem 0.6rem; }
   .back a:hover { border-color: var(--ink); }
-  ol { padding-left: 1.3rem; margin: 0 0 1.1rem; }
-  ol li { margin-bottom: 0.5rem; }
+  ol, ul.help { padding-left: 1.3rem; margin: 0 0 1.1rem; }
+  ol li, ul.help li { margin-bottom: 0.5rem; }
 
   code {
     font: 0.8rem/1.5 ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
@@ -183,6 +183,31 @@ and Edge on a computer have. Firefox and Safari don't, and neither does a phone'
 <p class="runs">Nothing about the phone leaves this computer. The page and the phone talk over the
 cable, and the key the phone is asked to trust is made in this browser and kept there. The page
 asks nothing of any other site.</p>
+<p><b>If it won't connect</b></p>
+<ul class="help">
+  <li>The phone isn't in the list: some cables only charge. Try another, or another port on the
+  computer.</li>
+  <li>On Linux the phone is listed but won't open: Chrome needs permission for it, which the
+  <code>android-sdk-platform-tools-common</code> package gives on Debian, Ubuntu and Mint.
+  Unplug the phone and plug it in again after installing.</li>
+  <li>It says something already holds the phone: close Android Studio, phone-manager apps, and any
+  other tab with this page open, then run <code>adb kill-server</code> if you have adb.</li>
+  <li>No prompt shows on the phone: unlock it, unplug and plug it in again. If it was refused
+  once, choose <b>Revoke USB debugging authorizations</b> in Developer options and connect again.</li>
+</ul>
+</section>
+
+<section class="tweak" id="changed">
+<h2>What's changed</h2>
+<p>Once connected, everything on this page that isn't as the phone came. The button puts all of
+it back at once; default apps and the background list are left to their own sections, since the page
+can't know what the phone came with there.</p>
+<ul class="list" data-list></ul>
+<div class="controls">
+  <button type="button" class="act" data-act disabled hidden>Put it all back</button>
+</div>
+<p class="out" data-out hidden></p>
+<p class="runs">Runs the put-back command of each item listed, as given in its own section.</p>
 </section>
 
 <section class="tweak" id="browser">
@@ -292,6 +317,38 @@ the server can't be reached, nothing online works until this is set back to Auto
 and <code>settings put global private_dns_mode hostname</code>; Off is <code>settings put global
 private_dns_mode off</code>, Automatic <code>settings delete global private_dns_mode</code>. Reads
 <code>settings get global private_dns_mode</code>.</p>
+</section>
+
+<section class="tweak" id="text">
+<h2>Text size</h2>
+<p>Makes text larger or smaller in every app at once, up to twice the size it came with. Some
+apps cut off text at the largest sizes; pick a size, look, and step back if it crowds.</p>
+<div class="controls">
+  <span class="state" data-state>&mdash;</span>
+</div>
+<div class="controls" style="margin-top:0.6rem">
+  <select data-size aria-label="Text size" disabled><option>As it came</option></select>
+  <button type="button" class="act" data-act disabled>Use this</button>
+</div>
+<p class="out" data-out hidden></p>
+<p class="runs" style="margin-top:1.1rem">Runs <code>settings put system font_scale &lt;size&gt;</code>,
+and <code>settings put system font_scale 1.0</code> to put it back. Reads
+<code>settings get system font_scale</code>.</p>
+</section>
+
+<section id="afterwards">
+<h2>When you're done</h2>
+<p>Unplug the phone; what you changed stays, through restarts too.</p>
+<p>USB debugging can be turned off again in Settings &rarr; System &rarr; Developer options. A
+phone left with it on can be read by any computer it has been allowed to trust, so turn it off
+if you won't be back soon. <b>Revoke USB debugging authorizations</b> there makes it forget this
+computer too.</p>
+<p>After a system update, connect again and look at What's changed: the page reads how each
+item is set now.</p>
+<p>Questions, or something here that didn't work: ask on
+<a href="https://discord.gg/UMW8yJg7dQ">the Discord</a> or in the
+<a href="https://forum.mudita.com/t/guide-removing-the-hidden-browser/8879">forum thread</a>
+where this page started.</p>
 </section>
 
 </main>
