@@ -4,8 +4,57 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-25T10:54:20Z</updated>
+  <updated>2026-11-25T23:15:14Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Messaging 1.35.53</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.53"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.53</id>
+    <updated>2026-11-25T23:15:14Z</updated>
+    <content type="text"># Messaging 1.35.53
+
+- When Signal hands Messaging a copy of a message you sent from your main phone and Messaging cannot take it in at first, it now keeps the copy and tries again later, instead of losing it quietly. If it still cannot, a short note in that conversation says a message is missing
+- An edit, deletion or reaction that arrives before the message it belongs to now waits for it, so a deleted message stays deleted
+- When Messaging is your Signal account&#x27;s own phone and Signal asks it to prove it is a person, tapping the Not sent line now opens that check right in Messaging; once it is answered, the held-up messages are sent again
+- A phone whose Signal registration was taken over is now told to register again, not to link</content>
+  </entry>
+  <entry>
+    <title>Typewriter 0.1.50</title>
+    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.50"/>
+    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.50</id>
+    <updated>2026-11-25T23:03:39Z</updated>
+    <content type="text"># Typewriter 0.1.50
+
+- Full screen: tap &quot;Full screen&quot; at the foot of the page and everything else goes, status bar included, so only your words are left. Back brings it all back</content>
+  </entry>
+  <entry>
+    <title>Abacus 0.2.36</title>
+    <link href="https://github.com/wanderwildwood/soroban/releases/tag/v0.2.36"/>
+    <id>https://github.com/wanderwildwood/soroban/releases/tag/v0.2.36</id>
+    <updated>2026-11-25T23:03:34Z</updated>
+    <content type="text"># Abacus 0.2.36
+
+- Turned sideways, the date picker keeps OK and Cancel beside the calendar, always in reach</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.79</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.79"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.79</id>
+    <updated>2026-11-25T23:03:28Z</updated>
+    <content type="text"># Calendar 0.1.79
+
+- Turned sideways, the date picker keeps OK and Cancel beside the calendar, always in reach</content>
+  </entry>
+  <entry>
+    <title>Memo 0.3.39</title>
+    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.39"/>
+    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.39</id>
+    <updated>2026-11-25T23:03:22Z</updated>
+    <content type="text"># Memo 0.3.39
+
+- When this phone&#x27;s list is the only one, Memo no longer shows a list heading or a List row for it
+- Turned sideways, the reminder day picker keeps OK and Cancel beside the calendar, always in reach</content>
+  </entry>
   <entry>
     <title>Dream Log 0.1.43</title>
     <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.43"/>
@@ -527,51 +576,6 @@
     <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.29</id>
     <updated>2026-11-22T23:06:27Z</updated>
     <content type="text"># Translate 0.9.29
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Time 0.2.32</title>
-    <link href="https://github.com/wanderwildwood/tokei/releases/tag/v0.2.32"/>
-    <id>https://github.com/wanderwildwood/tokei/releases/tag/v0.2.32</id>
-    <updated>2026-11-22T23:06:17Z</updated>
-    <content type="text"># Time 0.2.32
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Tarot 0.1.29</title>
-    <link href="https://github.com/wanderwildwood/tarot/releases/tag/v0.1.29"/>
-    <id>https://github.com/wanderwildwood/tarot/releases/tag/v0.1.29</id>
-    <updated>2026-11-22T23:06:09Z</updated>
-    <content type="text"># Tarot 0.1.29
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Cabinet 0.9.25</title>
-    <link href="https://github.com/wanderwildwood/tana/releases/tag/v0.9.25"/>
-    <id>https://github.com/wanderwildwood/tana/releases/tag/v0.9.25</id>
-    <updated>2026-11-22T23:06:02Z</updated>
-    <content type="text"># Cabinet 0.9.25
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Sky 0.13.19</title>
-    <link href="https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.19"/>
-    <id>https://github.com/wanderwildwood/soramoyo/releases/tag/v0.13.19</id>
-    <updated>2026-11-22T23:05:55Z</updated>
-    <content type="text"># Sky 0.13.19
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Shelf 0.1.42</title>
-    <link href="https://github.com/wanderwildwood/shoka/releases/tag/v0.1.42"/>
-    <id>https://github.com/wanderwildwood/shoka/releases/tag/v0.1.42</id>
-    <updated>2026-11-22T23:05:48Z</updated>
-    <content type="text"># Shelf 0.1.42
 
 - Long About sections turn a page at a time on whole lines, never opening on half a line</content>
   </entry>
