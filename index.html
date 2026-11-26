@@ -82,6 +82,16 @@
   .jump a { padding: 0.15rem 0.7rem; border: 2px solid transparent; text-decoration: none; color: var(--ink); }
   .jump a:hover { border-color: var(--ink); }
   .jump a.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  /* each category a drawer, closed at first, one open at a time; the row's links open theirs (his pick 11-26) */
+  details.drawer { margin: 0 0 1rem; scroll-margin-top: 1rem; }
+  details.drawer > summary.group { list-style: none; cursor: pointer; display: flex; align-items: center; gap: .8rem;
+    margin: 0; padding: .5rem 0; font-size: 1.25rem; font-family: var(--pixel); color: var(--ink); }
+  details.drawer > summary.group::-webkit-details-marker { display: none; }
+  details.drawer > summary.group::before { content: "+"; width: 1.2rem; text-align: center; }
+  details.drawer[open] > summary.group::before { content: "\2212"; }
+  details.drawer > summary.group::after { content: ""; flex: 1; height: 2px; background: var(--rule); }
+  details.drawer > summary .count { color: var(--quiet); font-size: .9rem; order: 3; }
+  details.drawer > .apps { margin-top: 1rem; }
   .catbox { display: flex; flex-direction: column; }
   .catbox > .app.home { margin-top: 0; }   /* the row's own space is enough above Home's card */
   /* The row's copy: once the row itself has gone off the top of the screen, the copy rides the foot of the
@@ -383,6 +393,18 @@
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --eink: contrast(0.82); } }   /* at night the dark shots' black lifted to the screen's charcoal */
   :root[data-theme="dark"] { --eink: contrast(0.82); }
   .shot { filter: var(--eink); }
+  /* Stop Motion, alone in "Other things", one card the width of the page as Home's is: the capture screen beside the words */
+  #komadori { grid-column: 1 / -1; background: var(--raise); border: 1px solid var(--rule); border-radius: 8px;
+    box-shadow: 6px 6px 0 var(--hard); padding: 1.4rem 1.5rem 1.5rem; }
+  #komadori .lymirow { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); align-items: center; gap: 1.2rem 2rem; align-items: start; }
+  #komadori .lymishot img { width: 100%; height: auto; max-width: none; display: block; }
+  #komadori h4 { margin: 0 0 .6rem; } #komadori h4 .sub { color: var(--quiet); font-size: .9em; }
+  #komadori p { max-width: none; }
+  #komadori .links.go { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; margin-top: 1rem; }
+  #komadori .cast { display: flex; justify-content: center; align-items: flex-end; gap: 1.5rem; margin: 1.2rem -1.5rem 0;
+    padding: .6rem 1rem 0; background: linear-gradient(to bottom, transparent 70%, var(--floor) 70%); }
+  #komadori .cast img { height: 110px; width: auto; display: block; }
+  @media (max-width: 48rem) { #komadori .lymirow { grid-template-columns: 1fr; } #komadori .cast { gap: .4rem; } #komadori .cast img { height: 64px; } }
   #komadori .shot { filter: none; }   /* an inline mark stays with its word and the comma after it */
 </style>
 </head>
@@ -518,9 +540,9 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 
 
 <!-- Each app card's description (p.en, and p.ja saying the same) is 40 to 45 words, counted with the tags stripped. Write a new card, or edit one, to that length. Wander, the game card at the top, is the one exception and runs longer. -->
+<details class="drawer" name="appcats" id="everyday">
+<summary class="group">Everyday <span class="count">21</span></summary>
 <div class="apps">
-
-<h3 class="group" id="everyday">Everyday</h3>
 
 <div class="app" id="kotozute">
   <a class="page" href="messaging/"><img class="shot" src="shots/kotozute.png" data-dark="shots/dark/kotozute.png" width="400" height="627" loading="lazy"
@@ -858,7 +880,12 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
   </p>
 </div>
 
-<h3 class="group" id="reading">Reading, writing, listening</h3>
+</div>
+</details>
+
+<details class="drawer" name="appcats" id="reading">
+<summary class="group">Reading, writing, listening <span class="count">10</span></summary>
+<div class="apps">
 
 <div class="app" id="mimidoku">
   <a class="page" href="audio-reader/"><img class="shot" src="shots/mimidoku.png" data-dark="shots/dark/mimidoku.png" width="400" height="627" loading="lazy"
@@ -1018,7 +1045,12 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
   </p>
 </div>
 
-<h3 class="group" id="outdoors">Outdoors</h3>
+</div>
+</details>
+
+<details class="drawer" name="appcats" id="outdoors">
+<summary class="group">Outdoors <span class="count">9</span></summary>
+<div class="apps">
 
 <div class="app" id="tancho">
   <img class="shot" src="shots/tancho.png" data-dark="shots/dark/tancho.png" width="400" height="627" loading="lazy"
@@ -1163,7 +1195,12 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
   </p>
 </div>
 
-<h3 class="group" id="instruments">Instruments</h3>
+</div>
+</details>
+
+<details class="drawer" name="appcats" id="instruments">
+<summary class="group">Instruments <span class="count">9</span></summary>
+<div class="apps">
 
 <div class="app" id="onsa">
   <img class="shot" src="shots/onsa.png" data-dark="shots/dark/onsa.png" width="400" height="627" loading="lazy"
@@ -1310,7 +1347,12 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
   </p>
 </div>
 
-<h3 class="group" id="games">Games</h3>
+</div>
+</details>
+
+<details class="drawer" name="appcats" id="games">
+<summary class="group">Games <span class="count">6</span></summary>
+<div class="apps">
 
 <div class="app" id="kuroban">
   <img class="shot" src="shots/kuroban.png" data-dark="shots/dark/kuroban.png" width="400" height="627" loading="lazy"
@@ -1406,30 +1448,58 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 </div>
 
 </div>
+</details>
+
 </div>
 
-<h2 id="stop-motion">Stop motion</h2>
+<script>
+/* A category link (in the row, or a #hash on arrival) opens its drawer first, then goes there. */
+document.querySelectorAll('details.drawer').forEach(function (d) {     // one drawer open at a time (his ask 11-26)
+  d.addEventListener('toggle', function () {
+    if (!d.open) return;
+    var closed = false;
+    document.querySelectorAll('details.drawer[open]').forEach(function (o) { if (o !== d) { o.open = false; closed = true; } });
+    // the one above closing would throw the reader down the page: keep them at the top of the drawer they opened
+    if (closed || d.getBoundingClientRect().top < 0) requestAnimationFrame(function () { d.scrollIntoView({ block: 'start', behavior: 'instant' }); });
+  });
+});
+(function () {
+  function open(id) { var d = document.getElementById(id); if (d && d.tagName === 'DETAILS') { d.open = true; return d; } }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.jump a[href^="#"]'); if (!a) return;
+    var d = open(a.getAttribute('href').slice(1)); if (d) { e.preventDefault(); d.scrollIntoView({ block: 'start' }); history.replaceState(null, '', a.getAttribute('href')); }
+  });
+  if (location.hash) { var d = open(location.hash.slice(1)); if (d) setTimeout(function () { d.scrollIntoView({ block: 'start' }); }, 0); }
+  // an app linked by its own id (#hitome) opens the drawer it sits in
+  if (location.hash) { var el = document.getElementById(location.hash.slice(1)); var dr = el && el.closest && el.closest('details.drawer');
+    if (dr) { dr.open = true; setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 0); } }
+})();
+</script>
 
-<p class="lede">One app for Android phones: the capture half of a stop-motion practice. The
-film is put together <a href="https://lyminalkin.com">elsewhere</a>.</p>
+<h2 id="other-things">Other things</h2>
+
 
 <div class="apps">
 
-<div class="app wide" id="komadori">
-  <img class="shot" src="shots/komadori.gif" width="640" height="294" loading="lazy"
-       style="aspect-ratio: 640 / 294"
-       alt="Stop Motion's capture screen over a movement study: a felted figure on a cutting mat leans in toward the lens and settles into a crouch, the last frame showing faintly over each new one (the onion skin), the frame count going up, with the lens, shutter, Review, Settings, Lock and Compare down the side">
+<div class="app full lymicard" id="komadori">
+  <div class="lymirow">
+  <a class="lymishot" href="https://lyminalkin.com"><img class="shot" src="shots/komadori.gif" width="640" height="294" loading="lazy"
+       alt="Stop Motion's capture screen over a movement study: a felted figure on a cutting mat leans in toward the lens and settles into a crouch, the last frame showing faintly over each new one."></a>
+  <div class="lymitext">
   <h4>Stop Motion <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 駒撮り komadori</button></h4>
-  <p class="en">Stop-motion capture for Android phones; on the Xiaomi 17 Ultra it reaches all three
-  rear lenses where other apps find one. The exposure locks for the whole film, with onion skin,
-  drawn guides, an interval timer and RAW on every lens.</p>
-  <p class="ja" lang="ja" hidden>Androidの電話のためのコマ撮り。Xiaomi 17 Ultraでは、ほかのアプリが一つしか使えない背面の三つのレンズすべてに届く。露出は作品全体を通して固定。オニオンスキン、描き込めるガイド、インターバルタイマーつきで、どのレンズでもRAWで撮れる。</p>
-  <p class="links">
-    <a href="https://github.com/wanderwildwood/komadori/releases/latest/download/komadori.apk">Download</a>
+  <p class="en">Frame-by-frame capture, made for our stop-motion practice, <a href="https://lyminalkin.com">Lyminalkin</a>.
+  On the Xiaomi 17 Ultra it reaches all three rear lenses where other apps find one.</p>
+  <p class="en">The exposure, focus and white balance lock for the whole film, so frames shot days apart still match.
+  Onion skin shows the last frame faintly over the next; drawn guides mark where things were; an interval
+  timer shoots on its own; and every lens can save RAW.</p>
+  <p class="ja" lang="ja" hidden>一コマずつ撮るための道具。私たちのコマ撮りの営み、<a href="https://lyminalkin.com">Lyminalkin</a>のために作った。Xiaomi 17 Ultraでは、ほかのアプリが一つしか使えない背面の三つのレンズすべてに届く。</p>
+  <p class="ja" lang="ja" hidden>露出、ピント、ホワイトバランスは作品全体を通して固定されるので、何日も離れて撮ったコマもそろう。前のコマが次のコマに薄く重なるオニオンスキン、物の位置を示す描いたガイド、ひとりでに撮るインターバルタイマー、どのレンズでもRAWで保存。</p>
+  <p class="links go"><a class="gobtn" href="https://github.com/wanderwildwood/komadori/releases/latest/download/komadori.apk">Download</a>
     <a href="https://github.com/wanderwildwood/komadori">Source</a>
     <a href="https://github.com/wanderwildwood/komadori/releases/latest">Release notes</a>
-    <a class="obtainium" href="obtainium://add/https://github.com/wanderwildwood/komadori" hidden>Obtainium</a>
-  </p>
+    <a class="obtainium" href="obtainium://add/https://github.com/wanderwildwood/komadori" hidden>Obtainium</a></p>
+  </div>
+  </div>
 </div>
 
 </div>
