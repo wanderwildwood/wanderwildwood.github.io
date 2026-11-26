@@ -63,6 +63,8 @@ export const APPS = [
 // purpose: the dialer (it also draws the call screen and is the fallback for emergency
 // calls), the launcher, Settings, setup, updates, the keyboard, eSIM and Mudita Center.
 // InkApps, the store, is offered for anyone who wants no route to web pages on the phone.
+// Linked Account is Mudita's build of DAVx5; with it hidden its Settings row has nothing to
+// open and closes Settings when tapped (seen on MuditaOS 2.0, 26 Nov).
 // `gate` names a default the app must not hold while it is hidden.
 export const STOCK = [
   { pkg: "com.mudita.contacts", name: "Contacts",
@@ -88,6 +90,8 @@ export const STOCK = [
   { pkg: "com.mudita.chess", name: "Chess" },
   { pkg: "com.mudita.inkapps", name: "InkApps",
     note: "Closes the store, and with it the web pages its sign-in and QR scanner can open. Its icon stays but no longer opens. Apps already installed from it stay, but it can't update them while hidden." },
+  { pkg: "at.bitfire.davdroid.mudita", name: "Linked Account",
+    note: "Mudita's DAVx5, behind Linked Account in Settings. Calendars linked through it stop syncing while it is hidden. Its row stays in Settings, and tapping it closes Settings until it is brought back." },
 ];
 
 // Names for packages the background list may show; anything else is shown by its package.

@@ -231,7 +231,7 @@ async function readDefaults() {
 
 async function readStock() {
   const s = sec("hide-mudita-apps"), list = $("[data-list]", s);
-  const all = L.parsePackages((await sh("pm list packages com.mudita")).out);
+  const all = L.parsePackages((await sh("pm list packages mudita")).out);
   const off = L.parsePackages((await sh(L.cmd.disabled())).out);
   const holders = L.parseRoles((await sh(L.cmd.roles())).out);
   const items = STOCK.filter((a) => all.has(a.pkg));
