@@ -405,6 +405,25 @@
     padding: .6rem 1rem 0; background: linear-gradient(to bottom, transparent 70%, var(--floor) 70%); }
   #komadori .cast img { height: 110px; width: auto; display: block; }
   @media (max-width: 48rem) { #komadori .lymirow { grid-template-columns: 1fr; } #komadori .cast { gap: .4rem; } #komadori .cast img { height: 64px; } }
+  /* the apps that also run on Supernote's Nomad and Manta: one plain card, their names as chips to their own cards */
+  #supernote { grid-column: 1 / -1; background: var(--raise); border: 1px solid var(--rule); border-radius: 8px;
+    box-shadow: 6px 6px 0 var(--hard); padding: 1.3rem 1.5rem 1.4rem; margin-top: 1.6rem; }
+  #supernote { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; text-align: left; gap: 1.8rem; }
+  #supernote .tabletbox { order: 2; margin: 0 3.2rem 0 auto; flex: 0 0 auto; position: relative; padding-bottom: 2px; }
+  #supernote .tabletbox img { position: absolute; bottom: 0; image-rendering: pixelated; }
+  #supernote .tabletbox img.wren { bottom: auto; top: -18px; left: 58px; }                 /* Wander's wren, perched on its top edge */
+  :root:not([data-theme="dark"]) #supernote .tabletbox img:not(.wren) { filter: brightness(.62) contrast(1.15); }   /* the floor's mushrooms, darkened for the light card */
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #supernote .tabletbox img:not(.wren) { filter: none; } :root:not([data-theme="light"]) #supernote .tabletbox img.wren { filter: brightness(1.9); } }
+  :root[data-theme="dark"] #supernote .tabletbox img.wren { filter: brightness(1.9); }
+  @media (max-width: 36rem) { #supernote .sntext { margin-left: .4rem; } #supernote .tabletbox { margin-right: .4rem; } #supernote .tabletbox img { transform: scale(.55); transform-origin: bottom; } }
+  #supernote .tablet { display: block; width: 138px; height: 192px; background: var(--ink); opacity: .85;
+    -webkit-mask: url(shots/supernote-mark.png) center / contain no-repeat; mask: url(shots/supernote-mark.png) center / contain no-repeat; image-rendering: pixelated; }
+  #supernote .sntext { flex: 1; min-width: 0; margin-left: 3.2rem; }   /* in from the left as far as the tablet is from the right */
+  @media (max-width: 36rem) { #supernote .tablet { width: 69px; height: 96px; } #supernote { gap: .9rem; align-items: flex-start; } }
+  #supernote h4 { margin-top: 0; } #supernote p { max-width: 46rem; }
+  #supernote .chips { display: flex; flex-wrap: wrap; gap: .5rem .7rem; margin: .9rem 0 0; }
+  #supernote .chip { padding: .2rem .7rem; border: 2px solid var(--ink); text-decoration: none; color: var(--ink); font-family: var(--pixel); }
+  #supernote .chip:hover { background: var(--ink); color: var(--paper); }
   #komadori .shot { filter: none; }   /* an inline mark stays with its word and the comma after it */
 </style>
 </head>
@@ -1610,8 +1629,11 @@ document.querySelectorAll('details.drawer').forEach(function (d) {     // one dr
 (function () {
   function open(id) { var d = document.getElementById(id); if (d && d.tagName === 'DETAILS') { d.open = true; return d; } }
   document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('.jump a[href^="#"]'); if (!a) return;
-    var d = open(a.getAttribute('href').slice(1)); if (d) { e.preventDefault(); d.scrollIntoView({ block: 'start' }); history.replaceState(null, '', a.getAttribute('href')); }
+    var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
+    var id = a.getAttribute('href').slice(1), d = open(id);
+    if (d) { e.preventDefault(); d.scrollIntoView({ block: 'start' }); history.replaceState(null, '', '#' + id); return; }
+    var el = document.getElementById(id), dr = el && el.closest && el.closest('details.drawer');   // an app inside a drawer
+    if (dr) { e.preventDefault(); dr.open = true; setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 80); history.replaceState(null, '', '#' + id); }   // after the drawer's own scroll
   });
   if (location.hash) { var d = open(location.hash.slice(1)); if (d) setTimeout(function () { d.scrollIntoView({ block: 'start' }); }, 0); }
   // an app linked by its own id (#hitome) opens the drawer it sits in
@@ -1645,6 +1667,30 @@ document.querySelectorAll('details.drawer').forEach(function (d) {     // one dr
   </div>
   </div>
 </div>
+<div class="app full" id="supernote">
+  <div class="tabletbox" aria-hidden="true">
+    <span class="tablet"></span>
+    <img class="wren" src="shots/wander-wren.png" width="25" height="20" alt="">
+    <img src="shots/wood-agaric.png" width="42" height="48" alt="" style="left: -38px">
+    <img src="shots/wood-bolete.png" width="30" height="24" alt="" style="left: -4px">
+  </div>
+  <div class="sntext">
+  <h4>On Supernote <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ スーパーノート</button></h4>
+  <p class="en">Some of the apps above also run on Supernote's Nomad and Manta, which run Android 11. The same
+  downloads install on them; each app's card has its link.</p>
+  <p class="ja" lang="ja" hidden>上のアプリのいくつかは、Android 11で動くSupernoteのNomadとMantaでも動く。同じダウンロードでそのまま入る。リンクは各アプリのカードに。</p>
+  <p class="chips">
+    <a class="chip" href="#soramoyo">Sky</a>
+    <a class="chip" href="#kuroban">Go</a>
+    <a class="chip" href="#solitaire">Solitaire</a>
+    <a class="chip" href="#kondate">Recipes</a>
+    <a class="chip" href="#oboegaki">Memo</a>
+    <a class="chip" href="#chess">Chess+</a>
+    <a class="chip" href="#utahon">Songbook</a>
+  </p>
+  </div>
+</div>
+
 
 </div>
 
