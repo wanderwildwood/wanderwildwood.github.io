@@ -472,6 +472,150 @@
 </div>
 </div>
 
+<!-- Log, the game: a card between Wander and the apps (his pick 11-26). No link to /log/ until that page is up. -->
+<style>
+  /* Log's card: the raised ground of Wander's card, the log centered on it, the short caption under it */
+  #kuchiki { background: var(--raise); border: 1px solid var(--rule); border-radius: 8px; box-shadow: 6px 6px 0 var(--hard);
+    padding: 1.3rem 1.4rem 1.5rem; position: relative; text-align: center; }
+  @media (max-width: 40rem) { #kuchiki { padding: 1rem 0.9rem 1.2rem; margin-left: -0.25rem; margin-right: -0.25rem; } }
+  #kuchiki .logwrap { position: relative; padding: 1.4rem 0 0.4rem; }
+  #kuchiki .logimg { display: block; width: 100%; max-width: 1060px; margin: 0 auto; }
+  #kuchiki .logimg canvas, #kuchiki .logimg img { width: 100%; height: auto; image-rendering: pixelated; image-rendering: crisp-edges; display: block; }
+  #kuchiki [hidden] { display: none !important; }
+  #kuchiki .seal { position: absolute; left: 0.2rem; top: 0; width: 1.875rem; height: 3rem; background: var(--ink); opacity: 0.85;
+    -webkit-mask: url(shots/log/log-seal-mask.png) center / contain no-repeat; mask: url(shots/log/log-seal-mask.png) center / contain no-repeat; }
+  #kuchiki .seal:hover { opacity: 1; }
+  #kuchiki .logcap { margin: 0.9rem auto 0; max-width: 34rem; text-align: center; color: var(--quiet); font-size: 0.95rem; line-height: 1.5; }
+  #kuchiki .logcap a { color: var(--ink); }
+  /* at night the log is dimmed as a whole (its loops with it), its lights held down, so it sits in the dark card */
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #kuchiki .logimg > * { filter: brightness(.68) contrast(1.06) sepia(.08); } }
+  :root[data-theme="dark"] #kuchiki .logimg > * { filter: brightness(.68) contrast(1.06) sepia(.08); }
+</style>
+<div class="apps" id="log">
+<div class="app full logcard" id="kuchiki">
+  <div class="shotwrap logwrap">
+  <span class="logimg"><canvas id="logcv" width="739" height="150" hidden></canvas><img id="logstill" src="shots/log/log-day250.png" width="739" height="150"
+     alt="A fallen coast redwood on its two hundred and fiftieth day: soft, sunken wood, moss and young sprouts on its back, fungi on its flank, the root plate slumping at its end."></span>
+  <span class="seal" title="Log" aria-hidden="true"></span>
+  </div>
+  <p class="logcap"><i>Log</i> &mdash; a decomposition simulator. One fallen coast redwood, one living scene a
+  day for a year, until it is soil and a row of young trees. Kin to <a href="wanderthegame/">Wander</a>. <span class="coming">Coming soon.</span></p>
+</div>
+</div>
+
+<script>
+/* The log on the home page alive: the game's own loops for its day 250 (slug, millipede, salamander,
+   wren, springtails...), each at its frame times; they rest after a minute, as in the game, and wake when the log
+   comes back into view. Still with prefers-reduced-motion. */
+(function () {
+  var cv = document.getElementById('logcv'), still = document.getElementById('logstill');
+  if (!cv || !window.fetch || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ctx = cv.getContext('2d'); ctx.imageSmoothingEnabled = false;
+  fetch('shots/log/log-loops.json').then(function (r) { return r.json(); }).then(function (m) {
+    var base = new Image(); base.src = 'shots/log/log-day250.png';
+    var loops = m.loops.map(function (l) { var im = new Image(); im.src = l.file; l.im = im;
+      l.cycle = l.ms.reduce(function (a, b) { return a + b; }, 0); return l; });
+    var t0 = performance.now(), last = {}, REST = 60000, visible = true, raf = 0;
+    function frameAt(l, t) { var k = t % l.cycle; for (var i = 0; i < l.n; i++) { k -= l.ms[i]; if (k < 0) return i; } return 0; }
+    function draw(t) {
+      var changed = false, rest = t > REST;
+      loops.forEach(function (l) { var f = rest ? 0 : frameAt(l, t); if (last[l.id] !== f) { last[l.id] = f; changed = true; } });
+      var tick = Math.floor(t / 120);                       // the page's own movements step in whole pixels, 8 a second
+      if (tick !== last.__tick) { last.__tick = tick; changed = true; }
+      if (changed) {
+        ctx.clearRect(0, 0, m.w, m.h);
+        swayBase(t);                                          // the sprouts and ferns on its back rock in a breeze
+        loops.forEach(function (l) { if (l.im.complete) ctx.drawImage(l.im, last[l.id] * l.w, 0, l.w, l.h, l.x, l.y, l.w, l.h); });
+        shrooms(t); flecks(t); bugs(t); slug(t); needles(t);
+      }
+      if (!rest && visible) raf = requestAnimationFrame(function () { draw(performance.now() - t0); });
+    }
+    // ---- the home page's own small life: sunflecks, a slug, sprouts swaying, needles falling ----
+    var topY = null, BACK = 0;                              // the log's top edge per column, from the picture itself
+    function edges() {
+      var c = document.createElement('canvas'); c.width = m.w; c.height = m.h; var x2 = c.getContext('2d'); x2.drawImage(base, 0, 0);
+      var d = x2.getImageData(0, 0, m.w, m.h).data; topY = new Int16Array(m.w); var hist = {};
+      for (var x = 0; x < m.w; x++) { var y = 0; while (y < m.h && d[(y * m.w + x) * 4 + 3] === 0) y++; topY[x] = y; }
+      // the log's back (its body's top): the most common top among the middle columns, below the plants
+      var rows = []; for (var x = 80; x < m.w - 200; x++) { var y = topY[x];
+        while (y < m.h - 1 && !(d[(y * m.w + x) * 4 + 3] && d[((y + 3) * m.w + x) * 4 + 3] && d[((y + 6) * m.w + x) * 4 + 3])) y++; rows.push(y); }
+      rows.sort(function (a, b) { return a - b; }); BACK = rows[Math.floor(rows.length * 0.5)] + 2;
+      body = new Int16Array(m.w); for (var x = 0; x < m.w; x++) { var y = topY[x];
+        while (y < m.h - 1 && !(d[(y * m.w + x) * 4 + 3] && d[((y + 2) * m.w + x) * 4 + 3])) y++; body[x] = y; }
+    }
+    var body = null;
+    function swayBase(t) {
+      if (!topY) edges();
+      ctx.drawImage(base, 0, BACK, m.w, m.h - BACK, 0, BACK, m.w, m.h - BACK);         // the log's body stays still
+      for (var y = 0; y < BACK; y += 3) {                                                // what stands on its back rocks, tips most
+        var k = (BACK - y) / BACK, dx = Math.round(Math.sin(t / 900 + y * 0.09) * 1.4 * k + Math.sin(t / 2300) * k);
+        ctx.drawImage(base, 0, y, m.w, 3, dx, y, m.w, 3);
+      }
+    }
+    var fl = [{ x: 120, w: 70, h: 26, v: 0.010 }, { x: 430, w: 56, h: 20, v: 0.007 }, { x: 610, w: 44, h: 18, v: 0.012 }];
+    function flecks(t) {
+      ctx.save(); ctx.globalCompositeOperation = 'source-atop';
+      fl.forEach(function (f, i) {
+        var x = Math.round((f.x + t * f.v) % (m.w + f.w)) - f.w, y = Math.round(BACK - 6 + 10 * Math.sin(t / 5000 + i) + 8 * i);
+        for (var r = 0; r < 3; r++) {                                       // a soft patch in three stepped rings, no blur
+          ctx.globalAlpha = 0.07 + r * 0.05; ctx.fillStyle = '#fff8e8';
+          var w = f.w * (1 - r * 0.28), h = f.h * (1 - r * 0.28);
+          ctx.beginPath(); ctx.ellipse(x + f.w / 2, y, w / 2, h / 2, 0, 0, 7); ctx.fill();
+        }
+      });
+      ctx.restore();
+    }
+    var slugIm = new Image(); slugIm.src = 'shots/log/beings_l_slug.png';
+    function slug(t) {
+      if (!slugIm.complete || !body) return;
+      var span = m.w - 260, x = 60 + Math.round((t / 260) % span), f = Math.floor(t / 350) % 8;
+      var y = body[Math.min(m.w - 1, x + 26)] - 8;                           // gliding along the log's back
+      ctx.drawImage(slugIm, f * 53, 0, 53, 9, x, y, 53, 9);
+    }
+    function needles(t) {                                                    // now and then a spray turning down past the log
+      var period = 9000, k = (t % period) / period; if (k > 0.55) return;
+      var seed = Math.floor(t / period), x0 = 120 + (seed * 197) % (m.w - 240), y = Math.round(-6 + k / 0.55 * (m.h + 12));
+      var x = Math.round(x0 + Math.sin(k * 14) * 6), ph = Math.floor(t / 180) % 3;
+      ctx.fillStyle = '#4a3f33';
+      var shapes = [[[0,0],[1,1],[2,2],[3,3],[0,2],[2,0],[1,3],[3,1]], [[0,1],[1,1],[2,1],[3,1],[1,0],[2,2],[0,2],[3,0]], [[3,0],[2,1],[1,2],[0,3],[3,2],[1,0],[2,3],[0,1]]];
+      shapes[ph].forEach(function (p) { ctx.fillRect(x + p[0], y + p[1], 1, 1); });
+    }
+    // mushrooms coming up through the moss, opening, then going back down, each on its own slow clock, at the game's places
+    (m.shrooms || []).forEach(function (sh, i) { sh.im = new Image(); sh.im.src = sh.file; sh.phase = i * 3700; });
+    function shrooms(t) {
+      (m.shrooms || []).forEach(function (sh) {
+        if (!sh.im.complete) return;
+        var P = 26000, k = ((t + sh.phase) % P) / P, g;
+        if (k < 0.25) return; else if (k < 0.55) g = (k - 0.25) / 0.30; else if (k < 0.85) g = 1; else g = 1 - (k - 0.85) / 0.15;
+        var rows = Math.max(1, Math.round(sh.h * g));                    // up from its base, row by row
+        ctx.drawImage(sh.im, 0, sh.h - rows, sh.w, rows, sh.x, sh.y + sh.h - rows, sh.w, rows);
+      });
+    }
+    // bugs walking the log: the yellow-spotted millipede along its flank, and a small dark beetle that stops and goes
+    var mil = m.bugs && m.bugs.millipede; if (mil) { mil.im = new Image(); mil.im.src = mil.file; }
+    function bugs(t) {
+      if (!body) return;
+      if (mil && mil.im.complete) {
+        var span = m.w - 300, x = 70 + Math.round((t / 420) % span), f = Math.floor(t / 200) % mil.n;
+        ctx.drawImage(mil.im, f * mil.w, 0, mil.w, mil.h, m.w - 230 - (x - 70), Math.round(body[100] + 38 + 3 * Math.sin(x / 40)), mil.w, mil.h);
+      }
+      // the beetle: 3 x 2 px dark, legs flicking, walking in spurts across the top
+      var B = 16000, k = (t % B) / B, go = Math.floor(t / 1100) % 3 !== 2, bx = 140 + Math.round(k * 420), by = body[Math.min(m.w - 1, bx + 1)] + 6;
+      ctx.fillStyle = '#2b2520'; ctx.fillRect(bx, by, 3, 2); ctx.fillStyle = '#3a322b';
+      if (go && Math.floor(t / 150) % 2) { ctx.fillRect(bx - 1, by + 2, 1, 1); ctx.fillRect(bx + 3, by, 1, 1); }
+      else { ctx.fillRect(bx - 1, by, 1, 1); ctx.fillRect(bx + 3, by + 2, 1, 1); }
+    }
+    function wake() { t0 = performance.now(); last = {}; cancelAnimationFrame(raf); draw(0); }
+    base.onload = function () { cv.hidden = false; still.hidden = true; wake(); };
+    var lastWake = 0;
+    function nudge() { var n = performance.now(); if (visible && n - lastWake > 2000 && performance.now() - t0 > REST) { lastWake = n; wake(); } }
+    cv.addEventListener('pointermove', nudge); addEventListener('scroll', nudge, { passive: true });
+    new IntersectionObserver(function (es) { es.forEach(function (e) {
+      var was = visible; visible = e.isIntersecting; if (visible && !was) wake(); }); }).observe(cv);
+  });
+})();
+</script>
+
 <h2>Apps for the Mudita Kompakt</h2>
 
 <p class="lede">Everything here is drawn for the Kompakt's E Ink screen, and works on Mudita's own
