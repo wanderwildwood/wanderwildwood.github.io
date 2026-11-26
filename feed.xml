@@ -4,8 +4,85 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-25T23:15:14Z</updated>
+  <updated>2026-11-26T15:06:32Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Atlas 0.1.19</title>
+    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.19"/>
+    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.19</id>
+    <updated>2026-11-26T15:06:32Z</updated>
+    <content type="text"># Atlas 0.1.19
+
+- Opening hours that change with the months are shown one line a rule, in the same time style as the rest, on the place page and in the Directory, instead of the raw tag</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.55</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.55"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.55</id>
+    <updated>2026-11-26T14:59:53Z</updated>
+    <content type="text"># Messaging 1.35.55
+
+- When you link Messaging to a Signal account whose main phone runs Signal&#x27;s own app, Signal now offers to transfer your message history, and Messaging brings it in: the text of one-to-one and group chats, with replies, edits and read state. Photos and files from before the link show as not downloaded; reactions, stickers, polls and call notes are left out. A Signal Desktop export can still be brought in on top, without doubling anything
+- A linked phone can now become your Signal account&#x27;s main device, with no text code: Settings → Signal → Signal account → Make main device. Safety numbers stay the same, and so does whether your number can find you. Whatever held the account before is signed out, whether a phone or a computer or server running Signal, along with every linked device, Signal Desktop included; if Signal says no, nothing changes</content>
+  </entry>
+  <entry>
+    <title>Audio Reader 1.3.76</title>
+    <link href="https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.76"/>
+    <id>https://github.com/wanderwildwood/mimidoku/releases/tag/v1.3.76</id>
+    <updated>2026-11-26T14:52:24Z</updated>
+    <content type="text"># Audio Reader 1.3.76
+
+- A book in a folder named &quot;Author - Title&quot; shows just its title under its author, in the library, the player and the lock-screen line</content>
+  </entry>
+  <entry>
+    <title>Mushroom Journal 0.3.45</title>
+    <link href="https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.45"/>
+    <id>https://github.com/wanderwildwood/kinokocho/releases/tag/v0.3.45</id>
+    <updated>2026-11-26T14:52:17Z</updated>
+    <content type="text"># Mushroom Journal 0.3.45
+
+- The answer tiles always fit their words, so &quot;(bolete)&quot; is no longer cut off
+- Dates follow the phone&#x27;s language and its 12- or 24-hour clock, like the other apps: &quot;Nov 26, 2026, 8:10 AM&quot; in US English</content>
+  </entry>
+  <entry>
+    <title>Typewriter 0.1.51</title>
+    <link href="https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.51"/>
+    <id>https://github.com/wanderwildwood/dajiki/releases/tag/v0.1.51</id>
+    <updated>2026-11-26T14:52:10Z</updated>
+    <content type="text"># Typewriter 0.1.51
+
+- Held upright, the foot of the page no longer runs the sheet&#x27;s name into the word count; the name is left out when there is no room for it</content>
+  </entry>
+  <entry>
+    <title>Remote 0.2.32</title>
+    <link href="https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.32"/>
+    <id>https://github.com/wanderwildwood/enkaku/releases/tag/v0.2.32</id>
+    <updated>2026-11-26T14:51:55Z</updated>
+    <content type="text"># Remote 0.2.32
+
+- More Buttons shows three to a row, so no label breaks in the middle of a word</content>
+  </entry>
+  <entry>
+    <title>Messaging 1.35.54</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.54"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.54</id>
+    <updated>2026-11-26T14:13:27Z</updated>
+    <content type="text"># Messaging 1.35.54
+
+- Settings are regrouped so each setting sits where you would look for it: Archived, Scheduled and Blocking on their own at the top, then Notifications, Display, Sending, Privacy and security, Signal, Desktop Sync, Backup and sync, and Help. Nothing was added or taken away
+- The Signal settings page is grouped under headings (Account, Conversations, Privacy, Calls and background, Contacts, History, Network), with Delete Signal data last on its own
+- Every settings page now opens at its top, and a heading turns the page together with the rows under it
+- About two months after this version&#x27;s Signal parts were last brought up to date, the Signal line in Settings says an update is due, so a new version can go on before Signal starts refusing the old one</content>
+  </entry>
+  <entry>
+    <title>Datebook 0.1.80</title>
+    <link href="https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.80"/>
+    <id>https://github.com/wanderwildwood/koyomi/releases/tag/v0.1.80</id>
+    <updated>2026-11-26T12:27:45Z</updated>
+    <content type="text"># Datebook 0.1.80
+
+- An empty &quot;PC Sync&quot; calendar the phone makes by itself is no longer listed beside your other calendar on the phone, so two rows no longer read the same (#7)</content>
+  </entry>
   <entry>
     <title>Messaging 1.35.53</title>
     <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.53"/>
@@ -100,16 +177,6 @@
 - Descent no longer shows with a minus sign while following a path.</content>
   </entry>
   <entry>
-    <title>Messaging 1.35.50</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.50"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.50</id>
-    <updated>2026-11-24T11:53:22Z</updated>
-    <content type="text"># Messaging 1.35.50
-
-- Saving a picture or video from a message puts it straight into the Gallery (Pictures/Messaging, Movies/Messaging)
-- Other files are saved with their real type, and a file sent without a name gets a proper extension</content>
-  </entry>
-  <entry>
     <title>Glance 0.1.63</title>
     <link href="https://github.com/wanderwildwood/hitome/releases/tag/v0.1.63"/>
     <id>https://github.com/wanderwildwood/hitome/releases/tag/v0.1.63</id>
@@ -146,16 +213,6 @@
 
 - A folder you choose from now on is given to the app for reading only, since nothing writes to it
 - The privacy policy lists what is kept for Nextcloud, including when the phone&#x27;s Nextcloud account is used</content>
-  </entry>
-  <entry>
-    <title>Messaging 1.35.49</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.49"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.49</id>
-    <updated>2026-11-23T20:32:56Z</updated>
-    <content type="text"># Messaging 1.35.49
-
-- &quot;Unread on the lock screen&quot; is only shown when Glance is installed, or when you have set the switch on yourself
-- &quot;Choose files with&quot; is only shown when another file app is installed</content>
   </entry>
   <entry>
     <title>Bitcoin 0.1.20</title>
@@ -520,62 +577,6 @@
     <id>https://github.com/wanderwildwood/tayori/releases/tag/v0.1.68</id>
     <updated>2026-11-22T23:12:46Z</updated>
     <content type="text"># Mailbox 0.1.68
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Dream Log 0.1.39</title>
-    <link href="https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.39"/>
-    <id>https://github.com/wanderwildwood/yumecho/releases/tag/v0.1.39</id>
-    <updated>2026-11-22T23:12:35Z</updated>
-    <content type="text"># Dream Log 0.1.39
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Atlas 0.1.17</title>
-    <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.17"/>
-    <id>https://github.com/wanderwildwood/chizu/releases/tag/v0.1.17</id>
-    <updated>2026-11-22T23:07:29Z</updated>
-    <content type="text"># Atlas 0.1.17
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Memo 0.3.36</title>
-    <link href="https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.36"/>
-    <id>https://github.com/wanderwildwood/oboegaki/releases/tag/v0.3.36</id>
-    <updated>2026-11-22T23:06:55Z</updated>
-    <content type="text"># Memo 0.3.36
-
-- Tasks: under a list&#x27;s opened Done tasks, Delete the done tasks deletes them all at once, asking twice
-- Tasks: Delete this list, at the end of one of your own Nextcloud lists, deletes the list and its tasks, asking twice; the Nextcloud keeps a deleted list in its trash bin for a while
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Feeds 0.6.22</title>
-    <link href="https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.22"/>
-    <id>https://github.com/wanderwildwood/kirinuki/releases/tag/v0.6.22</id>
-    <updated>2026-11-22T23:06:42Z</updated>
-    <content type="text"># Feeds 0.6.22
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Songbook 0.1.15</title>
-    <link href="https://github.com/wanderwildwood/utahon/releases/tag/v0.1.15"/>
-    <id>https://github.com/wanderwildwood/utahon/releases/tag/v0.1.15</id>
-    <updated>2026-11-22T23:06:34Z</updated>
-    <content type="text"># Songbook 0.1.15
-
-- Long About sections turn a page at a time on whole lines, never opening on half a line</content>
-  </entry>
-  <entry>
-    <title>Translate 0.9.29</title>
-    <link href="https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.29"/>
-    <id>https://github.com/wanderwildwood/tsuyaku/releases/tag/v0.9.29</id>
-    <updated>2026-11-22T23:06:27Z</updated>
-    <content type="text"># Translate 0.9.29
 
 - Long About sections turn a page at a time on whole lines, never opening on half a line</content>
   </entry>
