@@ -61,7 +61,8 @@ export const APPS = [
 
 // Mudita's own apps that one of the above, or another app, can stand in for. Left off on
 // purpose: the dialer (it also draws the call screen and is the fallback for emergency
-// calls), the launcher, Settings, setup, updates, the keyboard, eSIM and Mudita Center.
+// calls), the stock launcher, Settings, setup, updates, the keyboard, eSIM and Mudita Center.
+// Kalm, MuditaOS 2.0's second home screen, is offered: the stock one stays as a fallback.
 // InkApps, the store, is offered for anyone who wants no route to web pages on the phone.
 // Linked Account is Mudita's build of DAVx5; with it hidden its Settings row has nothing to
 // open and closes Settings when tapped (seen on MuditaOS 2.0, 26 Nov).
@@ -88,6 +89,8 @@ export const STOCK = [
   { pkg: "com.mudita.maps", name: "Maps" },
   { pkg: "com.mudita.meditation", name: "Meditation" },
   { pkg: "com.mudita.chess", name: "Chess" },
+  { pkg: "com.mudita.launcher2", name: "Kalm", gate: "home",
+    note: "Choose another home screen under Default apps first. While Kalm is the home screen it stays." },
   { pkg: "com.mudita.inkapps", name: "InkApps",
     note: "Closes the store, and with it the web pages its sign-in and QR scanner can open. Its icon stays but no longer opens. Apps already installed from it stay, but it can't update them while hidden." },
   { pkg: "at.bitfire.davdroid.mudita", name: "Linked Account",
