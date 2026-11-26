@@ -91,7 +91,7 @@ export const STOCK = [
   { pkg: "com.mudita.inkapps", name: "InkApps",
     note: "Closes the store, and with it the web pages its sign-in and QR scanner can open. Its icon stays but no longer opens. Apps already installed from it stay, but it can't update them while hidden." },
   { pkg: "at.bitfire.davdroid.mudita", name: "Linked Account",
-    note: "Mudita's DAVx5, behind Linked Account in Settings. Calendars linked through it stop syncing while it is hidden. Its row stays in Settings, and tapping it closes Settings until it is brought back." },
+    note: "Mudita's DAVx5, behind Linked Account in Settings. Calendars linked through it stop syncing while it is hidden. Its row in Settings can't be removed, and tapping it closes Settings until the app is brought back." },
 ];
 
 // Names for packages the background list may show; anything else is shown by its package.
