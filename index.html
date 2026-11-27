@@ -424,6 +424,15 @@
   #supernote .chips { display: flex; flex-wrap: wrap; gap: .5rem .7rem; margin: .9rem 0 0; }
   #supernote .chip { padding: .2rem .7rem; border: 2px solid var(--ink); text-decoration: none; color: var(--ink); font-family: var(--pixel); }
   #supernote .chip:hover { background: var(--ink); color: var(--paper); }
+  /* a little of Wander's wood, not much (his picks 11-26): a creature on two section rules, a firefly by the night button */
+  h2.perch { position: relative; }
+  h2.perch .sit { position: absolute; right: 6%; bottom: -3px; image-rendering: pixelated; }
+  @keyframes firefly { 0%, 62%, 100% { opacity: 0; } 70%, 84% { opacity: .95; } }
+  .theme::after { content: ""; position: absolute; left: -16px; top: 10px; width: 3px; height: 3px; background: #e6e2a8;
+    box-shadow: 0 0 4px 1px rgba(230, 226, 168, .45); opacity: 0; pointer-events: none; display: none; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .theme::after { display: block; animation: firefly 7s ease-in-out infinite; } }
+  :root[data-theme="dark"] .theme::after { display: block; animation: firefly 7s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) { .theme::after { animation: none !important; opacity: .7 !important; } }
   #komadori .shot { filter: none; }   /* an inline mark stays with its word and the comma after it */
 </style>
 </head>
@@ -635,7 +644,7 @@
 })();
 </script>
 
-<h2>Apps for the Mudita Kompakt</h2>
+<h2 class="perch">Apps for the Mudita Kompakt<img class="sit" src="shots/wood-slug.png" width="33" height="12" alt=""></h2>
 
 <p class="lede">Everything here is drawn for the Kompakt's E Ink screen, and works on Mudita's own
 system and on <a href="https://github.com/gezimos/KompaktOS">KompaktOS</a>. Settings the phone hides, like
@@ -1642,7 +1651,7 @@ document.querySelectorAll('details.drawer').forEach(function (d) {     // one dr
 })();
 </script>
 
-<h2 id="other-things">Other things</h2>
+<h2 class="perch" id="other-things">Other things<img class="sit" src="shots/wander-wren.png" width="25" height="20" alt=""></h2>
 
 
 <div class="apps">
