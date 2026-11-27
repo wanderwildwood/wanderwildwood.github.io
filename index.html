@@ -82,6 +82,38 @@
   .jump a { padding: 0.15rem 0.7rem; border: 2px solid transparent; text-decoration: none; color: var(--ink); }
   .jump a:hover { border-color: var(--ink); }
   .jump a.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  /* "Apps for the Mudita Kompakt" as one big drawer around its whole part, closed at first (his pick 11-26) */
+  details.bigdrawer > summary { list-style: none; cursor: pointer; }
+  details.bigdrawer > summary::-webkit-details-marker { display: none; }
+  details.bigdrawer > summary h2 { display: flex; align-items: baseline; gap: .7rem; }
+  details.bigdrawer > summary h2::before { content: "+"; font-size: .8em; width: 1.1rem; }
+  details.bigdrawer[open] > summary h2::before { content: "\2212"; }
+  details.bigdrawer { scroll-margin-top: 1rem; }
+  /* the big drawer's closed face: a card of its own, as Wander's and Log's, so it isn't lost between them */
+  details.bigdrawer > summary.appcard { display: block; background: var(--raise); border: 1px solid var(--rule); border-radius: 8px;
+    box-shadow: 6px 6px 0 var(--hard); padding: 1.3rem 1.5rem 1.4rem; margin: 2.2rem 0 1.6rem; }
+  details.bigdrawer > summary.appcard:hover { box-shadow: 7px 7px 0 var(--hard); }
+  details.bigdrawer > summary.appcard h2 { margin: 0 0 .6rem; }
+  details.bigdrawer > summary.appcard .applead { margin: 0; max-width: 46rem; color: var(--ink); }
+  details.bigdrawer > summary.appcard .openhint { display: inline-block; margin-left: .5rem; padding: .1rem .6rem; border: 2px solid var(--ink);
+    font-family: var(--pixel); white-space: nowrap; }
+  details.bigdrawer[open] > summary.appcard .openhint { display: none; }
+  /* the card's face: the words at the left, a pixel Kompakt at the right, in the page's ink (as the Supernote) */
+  .kmark { display: block; width: 114px; height: 198px; background: var(--ink); opacity: .85; image-rendering: pixelated;
+    -webkit-mask: url(shots/kompakt-mark.png) center / contain no-repeat; mask: url(shots/kompakt-mark.png) center / contain no-repeat; }
+  @media (max-width: 40rem) { .kmark { width: 76px; height: 132px; } }
+  details.bigdrawer > summary.appcard { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: 1fr auto 1fr; column-gap: 2rem; }
+  details.bigdrawer > summary.appcard > h2 { grid-row: 1; align-self: end; } details.bigdrawer > summary.appcard > .applead { grid-row: 2; }
+  details.bigdrawer > summary.appcard > h2, details.bigdrawer > summary.appcard > .applead { grid-column: 1; }
+  details.bigdrawer > summary.appcard > .kmark { grid-column: 2; grid-row: 1 / span 3; align-self: center; margin-right: 3.2rem; }
+  details.bigdrawer[open] > summary.appcard > .kmark { display: none; }
+  details.bigdrawer[open] > summary.appcard { display: block; }
+  @media (max-width: 40rem) { details.bigdrawer > summary.appcard { grid-template-columns: 1fr; }
+    details.bigdrawer > summary.appcard > .kmark { grid-column: 1; grid-row: auto; margin: 1.2rem auto 0; } }
+
+
+  details.bigdrawer[open] > summary.appcard { box-shadow: none; background: transparent; border-color: transparent; padding-left: 0; padding-right: 0; }
+
   /* each category a drawer, closed at first, one open at a time; the row's links open theirs (his pick 11-26) */
   details.drawer { margin: 0 0 1rem; scroll-margin-top: 1rem; }
   details.drawer > summary.group { list-style: none; cursor: pointer; display: flex; align-items: center; gap: .8rem;
@@ -644,7 +676,13 @@
 })();
 </script>
 
-<h2 class="perch">Apps for the Mudita Kompakt<img class="sit" src="shots/wood-slug.png" width="33" height="12" alt=""></h2>
+<details class="bigdrawer" id="apps">
+<summary class="appcard"><h2 class="perch">Apps for the Mudita Kompakt<img class="sit" src="shots/wood-slug.png" width="33" height="12" alt=""></h2>
+  <p class="applead">56 apps for the Kompakt's E Ink screen: everyday tools, reading and listening, the outdoors,
+  instruments and games, each doing only its own thing. <span class="openhint">Open the shelf</span></p>
+  <span class="kmark" aria-hidden="true"></span>
+</summary>
+
 
 <p class="lede">Everything here is drawn for the Kompakt's E Ink screen, and works on Mudita's own
 system and on <a href="https://github.com/gezimos/KompaktOS">KompaktOS</a>. Settings the phone hides, like
@@ -1623,6 +1661,31 @@ can keep them updated. If it says "rate limit exceeded", give it a free GitHub t
 </details>
 
 </div>
+</details>
+<div class="app full" id="supernote">
+  <div class="tabletbox" aria-hidden="true">
+    <span class="tablet"></span>
+    <img class="wren" src="shots/wander-wren.png" width="25" height="20" alt="">
+    <img src="shots/wood-agaric.png" width="42" height="48" alt="" style="left: -38px">
+    <img src="shots/wood-bolete.png" width="30" height="24" alt="" style="left: -4px">
+  </div>
+  <div class="sntext">
+  <h4>On Supernote <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ スーパーノート</button></h4>
+  <p class="en">Some of these apps also run on Supernote's Nomad and Manta, which run Android 11. The same
+  downloads install on them; each app's card has its link.</p>
+  <p class="ja" lang="ja" hidden>ここのアプリのいくつかは、Android 11で動くSupernoteのNomadとMantaでも動く。同じダウンロードでそのまま入る。リンクは各アプリのカードに。</p>
+  <p class="chips">
+    <a class="chip" href="#soramoyo">Sky</a>
+    <a class="chip" href="#kuroban">Go</a>
+    <a class="chip" href="#solitaire">Solitaire</a>
+    <a class="chip" href="#kondate">Recipes</a>
+    <a class="chip" href="#oboegaki">Memo</a>
+    <a class="chip" href="#chess">Chess+</a>
+    <a class="chip" href="#utahon">Songbook</a>
+  </p>
+  </div>
+</div>
+
 
 <script>
 /* A category link (in the row, or a #hash on arrival) opens its drawer first, then goes there. */
@@ -1636,18 +1699,19 @@ document.querySelectorAll('details.drawer').forEach(function (d) {     // one dr
   });
 });
 (function () {
-  function open(id) { var d = document.getElementById(id); if (d && d.tagName === 'DETAILS') { d.open = true; return d; } }
+  // a link or #hash to a drawer, or to anything inside one, opens every drawer on the way to it (the big Apps drawer,
+  // then its category), then goes there
+  function openTo(el) { var d = el && el.closest ? el.closest('details') : null, any = false;
+    if (el && el.tagName === 'DETAILS') { if (!el.open) any = true; el.open = true; }
+    while (d) { if (!d.open) any = true; d.open = true; d = d.parentElement && d.parentElement.closest('details'); } return any; }
+  function go(id, push) { var el = document.getElementById(id); if (!el) return false;
+    openTo(el); setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 80); if (push) history.replaceState(null, '', '#' + id); return true; }
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href^="#"]'); if (!a) return;
-    var id = a.getAttribute('href').slice(1), d = open(id);
-    if (d) { e.preventDefault(); d.scrollIntoView({ block: 'start' }); history.replaceState(null, '', '#' + id); return; }
-    var el = document.getElementById(id), dr = el && el.closest && el.closest('details.drawer');   // an app inside a drawer
-    if (dr) { e.preventDefault(); dr.open = true; setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 80); history.replaceState(null, '', '#' + id); }   // after the drawer's own scroll
+    var id = a.getAttribute('href').slice(1), el = document.getElementById(id);
+    if (el && (el.tagName === 'DETAILS' || el.closest('details'))) { e.preventDefault(); go(id, true); }
   });
-  if (location.hash) { var d = open(location.hash.slice(1)); if (d) setTimeout(function () { d.scrollIntoView({ block: 'start' }); }, 0); }
-  // an app linked by its own id (#hitome) opens the drawer it sits in
-  if (location.hash) { var el = document.getElementById(location.hash.slice(1)); var dr = el && el.closest && el.closest('details.drawer');
-    if (dr) { dr.open = true; setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 0); } }
+  if (location.hash) go(location.hash.slice(1), false);
 })();
 </script>
 
@@ -1674,29 +1738,6 @@ document.querySelectorAll('details.drawer').forEach(function (d) {     // one dr
     <a href="https://github.com/wanderwildwood/komadori/releases/latest">Release notes</a>
     <a class="obtainium" href="obtainium://add/https://github.com/wanderwildwood/komadori" hidden>Obtainium</a></p>
   </div>
-  </div>
-</div>
-<div class="app full" id="supernote">
-  <div class="tabletbox" aria-hidden="true">
-    <span class="tablet"></span>
-    <img class="wren" src="shots/wander-wren.png" width="25" height="20" alt="">
-    <img src="shots/wood-agaric.png" width="42" height="48" alt="" style="left: -38px">
-    <img src="shots/wood-bolete.png" width="30" height="24" alt="" style="left: -4px">
-  </div>
-  <div class="sntext">
-  <h4>On Supernote <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ スーパーノート</button></h4>
-  <p class="en">Some of the apps above also run on Supernote's Nomad and Manta, which run Android 11. The same
-  downloads install on them; each app's card has its link.</p>
-  <p class="ja" lang="ja" hidden>上のアプリのいくつかは、Android 11で動くSupernoteのNomadとMantaでも動く。同じダウンロードでそのまま入る。リンクは各アプリのカードに。</p>
-  <p class="chips">
-    <a class="chip" href="#soramoyo">Sky</a>
-    <a class="chip" href="#kuroban">Go</a>
-    <a class="chip" href="#solitaire">Solitaire</a>
-    <a class="chip" href="#kondate">Recipes</a>
-    <a class="chip" href="#oboegaki">Memo</a>
-    <a class="chip" href="#chess">Chess+</a>
-    <a class="chip" href="#utahon">Songbook</a>
-  </p>
   </div>
 </div>
 
