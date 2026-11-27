@@ -4,8 +4,19 @@
   <link href="https://wanderthe.dev/"/>
   <link rel="self" href="https://wanderthe.dev/feed.xml"/>
   <id>https://wanderthe.dev/feed.xml</id>
-  <updated>2026-11-26T15:06:32Z</updated>
+  <updated>2026-11-26T21:14:08Z</updated>
   <author><name>wander wildwood</name></author>
+  <entry>
+    <title>Messaging 1.35.56</title>
+    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.56"/>
+    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.56</id>
+    <updated>2026-11-26T21:14:08Z</updated>
+    <content type="text"># Messaging 1.35.56
+
+- A deleted conversation is no longer gone at once. Delete now moves it, text or Signal, to **Deleted** (Settings → Deleted), where it waits 30 days and can be put back; &quot;Delete now&quot; there removes it for good. A new message from that person brings the conversation back whole. Deleting from Desktop Sync does the same. While a text conversation waits in Deleted its texts are still in the phone&#x27;s own store; for Signal, your other devices are told only when the delete becomes final.
+- If you would rather Delete stay final, turn off Settings → Privacy and security → &quot;Keep deleted conversations for 30 days&quot;. It is on unless you turn it off.
+- Signal: when your main Signal device trimmed a conversation (its &quot;Keep messages&quot; or conversation length limit), Messaging emptied the whole conversation. It now removes only the messages the trim covered, and nothing if it holds none of them, as Signal&#x27;s own app does.</content>
+  </entry>
   <entry>
     <title>Atlas 0.1.19</title>
     <link href="https://github.com/wanderwildwood/chizu/releases/tag/v0.1.19"/>
@@ -154,18 +165,6 @@
 - The conversation list no longer shows random previews in italics: italics mark a draft and nothing else</content>
   </entry>
   <entry>
-    <title>Messaging 1.35.51</title>
-    <link href="https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.51"/>
-    <id>https://github.com/wanderwildwood/kotozute/releases/tag/v1.35.51</id>
-    <updated>2026-11-25T01:10:01Z</updated>
-    <content type="text"># Messaging 1.35.51
-
-- A Signal message that could not be sent stays in the conversation as &quot;Not sent&quot;, with the reason and a tap to send it again
-- Switching Signal off now closes the composer at once, and switching it back on reconnects without restarting the app
-- A message too long for Signal is turned down straight away, not after half a minute
-- Receipts, the account&#x27;s records and the sender certificate follow Signal&#x27;s own timing more closely</content>
-  </entry>
-  <entry>
     <title>Topo 0.2.25</title>
     <link href="https://github.com/wanderwildwood/chikei/releases/tag/v0.2.25"/>
     <id>https://github.com/wanderwildwood/chikei/releases/tag/v0.2.25</id>
@@ -273,7 +272,7 @@
 - With a Navidrome or other Subsonic server, favorite stations stay the same as the server&#x27;s radio list
 - Favorite stations can be saved as an .m3u file for any player, and added from one
 - Playlists that looked empty after a memory card dropped out fill again at the next scan, and a playlist&#x27;s count is of the songs it can show
-- &quot;Playing on lock screen&quot; is only shown when Glance is installed or the switch is on</content>
+- &quot;Show what is playing in Glance&quot; in Settings only appears when Glance is installed or while the switch is on</content>
   </entry>
   <entry>
     <title>Mailbox 0.1.69</title>
