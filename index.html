@@ -100,11 +100,11 @@
     font-family: var(--pixel); white-space: nowrap; }
   details.bigdrawer[open] > summary.appcard .openhint { display: none; }
   /* the card's face: the words at the left, a pixel Kompakt at the right, in the page's ink (as the Supernote) */
-  .kmark { display: block; width: 114px; height: 198px; background: var(--ink); opacity: .85; image-rendering: pixelated;
-    -webkit-mask: url(shots/kompakt-mark.png) center / contain no-repeat; mask: url(shots/kompakt-mark.png) center / contain no-repeat; }
-  @media (max-width: 40rem) { .kmark { width: 76px; height: 132px; } }
+  .kmark { display: block; width: 111px; height: 192px; image-rendering: pixelated;   /* drawn in true proportion; shown as tall as the Nomad on its card */
+    background: url(shots/kompakt-face.png) center / contain no-repeat; }
+  @media (max-width: 36rem) { .kmark { width: 56px; height: 96px; } }
   /* the Kompakt and the Supernote in one column at the right: the same box, the same inset, each drawing centred in it */
-  .kbox, #supernote .tabletbox { width: 150px; display: flex; justify-content: center; }
+  .kbox, #supernote .tabletbox { width: 154px; display: flex; justify-content: center; }
   .kbox { position: relative; padding-bottom: 2px; }
   .kbox img.front { z-index: 2; }
   .kbox .kmark { position: relative; left: -12px; }                               /* the phone a touch left of the column's centre (his eye) */                                                 /* the slug a little in front of the phone */
@@ -464,10 +464,10 @@
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #supernote .tabletbox img:not(.wren) { filter: none; } :root:not([data-theme="light"]) #supernote .tabletbox img.wren { filter: brightness(1.9); } }
   :root[data-theme="dark"] #supernote .tabletbox img.wren { filter: brightness(1.9); }
   @media (max-width: 36rem) { #supernote .sntext { margin-left: .4rem; } #supernote .tabletbox { margin-right: .4rem; } #supernote .tabletbox img { transform: scale(.55); transform-origin: bottom; } }
-  #supernote .tablet { display: block; width: 138px; height: 192px; background: var(--ink); opacity: .85;
+  #supernote .tablet { display: block; width: 154px; height: 192px; background: var(--ink); opacity: .85;
     -webkit-mask: url(shots/supernote-mark.png) center / contain no-repeat; mask: url(shots/supernote-mark.png) center / contain no-repeat; image-rendering: pixelated; }
   #supernote .sntext { flex: 1; min-width: 0; margin-left: 3.2rem; }   /* in from the left as far as the tablet is from the right */
-  @media (max-width: 36rem) { #supernote .tablet { width: 69px; height: 96px; } #supernote { gap: .9rem; align-items: flex-start; } }
+  @media (max-width: 36rem) { #supernote .tablet { width: 77px; height: 96px; } #supernote { gap: .9rem; align-items: flex-start; } }
   #supernote h4 { margin-top: 0; font-size: 1.35rem; } #supernote p { max-width: 46rem; }
   #supernote .chips { display: flex; flex-wrap: wrap; gap: .5rem .7rem; margin: .9rem 0 0; }
   #supernote .chip { padding: .2rem .7rem; border: 2px solid var(--ink); text-decoration: none; color: var(--ink); font-family: var(--pixel); }
