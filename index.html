@@ -1707,6 +1707,25 @@ document.querySelectorAll('details.drawer').forEach(function (d) {     // one dr
     if (el && (el.tagName === 'DETAILS' || el.closest('details'))) { e.preventDefault(); go(id, true); }
   });
   if (location.hash) go(location.hash.slice(1), false);
+  // once the reader reaches the bottom of the page, or goes back up past the shelf's heading, the open category drawer
+  // closes, so the categories are all folded when they come back (the shelf itself stays open); the page is held still while it folds (his ask 11-26)
+  var busy = false;                                  // (this script runs before Stop Motion's card is on the page)
+  addEventListener('scroll', function () {
+    if (busy) return; busy = true;
+    requestAnimationFrame(function () {
+      busy = false;
+      var open = document.querySelectorAll('details.drawer[open]'); if (!open.length) return;
+      // at the very bottom of the page, or back up past the shelf's own heading: fold, holding that landmark still
+      var head = document.querySelector('#apps > summary'), past = document.getElementById('komadori'), mark = null;
+      var end = document.documentElement.scrollHeight - (scrollY + innerHeight) < 120;   // at the bottom of the page
+      if (end && past) mark = past;
+      else if (head && head.getBoundingClientRect().top > innerHeight) mark = head;        // back up past the shelf's heading (it's below the screen)
+      if (!mark) return;
+      var before = mark.getBoundingClientRect().top;
+      open.forEach(function (d) { d.open = false; });
+      window.scrollBy(0, mark.getBoundingClientRect().top - before);
+    });
+  }, { passive: true });
 })();
 </script>
 
