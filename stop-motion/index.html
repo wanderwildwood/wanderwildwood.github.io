@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wander: stop motion</title>
+<meta name="description" content="Stop Motion, frame-by-frame capture for Android phones: a lock that holds exposure, focus and color for the whole film, onion skin, drawn guides, an interval timer, and RAW on every lens.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wanderthe.dev/stop-motion/">
+<meta property="og:title" content="wander: stop motion">
+<meta property="og:description" content="Frame-by-frame capture for Android phones, with a lock that keeps frames shot days apart matching.">
+<meta property="og:image" content="https://wanderthe.dev/shots/komadori.jpg">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/DepartureMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.className = 'js'; try { var t = localStorage.getItem('theme'); if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); } catch (e) {}</script>
+<link rel="stylesheet" href="../app-page.css">
+<style>
+  /* No drawn Kompakt here: this app is for a camera phone, and its pictures are wide. The words run
+     down one column, the pictures across it. */
+  .flow { max-width: 46rem; }
+  .ja { line-height: 1.85; }
+  /* The Japanese name: press it and the page is read in Japanese instead, as on Home's page. */
+  button.jp { font: inherit; font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.6em; font-weight: 400;
+    color: var(--quiet); background: none; border: 0; padding: 0; cursor: pointer; text-align: left;
+    text-decoration: underline dotted; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  button.jp[aria-pressed="true"] { color: var(--ink); }
+  .flow figure.wide.lead { margin-top: 2rem; }
+  @media (max-width: 52rem) { h1 { font-size: 22px; } }
+
+  .flow figure figcaption { margin-top: 0.7rem; font-size: 0.92rem; color: var(--quiet); }
+
+  /* The lock, drawn: the same thirty frames twice, once left to the phone and once locked. */
+  figure.flick { margin: 1.6rem 0 1.8rem; padding: 1.1rem 1.1rem 0.9rem; border: 2px solid var(--ink); box-shadow: var(--step); background: var(--raise); }
+  .flick .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.4rem; }
+  .flick .col { min-width: 0; }
+  .flick .name { font-family: var(--pixel); font-size: 0.95rem; display: flex; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.45rem; }
+  .flick .name span { color: var(--quiet); font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.85rem; }
+  /* The swatch stands for a whole frame. Its colors are a picture's, not the page's, so they stay put in the dark. */
+  .flick .swatch { aspect-ratio: 2.39 / 1; border: 2px solid var(--ink); background: rgb(150, 112, 82); }
+  .flick svg.strip { height: 0.75rem; margin-top: 0.4rem; border: 1px solid var(--ink); }
+  .flick svg.strip rect.at { stroke: var(--paper); stroke-width: 1.5; }
+  .flick svg { display: block; width: 100%; height: auto; margin-top: 0.55rem; overflow: visible; }
+  .flick svg .zero { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 2 3; }
+  .flick svg .trace { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linejoin: round; }
+  .flick svg .dot { fill: var(--ink); }
+  .flick svg .head { stroke: var(--quiet); stroke-width: 1; }
+  .flick .foot { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-top: 0.8rem; }
+  .flick .foot p { margin: 0; font-size: 0.85rem; color: var(--quiet); max-width: 30rem; }
+  .flick button.play { font: inherit; font-family: var(--pixel); font-size: 0.85rem; color: var(--ink); background: none; cursor: pointer;
+    border: 2px solid var(--rule); padding: 0.1rem 0.6rem; flex: none; }
+  .flick button.play:hover { border-color: var(--ink); }
+  @media (max-width: 30rem) { figure.flick { padding: 0.8rem 0.8rem 0.7rem; } .flick .pair { gap: 0.8rem; } }
+
+  /* Onion skin: one moment of the picture at the top, held still, with what to look at. */
+  .onion { display: grid; grid-template-columns: 20rem minmax(0, 1fr); gap: 1.4rem; align-items: start; margin: 1.4rem 0 1.6rem; }
+  .onion img { display: block; width: 100%; height: auto; border: 2px solid var(--ink); box-shadow: var(--step); }
+  .onion figcaption { margin: 0; font-size: 0.92rem; color: var(--quiet); }
+  .onion figcaption p { margin: 0 0 0.7rem; }
+  @media (max-width: 40rem) { .onion { grid-template-columns: minmax(0, 1fr); gap: 0.9rem; } .onion img { max-width: 20rem; } }
+
+  /* Everything else, a line each. */
+  ul.feats { list-style: none; padding: 0; max-width: 34rem; }
+  ul.feats li { margin: 0 0 0.55rem; padding-left: 1rem; text-indent: -1rem; }
+  ul.feats li::before { content: "· "; color: var(--quiet); }
+</style>
+</head>
+<body>
+<button type="button" class="theme" aria-pressed="false" aria-label="Dark mode" title="Dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></g></svg></button>
+<main>
+
+<p class="back"><a href="../" aria-label="Back to wander">&larr; wander</a></p>
+<div class="flow">
+<header class="hero">
+<h1>Stop Motion <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 駒撮り komadori</button></h1>
+<p class="lede en">A camera for films made one frame at a time, made for our stop-motion practice,
+<a href="https://lyminalkin.com">Lyminalkin</a>. Phones change their minds about every picture; Stop Motion
+makes the camera decide once and hold to it, so frames shot days apart still match.</p>
+<p class="lede ja" lang="ja" hidden>一コマずつ作る映像のためのカメラ。私たちのコマ撮りの営み、<a href="https://lyminalkin.com">Lyminalkin</a>のために作った。電話のカメラは一枚ごとに考えを変える。駒撮りはカメラに一度だけ決めさせ、それを守らせる。だから何日も離れて撮ったコマもそろう。</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/komadori/releases/latest/download/komadori.apk"><span class="en">Download komadori.apk</span><span class="ja" lang="ja" hidden>komadori.apkをダウンロード</span></a><a class="btn plain" href="https://github.com/wanderwildwood/komadori"><span class="en">Source</span><span class="ja" lang="ja" hidden>ソース</span></a></p>
+<figure class="wide lead"><img src="../shots/komadori.gif" width="640" height="294"
+  alt="Stop Motion's capture screen over a movement study: a felted figure on a cutting mat leans in toward the lens and settles into a crouch, the last frame showing faintly over each new one. At the foot, the line 23mm · locked.">
+<figcaption><span class="en">The capture screen, locked, with onion skin on.</span><span class="ja" lang="ja" hidden>ロックした撮影画面。オニオンスキンが入っている。</span></figcaption></figure>
+</header>
+
+<section id="lock" class="rv">
+<h2><span class="en">The lock</span><span class="ja" lang="ja" hidden>ロック</span></h2>
+<p class="en">Lock lets the phone decide exposure, focus and color once, reads back what the sensor
+actually used, and shoots every later frame with those exact numbers. The lock is saved with the film,
+so closing the app loses nothing. Light can still change, so after each frame the app says if the
+brightness drifted, and shutter, ISO and warmth can be nudged on top of the lock.</p>
+<p class="ja" lang="ja" hidden>Lockは、露出、ピント、色を電話に一度だけ決めさせ、センサーが実際に使った値を読み返し、それからのコマをすべてそのとおりの値で撮る。ロックは作品といっしょに保存されるので、アプリを閉じても何も失われない。それでも光は変わるので、コマを撮るたびに明るさがずれていないかを知らせ、ロックの上からシャッター、ISO、あたたかさを少し動かせる。</p>
+<figure class="flick" aria-labelledby="flick-cap">
+<div class="pair" aria-hidden="true">
+<div class="col"><div class="name"><b class="en">Auto</b><b class="ja" lang="ja" hidden>自動</b><span class="n" data-row="auto">1/30</span></div>
+<div class="swatch" data-row="auto"></div>
+<svg class="strip" viewBox="0 0 300 12" data-row="auto" preserveAspectRatio="none"></svg>
+<svg class="chart" viewBox="0 0 300 64" data-row="auto"><line class="zero" x1="0" y1="32" x2="300" y2="32"/><polyline class="trace"/><line class="head" y1="2" y2="62"/><circle class="dot" r="3"/></svg></div>
+<div class="col"><div class="name"><b class="en">Locked</b><b class="ja" lang="ja" hidden>ロック</b><span class="n" data-row="lock">1/30</span></div>
+<div class="swatch" data-row="lock"></div>
+<svg class="strip" viewBox="0 0 300 12" data-row="lock" preserveAspectRatio="none"></svg>
+<svg class="chart" viewBox="0 0 300 64" data-row="lock"><line class="zero" x1="0" y1="32" x2="300" y2="32"/><polyline class="trace"/><line class="head" y1="2" y2="62"/><circle class="dot" r="3"/></svg></div>
+</div>
+<div class="foot">
+<p id="flick-cap"><span class="en">Thirty frames each way, drawn to the size of the app's own test. Left on auto, each
+frame's average brightness wandered over a spread of 12.5 levels; locked, over 2.2 at most. The big square plays
+the frames in turn; the strip under it is all thirty side by side.</span><span class="ja" lang="ja" hidden>それぞれ三十コマ。アプリ自身の試しの大きさで描いた。自動のままでは、コマごとの平均の明るさが12.5の幅でゆれ、ロックでは多くても2.2。大きな四角はコマを順に映し、その下の帯は三十コマを横に並べたもの。</span></p>
+<button type="button" class="play" aria-pressed="true"><span class="en">Pause</span><span class="ja" lang="ja" hidden>止める</span></button>
+</div>
+</figure>
+<!-- SLOT (koma-shots): the capture screen, locked -->
+</section>
+
+<section id="onion" class="rv">
+<h2><span class="en">Onion skin</span><span class="ja" lang="ja" hidden>オニオンスキン</span></h2>
+<p class="en">The last frame shows faintly over the live picture, so each move is made against the one
+before. Up to three frames can show, the older fainter, and a slider on the left edge sets how strongly.
+A difference view turns whatever has not moved black, and holding Compare flips to the last frame at
+full strength.</p>
+<p class="ja" lang="ja" hidden>前のコマがいまの映像に薄く重なるので、一つ前と見くらべながら動かせる。三コマまで重ねられ、古いものほど薄い。濃さは左の縁のスライダーで。差分の表示にすると動いていないところは黒くなり、Compareを押しているあいだは前のコマがそのままの濃さで出る。</p>
+<figure class="onion">
+<img src="onion-still.webp" width="320" height="294" loading="lazy"
+  alt="One moment from the picture at the top, held still: the figure's face shows twice, the earlier frame faint behind the live one, a little to the left and higher.">
+<figcaption class="en"><p>The picture at the top, held still: the face shows twice, the live picture and,
+fainter, a little higher and to the left, the frame before. The gap between them is the move.</p></figcaption>
+<figcaption class="ja" lang="ja" hidden><p>上の映像を止めたもの。顔が二つ見える。いまの映像と、その少し上、少し左に薄く、前のコマ。そのあいだが、動かした幅。</p></figcaption>
+</figure>
+<!-- SLOT (koma-shots): onion skin -->
+</section>
+
+<section id="rest" class="rv">
+<h2><span class="en">And the rest</span><span class="ja" lang="ja" hidden>ほかに</span></h2>
+<ul class="feats en">
+<li><b>Lenses</b> named as on a full-frame camera, 14mm, 23mm, 75mm, with RAW on every one.</li>
+<li><b>Focus</b> by a tap, held with a long press; focus peaking; a focus pull between two distances.</li>
+<li><b>Guides</b>: a drawn path with a tick for each frame's step, a mask for 16:9, 2.39:1 or square, a level.</li>
+<li><b>Shutter</b> on screen, the volume keys or a Bluetooth remote; a self-timer; an interval from 0.3 seconds to a minute.</li>
+<li><b>Warnings</b> after each frame if the brightness drifted or the camera itself moved.</li>
+<li><b>Review</b>: drag through the frames, tap for 1:1; delete with undo, reshoot, insert, copy or move a run.</li>
+<li><b>Timing</b>: the film's rate and how long each frame holds, played back as it will run.</li>
+<li><b>Also</b> a live histogram, a green-screen matte, test shots kept out of the film, a warning when the phone runs hot.</li>
+</ul>
+<ul class="feats ja" lang="ja" hidden>
+<li><b>レンズ</b>はフルサイズのカメラでの見え方で呼ぶ。14mm、23mm、75mm。どれでもRAWが撮れる。</li>
+<li><b>ピント</b>は押して合わせ、長押しで留める。ピーキング。二つの距離のあいだのピント送り。</li>
+<li><b>ガイド</b>。一コマごとの幅の目盛りがついた描いた道、16:9、2.39:1、正方形のマスク、水平器。</li>
+<li><b>シャッター</b>は画面、音量ボタン、Bluetoothのリモコンで。セルフタイマー。0.3秒から一分までのインターバル。</li>
+<li><b>知らせ</b>。コマを撮るたびに、明るさがずれたか、カメラそのものが動いたかを言う。</li>
+<li><b>Review</b>。コマを指で送り、押せば等倍。取り消せる削除、撮りなおし、挿入、続いたコマのコピーや移動。</li>
+<li><b>Timing</b>。作品の速さと、それぞれのコマをとどめる長さ。再生は仕上がりのとおりに。</li>
+<li><b>ほかに</b>、その場のヒストグラム、グリーンスクリーンの切り抜き、作品に入らない試し撮り、電話が熱くなったときの知らせ。</li>
+</ul>
+<!-- SLOT (koma-shots): Review -->
+</section>
+
+<section id="get" class="rv">
+<h2><span class="en">Get it</span><span class="ja" lang="ja" hidden>入手</span></h2>
+<p class="en">Stop Motion was made on and for the Xiaomi 17 Ultra, where other stop-motion apps find one
+rear lens and this one reaches all three. It needs Android 12 or later. It does not edit or assemble the
+film: each film is a folder of numbered frames with their timing, and the ffmpeg command that turns them
+into a video on a computer.</p>
+<p class="ja" lang="ja" hidden>駒撮りはXiaomi 17 Ultraの上で、そのために作った。ほかのコマ撮りアプリには背面レンズが一つしか見えないが、駒撮りは三つすべてに届く。Android 12以降が要る。編集や組み立てはしない。作品は番号つきのコマとそのタイミングのフォルダーで、パソコンでそれを動画にするffmpegのコマンドがとなりに置かれる。</p>
+<p class="go"><a class="btn" href="https://github.com/wanderwildwood/komadori/releases/latest/download/komadori.apk"><span class="en">Download komadori.apk</span><span class="ja" lang="ja" hidden>komadori.apkをダウンロード</span></a><a class="btn plain" href="https://github.com/wanderwildwood/komadori"><span class="en">Source</span><span class="ja" lang="ja" hidden>ソース</span></a><a class="btn plain" href="https://github.com/wanderwildwood/komadori/releases/latest"><span class="en">Release notes</span><span class="ja" lang="ja" hidden>リリースノート</span></a><a class="btn plain obtainium" href="obtainium://add/https://github.com/wanderwildwood/komadori" hidden>Obtainium</a></p>
+<p class="en">Every release has a checksum beside the APK, and Obtainium can keep it up to date. Free
+software under the GNU General Public License, version 3; its chroma key comes from
+<a href="https://obsproject.com/">OBS Studio</a>, and two details of its focus handling from
+<a href="https://opencamera.org.uk/">Open Camera</a>.</p>
+<p class="ja" lang="ja" hidden>どのリリースにもAPKのとなりにチェックサムがあり、Obtainiumで新しく保てる。ライセンスはGNU General Public License, version 3のフリーソフトウェア。クロマキーは<a href="https://obsproject.com/">OBS Studio</a>から、ピントの扱いの二つの細かいところは<a href="https://opencamera.org.uk/">Open Camera</a>から。</p>
+</section>
+
+</div>
+</main>
+<script>
+document.querySelectorAll('button.jp').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var ja = b.getAttribute('aria-pressed') !== 'true';
+    document.querySelectorAll('main .en').forEach(function (e) { e.hidden = ja; });
+    document.querySelectorAll('main .ja').forEach(function (e) { e.hidden = !ja; });
+    document.documentElement.lang = ja ? 'ja' : 'en';
+    b.setAttribute('aria-pressed', ja ? 'true' : 'false');
+  });
+});
+
+// The lock, drawn. Two runs of thirty frames with the spread of the README's own test (left to the
+// phone: a standard deviation of 4.89 and a spread of 12.49 brightness levels; locked: 0.61 and 2.16,
+// the loosest of the locked runs). Each frame's average is played as a square, and plotted below it.
+(function () {
+  var fig = document.querySelector('figure.flick'); if (!fig) return;
+  var rows = {
+    auto: [-3.06,5.26,-4.10,6.48,6.41,-3.27,6.28,-3.26,-6.01,6.26,-4.59,5.65,-3.33,-4.55,3.04,-5.66,5.72,-3.80,4.33,4.50,3.38,4.66,-5.73,-5.04,5.75,-5.41,-4.28,-5.69,3.77,-3.70],
+    lock: [0.18,0.26,-0.09,-0.02,-0.01,-0.93,-0.56,-0.66,1.02,0.25,0.25,-0.55,-0.37,0.64,1.08,0.10,0.14,-0.67,-0.51,-0.31,0.46,0.01,0.77,-1.08,-0.54,-0.67,0.97,1.02,-0.70,0.50]
+  };
+  var base = [150, 112, 82], N = 30, W = 300, MID = 32, K = 28 / 7;   // 7 levels to 28px, both charts alike
+  function color(v) { return 'rgb(' + base.map(function (c) { return Math.round(c + v); }).join(',') + ')'; }
+  function x(i) { return 4 + i * (W - 8) / (N - 1); }
+  function y(v) { return MID - v * K; }
+  Object.keys(rows).forEach(function (k) {
+    var svg = fig.querySelector('svg.chart[data-row="' + k + '"]');
+    var strip = fig.querySelector('svg.strip[data-row="' + k + '"]');
+    rows[k].forEach(function (v, j) {
+      var r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      r.setAttribute('x', j * 10); r.setAttribute('y', 0); r.setAttribute('width', 10.4); r.setAttribute('height', 12);
+      r.setAttribute('fill', color(v)); strip.appendChild(r);
+    });
+    svg.querySelector('.trace').setAttribute('points', rows[k].map(function (v, i) { return x(i).toFixed(1) + ',' + y(v).toFixed(1); }).join(' '));
+  });
+  var i = 0, timer = null, btn = fig.querySelector('button.play');
+  function paint() {
+    Object.keys(rows).forEach(function (k) {
+      var v = rows[k][i];
+      fig.querySelector('.swatch[data-row="' + k + '"]').style.background = color(v);
+      var svg = fig.querySelector('svg.chart[data-row="' + k + '"]');
+      var h = svg.querySelector('.head'); h.setAttribute('x1', x(i)); h.setAttribute('x2', x(i));
+      var d = svg.querySelector('.dot'); d.setAttribute('cx', x(i)); d.setAttribute('cy', y(v));
+      fig.querySelector('.n[data-row="' + k + '"]').textContent = (i + 1) + '/30';
+      fig.querySelectorAll('svg.strip[data-row="' + k + '"] rect').forEach(function (r, j) { r.classList.toggle('at', j === i); });
+    });
+  }
+  function step() { i = (i + 1) % N; paint(); }
+  var want = !matchMedia('(prefers-reduced-motion: reduce)').matches, inView = false;
+  function sync() {
+    var run = want && inView;
+    if (run && !timer) timer = setInterval(step, 1000 / 6);   // six frames a second: slow enough to look at
+    if (!run && timer) { clearInterval(timer); timer = null; }
+    btn.setAttribute('aria-pressed', want ? 'true' : 'false');
+    btn.querySelector('.en').textContent = want ? 'Pause' : 'Play';
+    btn.querySelector('.ja').textContent = want ? '止める' : '動かす';
+  }
+  btn.addEventListener('click', function () { want = !want; sync(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { inView = es[0].isIntersecting; sync(); }).observe(fig);
+  } else { inView = true; }
+  paint(); sync();
+})();
+</script>
+<script src="../theme.js"></script>
+<script src="../app-page.js"></script>
+<script src="../scrollbar.js"></script>
+</body>
+</html>

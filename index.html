@@ -103,16 +103,27 @@
   .kmark { display: block; width: 114px; height: 198px; background: var(--ink); opacity: .85; image-rendering: pixelated;
     -webkit-mask: url(shots/kompakt-mark.png) center / contain no-repeat; mask: url(shots/kompakt-mark.png) center / contain no-repeat; }
   @media (max-width: 40rem) { .kmark { width: 76px; height: 132px; } }
+  /* the Kompakt and the Supernote in one column at the right: the same box, the same inset, each drawing centred in it */
+  .kbox, #supernote .tabletbox { width: 150px; display: flex; justify-content: center; }
+  .kbox { position: relative; padding-bottom: 2px; }
+  .kbox img.front { z-index: 2; }
+  .kbox .kmark { position: relative; left: -12px; }                               /* the phone a touch left of the column's centre (his eye) */                                                 /* the slug a little in front of the phone */
+  .kbox img { position: absolute; bottom: 0; image-rendering: pixelated; }
+  .kbox img.wren { bottom: auto; top: -18px; left: 36px; }                       /* Wander's wren on its top edge */
+  :root:not([data-theme="dark"]) .kbox img:not(.wren) { filter: brightness(.62) contrast(1.15); }   /* the floor's tuft and slug, darkened for the light card */
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .kbox img:not(.wren) { filter: none; } :root:not([data-theme="light"]) .kbox img.wren { filter: brightness(1.9); } }
+  :root[data-theme="dark"] .kbox img.wren { filter: brightness(1.9); }
+  @media (max-width: 40rem) { .kbox, #supernote .tabletbox { width: auto; } .kbox img { transform: scale(.6); transform-origin: bottom; } .kbox img.wren { left: 18px; } }
   details.bigdrawer > summary.appcard { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: 1fr auto 1fr; column-gap: 2rem; }
   details.bigdrawer > summary.appcard > h2 { grid-row: 1; align-self: end; } details.bigdrawer > summary.appcard > .applead { grid-row: 2; }
   details.bigdrawer:not([open]) > summary.appcard > h2, details.bigdrawer:not([open]) > summary.appcard > .applead { margin-left: 3.2rem; }   /* in as far as the Supernote card's */
   @media (max-width: 40rem) { details.bigdrawer:not([open]) > summary.appcard > h2, details.bigdrawer:not([open]) > summary.appcard > .applead { margin-left: .4rem; } }
   details.bigdrawer > summary.appcard > h2, details.bigdrawer > summary.appcard > .applead { grid-column: 1; }
-  details.bigdrawer > summary.appcard > .kmark { grid-column: 2; grid-row: 1 / span 3; align-self: center; margin-right: 3.2rem; }
-  details.bigdrawer[open] > summary.appcard > .kmark { display: none; }
+  details.bigdrawer > summary.appcard > .kbox { grid-column: 2; grid-row: 1 / span 3; align-self: center; margin-right: 3.2rem; }
+  details.bigdrawer[open] > summary.appcard > .kbox { display: none; }
   details.bigdrawer[open] > summary.appcard { display: block; }
   @media (max-width: 40rem) { details.bigdrawer > summary.appcard { grid-template-columns: 1fr; }
-    details.bigdrawer > summary.appcard > .kmark { grid-column: 1; grid-row: auto; margin: 1.2rem auto 0; } }
+    details.bigdrawer > summary.appcard > .kbox { grid-column: 1; grid-row: auto; margin: 1.2rem auto 0; } }
 
 
   details.bigdrawer[open] > summary.appcard { box-shadow: none; background: transparent; border-color: transparent; padding-left: 0; padding-right: 0; }
@@ -431,11 +442,13 @@
   /* Stop Motion, alone in "Other things", one card the width of the page as Home's is: the capture screen beside the words */
   #komadori { grid-column: 1 / -1; background: var(--raise); border: 1px solid var(--rule); border-radius: 8px;
     box-shadow: 6px 6px 0 var(--hard); padding: 1.4rem 1.5rem 1.5rem; }
-  #komadori .lymirow { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); align-items: center; gap: 1.2rem 2rem; align-items: start; }
+  #komadori .lymirow { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 1.2rem 2rem; align-items: center; }
   #komadori .lymishot img { width: 100%; height: auto; max-width: none; display: block; }
-  #komadori h4 { margin: 0 0 .6rem; } #komadori h4 .sub { color: var(--quiet); font-size: .9em; }
+  #komadori h4 { margin: 0 0 .6rem; font-size: 1.35rem; } #komadori h4 .sub { color: var(--quiet); font-size: .9em; }
   #komadori p { max-width: none; }
-  #komadori .links.go { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.2rem; margin-top: 1rem; }
+  #komadori .links.go { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.1rem; margin: 1.2rem 0 0; }
+  #komadori .links.go .gobtn { margin: 0; }
+  #komadori .lymitext > p:last-child { margin-bottom: 0; }
   #komadori .cast { display: flex; justify-content: center; align-items: flex-end; gap: 1.5rem; margin: 1.2rem -1.5rem 0;
     padding: .6rem 1rem 0; background: linear-gradient(to bottom, transparent 70%, var(--floor) 70%); }
   #komadori .cast img { height: 110px; width: auto; display: block; }
@@ -446,7 +459,7 @@
   #supernote { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; text-align: left; gap: 1.8rem; }
   #supernote .tabletbox { order: 2; margin: 0 3.2rem 0 auto; flex: 0 0 auto; position: relative; padding-bottom: 2px; }
   #supernote .tabletbox img { position: absolute; bottom: 0; image-rendering: pixelated; }
-  #supernote .tabletbox img.wren { bottom: auto; top: -18px; left: 58px; }                 /* Wander's wren, perched on its top edge */
+  #supernote .tabletbox img.wren { bottom: auto; top: -18px; left: 64px; }                 /* Wander's wren, perched on its top edge */
   :root:not([data-theme="dark"]) #supernote .tabletbox img:not(.wren) { filter: brightness(.62) contrast(1.15); }   /* the floor's mushrooms, darkened for the light card */
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #supernote .tabletbox img:not(.wren) { filter: none; } :root:not([data-theme="light"]) #supernote .tabletbox img.wren { filter: brightness(1.9); } }
   :root[data-theme="dark"] #supernote .tabletbox img.wren { filter: brightness(1.9); }
@@ -455,7 +468,7 @@
     -webkit-mask: url(shots/supernote-mark.png) center / contain no-repeat; mask: url(shots/supernote-mark.png) center / contain no-repeat; image-rendering: pixelated; }
   #supernote .sntext { flex: 1; min-width: 0; margin-left: 3.2rem; }   /* in from the left as far as the tablet is from the right */
   @media (max-width: 36rem) { #supernote .tablet { width: 69px; height: 96px; } #supernote { gap: .9rem; align-items: flex-start; } }
-  #supernote h4 { margin-top: 0; } #supernote p { max-width: 46rem; }
+  #supernote h4 { margin-top: 0; font-size: 1.35rem; } #supernote p { max-width: 46rem; }
   #supernote .chips { display: flex; flex-wrap: wrap; gap: .5rem .7rem; margin: .9rem 0 0; }
   #supernote .chip { padding: .2rem .7rem; border: 2px solid var(--ink); text-decoration: none; color: var(--ink); font-family: var(--pixel); }
   #supernote .chip:hover { background: var(--ink); color: var(--paper); }
@@ -483,12 +496,12 @@
        data-dark-alt="The same small drawn figure in a pointed hat, now in dark round sunglasses, with a seal reading wander">
   <div class="intro-body">
   <div class="intro-text">
-    <h1>wander <button type="button" class="jp" aria-pressed="false" title="日本語で読む">彷徨う</button></h1>
-    <p class="ethos en">I make small things, mostly for a little E Ink phone, and tinker with a
-    few home servers that several of them talk to. They keep to themselves: no accounts, nothing sent to me. Most of the work is deciding what to leave out.
+    <h1>wander the dev <button type="button" class="jp" aria-pressed="false" title="日本語で読む">彷徨う</button></h1>
+    <p class="ethos en">I make small things &mdash; some apps, a few pixel art games &mdash; mostly for a little E Ink phone, and tinker with
+    home servers that several of them talk to. They keep to themselves: no accounts, nothing sent to me. Most of the work is deciding what to leave out.
     Glad you stopped by. Something broken? Open an issue, write to
     <a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>, or come by the <a href="https://discord.gg/UMW8yJg7dQ">Discord</a>. Happy trails!</p>
-    <p class="ethos ja" lang="ja" hidden>小さなものを作っている。ほとんどは小さな電子ペーパーの電話のためのもので、そのいくつかがやりとりする家のサーバーも少しいじっている。どれも自分のことだけをする——アカウントも、私に送られるものもない。仕事の大半は、何を省くかを決めること。立ち寄ってくれてうれしい。壊れているところがあれば、issueを開くか、<a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>まで。<a href="https://discord.gg/UMW8yJg7dQ">Discord</a>にも寄ってください。よい旅を。</p>
+    <p class="ethos ja" lang="ja" hidden>小さなものを作っている。ピクセルアートのゲームもいくつか。ほとんどは小さな電子ペーパーの電話のためのもので、そのいくつかがやりとりする家のサーバーも少しいじっている。どれも自分のことだけをする——アカウントも、私に送られるものもない。仕事の大半は、何を省くかを決めること。立ち寄ってくれてうれしい。壊れているところがあれば、issueを開くか、<a href="mailto:email@wanderthe.dev">email@wanderthe.dev</a>まで。<a href="https://discord.gg/UMW8yJg7dQ">Discord</a>にも寄ってください。よい旅を。</p>
   </div>
   <div class="feedbox">
   <p class="feed en"><a class="feedlink" href="https://square.link/u/AGu8oT10"><svg class="llama" aria-hidden="true"><use href="#llama"/></svg><span>Feed the Llamas</span></a><a class="feedlink sponsor" href="https://github.com/sponsors/wanderwildwood"><svg class="heart" aria-hidden="true" viewBox="-5 -5 26 26"><path d="m8 14.25.345.666a.75.75 0 0 1-.69 0l-.008-.004-.018-.01a7.152 7.152 0 0 1-.31-.17 22.055 22.055 0 0 1-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.066 22.066 0 0 1-3.744 2.584l-.018.01-.006.003h-.002ZM4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.58 20.58 0 0 0 8 13.393a20.58 20.58 0 0 0 3.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.749.749 0 0 1-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5Z"/></svg><span>Sponsor on GitHub</span></a></p>
@@ -545,10 +558,11 @@
   #kuchiki .logimg { display: block; width: 100%; max-width: 1060px; margin: 0 auto; }
   #kuchiki .logimg canvas, #kuchiki .logimg img { width: 100%; height: auto; image-rendering: pixelated; image-rendering: crisp-edges; display: block; }
   #kuchiki [hidden] { display: none !important; }
-  #kuchiki .seal { position: absolute; left: 0.2rem; top: 0; width: 1.875rem; height: 3rem; background: var(--ink); opacity: 0.85;
+  #kuchiki .seal { position: static; flex: 0 0 auto; width: 1.875rem; height: 3rem; background: var(--ink); opacity: 0.85;
     -webkit-mask: url(shots/log/log-seal-mask.png) center / contain no-repeat; mask: url(shots/log/log-seal-mask.png) center / contain no-repeat; }
   #kuchiki .seal:hover { opacity: 1; }
-  #kuchiki .logcap { margin: 0.9rem auto 0; max-width: 34rem; text-align: center; color: var(--quiet); font-size: 0.95rem; line-height: 1.5; }
+  #kuchiki .capline { display: flex; align-items: center; justify-content: center; gap: 1.1rem; margin: 0.9rem auto 0; }   /* the seal beside the words */
+  #kuchiki .logcap { margin: 0; max-width: 34rem; text-align: center; color: var(--quiet); font-size: 0.95rem; line-height: 1.5; }
   #kuchiki .logcap a { color: var(--ink); }
   /* at night the log is dimmed as a whole (its loops with it), its lights held down, so it sits in the dark card */
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #kuchiki .logimg > * { filter: brightness(.68) contrast(1.06) sepia(.08); } }
@@ -559,10 +573,12 @@
   <div class="shotwrap logwrap">
   <span class="logimg"><canvas id="logcv" width="739" height="150" hidden></canvas><img id="logstill" src="shots/log/log-day250.png" width="739" height="150"
      alt="A fallen coast redwood on its two hundred and fiftieth day: soft, sunken wood, moss and young sprouts on its back, fungi on its flank, the root plate slumping at its end."></span>
-  <span class="seal" title="Log" aria-hidden="true"></span>
   </div>
+  <div class="capline">
+  <span class="seal" title="Log" aria-hidden="true"></span>
   <p class="logcap"><i>Log</i> &mdash; a decomposition simulator. One fallen coast redwood, one living scene a
   day for a year, until it is soil and a row of young trees. Kin to <a href="wanderthegame/">Wander</a>. <span class="coming">Coming soon.</span></p>
+  </div>
 </div>
 </div>
 
@@ -683,7 +699,12 @@
 <summary class="appcard"><h2 class="perch">Apps for the Mudita Kompakt<img class="sit" src="shots/wood-slug.png" width="33" height="12" alt=""></h2>
   <p class="applead">56 apps for the Kompakt's E Ink screen: everyday tools, reading and listening, the outdoors,
   instruments and games, each doing only its own thing. <span class="openhint">Open the shelf</span></p>
-  <span class="kmark" aria-hidden="true"></span>
+  <div class="kbox" aria-hidden="true">
+    <span class="kmark"></span>
+    <img class="wren" src="shots/wander-wren.png" width="25" height="20" alt="">
+    <img src="shots/wood-tuft.png" width="42" height="30" alt="" style="left: -28px">
+    <img class="front" src="shots/wood-slug.png" width="66" height="24" alt="" style="right: -14px">
+  </div>
 </summary>
 
 
@@ -1735,10 +1756,10 @@ document.querySelectorAll('details.drawer').forEach(function (d) {     // one dr
 
 <div class="app full lymicard" id="komadori">
   <div class="lymirow">
-  <a class="lymishot" href="https://lyminalkin.com"><img class="shot" src="shots/komadori.gif" width="640" height="294" loading="lazy"
+  <a class="lymishot" href="stop-motion/"><img class="shot" src="shots/komadori.gif" width="640" height="294" loading="lazy"
        alt="Stop Motion's capture screen over a movement study: a felted figure on a cutting mat leans in toward the lens and settles into a crouch, the last frame showing faintly over each new one."></a>
   <div class="lymitext">
-  <h4>Stop Motion <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 駒撮り komadori</button></h4>
+  <h4><a href="stop-motion/">Stop Motion</a> <button type="button" class="jp" aria-pressed="false" title="日本語で読む">/ 駒撮り komadori</button></h4>
   <p class="en">Frame-by-frame capture, made for our stop-motion practice, <a href="https://lyminalkin.com">Lyminalkin</a>.
   On the Xiaomi 17 Ultra it reaches all three rear lenses where other apps find one.</p>
   <p class="en">The exposure, focus and white balance lock for the whole film, so frames shot days apart still match.
@@ -1746,7 +1767,7 @@ document.querySelectorAll('details.drawer').forEach(function (d) {     // one dr
   timer shoots on its own; and every lens can save RAW.</p>
   <p class="ja" lang="ja" hidden>一コマずつ撮るための道具。私たちのコマ撮りの営み、<a href="https://lyminalkin.com">Lyminalkin</a>のために作った。Xiaomi 17 Ultraでは、ほかのアプリが一つしか使えない背面の三つのレンズすべてに届く。</p>
   <p class="ja" lang="ja" hidden>露出、ピント、ホワイトバランスは作品全体を通して固定されるので、何日も離れて撮ったコマもそろう。前のコマが次のコマに薄く重なるオニオンスキン、物の位置を示す描いたガイド、ひとりでに撮るインターバルタイマー、どのレンズでもRAWで保存。</p>
-  <p class="links go"><a class="gobtn" href="https://github.com/wanderwildwood/komadori/releases/latest/download/komadori.apk">Download</a>
+  <p class="links go"><a class="gobtn" href="stop-motion/"><span class="en">How Stop Motion works</span><span class="ja" lang="ja" hidden>駒撮りのしくみ</span></a><a class="gobtn" href="https://github.com/wanderwildwood/komadori/releases/latest/download/komadori.apk"><span class="en">Download</span><span class="ja" lang="ja" hidden>ダウンロード</span></a>
     <a href="https://github.com/wanderwildwood/komadori">Source</a>
     <a href="https://github.com/wanderwildwood/komadori/releases/latest">Release notes</a>
     <a class="obtainium" href="obtainium://add/https://github.com/wanderwildwood/komadori" hidden>Obtainium</a></p>
