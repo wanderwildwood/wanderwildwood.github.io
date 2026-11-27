@@ -464,8 +464,8 @@
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #supernote .tabletbox img:not(.wren) { filter: none; } :root:not([data-theme="light"]) #supernote .tabletbox img.wren { filter: brightness(1.9); } }
   :root[data-theme="dark"] #supernote .tabletbox img.wren { filter: brightness(1.9); }
   @media (max-width: 36rem) { #supernote .sntext { margin-left: .4rem; } #supernote .tabletbox { margin-right: .4rem; } #supernote .tabletbox img { transform: scale(.55); transform-origin: bottom; } }
-  #supernote .tablet { display: block; width: 154px; height: 192px; background: var(--ink); opacity: .85;
-    -webkit-mask: url(shots/supernote-mark.png) center / contain no-repeat; mask: url(shots/supernote-mark.png) center / contain no-repeat; image-rendering: pixelated; }
+  #supernote .tablet { display: block; width: 154px; height: 192px; image-rendering: pixelated;   /* the Nomad in its own colors: white faceplate, E Ink screen, the pen */
+    background: url(shots/supernote-face.png) center / contain no-repeat; }
   #supernote .sntext { flex: 1; min-width: 0; margin-left: 3.2rem; }   /* in from the left as far as the tablet is from the right */
   @media (max-width: 36rem) { #supernote .tablet { width: 77px; height: 96px; } #supernote { gap: .9rem; align-items: flex-start; } }
   #supernote h4 { margin-top: 0; font-size: 1.35rem; } #supernote p { max-width: 46rem; }
